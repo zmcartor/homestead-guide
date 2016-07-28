@@ -5,17 +5,17 @@ Running
 Running eth without any argument will synchronise your node to the public blockchain.
 It is also possible to create or synchronise to another blockchain (see :ref:`custom blockchain using eth <custom-networks-eth>`).
 
-Interacting with your node can be done using either geth or the expanse console:
+Interacting with your node can be done using either gexp or the expanse console:
 
-**Using geth**
+**Using gexp**
 
 .. code:: Console
 
-   > geth attach //attach geth to a running eth node.
+   > gexp attach //attach gexp to a running eth node.
 
 **Using the expanse console**
 
-The expanse console is a node.js application which connect to a running eth/geth node and provide access to the web3 object.
+The expanse console is a node.js application which connect to a running eth/gexp node and provide access to the web3 object.
 
 .. note:: https://github.com/expanse-org/expanse-console
 

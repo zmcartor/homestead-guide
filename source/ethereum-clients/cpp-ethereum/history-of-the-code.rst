@@ -6,7 +6,7 @@ The `C++ Expanse project <http://github.com/expanse-org/webthree-umbrella>`_ was
 initiated by `Gavin Wood <http://gavwood.com/>`_, the
 `former CTO <https://blog.expanse.org/2016/01/11/last-blog-post/>`_ of the
 Expanse Foundation, in December 2013.   It is the second most popular of the
-clients, trailing a long way behind the dominant `geth <https://github.com/expanse-org/go-expanse>`_ client,
+clients, trailing a long way behind the dominant `gexp <https://github.com/expanse-org/go-expanse>`_ client,
 also built by the Expanse Foundation.
 
 Many of the original C++ developers moved on to roles at

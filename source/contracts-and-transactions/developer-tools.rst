@@ -113,18 +113,18 @@ Expanse-console
 
 Commandline console for Expanse nodes.
 
-`Ethconsole <https://github.com/expanse-org/expanse-console>`_ connects to an Expanse node running in the background (tested with eth and geth) via IPC and provides an interactive javascript console containing the web3 object with admin additions.
+`Ethconsole <https://github.com/expanse-org/expanse-console>`_ connects to an Expanse node running in the background (tested with eth and gexp) via IPC and provides an interactive javascript console containing the web3 object with admin additions.
 
 Here you could find a list of available commands `expanse node control commands <https://github.com/expanse-org/expanse-console/blob/master/web3Admin.js>`_
 
-To use this console you would need to start a local expanse node with ipc communication socket enabled (file ``geth.ipc`` in data directory). 
+To use this console you would need to start a local expanse node with ipc communication socket enabled (file ``gexp.ipc`` in data directory). 
 By default ipc socket should be located at you local home directory in .expanse after you started a node.
 You could also set ``--test`` option to use specific node test commands. 
 
 .. code:: Console
 
    > eth --test
-   > ethconsole ipc://path/to/geth.ipc
+   > ethconsole ipc://path/to/gexp.ipc
 
 In the console you could then type
 

@@ -394,7 +394,7 @@ Glossary
    block(chain) explorer
       A website that allows easy searching and extraction of data from the blockchain.
 
-   geth
+   gexp
       Expanse client implemented in the Golang programming language, based on the protocol as defined in the Expanse Yellow Paper.
 
    eth

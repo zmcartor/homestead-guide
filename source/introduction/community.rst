@@ -50,7 +50,7 @@ Most Gitter channels are organised around particular repositories, or generic to
 
 See `the full list of gitter rooms for the Expanse organisation`_. Below is the list of active public channels:
 
-* `go-expanse`_ - about geth (and tools related to the go implementation)
+* `go-expanse`_ - about gexp (and tools related to the go implementation)
 * `cpp-expanse`_ - about eth (and tools related to the C++ implementation)
 * `web3.js`_ - about web3.js, Expanse JavaScript API library
 * `Solidity`_ - The Solidity Contract-Oriented Programming Language

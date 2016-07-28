@@ -90,7 +90,7 @@ mechanisms.
 
 * Using the ``solc`` compiler via the command line.
 * Using ``web3.exp.compile.solidity`` in the javascript console provided by
-  ``geth`` or ``eth`` (This still requires the ``solc`` compiler to be
+  ``gexp`` or ``eth`` (This still requires the ``solc`` compiler to be
   installed).
 * The `online Solidity realtime compiler <https://expanse.github.io/browser-solidity/>`_.
 * The `Meteor dapp Cosmo for building solidity contracts <https://github.com/SilentCicero/meteor-dapp-cosmo>`_.
@@ -100,10 +100,10 @@ mechanisms.
 .. note::  More information on solc and compiling Solidity contract code can be found `here <https://solidity.readthedocs.org/en/latest/frequently-asked-questions.html#how-do-i-compile-contracts>`_.
 
 
-Setting up the solidity compiler in geth
+Setting up the solidity compiler in gexp
 --------------------------------------------------------------------------------
 
-If you start up your ``geth`` node, you can check which compilers are
+If you start up your ``gexp`` node, you can check which compilers are
 available.
 
 .. code:: bash
@@ -125,7 +125,7 @@ custom path to the ``solc`` executable using th ``--solc`` flag.
 
 .. code:: bash
 
-    $ geth --solc /usr/local/bin/solc
+    $ gexp --solc /usr/local/bin/solc
 
 Alternatively, you can set this option at runtime via the console:
 
@@ -150,7 +150,7 @@ Let's compile a simple contract source:
 This contract offers a single method **multiply** which is called with a
 positive integer ``a`` and returns ``a * 7``.
 
-You are ready to compile solidity code in the ``geth`` JS console using
+You are ready to compile solidity code in the ``gexp`` JS console using
 `eth\.compile\.solidity\(\)
 <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethcompilesolidity>`_:
 
@@ -194,15 +194,15 @@ You are ready to compile solidity code in the ``geth`` JS console using
     <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__ and therefore via
     `web3\.js <https://github.com/expanse-org/wiki/wiki/JavaScript
     API#web3ethcompilesolidity>`__ to any in-browser Ðapp connecting to
-    ``geth`` via RPC/IPC.
+    ``gexp`` via RPC/IPC.
 
 
-The following example shows how you interface ``geth`` via JSON-RPC to
+The following example shows how you interface ``gexp`` via JSON-RPC to
 use the compiler.
 
 .. code:: bash
 
-    $ geth --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/eth/exp.log
+    $ gexp --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/eth/exp.log
     $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"],"id":1}' http://127.0.0.1:8100
 
 The compiler output for one source will give you contract objects each
@@ -445,12 +445,12 @@ achieved with configuring an alternative network id (select a unique integer)
 and/or disable peers. It is recommended practice that for testing you use an
 alternative data directory and ports so that you never even accidentally clash
 with your live running node (assuming that runs using the defaults. Starting
-your ``geth`` with in VM debug mode with profiling and highest logging
+your ``gexp`` with in VM debug mode with profiling and highest logging
 verbosity level is recommended:
 
 .. code:: bash
 
-    geth --datadir ~/dapps/testing/00/ --port 30310 --rpcport 8110 --networkid 4567890 --nodiscover --maxpeers 0 --vmdebug --verbosity 6 --pprof --pprofport 6110 console 2>> ~/dapp/testint/00/00.log
+    gexp --datadir ~/dapps/testing/00/ --port 30310 --rpcport 8110 --networkid 4567890 --nodiscover --maxpeers 0 --vmdebug --verbosity 6 --pprof --pprofport 6110 console 2>> ~/dapp/testint/00/00.log
 
 Before you can submit any transactions, you need set up your private test
 chain. See :ref:`test-networks`.

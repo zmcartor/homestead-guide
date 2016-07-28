@@ -30,12 +30,12 @@ PyEthApp supports the morden network from v1.0.5 onwards:
 
    > pyethapp --profile morden run
 
-geth (Go client)
+gexp (Go client)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: Console
 
-   > geth --testnet
+   > gexp --testnet
 
 Details
 --------------------------------------------------------------------------------
@@ -201,7 +201,7 @@ The content is the same as the genesis field provided by the 'config' parameter:
 
 
 
-geth (Go client)
+gexp (Go client)
 ================================================================================
 
 
@@ -236,7 +236,7 @@ blockchain unless they have the same genesis block, so you can make as many priv
   }
 
 Save a file called :file:`CustomGenesis.json`.
-You will reference this when starting your geth node using the following flag:
+You will reference this when starting your gexp node using the following flag:
 
 ``--genesis /path/to/CustomGenesis.json``
 
@@ -244,7 +244,7 @@ Command line parameters for private network
 --------------------------------------------------------------------------------
 
 There are some command line options (also called “flags”) that are
-necessary in order to make sure that your network is private. We already covered the genesis flag, but we need a few more. Note that all of the commands below are to be used in the geth Expanse client.
+necessary in order to make sure that your network is private. We already covered the genesis flag, but we need a few more. Note that all of the commands below are to be used in the gexp Expanse client.
 
 ``--nodiscover``
 
@@ -263,11 +263,11 @@ This will enable RPC interface on your node. This is generally enabled by defaul
 
 This dictates what APIs that are allowed to be accessed over RPC. By default, Geth enables the web3 interface over RPC.
 
-**IMPORTANT: Please note that offering an API over the RPC/IPC interface will give everyone access to the API who can access this interface (e.g. dapp's). Be careful which API's you enable. By default geth enables all API's over the IPC interface and only the db,eth,net and web3 API's over the RPC interface.**
+**IMPORTANT: Please note that offering an API over the RPC/IPC interface will give everyone access to the API who can access this interface (e.g. dapp's). Be careful which API's you enable. By default gexp enables all API's over the IPC interface and only the db,eth,net and web3 API's over the RPC interface.**
 
 ``--rpcport "8080"``
 
-Change 8000 to any port that is open on your network. The default for geth is 8080.
+Change 8000 to any port that is open on your network. The default for gexp is 8080.
 
 ``--rpccorsdomain "http://chriseth.github.io/browser-solidity/"``
 
@@ -288,18 +288,18 @@ This is the "network listening port", which you will use to connect with other p
 This will set up an identity for your node so it can be identified more easily in a list of peers.
 Here is an example of how these identities show up on the network.
 
-Launching ``geth``
+Launching ``gexp``
 --------------------------------------------------------------------------------
 
-After you have created your custom genesis block JSON file and created a directory for your blockchain data, type the following command into your console that has access to geth:
+After you have created your custom genesis block JSON file and created a directory for your blockchain data, type the following command into your console that has access to gexp:
 
 .. code-block:: Console
 
-  geth --identity "MyNodeName" --genesis /path/to/CustomGenesis.json --rpc --rpcport "8080" --rpccorsdomain "*" --datadir "C:\chains\TestChain1" --port "30303" --nodiscover --rpcapi "db,eth,net,web3" --networkid 1999 console
+  gexp --identity "MyNodeName" --genesis /path/to/CustomGenesis.json --rpc --rpcport "8080" --rpccorsdomain "*" --datadir "C:\chains\TestChain1" --port "30303" --nodiscover --rpcapi "db,eth,net,web3" --networkid 1999 console
 
 .. note:: Please change the flags to match your custom settings.
 
-You will need to start your geth instance with your custom chain command every time you want to access your custom chain. If you just type "geth" in your console, it will not remember all of the flags you have set.
+You will need to start your gexp instance with your custom chain command every time you want to access your custom chain. If you just type "gexp" in your console, it will not remember all of the flags you have set.
 
 Pre-allocating ether to your account
 --------------------------------------------------------------------------------
@@ -320,22 +320,22 @@ A difficulty of "0x400" allows you to mine Ether very quickly on your private te
 
 .. note:: Replace ``0x1fb891f92eb557f4d688463d0d7c560552263b5a`` with your account address.
 
-Save your genesis file and rerun your private chain command. Once geth is fully loaded, close it by .
+Save your genesis file and rerun your private chain command. Once gexp is fully loaded, close it by .
 
 We want to assign an address to the variable ``primary`` and check its balance.
 
-Run the command ``geth account list`` in your terminal to see what account # your new address was assigned.
+Run the command ``gexp account list`` in your terminal to see what account # your new address was assigned.
 
 .. code-block:: Console
 
-   > geth account list
+   > gexp account list
    Account #0: {d1ade25ccd3d550a7eb532ac759cac7be09c2719}
    Account #1: {da65665fc30803cb1fb7e6d86691e20b1826dee0}
    Account #2: {e470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32}
    Account #3: {f4dd5c3794f1fd0cdc0327a83aa472609c806e99}
 
 Take note of which account # is the one that you pre-allocated Ether to.
-Alternatively, you can launch the console with ``geth console`` (keep the same parameters as when you launched ``geth`` first). Once the prompt appears, type
+Alternatively, you can launch the console with ``gexp console`` (keep the same parameters as when you launched ``gexp`` first). Once the prompt appears, type
 
 .. code-block:: Console
 

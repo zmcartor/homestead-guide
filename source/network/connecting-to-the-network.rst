@@ -42,7 +42,7 @@ How to connect
 
 Geth continuously attempts to connect to other nodes on the network until it has peers. If you have UPnP enabled on your router or run Expanse on an Internet-facing server, it will also accept connections from other nodes.
 
-Geth finds peers through something called the *discovery protocol*. In the discovery protocol, nodes are gossipping with each other to find out about other nodes on the network. In order to get going initially, geth uses a set of bootstrap nodes whose endpoints are recorded in the source code.
+Geth finds peers through something called the *discovery protocol*. In the discovery protocol, nodes are gossipping with each other to find out about other nodes on the network. In order to get going initially, gexp uses a set of bootstrap nodes whose endpoints are recorded in the source code.
 
 Checking connectivity and ENODE IDs
 --------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ To get more information about the connected peers, such as IP address and port n
    } ]
 
 
-To check the ports used by geth and also find your enode URI run:
+To check the ports used by gexp and also find your enode URI run:
 
 .. code-block:: Javascript
 
@@ -110,10 +110,10 @@ Download the blockchain faster
 
 When you start an Expanse client, the Expanse blockchain is automatically downloaded. The time it takes to download the Expanse blockchain can vary based on client, client settings, connection speed, and number of peers available. Below are some options for more quickly obtaining the Expanse blockchain.
 
-Using geth
+Using gexp
 --------------------------------------------------------------------------------
 
-If you are using the geth client, there are some things you can do to speed up the time it takes to download the Expanse blockchain. If you choose to use the ``--fast`` flag to perform an Expanse fast sync, you will not retain past transaction data.
+If you are using the gexp client, there are some things you can do to speed up the time it takes to download the Expanse blockchain. If you choose to use the ``--fast`` flag to perform an Expanse fast sync, you will not retain past transaction data.
 
 .. note:: You cannot use this flag after performing all or part of a normal sync operation, meaning you should not have any portion of the Expanse blockchain downloaded before using this command. `See this Expanse Stack\.Exchange answer for more information <http://expanse.stackexchange.com/questions/1845/why-isnt-fast-sync-the-default>`_.
 
@@ -136,14 +136,14 @@ Full example command with console:
 
 .. code-block:: Bash
 
-  geth --fast --cache=1024 --jitvm console
+  gexp --fast --cache=1024 --jitvm console
 
 For more discussion on fast syncing and blockchain download times, `see this Reddit post <https://www.reddit.com/r/expanse/comments/46c4ga/lets_benchmark_the_clients/>`_.
 
 Exporting/Importing the blockchain
 --------------------------------------------------------------------------------
 
-If you already have a full Expanse node synced, you can export the blockchain data from the fully synced node and import it into your new node. You can accomplish this in geth by exporting your full node with the command ``geth export filename`` and importing the blockchain into your node using ``geth import filename``.
+If you already have a full Expanse node synced, you can export the blockchain data from the fully synced node and import it into your new node. You can accomplish this in gexp by exporting your full node with the command ``gexp export filename`` and importing the blockchain into your node using ``gexp import filename``.
 see `this link <staticnodes>`_
 
 ..  _cr-static-nodes:
@@ -174,4 +174,4 @@ Sometimes you just can't get connected. The most common reasons are:
 * Your local time might be incorrect. An accurate clock is required to participate in the Expanse network. Check your OS for how to resync your clock (example ``sudo ntpdate -s time.nist.gov``) because even 12 seconds too fast can lead to 0 peers.
 * Some firewall configurations can prevent UDP traffic from flowing. You can use the static nodes feature or ``admin.addPeer()`` on the console to configure connections by hand.
 
-To start geth without the discovery protocol, you can use the ``--nodiscover`` parameter. You only want this if you are running a test node or an experimental test network with fixed nodes.
+To start gexp without the discovery protocol, you can use the ``--nodiscover`` parameter. You only want this if you are running a test node or an experimental test network with fixed nodes.

@@ -53,15 +53,15 @@ Mining success depends on the set block difficulty. Block difficulty dynamically
 Ethash DAG
 --------------------------------------------------------------------------------
 
-Ethash uses a *DAG* (directed acyclic graph) for the proof of work algorithm, this is generated for each *epoch*, i.e., every 30000 blocks (125 hours, ca. 5.2 days). The DAG takes a long time to generate. If clients only generate it on demand, you may see a long wait at each epoch transition before the first block of the new epoch is found. However, the DAG only depends on the block number, so it can and should be calculated in advance to avoid long wait times at each epoch transition. Both ``geth`` and ``ethminer`` implement automatic DAG generation and maintains two DAGs at a time for smooth epoch transitions. Automatic DAG generation is turned on and off when mining is controlled from the console. It is also turned on by default if ``geth`` is launched with the ``--mine`` option. Note that clients share a DAG resource, so if you are running multiple instances of any client, make sure automatic dag generation is switched off in all but one instance.
+Ethash uses a *DAG* (directed acyclic graph) for the proof of work algorithm, this is generated for each *epoch*, i.e., every 30000 blocks (125 hours, ca. 5.2 days). The DAG takes a long time to generate. If clients only generate it on demand, you may see a long wait at each epoch transition before the first block of the new epoch is found. However, the DAG only depends on the block number, so it can and should be calculated in advance to avoid long wait times at each epoch transition. Both ``gexp`` and ``ethminer`` implement automatic DAG generation and maintains two DAGs at a time for smooth epoch transitions. Automatic DAG generation is turned on and off when mining is controlled from the console. It is also turned on by default if ``gexp`` is launched with the ``--mine`` option. Note that clients share a DAG resource, so if you are running multiple instances of any client, make sure automatic dag generation is switched off in all but one instance.
 
 To generate the DAG for an arbitrary epoch:
 
 .. code-block:: bash
 
-    geth makedag <block number> <outputdir>
+    gexp makedag <block number> <outputdir>
 
-For instance ``geth makedag 360000 ~/.ethash``. Note that ethash uses
+For instance ``gexp makedag 360000 ~/.ethash``. Note that ethash uses
 ``~/.ethash`` (Mac/Linux) or ``~/AppData/Ethash`` (Windows) for the DAG
 so that it can shared between different client implementations as well as multiple running instances.
 
@@ -88,13 +88,13 @@ You can use your computer's central processing unit (CPU) to mine ether. This is
 
 .. note:: The testnet ether has no value other than using it for testing purposes (see :ref:`test-networks`).
 
-Using geth
+Using gexp
 -------------------------------
-When you start up your expanse node with ``geth`` it is not mining by
+When you start up your expanse node with ``gexp`` it is not mining by
 default. To start it in CPU mining mode, you use the ``--mine`` `command line option <https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options>`__.
 The ``-minerthreads`` parameter can be used to set the number parallel mining threads (defaulting to the total number of processor cores).
 
-``geth --mine --minerthreads=4``
+``gexp --mine --minerthreads=4``
 
 You can also start and stop CPU mining at runtime using the `console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#adminminerstart>`__. ``miner.start`` takes an optional parameter for the number of miner threads.
 
@@ -107,14 +107,14 @@ You can also start and stop CPU mining at runtime using the `console <https://gi
 
 Note that mining for real ether only makes sense if you are in sync with the network (since you mine on top of the consensus block). Therefore the eth blockchain downloader/synchroniser will delay mining until syncing is complete, and after that mining automatically starts unless you cancel your intention with ``miner.stop()``.
 
-In order to earn ether you must have your **etherbase** (or **coinbase**) address set. This etherbase defaults to your primary account. If you don't have an etherbase address, then ``geth --mine`` will not start up.
+In order to earn ether you must have your **etherbase** (or **coinbase**) address set. This etherbase defaults to your primary account. If you don't have an etherbase address, then ``gexp --mine`` will not start up.
 
 You can set your etherbase on the command line:
 
 .. code-block:: bash
 
-    geth --etherbase 1 --mine  2>> geth.log // 1 is index: second account by creation order OR
-    geth --etherbase '0xa4d8e9cae4d04b093aac82e6cd355b6b963fb7ff' --mine 2>> geth.log
+    gexp --etherbase 1 --mine  2>> gexp.log // 1 is index: second account by creation order OR
+    gexp --etherbase '0xa4d8e9cae4d04b093aac82e6cd355b6b963fb7ff' --mine 2>> gexp.log
 
 You can reset your etherbase on the console too:
 
@@ -241,19 +241,19 @@ Windows set-up
 ..   :width: 399 px
    :alt: expanse-ethminer-set-upfdg
 
-Using ethminer with geth
+Using ethminer with gexp
 -------------------------------
 
 .. code-block:: bash
 
-    geth account new // Set-up expanse account if you do not have one
-    geth --rpc --rpccorsdomain localhost 2>> geth.log &
+    gexp account new // Set-up expanse account if you do not have one
+    gexp --rpc --rpccorsdomain localhost 2>> gexp.log &
     ethminer -G  // -G for GPU, -M for benchmark
-    tail -f geth.log
+    tail -f gexp.log
 
-``ethminer`` communicates with geth on port 8545 (the default RPC port in geth). You can change this by giving the ``--rpcport`` option to ``geth``. Ethminer will find geth on any port. Note that you need to set the CORS header with ``--rpccorsdomain localhost``. You can also set port on ``ethminer`` with ``-F http://127.0.0.1:3301``. Setting the ports is necessary if you want several instances mining on the same computer, although this is somewhat pointless. If you are testing on a private chain, we recommend you use CPU mining instead.
+``ethminer`` communicates with gexp on port 8545 (the default RPC port in gexp). You can change this by giving the ``--rpcport`` option to ``gexp``. Ethminer will find gexp on any port. Note that you need to set the CORS header with ``--rpccorsdomain localhost``. You can also set port on ``ethminer`` with ``-F http://127.0.0.1:3301``. Setting the ports is necessary if you want several instances mining on the same computer, although this is somewhat pointless. If you are testing on a private chain, we recommend you use CPU mining instead.
 
-.. note:: You do **not** need to give ``geth`` the ``--mine`` option or start the miner in the console unless you want to do CPU mining on TOP of GPU mining.
+.. note:: You do **not** need to give ``gexp`` the ``--mine`` option or start the miner in the console unless you want to do CPU mining on TOP of GPU mining.
 
 If the default for ``ethminer`` does not work try to specify the OpenCL device with: ``--opencl-device X`` where X is {0, 1, 2,...}. When running ``ethminer`` with ``-M`` (benchmark), you should see something like:
 
@@ -264,11 +264,11 @@ If the default for ``ethminer`` does not work try to specify the OpenCL device w
 
     Benchmarking on platform: { "platform": "Apple", "device": "Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz", "version": "OpenCL 1.2 " }
 
-To debug ``geth``:
+To debug ``gexp``:
 
 .. code-block:: bash
 
-    geth  --rpccorsdomain "localhost" --verbosity 6 2>> geth.log
+    gexp  --rpccorsdomain "localhost" --verbosity 6 2>> gexp.log
 
 To debug the miner:
 
@@ -277,7 +277,7 @@ To debug the miner:
     make -DCMAKE_BUILD_TYPE=Debug -DETHASHCL=1 -DGUI=0
     gdb --args ethminer -G -M
 
-..  note:: hashrate info is not available in ``geth`` when GPU mining.
+..  note:: hashrate info is not available in ``gexp`` when GPU mining.
 
 Check your hashrate with ``ethminer``, ``miner.hashrate`` will always report 0.
 
@@ -300,11 +300,11 @@ In order to mine on a single GPU all that needs to be done is to run eth with th
 - ``-G`` set GPU mining on.
 
 While the client is running you can interact with it using either
-geth attach` or [ethconsole](https://github.com/expanse-org/expanse-console).
+gexp attach` or [ethconsole](https://github.com/expanse-org/expanse-console).
 
 Mining on a multiple GPUs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Mining with multiple GPUs and eth is very similar to mining with geth and multiple GPUs.
+Mining with multiple GPUs and eth is very similar to mining with gexp and multiple GPUs.
 Ensure that an eth node is running with your coinbase address properly set:
 
 .. code-block:: bash
@@ -353,16 +353,16 @@ Use ethminer ``--list-devices`` to list possible numbers to substitute for the X
 
 
 
-To start mining on Windows, first `download the geth windows binary <https://build.expanse.org/builds/Windows%20Go%20master%20branch/>`_.
+To start mining on Windows, first `download the gexp windows binary <https://build.expanse.org/builds/Windows%20Go%20master%20branch/>`_.
 
 * Unzip Geth (right-click and select unpack) and launch Command Prompt. Use `cd` to navigate to the location of the Geth data folder. (e.g. ``cd /`` to go to the ``C:`` drive)
-* Start geth by typing ``geth --rpc``.
+* Start gexp by typing ``gexp --rpc``.
 
 As soon as you enter this, the Expanse blockchain will start downloading. Sometimes your firewall may block the synchronisation process (it will prompt you when doing so). If this is the case, click "Allow access".
 
 * First `download and install ethminer <http://cryptomining-blog.com/tag/ethminer-cuda-download/>`_, the C++ mining software (your firewall or Windows itself may act up, allow access)
 * Open up another Command Prompt (leave the first one running!), change directory by typing ``cd /Program\ Files/Expanse(++)/release``
-* Now make sure `geth` has finished syncing the blockchain. If it is not syncing any longer, you can start the mining process by typing ``ethminer -G`` at the command prompt
+* Now make sure `gexp` has finished syncing the blockchain. If it is not syncing any longer, you can start the mining process by typing ``ethminer -G`` at the command prompt
 
 At this point some problems may appear. If you get an error, you can abort the miner by pressing ``Ctrl+C``. If the error says
 "Insufficient Memory", your GPU does not have enough memory to mine ether.

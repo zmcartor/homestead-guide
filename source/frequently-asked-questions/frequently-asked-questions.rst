@@ -20,7 +20,7 @@ I have heard of Expanse, but what are Geth, Mist, Ethminer, Mix?
 
 * **Mist**: This is the equivalent of a web browser, but for the Expanse platform. It acts as a GUI to display the accounts and contracts that you interact with. It also allows you to create and interact with contracts in a graphical user interface without ever touching the command line. If you are not a developer and just want to store Ether and interact with Expanse contracts, then Mist is the program to use. Downloads can be found on the `Mist releases page  <https://github.com/expanse-org/mist/releases>`_.
 
-* **Ethminer**: A standalone miner. This can be used to mine or benchmark a mining set-up. It is compatible with eth, geth, and pyethereum. Check out the :ref: `mining` page for more information.
+* **Ethminer**: A standalone miner. This can be used to mine or benchmark a mining set-up. It is compatible with eth, gexp, and pyethereum. Check out the :ref: `mining` page for more information.
 
 * **Mix**: The integrated development environment for DApp authoring. Quickly prototype and debug decentralised applications on the Expanse platform. More information can be found at the `Mix GitHub Page <https://github.com/expanse-org/mix>`_.
 

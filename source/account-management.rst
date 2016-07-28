@@ -39,16 +39,16 @@ Creating an account
 
 .. Warning:: **Remember your passwords and `backup your keyfiles <backup-and-restore-accounts>`_.** In order to send transactions from an account, including sending ether, you must have BOTH the keyfile and the password. Be absolutely sure to have a copy of your keyfile AND remember the password for that keyfile, and store them both as securely as possible. There are no escape routes here; lose the keyfile or forget your password and all your ether is gone. It is NOT possible to access your account without a password and there is no *forgot my password* option here. Do not forget it.
 
-Using ``geth account new``
+Using ``gexp account new``
 --------------------------------------------------------------------------------
 
-Once you have the geth client installed, creating an account is merely a case of executing the ``geth account new`` command in a terminal.
+Once you have the gexp client installed, creating an account is merely a case of executing the ``gexp account new`` command in a terminal.
 
-Note that you do not have to run the geth client or sync up with the blockchain to use the ``geth account`` command.
+Note that you do not have to run the gexp client or sync up with the blockchain to use the ``gexp account`` command.
 
 .. code-block:: Bash
 
-  $ geth account new
+  $ gexp account new
 
     Your new account is locked with a password. Please give a password. Do not forget this password.
     Passphrase:
@@ -59,7 +59,7 @@ For non-interactive use you supply a plaintext password file as argument to the 
 
 .. code-block:: Bash
 
-  $ geth --password /path/to/password account new
+  $ gexp --password /path/to/password account new
 
 ..  Warning:: Using the ``--password`` flag is meant to be used only for testing or automation in trusted environments. It is a bad idea to save your password to file or expose it in any other way. If you do use the ``--password`` flag with a password file, make sure the file is not readable or even listable for anyone but you. You can achieve this in Mac/Linux systems with:
 
@@ -71,11 +71,11 @@ For non-interactive use you supply a plaintext password file as argument to the 
   >I type my pass
 
 
-To list all the accounts with keyfiles currently in you’re ``keystore`` folder use the ``list`` subcommand of the ``geth account`` command:
+To list all the accounts with keyfiles currently in you’re ``keystore`` folder use the ``list`` subcommand of the ``gexp account`` command:
 
 .. code-block:: Bash
 
-  $ geth account list
+  $ gexp account list
 
   account #0: {a94f5374fce5edbc8e2a8697c15331677e6ebf0b}
   account #1: {c385233b188811c9f355d4caec14df86d6248235}
@@ -85,14 +85,14 @@ To list all the accounts with keyfiles currently in you’re ``keystore`` folder
 The filenames of keyfiles has the format ``UTC--<created_at UTC ISO8601>-<address hex>``. The order of accounts when listing, is lexicographic, but as a consequence of the timestamp format, it is actually order of creation.
 
 
-Using geth console
+Using gexp console
 --------------------------------------------------------------------------------
 
-In order to create a new account using geth, we must first start geth in console mode (or you can use ``geth attach`` to attach a console to an already running instance):
+In order to create a new account using gexp, we must first start gexp in console mode (or you can use ``gexp attach`` to attach a console to an already running instance):
 
 .. code-block:: Bash
 
-  > geth console 2>> file_to_log_output
+  > gexp console 2>> file_to_log_output
   instance: Geth/v1.4.0-unstable/linux/go1.5.1
   coinbase: coinbase: [object Object]
   at block: 865174 (Mon, 18 Jan 2016 02:58:53 GMT)
@@ -139,7 +139,7 @@ For the command line averse, there is now a GUI-based option for creating accoun
 
 Creating an account using the GUI Mist Expanse wallet couldn’t be easier. In fact, your first account is created during the installation of the app.
 
-1. `Download the latest version of the wallet app <https://github.com/expanse-org/mist/releases>`_  for your operating system. Opening the Wallet App will kick off syncing a full copy of the Expanse blockchain on your computer, since you will in effect be running a full geth node.
+1. `Download the latest version of the wallet app <https://github.com/expanse-org/mist/releases>`_  for your operating system. Opening the Wallet App will kick off syncing a full copy of the Expanse blockchain on your computer, since you will in effect be running a full gexp node.
 
 2. Unzip the downloaded folder and run the Expanse-Wallet executable file.
 
@@ -205,7 +205,7 @@ Troubleshooting:
 Using Eth
 --------------------------------------------------------------------------------
 
-Every options related to key management available using geth can be used the same way in eth.
+Every options related to key management available using gexp can be used the same way in eth.
 
 Below are "account" related options:
 
@@ -224,7 +224,7 @@ Below are "wallet" related option:
 
 .. Note:: the 'account import' option can only be used to import generic key file. the 'wallet import' option can only be used to import a presale wallet.
 
-It is also possible to access keys management from the integrated console (using the built-in console or geth attach):
+It is also possible to access keys management from the integrated console (using the built-in console or gexp attach):
 
 .. code-block:: Javascript
 
@@ -327,14 +327,14 @@ If you choose not to import your presale wallet during installation of the app, 
 
 .. Note:: The Mist wallet is still in active development, so details of the steps outlined above may change with upgrades.
 
-Using geth
+Using gexp
 --------------------------------------------------------------------------------
 
-If you have a standalone installation of geth, importing your presale wallet is accomplished by executing the following command in a terminal:
+If you have a standalone installation of gexp, importing your presale wallet is accomplished by executing the following command in a terminal:
 
 .. code-block:: Bash
 
-  geth wallet import /path/to/my/presale-wallet.json
+  gexp wallet import /path/to/my/presale-wallet.json
 
 You will be prompted to enter your password.
 
@@ -343,26 +343,26 @@ Updating an account
 
 You are able to upgrade your keyfile to the latest keyfile format and/or upgrade your keyfile password.
 
-Using geth
+Using gexp
 --------------------------------------------------------------------------------
 
 You can update an existing account on the command line with the ``update`` subcommand with the account address or index as parameter. Remember that the account index reflects the order of creation (lexicographic order of keyfile names containing the creation time).
 
 .. code-block:: Bash
 
-  geth account update b0047c606f3af7392e073ed13253f8f4710b08b6
+  gexp account update b0047c606f3af7392e073ed13253f8f4710b08b6
 
 or
 
 .. code-block:: Bash
 
-  geth account update 2
+  gexp account update 2
 
 For example:
 
 .. code-block:: Bash
 
-  $ geth account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
+  $ gexp account update a94f5374fce5edbc8e2a8697c15331677e6ebf0b
 
   Unlocking account a94f5374fce5edbc8e2a8697c15331677e6ebf0b | Attempt 1/3
   Passphrase:
@@ -379,7 +379,7 @@ For non-interactive use the passphrase can be specified with the ``--password`` 
 
 .. code-block:: Bash
 
-  geth --password <passwordfile> account update a94f5374fce5edbc8e2a8697c15331677e6ebf0bs
+  gexp --password <passwordfile> account update a94f5374fce5edbc8e2a8697c15331677e6ebf0bs
 
 Since only one password can be given, only format update can be performed, changing your password is only possible interactively.
 
@@ -407,11 +407,11 @@ To restore your keyfiles (accounts), copy the keyfiles back into the ``keystore`
 Importing an unencrypted private key
 --------------------------------------------------------------------------------
 
-Importing an unencrypted private key is supported by ``geth``
+Importing an unencrypted private key is supported by ``gexp``
 
 .. code-block:: Bash
 
-  geth account import /path/to/<keyfile>
+  gexp account import /path/to/<keyfile>
 
 This command imports an unencrypted private key from the plain text file ``<keyfile>`` and creates a new account and prints the address.
 The keyfile is assumed to contain an unencrypted private key as canonical EC raw bytes encoded into hex.
@@ -421,7 +421,7 @@ An example where the data directory is specified. If the ``--datadir`` flag is n
 
 .. code-block:: Bash
 
-  $ geth --datadir /someOtherEthDataDir  account import ./key.prv
+  $ gexp --datadir /someOtherEthDataDir  account import ./key.prv
   The new account will be encrypted with a passphrase.
   Please enter a passphrase now.
   Passphrase:
@@ -432,7 +432,7 @@ For non-interactive use the passphrase can be specified with the ``--password`` 
 
 .. code-block:: Bash
 
-  geth --password <passwordfile> account import <keyfile>
+  gexp --password <passwordfile> account import <keyfile>
 
 
 .. Note:: Since you can directly copy your encrypted accounts to another Expanse instance, this import/export mechanism is not needed when you transfer an account between nodes.

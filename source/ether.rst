@@ -161,7 +161,7 @@ Sending ether
 
 The `Expanse Wallet  <https://github.com/expanse-org/mist/releases>`_  supports sending ether via a graphical interface.
 
-Ether can also be transferred using the **geth console**.
+Ether can also be transferred using the **gexp console**.
 
 .. code-block:: console
 

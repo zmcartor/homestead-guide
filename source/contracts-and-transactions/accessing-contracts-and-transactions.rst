@@ -41,16 +41,16 @@ We will go through the different steps to deploy the following contract using on
       }
    }
 
-The first thing to do is make sure the HTTP RPC interface is enabled. This means for geth we supply the ``--rpc`` flag on startup and for eth the ``-j``
-flag. In this example we use the geth node on a private development chain. Using this approach we don't need ether on the real network.
+The first thing to do is make sure the HTTP RPC interface is enabled. This means for gexp we supply the ``--rpc`` flag on startup and for eth the ``-j``
+flag. In this example we use the gexp node on a private development chain. Using this approach we don't need ether on the real network.
 
 .. code:: bash
 
-    > geth --rpc --dev --mine --minerthreads 1 --unlock 0 console 2>>geth.log
+    > gexp --rpc --dev --mine --minerthreads 1 --unlock 0 console 2>>gexp.log
 
 This will start the HTTP RPC interface on ``http://localhost:8545``.
 
-.. note:: geth supports `CORS <https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>`_, see the ``--rpccorsdomain`` flag for more information.
+.. note:: gexp supports `CORS <https://en.wikipedia.org/wiki/Cross-origin_resource_sharing>`_, see the ``--rpccorsdomain`` flag for more information.
 
 We can verify that the interface is running by retrieving the coinbase address and balance using `curl <https://curl.haxx.se/download.html>`_. Please
 note that data in these examples will differ on your local node. If you want to try these command replace the request params accordingly.
@@ -64,7 +64,7 @@ note that data in these examples will differ on your local node. If you want to 
     {"id":2,"jsonrpc":"2.0","result":"0x1639e49bba16280000"}
 
 Remember when we said that numbers are hex encoded? In this case the balance is returned in Wei as a hex string. If we want to have the balance in
-Ether as a number we can use web3 from the geth console.
+Ether as a number we can use web3 from the gexp console.
 
 .. code:: js
 
@@ -244,8 +244,8 @@ See for more information the `web3.js <https://github.com/expanse-org/wiki/wiki/
 Console
 ================================================================================
 
-The geth `console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`_ offers a command line interface with a javascript runtime. It
-can connect to a local or remote geth or eth node. It will load the web3.js library that users can use. This allows users to deploy and interact with
+The gexp `console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`_ offers a command line interface with a javascript runtime. It
+can connect to a local or remote gexp or eth node. It will load the web3.js library that users can use. This allows users to deploy and interact with
 smart contract from the console using web3.js. In fact the examples in the :ref:`Web3.js <using_web3.js>` section can by copied into the console.
 
 
