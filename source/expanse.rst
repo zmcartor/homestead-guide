@@ -37,7 +37,7 @@ their value in Wei. Following a common (although somewhat ambiguous) pattern, Ex
 Expanse supply
 =========================
 
-* https://blog.expanse.org/2014/04/10/the-issuance-model-in-expanse/
+* https://blog.expanse.tech/2014/04/10/the-issuance-model-in-expanse/
 * https://www.reddit.com/r/expanse/comments/44zy88/clarification_on_ether_supply_and_cost_of_gas/
 * https://www.reddit.com/r/expanse/comments/45vj4g/question_about_scarcity_of_ethereum_and_its/
 * https://www.reddit.com/r/ethtrader/comments/48yqg6/is_there_a_cap_like_with_btc_with_how_many_ether/
@@ -126,7 +126,7 @@ Online wallets, paper wallets, and cold storage
 
 * Mist Expanse Wallet
     * `Releases to download <https://github.com/expanse-org/mist/releases>`_
-    * `Mist Expanse Wallet developer preview <https://blog.expanse.org/2015/09/16/expanse-wallet-developer-preview/>`_ - foundation blog post
+    * `Mist Expanse Wallet developer preview <https://blog.expanse.tech/2015/09/16/expanse-wallet-developer-preview/>`_ - foundation blog post
     * `How to easily set up the Expanse Mist wallet! <https://www.youtube.com/watch?v=Z6lE0Ctaeqs>`_ - Tutorial by Tommy Economics
 * Kryptokit Jaxx
     * `Jaxx main site <http://jaxx.io/>`_

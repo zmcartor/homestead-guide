@@ -4,7 +4,7 @@
 ethereumjs-lib
 ################################################################################
 
-**ethereumjs-lib** is the javascript library of core `Expanse <http://expanse.org/>`_ functions as described in the `Yellow Paper <https://github.com/expanse-org/yellowpaper>`_. This is a simple meta-module that provides the following modules. Most JS modules are tracked in `ethereumjs <https://github.com/ethereumjs>`_
+**ethereumjs-lib** is the javascript library of core `Expanse <http://expanse.tech/>`_ functions as described in the `Yellow Paper <https://github.com/expanse-org/yellowpaper>`_. This is a simple meta-module that provides the following modules. Most JS modules are tracked in `ethereumjs <https://github.com/ethereumjs>`_
 
 * `VM <https://github.com/ethereumjs/ethereumjs-vm>`_ - The Expanse virtual machine and state processing functions
 * `Blockchain <https://github.com/ethereumjs/ethereumjs-blockchain>`_ - Blockchain managment

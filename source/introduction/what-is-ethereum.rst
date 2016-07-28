@@ -103,7 +103,7 @@ Videos
 Infographics
 --------------------------------
 
-* `Expanse explained...[to your mother] <https://blog.expanse.org/wp-content/uploads/2015/06/Expanse-image-infographic-beginners-guide.png>`_
+* `Expanse explained...[to your mother] <https://blog.expanse.tech/wp-content/uploads/2015/06/Expanse-image-infographic-beginners-guide.png>`_
 * http://decentral.ca/wp-content/uploads/2016/03/infographic.jpg
 * https://medium.com/@angelomilan/expanse-explained-to-my-mom-infographic-673e32054c1c#.n9kzhme6v
 

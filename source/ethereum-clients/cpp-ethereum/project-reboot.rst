@@ -5,13 +5,13 @@ Project reboot
 ################################################################################
 
 The project is going through a `reboot under new leadership
-<https://blog.expanse.org/2016/02/12/expanse-dev-update-c-roadmap/>`_.  At
+<https://blog.expanse.tech/2016/02/12/expanse-dev-update-c-roadmap/>`_.  At
 the time of writing, we have a number of moving parts.  Please bear with us!
 
 We `simplified the project naming
 <https://github.com/expanse-org/webthree-umbrella/issues/250>`_ at Homestead,
 although some naming shadows of the past still linger.  There was a further
-`C++ development update <https://blog.expanse.org/2016/05/04/c-dev-update-announcing-remix/>`_
+`C++ development update <https://blog.expanse.tech/2016/05/04/c-dev-update-announcing-remix/>`_
 from Christian in May 2016.
 
 

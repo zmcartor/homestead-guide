@@ -48,7 +48,7 @@ releases.  The table below contains links to the latest release.
 | :ref:`ethereumH`       | Haskell    | `BlockApps`_           | no Homestead release yet            |
 +------------------------+------------+------------------------+-------------------------------------+
 
-.. _Ethereum Foundation: https://expanse.org/foundation
+.. _Ethereum Foundation: https://expanse.tech/foundation
 .. _\<expanse.camp\>: http://www.expanse.camp
 .. _BlockApps: http://www.blockapps.net/
 .. _Ethcore: https://ethcore.io/

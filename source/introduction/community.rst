@@ -98,7 +98,7 @@ For discussion of EIPs, use the `gitter channel for EIP discussions`_.
 Meetups
 ================================================================================
 * `Directory hosted on Meetup <http://www.meetup.com/topics/expanse/>`_
-* `Meetup channel on Expanse Forum <http://forum.expanse.org/categories/meetups/>`_
+* `Meetup channel on Expanse Forum <http://forum.expanse.tech/categories/meetups/>`_
 
 Obsolete
 ===================
@@ -108,4 +108,4 @@ Some community discussion fora still use skype rooms, but we would like to move 
 
 Expanse Forum
 --------------------
-Stephan Tual's legendary `Expanse Forum <https://forum.expanse.org/>`_ is no longer maintained and likely to be decommissioned soon. We encourage people to use one of the recommended alternatives listed above.
+Stephan Tual's legendary `Expanse Forum <https://forum.expanse.tech/>`_ is no longer maintained and likely to be decommissioned soon. We encourage people to use one of the recommended alternatives listed above.

@@ -30,10 +30,9 @@ Resources for Exemplary Documentation
 Here are some examples of previous Expanse documentation + good examples of documentation.
 
 * Solidity Docs - https://expanse.github.io/solidity/docs/home/
-* Frontier Guide - https://expanse.gitbooks.io/frontier-guide/content/
 * Gav’s TurboEthereum Guide - https://gavofyork.gitbooks.io/turboethereum/content/
 * Ancient EthereumBuilder’s Guide - https://ethereumbuilders.gitbooks.io/guide/content/en/index.html
-* Other Expanse Links: https://souptacular.gitbooks.io/expanse-tutorials-and-tips-by-hudson/content/giant_ethereum_resource_list.html
+* Other Expanse Links: https://souptacular.gitbooks.io/ethereum-tutorials-and-tips-by-hudson/content/giant_ethereum_resource_list.html
 * Django Docs - https://docs.djangoproject.com/en/1.9/
 
 Restructured Text Markup, Sphinx
@@ -68,11 +67,6 @@ Fix section delimiter lines (always use 80-long ones to have correct length, unl
     for f in `ls source/*/*.rst`; do cat $f|perl -pe 's/\-+$/--------------------------------------------------------------------------------/' > $f.o; mv $f.o $f; done
     for f in `ls source/*/*.rst`; do cat $f|perl -pe 's/\++$/++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++/' > $f.o; mv $f.o $f; done
     for f in `ls source/*/*.rst`; do cat $f|perl -pe 's/\#+$/################################################################################/' > $f.o; mv $f.o $f; done
-
-Referencing Old Documentation
-===============================================================================
-
-old-docs-for-reference folder has all of the Frontier Gitbook and Expanse Wiki doc. Feel free to copy/paste information from those documents that is still relevant.
 
 Migrate and Convert Old Wiki Content Using Pandoc
 ===============================================================================

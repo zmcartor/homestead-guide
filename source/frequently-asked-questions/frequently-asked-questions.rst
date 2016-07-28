@@ -82,7 +82,7 @@ Data and contracts on the Expanse network are encoded, but not encrypted. Everyo
 
 Can I store secrets or passwords on the Expanse network?
 ----------------------------------------------------------------------------------------------
-All data on Expanse is public. It is not possible to store secrets or passwords in Expanse contracts without it being seen by all. There is work being done to make this a possibility through code obfuscation and other techniques. A good read would be this article by `Vitalik Buterin <https://blog.expanse.org/2016/01/15/privacy-on-the-blockchain/>`_.
+All data on Expanse is public. It is not possible to store secrets or passwords in Expanse contracts without it being seen by all. There is work being done to make this a possibility through code obfuscation and other techniques. A good read would be this article by `Vitalik Buterin <https://blog.expanse.tech/2016/01/15/privacy-on-the-blockchain/>`_.
 
 How will Expanse combat centralisation of mining pools?
 ----------------------------------------------------------------------------------------------
@@ -98,11 +98,11 @@ There are two primary ways that the Expanse PoW based consensus algorithm combat
 
 How will Expanse deal with ever increasing blockchain size?
 ----------------------------------------------------------------------------------------------
-There are many discussions around blockchain scalability. This questioned has been partially answered on `this Expanse StackExchange post <http://expanse.stackexchange.com/questions/521/what-does-it-mean-to-run-code-on-the-blockchain-wouldnt-blockchain-become-hu>`_ and `this blog post from Vitalik Buterin <https://blog.expanse.org/2014/02/18/expanse-scalability-and-decentralization-updates/>`_.
+There are many discussions around blockchain scalability. This questioned has been partially answered on `this Expanse StackExchange post <http://expanse.stackexchange.com/questions/521/what-does-it-mean-to-run-code-on-the-blockchain-wouldnt-blockchain-become-hu>`_ and `this blog post from Vitalik Buterin <https://blog.expanse.tech/2014/02/18/expanse-scalability-and-decentralization-updates/>`_.
 
 How will Expanse ensure the network is capable of making 10,000+ transactions-per-second?
 ----------------------------------------------------------------------------------------------
-Expanse is planning on implementing a proof-of-stake consensus protocol change during the Serenity phase of their development roadmap. More information on the likely Expanse PoS candidate and how it may increase transactions-per-second can be `found here <https://blog.expanse.org/2015/08/01/introducing-casper-friendly-ghost/>`_.
+Expanse is planning on implementing a proof-of-stake consensus protocol change during the Serenity phase of their development roadmap. More information on the likely Expanse PoS candidate and how it may increase transactions-per-second can be `found here <https://blog.expanse.tech/2015/08/01/introducing-casper-friendly-ghost/>`_.
 
 Where do the contracts reside?
 ----------------------------------------------------------------------------------------------

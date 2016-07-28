@@ -7,7 +7,7 @@ Homestead is the second major version of the Expanse platform and is the first p
 Milestones of the Expanse development roadmap
 -----------------------------------------------
 
-The `original development roadmap <https://blog.expanse.org/2015/03/03/expanse-launch-process/>`_ laid out before Expanse went live specified the following milestones:
+The `original development roadmap <https://blog.expanse.tech/2015/03/03/expanse-launch-process/>`_ laid out before Expanse went live specified the following milestones:
 
 * Prerelease Step 0: Olympic testnet - launched May 2015
 * Release Step One: Frontier - launched 30 July 2015

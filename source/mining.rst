@@ -45,7 +45,7 @@ All the gas consumed by the execution of all the transactions in the block submi
 *Uncles* are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralise the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 expanse). A maximum of 2 uncles are allowed per block.
 
     * `Uncles ELI5 on reddit <https://www.reddit.com/r/expanse/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/>`_
-    * `Forum thread explaining uncles <https://forum.expanse.org/discussion/2262/eli5-whats-an-uncle-in-expanse-mining>`_
+    * `Forum thread explaining uncles <https://forum.expanse.tech/discussion/2262/eli5-whats-an-uncle-in-expanse-mining>`_
 
 
 Mining success depends on the set block difficulty. Block difficulty dynamically adjusts each block in order to regulate the network hashing power to produce a 12 second blocktime. Your chances of finding a block therefore follows from your hashrate relative to difficulty.
@@ -353,7 +353,7 @@ Use ethminer ``--list-devices`` to list possible numbers to substitute for the X
 
 
 
-To start mining on Windows, first `download the gexp windows binary <https://build.expanse.org/builds/Windows%20Go%20master%20branch/>`_.
+To start mining on Windows, first `download the gexp windows binary <https://build.expanse.tech/builds/Windows%20Go%20master%20branch/>`_.
 
 * Unzip Geth (right-click and select unpack) and launch Command Prompt. Use `cd` to navigate to the location of the Geth data folder. (e.g. ``cd /`` to go to the ``C:`` drive)
 * Start gexp by typing ``gexp --rpc``.
@@ -418,7 +418,7 @@ Mining resources
 
 * `Top miners of last 24h on etherchain <https://etherchain.org/statistics/miners>`_
 * `pool hashrate distribution for august 2015 <ehttp://cryptomining-blog.com/5607-the-current-state-of-expanse-mining-pools/>`_
-* `Unmaintained list of pools on Forum <https://forum.expanse.org/discussion/3659/list-of-pools>`_
+* `Unmaintained list of pools on Forum <https://forum.expanse.tech/discussion/3659/list-of-pools>`_
 * `Mining profitability calculator on cryptocompare <https://www.cryptocompare.com/mining/calculator/eth>`_
 * `Mining profitability calculator on cryptowizzard <http://cryptowizzard.github.io/eth-mining-calculator/>`_
 * `Mining profitability calculator on etherscan <http://etherscan.io/expanse-mining-calculator/>`_
@@ -432,5 +432,5 @@ POS vs POW
 -----------------------------
 
 * https://www.reddit.com/r/expanse/comments/38db1z/eli5_the_difference_between_pos_and_pow/
-* https://blog.expanse.org/2014/11/25/proof-stake-learned-love-weak-subjectivity/
+* https://blog.expanse.tech/2014/11/25/proof-stake-learned-love-weak-subjectivity/
 * https://www.reddit.com/r/expanse/comments/42o8oy/can_someone_explain_the_switch_to_pos_how_and_when/

@@ -15,7 +15,7 @@ for right now is to use the Debug configuration, like so:** ::
 
     cmake -DCMAKE_BUILD_TYPE=Debug ..
 
-**WARNING - A replacement for Mix called** `Remix <https://blog.expanse.org/2016/05/04/c-dev-update-announcing-remix/>`_
+**WARNING - A replacement for Mix called** `Remix <https://blog.expanse.tech/2016/05/04/c-dev-update-announcing-remix/>`_
 **is being worked on, so if you are experiencing issues with Mix, you might be better
 to look for alternatives until Remix is more mature.**
 

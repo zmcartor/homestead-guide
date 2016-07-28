@@ -17,7 +17,7 @@ owned by
     :width: 256px
 
 
-It runs in parallel with the `Expanse buildbot instance <https://builds.expanse.org/>`_
+It runs in parallel with the `Expanse buildbot instance <https://builds.expanse.tech/>`_
 which is used for Go and Python builds.
 
 The fact that we have two different automation systems is not ideal, and is for
