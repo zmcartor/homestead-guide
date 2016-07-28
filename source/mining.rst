@@ -9,7 +9,7 @@ Introduction
 
 The word mining originates in the context of the gold analogy for crypto currencies. Gold or precious metals are scarce, so are digital tokens, and the only way to increase the total volume is through mining. This is appropriate to the extent that in Expanse too, the only mode of issuance post launch is via mining. Unlike these examples however, mining is also the way to secure the network by creating, verifying, publishing and propagating blocks in the blockchain.
 
-- Mining Ether = Securing the Network = Verifying Computation
+- Mining Expanse = Securing the Network = Verifying Computation
 
 What is mining?
 --------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ Mining rewards
 
 The successful PoW miner of the winning block receives:
 
-* a *static block reward* for the 'winning' block, consisting of exactly 5.0 Ether
+* a *static block reward* for the 'winning' block, consisting of exactly 5.0 Expanse
 * cost of the gas expended within the block – an amount of expanse that depends on the current gas price
 * an extra reward for including uncles as part of the block, in the form of an extra 1/32 per uncle included
 
@@ -422,7 +422,7 @@ Mining resources
 * `Mining profitability calculator on cryptocompare <https://www.cryptocompare.com/mining/calculator/eth>`_
 * `Mining profitability calculator on cryptowizzard <http://cryptowizzard.github.io/eth-mining-calculator/>`_
 * `Mining profitability calculator on etherscan <http://etherscan.io/expanse-mining-calculator/>`_
-* `Mining profitability calculator on In The Ether <http://expanse-mining-calculator.com/>`_
+* `Mining profitability calculator on In The Expanse <http://expanse-mining-calculator.com/>`_
 * `Mining difficulty chart on etherscan <http://etherscan.io/charts/difficulty>`_
 
 

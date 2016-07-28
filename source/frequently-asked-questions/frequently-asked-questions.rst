@@ -11,14 +11,14 @@ Questions
 
 What is Expanse?
 ----------------------------------------------------------------------------------------------
-Expanse is a decentralized smart contracts platform that is powered by a cryptocurrency called Ether. A good starting point to learn more about it's workings would be the ":ref:`what-is-expanse`" page.
+Expanse is a decentralized smart contracts platform that is powered by a cryptocurrency called Expanse. A good starting point to learn more about it's workings would be the ":ref:`what-is-expanse`" page.
 
 I have heard of Expanse, but what are Geth, Mist, Ethminer, Mix?
 ----------------------------------------------------------------------------------------------
 
 * **Geth**: This is the Go implementation of an Expanse node, and is the basis for any interactions with the Expanse blockchain. Running this locally will allow you to easily interact with the Expanse blockchain. Read the `go-expanse installation instructions <https://github.com/expanse-org/go-expanse/wiki/Building-Expanse>`_.
 
-* **Mist**: This is the equivalent of a web browser, but for the Expanse platform. It acts as a GUI to display the accounts and contracts that you interact with. It also allows you to create and interact with contracts in a graphical user interface without ever touching the command line. If you are not a developer and just want to store Ether and interact with Expanse contracts, then Mist is the program to use. Downloads can be found on the `Mist releases page  <https://github.com/expanse-org/mist/releases>`_.
+* **Mist**: This is the equivalent of a web browser, but for the Expanse platform. It acts as a GUI to display the accounts and contracts that you interact with. It also allows you to create and interact with contracts in a graphical user interface without ever touching the command line. If you are not a developer and just want to store Expanse and interact with Expanse contracts, then Mist is the program to use. Downloads can be found on the `Mist releases page  <https://github.com/expanse-org/mist/releases>`_.
 
 * **Ethminer**: A standalone miner. This can be used to mine or benchmark a mining set-up. It is compatible with eth, gexp, and pyethereum. Check out the :ref: `mining` page for more information.
 
@@ -64,7 +64,7 @@ Can a transaction be signed offline and then submitted on another online device?
 ----------------------------------------------------------------------------------------------
 Yes, you can refer to the solution from `Icebox <https://github.com/ConsenSys/icebox>`_.
 
-How to get testnet Ether?
+How to get testnet Expanse?
 ----------------------------------------------------------------------------------------------
 See :ref: `test-networks`.
 

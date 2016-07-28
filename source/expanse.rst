@@ -1,18 +1,18 @@
 ********************************************************************************
-Ether
+Expanse
 ********************************************************************************
 
 What is expanse?
 ================================================================================
 
-Ether is the name of the currency used within Expanse. It is used to pay for
+Expanse is the name of the currency used within Expanse. It is used to pay for
 computation within the EVM. This is done indirectly by purchasing gas for expanse as explained in _`gas`.
 
 Denominations
 --------------------------------------------------------
 
-Expanse has a metric system of denominations used as units of Ether. Each denomination has its own unique name (some bear the family name of seminal figures playing a role in evolution of computer science and cryptoeconomics). The smallest denomination aka *base unit* of Ether is called Wei. Below is a list of the named denominations and
-their value in Wei. Following a common (although somewhat ambiguous) pattern, Ether also designates a unit (of 1e18 or one quintillion Wei) of the currency. Note that the currency is not called Expanse as many mistakenly think, nor is Expanse a unit.
+Expanse has a metric system of denominations used as units of Expanse. Each denomination has its own unique name (some bear the family name of seminal figures playing a role in evolution of computer science and cryptoeconomics). The smallest denomination aka *base unit* of Expanse is called Wei. Below is a list of the named denominations and
+their value in Wei. Following a common (although somewhat ambiguous) pattern, Expanse also designates a unit (of 1e18 or one quintillion Wei) of the currency. Note that the currency is not called Expanse as many mistakenly think, nor is Expanse a unit.
 
 
 +-------------------------+-----------+-------------------------------------------+
@@ -34,7 +34,7 @@ their value in Wei. Following a common (although somewhat ambiguous) pattern, Et
 +-------------------------+-----------+-------------------------------------------+
 
 
-Ether supply
+Expanse supply
 =========================
 
 * https://blog.expanse.org/2014/04/10/the-issuance-model-in-expanse/
@@ -46,10 +46,10 @@ Ether supply
 Getting expanse
 ================================================================================
 
-In order to obtain Ether, you need to either
+In order to obtain Expanse, you need to either
 
 * become an Expanse miner (see _`Mining`)  or
-* trade other currencies for Ether using centralised or trustless services
+* trade other currencies for Expanse using centralised or trustless services
 * use the user friendly `Mist Expanse GUI Wallet <https://github.com/expanse-org/mist/releases>`_ that as of Beta 6 introduced the ability to purchase expanse using the http://shapeshift.io/ API.
 
 Trustless services
@@ -161,7 +161,7 @@ Sending expanse
 
 The `Expanse Wallet  <https://github.com/expanse-org/mist/releases>`_  supports sending expanse via a graphical interface.
 
-Ether can also be transferred using the **gexp console**.
+Expanse can also be transferred using the **gexp console**.
 
 .. code-block:: console
 
@@ -170,7 +170,7 @@ Ether can also be transferred using the **gexp console**.
     > var amount = web3.toWei(0.01, "expanse")
     > exp.sendTransaction({from:sender, to:receiver, value: amount})
 
-For more information of Ether transfer transactions, see :ref:`account-types-gas-and-transactions`.
+For more information of Expanse transfer transactions, see :ref:`account-types-gas-and-transactions`.
 
 Expanse is unique in the realm of cryptocurrencies in that expanse has utility value as a cryptofuel, commonly referred to as "gas". Beyond transaction fees, gas is a central part of every network request and requires the sender to pay for the computing resources consumed. The gas cost is dynamically calculated, based on the volume and complexity of the request and multiplied by the current gas price. Its value as a cryptofuel has the effect of increasing the stability and long-term  demand for expanse and Expanse as a whole. For more information, see :ref:`account-types-gas-and-transactions`.
 
@@ -184,11 +184,11 @@ Gas and expanse
 
 Gas is supposed to be the constant cost of network resources/utilisation. You want the real cost of sending a transaction to always be the same, so you can't really expect Gas to be issued, currencies in general are volatile.
 
-So instead, we issue Ether whose value is supposed to vary, but also implement a Gas Price in terms of Ether. If the price of Ether goes up, the Gas Price in terms of Ether should go down to keep the real cost of Gas the same.
+So instead, we issue Expanse whose value is supposed to vary, but also implement a Gas Price in terms of Expanse. If the price of Expanse goes up, the Gas Price in terms of Expanse should go down to keep the real cost of Gas the same.
 
 Gas has multiple associated terms with it: Gas Prices, Gas Cost, Gas Limit, and Gas Fees. The principle behind Gas is to have a stable value for how much a transaction or computation costs on the Expanse network.
 
 * Gas Cost is a static value for how much a computation costs in terms of Gas, and the intent is that the real value of the Gas never changes, so this cost should always stay stable over time.
-* Gas Price is how much Gas costs in terms of another currency or token like Ether. To stabilise the value of gas, the Gas Price is a floating value such that if the cost of tokens or currency fluctuates, the Gas Price changes to keep the same real value. The Gas Price is set by the equilibrium price of how much users are willing to spend, and how much processing nodes are willing to accept.
+* Gas Price is how much Gas costs in terms of another currency or token like Expanse. To stabilise the value of gas, the Gas Price is a floating value such that if the cost of tokens or currency fluctuates, the Gas Price changes to keep the same real value. The Gas Price is set by the equilibrium price of how much users are willing to spend, and how much processing nodes are willing to accept.
 * Gas Limit is the maximum amount of Gas that can be used per block, it is considered the maximum computational load, transaction volume, or block size of a block, and miners can slowly change this value over time.
 * Gas Fee is effectively the amount of Gas needed to be paid to run a particular transaction or program (called a contract). The Gas Fees of a block can be used to imply the computational load, transaction volume, or size of a block. The gas fees are paid to the miners (or bonded contractors in PoS).

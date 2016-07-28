@@ -26,7 +26,7 @@ Creating a key is tantamount to creating an account.
 * You don't need to run a client
 * You don't even need to be connected to the internet
 
-Of course your new account will not contain any Ether. But it'll be yours and you can be certain that without your key and your password, nobody else can ever access it.
+Of course your new account will not contain any Expanse. But it'll be yours and you can be certain that without your key and your password, nobody else can ever access it.
 
 It is safe to transfer the entire directory or any individual keyfile between Expanse nodes.
 

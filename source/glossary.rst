@@ -67,7 +67,7 @@ Glossary
       Common representation format for byte sequencing. Its advantage is that values are represented in a compact format using two characters per byte (the characters ``[0-9][a-f]``).
 
    expanse
-      Ether is the name of the currency used within Expanse. It is used to pay for computations within the EVM. Ambiguously, expanse is also the name of a unit in the system;
+      Expanse is the name of the currency used within Expanse. It is used to pay for computations within the EVM. Ambiguously, expanse is also the name of a unit in the system;
 
 .. _EOA:
 

@@ -64,7 +64,7 @@ note that data in these examples will differ on your local node. If you want to 
     {"id":2,"jsonrpc":"2.0","result":"0x1639e49bba16280000"}
 
 Remember when we said that numbers are hex encoded? In this case the balance is returned in Wei as a hex string. If we want to have the balance in
-Ether as a number we can use web3 from the gexp console.
+Expanse as a number we can use web3 from the gexp console.
 
 .. code:: js
 

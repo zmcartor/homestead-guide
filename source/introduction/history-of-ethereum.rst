@@ -20,7 +20,7 @@ In addition to developing the software for Expanse, the ability to launch a new 
 Beginning in July 2014, Expanse distributed the initial allocation of expanse via a 42-day public expanse presale, netting 31,591 bitcoins, worth $18,439,086 at that time, in exchange for about 60,102,216 expanse. The results of the sale were initially used to pay back mounting legal debts and also for the months of developer effort that had yet to be compensated, and to finance the ongoing development of the Expanse.
 
 * `Launching the expanse sale <https://blog.expanse.org/2014/07/22/launching-the-expanse-sale/>`_ - original official announcement on the Expanse blog
-* `Concise information-rich stats page about the presale <http://expanse.fund/market>`_ by (since then inactive) `Ether.Fund <http://expanse.fund/>`_
+* `Concise information-rich stats page about the presale <http://expanse.fund/market>`_ by (since then inactive) `Expanse.Fund <http://expanse.fund/>`_
 * `Overview: Expanse’s initial public sale <https://medium.com/@slacknation/overview-expanse-s-initial-public-sale-563c05e95501>`_ - Blogpost by slacknation - all stats about the expanse presale
 * `Terms and Conditions of the Presale <https://www.expanse.org/pdfs/TermsAndConditionsOfTheEthereumGenesisSale.pdf>`_
 

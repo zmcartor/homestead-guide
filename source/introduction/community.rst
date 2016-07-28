@@ -18,9 +18,9 @@ Read the `Expanse subreddit rules`_ before posting.
 
 Further specialised subreddits:
 
-* `/r/EthTrader <https://www.reddit.com/r/EthTrader/>`_ - Ether trading, price and  market
-* `/r/EtherMining <https://www.reddit.com/r/EtherMining/>`_ - Ether mining discussion
-* `/r/Ethmarket <https://www.reddit.com/r/ethmarket/>`_ - Marketplace for individuals looking to exchange goods and services for Ether
+* `/r/EthTrader <https://www.reddit.com/r/EthTrader/>`_ - Expanse trading, price and  market
+* `/r/EtherMining <https://www.reddit.com/r/EtherMining/>`_ - Expanse mining discussion
+* `/r/Ethmarket <https://www.reddit.com/r/ethmarket/>`_ - Marketplace for individuals looking to exchange goods and services for Expanse
 * `/r/Ethinvestor <https://www.reddit.com/r/Ethinvestor/>`_ - News and prospects for Expanse investors. Following the long term trends in the Expanse marketplace.
 * `/r/ethereumism/ <https://www.reddit.com/r/ethereumism/>`_ - a bit more ism, ostic, ical, ist and tinfoil hats, pyramids and crystal ball type of views - the ethereal side of Expanse
 

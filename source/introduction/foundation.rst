@@ -3,7 +3,7 @@
 ***************************************************
 The Expanse Foundation
 ***************************************************
-The Expanse Foundation is a non-profit organization registered in Switzerland, and has the purpose of managing the funds that were raised from the Ether Sale in order to best serve the Expanse and decentralized technology ecosystem.
+The Expanse Foundation is a non-profit organization registered in Switzerland, and has the purpose of managing the funds that were raised from the Expanse Sale in order to best serve the Expanse and decentralized technology ecosystem.
 
 Founded July 2014 in Switzerland, Stiftung Expanse’s mission is the promotion of developments of new technologies and applications, especially in the fields of new open and decentralized software architectures.
 
