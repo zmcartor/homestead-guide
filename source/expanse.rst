@@ -2,11 +2,11 @@
 Ether
 ********************************************************************************
 
-What is ether?
+What is expanse?
 ================================================================================
 
 Ether is the name of the currency used within Expanse. It is used to pay for
-computation within the EVM. This is done indirectly by purchasing gas for ether as explained in _`gas`.
+computation within the EVM. This is done indirectly by purchasing gas for expanse as explained in _`gas`.
 
 Denominations
 --------------------------------------------------------
@@ -30,7 +30,7 @@ their value in Wei. Following a common (although somewhat ambiguous) pattern, Et
 +-------------------------+-----------+-------------------------------------------+
 | **milliether (finney)** | 1e15 wei  | 1,000,000,000,000,000                     |
 +-------------------------+-----------+-------------------------------------------+
-| **ether**               | 1e18 wei  | 1,000,000,000,000,000,000                 |
+| **expanse**               | 1e18 wei  | 1,000,000,000,000,000,000                 |
 +-------------------------+-----------+-------------------------------------------+
 
 
@@ -43,14 +43,14 @@ Ether supply
 * https://www.reddit.com/r/ethtrader/comments/48yqg6/is_there_a_cap_like_with_btc_with_how_many_ether/
 
 
-Getting ether
+Getting expanse
 ================================================================================
 
 In order to obtain Ether, you need to either
 
 * become an Expanse miner (see _`Mining`)  or
 * trade other currencies for Ether using centralised or trustless services
-* use the user friendly `Mist Expanse GUI Wallet <https://github.com/expanse-org/mist/releases>`_ that as of Beta 6 introduced the ability to purchase ether using the http://shapeshift.io/ API.
+* use the user friendly `Mist Expanse GUI Wallet <https://github.com/expanse-org/mist/releases>`_ that as of Beta 6 introduced the ability to purchase expanse using the http://shapeshift.io/ API.
 
 Trustless services
 --------------------------------------------------------------------------------
@@ -147,19 +147,19 @@ Online wallets, paper wallets, and cold storage
     * `reddit discussion 3 <https://www.reddit.com/r/expanse/comments/4521o4/crowdfunding_ethereum_hardware_cold_storage_wallet/>`_
 * Brain wallet
     * brain wallets are not safe, do not use them. https://www.reddit.com/r/expanse/comments/45y8m7/brain_wallets_are_now_generally_shunned_by/
-    * Extreme caution with brain wallets. Read the recent controversy: https://reddit.com/r/expanse/comments/43fhb5/brainwallets vs http://blog.ether.camp/post/138376049438/why-brain-wallet-is-the-best
+    * Extreme caution with brain wallets. Read the recent controversy: https://reddit.com/r/expanse/comments/43fhb5/brainwallets vs http://blog.expanse.camp/post/138376049438/why-brain-wallet-is-the-best
 * Misc
-    * `Kraken Wallet Sweeper Tool <https://www.kraken.com/ether>`_ - Pre-sale wallet import
-    * `Recommended ways to safely store ether <http://expanse.stackexchange.com/questions/1239/what-is-the-recommended-way-to-safely-store-ether>`_
-    * `How to buy and store ether <http://sebfor.com/how-to-buy-and-store-ether/>`_
+    * `Kraken Wallet Sweeper Tool <https://www.kraken.com/expanse>`_ - Pre-sale wallet import
+    * `Recommended ways to safely store expanse <http://expanse.stackexchange.com/questions/1239/what-is-the-recommended-way-to-safely-store-expanse>`_
+    * `How to buy and store expanse <http://sebfor.com/how-to-buy-and-store-expanse/>`_
     * `A laymen's intro into brute forcing and why not to use brain wallets <http://www.fastcompany.com/3056651/researchers-find-a-crack-that-drains-supposedly-secure-bitcoin-wallets>`_
     * `Pyethsaletool <https://github.com/expanse-org/pyethsaletool/blob/master/README.md>`_
     * `Account vs wallet <https://www.reddit.com/r/expanse/comments/47j3r5/eli5_accounts_vs_wallet_contracts_on_mist/>`_
 
-Sending ether
+Sending expanse
 ================================================================================
 
-The `Expanse Wallet  <https://github.com/expanse-org/mist/releases>`_  supports sending ether via a graphical interface.
+The `Expanse Wallet  <https://github.com/expanse-org/mist/releases>`_  supports sending expanse via a graphical interface.
 
 Ether can also be transferred using the **gexp console**.
 
@@ -167,14 +167,14 @@ Ether can also be transferred using the **gexp console**.
 
     > var sender = exp.accounts[0];
     > var receiver = exp.accounts[1];
-    > var amount = web3.toWei(0.01, "ether")
+    > var amount = web3.toWei(0.01, "expanse")
     > exp.sendTransaction({from:sender, to:receiver, value: amount})
 
 For more information of Ether transfer transactions, see :ref:`account-types-gas-and-transactions`.
 
-Expanse is unique in the realm of cryptocurrencies in that ether has utility value as a cryptofuel, commonly referred to as "gas". Beyond transaction fees, gas is a central part of every network request and requires the sender to pay for the computing resources consumed. The gas cost is dynamically calculated, based on the volume and complexity of the request and multiplied by the current gas price. Its value as a cryptofuel has the effect of increasing the stability and long-term  demand for ether and Expanse as a whole. For more information, see :ref:`account-types-gas-and-transactions`.
+Expanse is unique in the realm of cryptocurrencies in that expanse has utility value as a cryptofuel, commonly referred to as "gas". Beyond transaction fees, gas is a central part of every network request and requires the sender to pay for the computing resources consumed. The gas cost is dynamically calculated, based on the volume and complexity of the request and multiplied by the current gas price. Its value as a cryptofuel has the effect of increasing the stability and long-term  demand for expanse and Expanse as a whole. For more information, see :ref:`account-types-gas-and-transactions`.
 
-Gas and ether
+Gas and expanse
 =============================
 
 * https://www.reddit.com/r/expanse/comments/271qdz/can_someone_explain_the_concept_of_gas_in_ethereum/

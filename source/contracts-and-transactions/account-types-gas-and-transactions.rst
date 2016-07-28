@@ -19,7 +19,7 @@ Externally owned accounts (EOAs)
 An externally controlled account
 
 - has an Ether balance,
-- can send transactions (ether transfer or trigger contract code),
+- can send transactions (expanse transfer or trigger contract code),
 - is controlled by private keys,
 - has no associated code.
 
@@ -44,7 +44,7 @@ The blocks on the blockchain represent units of time, the blockchain itself is a
 
 All Ether balances and values are denominated in units of wei: 1 Ether is 1e18 wei.
 
-.. note:: "Contracts" in Expanse should not be seen as something that should be "fulfilled" or "complied with"; rather, they are more like "autonomous agents" that live inside of the Expanse execution environment, always executing a specific piece of code when "poked" by a message or transaction, and having direct control over their own ether balance and their own key/value store to store their permanent state.
+.. note:: "Contracts" in Expanse should not be seen as something that should be "fulfilled" or "complied with"; rather, they are more like "autonomous agents" that live inside of the Expanse execution environment, always executing a specific piece of code when "poked" by a message or transaction, and having direct control over their own expanse balance and their own key/value store to store their permanent state.
 
 What is a transaction?
 ================================================================================
@@ -83,18 +83,18 @@ When you are running a decentralized application (dapp), it interacts with the b
 
 When a contract is executed as a result of being triggered by a message or transaction, every instruction is executed on every node of the network. This has a cost: for every executed operation there is a specified cost, expressed in a number of gas units.
 
-Gas is the name for the execution fee that senders of transactions need to pay for every operation made on an Expanse blockchain. The name gas is inspired by the view that this fee acts as cryptofuel, driving the motion of smart contracts. Gas is purchased for ether from the miners that execute the code. Gas and ether are decoupled deliberately since units of gas align with computation units having a natural cost, while the price of ether generally fluctuates as a result of market forces. The two are mediated by a free market: the price of gas is actually decided by the miners, who can refuse to process a transaction with a lower gas price than their minimum limit. To get gas you simply need to add ether to your account. The Expanse clients automatically purchase gas for your Ether in the amount you specify as your maximum expenditure for the transaction.
+Gas is the name for the execution fee that senders of transactions need to pay for every operation made on an Expanse blockchain. The name gas is inspired by the view that this fee acts as cryptofuel, driving the motion of smart contracts. Gas is purchased for expanse from the miners that execute the code. Gas and expanse are decoupled deliberately since units of gas align with computation units having a natural cost, while the price of expanse generally fluctuates as a result of market forces. The two are mediated by a free market: the price of gas is actually decided by the miners, who can refuse to process a transaction with a lower gas price than their minimum limit. To get gas you simply need to add expanse to your account. The Expanse clients automatically purchase gas for your Ether in the amount you specify as your maximum expenditure for the transaction.
 
 The Expanse protocol charges a fee per computational step that is executed in a contract or transaction to prevent deliberate attacks and abuse on the Expanse network. Every transaction is required to include a gas limit and a fee that it is willing to pay per gas. Miners have the choice of including the transaction and collecting the fee or not. If the total amount of gas used by the computational steps spawned by the transaction, including the original message and any sub-messages that may be triggered, is less than or equal to the gas limit, then the transaction is processed. If the total gas exceeds the gas limit, then all changes are reverted, except that the transaction is still valid and the fee can still be collected by the miner. All excess gas not used by the transaction execution is reimbursed to the sender as Ether. You do not need to worry about overspending, since you are only charged for the gas you consume. This means that it is useful as well as safe to send transactions with a gas limit well above the estimates.
 
 Estimating transaction costs
 ================================================================================
 
-The total ether cost of a transaction is based on 2 factors:
+The total expanse cost of a transaction is based on 2 factors:
 
 ``gasUsed`` is the total gas that is consumed by the transaction
 
-``gasPrice`` price (in ether) of one unit of gas specified in the transaction
+``gasPrice`` price (in expanse) of one unit of gas specified in the transaction
 
 **Total cost = gasUsed * gasPrice**
 
@@ -124,8 +124,8 @@ Since 1 Ether is 1e18 wei, the total cost would be 0.00000015 Ether.
 This is a simplification since it ignores some costs, such as the cost of passing the 2 numbers to contract, before they can even be added.
 
 * `question <http://expanse.stackexchange.com/q/324/42>`_
-* `gas fees <http://ether.fund/tool/gas-fees>`_
-* `gas cost calculator <http://ether.fund/tool/calculator>`_
+* `gas fees <http://expanse.fund/tool/gas-fees>`_
+* `gas cost calculator <http://expanse.fund/tool/calculator>`_
 * `Expanse Gas Prices <https://docs.google.com/spreadsheets/d/1m89CVujrQe5LAFJ8-YAUCcNK950dUzMQPMJBxRtGCqs>`_
 
 =================  =========    =============================
@@ -151,10 +151,10 @@ Account interactions example - betting contract
 
 As previously mentioned, there are two types of accounts:
 
-* **Externally owned account (EOAs)**: an account controlled by a private key, and if you own the private key associated with the EOA you have the ability to send ether and messages from it.
+* **Externally owned account (EOAs)**: an account controlled by a private key, and if you own the private key associated with the EOA you have the ability to send expanse and messages from it.
 * **Contract**: an account that has its own code, and is controlled by code.
 
-By default, the Expanse execution environment is lifeless; nothing happens and the state of every account remains the same. However, any user can trigger an action by sending a transaction from an externally owned account, setting Expanse's wheels in motion. If the destination of the transaction is another EOA, then the transaction may transfer some ether but otherwise does nothing. However, if the destination is a contract, then the contract in turn activates, and automatically runs its code.
+By default, the Expanse execution environment is lifeless; nothing happens and the state of every account remains the same. However, any user can trigger an action by sending a transaction from an externally owned account, setting Expanse's wheels in motion. If the destination of the transaction is another EOA, then the transaction may transfer some expanse but otherwise does nothing. However, if the destination is a contract, then the contract in turn activates, and automatically runs its code.
 
 The code has the ability to read/write to its own internal storage (a database mapping 32-byte keys to 32-byte values), read the storage of the received message, and send messages to other contracts, triggering their execution in turn. Once execution stops, and all sub-executions triggered by a message sent by a contract stop (this all happens in a deterministic and synchronous order, ie. a sub-call completes fully before the parent call goes any further), the execution environment halts once again, until woken by the next transaction.
 
@@ -165,7 +165,7 @@ Contracts generally serve four purposes:
 * Manage an ongoing contract or relationship between multiple users. Examples of this include a financial contract, an escrow with some particular set of mediators, or some kind of insurance. One can also have an open contract that one party leaves open for any other party to engage with at any time; one example of this is a contract that automatically pays a bounty to whoever submits a valid solution to some mathematical problem, or proves that it is providing some computational resource.
 * Provide functions to other contracts, essentially serving as a software library.
 
-Contracts interact with each other through an activity that is alternately called either "calling" or "sending messages". A "message" is an object containing some quantity of ether, a byte-array of data of any size, the addresses of a sender and a recipient. When a contract receives a message, it has the option of returning some data, which the original sender of the message can then immediately use. In this way, sending a message is exactly like calling a function.
+Contracts interact with each other through an activity that is alternately called either "calling" or "sending messages". A "message" is an object containing some quantity of expanse, a byte-array of data of any size, the addresses of a sender and a recipient. When a contract receives a message, it has the option of returning some data, which the original sender of the message can then immediately use. In this way, sending a message is exactly like calling a function.
 
 Because contracts can play such different roles, we expect that contracts will be interacting with each other. As an example, consider a situation where Alice and Bob are betting 100 GavCoin that the temperature in San Francisco will not exceed 35ºC at any point in the next year. However, Alice is very security-conscious, and as her primary account uses a forwarding contract which only sends messages with the approval of two out of three private keys. Bob is paranoid about quantum cryptography, so he uses a forwarding contract which passes along only messages that have been signed with Lamport signatures alongside traditional ECDSA (but because he's old fashioned, he prefers to use a version of Lamport sigs based on SHA256, which is not supported in Expanse directly).
 

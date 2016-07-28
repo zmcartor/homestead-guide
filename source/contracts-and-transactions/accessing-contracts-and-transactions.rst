@@ -42,7 +42,7 @@ We will go through the different steps to deploy the following contract using on
    }
 
 The first thing to do is make sure the HTTP RPC interface is enabled. This means for gexp we supply the ``--rpc`` flag on startup and for eth the ``-j``
-flag. In this example we use the gexp node on a private development chain. Using this approach we don't need ether on the real network.
+flag. In this example we use the gexp node on a private development chain. Using this approach we don't need expanse on the real network.
 
 .. code:: bash
 
@@ -68,10 +68,10 @@ Ether as a number we can use web3 from the gexp console.
 
 .. code:: js
 
-    > web3.fromWei("0x1639e49bba16280000", "ether")
+    > web3.fromWei("0x1639e49bba16280000", "expanse")
     "410"
 
-Now that we have some ether on our private development chain we can deploy the contract. The first step is to verify that the solidity compiler is
+Now that we have some expanse on our private development chain we can deploy the contract. The first step is to verify that the solidity compiler is
 available. We can retrieve available compilers using the ``eth_getCompilers`` RPC method.
 
 .. code:: bash
@@ -262,7 +262,7 @@ Hosted blockchain explorers
 --------------------------------------------------------------------------------
 
 -  `EtherChain <https://www.etherchain.org/>`_
--  `EtherCamp <https://live.ether.camp/>`_
+-  `EtherCamp <https://live.expanse.camp/>`_
 -  `EtherScan <http://etherscan.io/>`_ (and for `Testnet <http://testnet.etherscan.io>`_)
 
 Other Resources

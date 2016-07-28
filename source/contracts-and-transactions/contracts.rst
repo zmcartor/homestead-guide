@@ -338,7 +338,7 @@ in one of two ways.
     21
 
 When called using ``sendTransaction`` the function call is executed via sending
-a transaction.  This will cost ether to send and the call will be recorded
+a transaction.  This will cost expanse to send and the call will be recorded
 forever on the blockchain.  The return value of calls made in this manner is
 the hash of the stransaction.
 
@@ -346,7 +346,7 @@ When called using ``call`` the function is executed locally in the EVM and the
 return value of the function is returned with the function.  Calls made in this
 manner are not recorded on the blockchain and thus, cannot modify the internal
 state of the contract.  This manner of call is referred to as a **constant**
-function call.  Calls made in this manner do not cost any ether.
+function call.  Calls made in this manner do not cost any expanse.
 
 
 You should use ``call`` if you are interested only in the return value and use
@@ -461,15 +461,15 @@ chain. See :ref:`test-networks`.
     personal.newAccount();
     // name your primary account, will often use it
     primary = exp.accounts[0];
-    // check your balance (denominated in ether)
-    balance = web3.fromWei(exp.getBalance(primary), "ether");
+    // check your balance (denominated in expanse)
+    balance = web3.fromWei(exp.getBalance(primary), "expanse");
 
 .. code:: js
 
     // assume an existing unlocked primary account
     primary = exp.accounts[0];
 
-    // mine 10 blocks to generate ether
+    // mine 10 blocks to generate expanse
 
     // starting miner
     miner.start(4);
@@ -477,7 +477,7 @@ chain. See :ref:`test-networks`.
     admin.sleepBlocks(10);
     // then stop mining (just not to burn heat in vain)
     miner.stop();
-    balance = web3.fromWei(exp.getBalance(primary), "ether");
+    balance = web3.fromWei(exp.getBalance(primary), "expanse");
 
 After you create transactions, you can force process them with the following lines:
 

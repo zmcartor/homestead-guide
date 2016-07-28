@@ -38,7 +38,7 @@ Expanse developers are planning a switch from a Proof-of-Work consensus model to
 
 What's the difference between account and "wallet contract"?
 ----------------------------------------------------------------------------------------------
-An account is your public / private key pair file that serves as your identity on the blockchain. See "account" in the glossary. A "wallet contract" is an Expanse contract that secures your ether and identity with features such as multisignature signing and programmed deposit/withdrawal limits. A wallet contract can be easily created in the Mist Expanse Wallet GUI client.
+An account is your public / private key pair file that serves as your identity on the blockchain. See "account" in the glossary. A "wallet contract" is an Expanse contract that secures your expanse and identity with features such as multisignature signing and programmed deposit/withdrawal limits. A wallet contract can be easily created in the Mist Expanse Wallet GUI client.
 
 Are keyfiles only accessible from the computer you downloaded the client on?
 ----------------------------------------------------------------------------------------------

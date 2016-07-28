@@ -66,13 +66,13 @@ Glossary
    hexadecimal
       Common representation format for byte sequencing. Its advantage is that values are represented in a compact format using two characters per byte (the characters ``[0-9][a-f]``).
 
-   ether
-      Ether is the name of the currency used within Expanse. It is used to pay for computations within the EVM. Ambiguously, ether is also the name of a unit in the system;
+   expanse
+      Ether is the name of the currency used within Expanse. It is used to pay for computations within the EVM. Ambiguously, expanse is also the name of a unit in the system;
 
 .. _EOA:
 
    EOA
-      Externally Owned Account. An account controlled by a private key. If you own the private key associated with the EOA you have the ability to send ether and messages from it. Contract accounts also have an address, see :ref:`Accounts`. EOAs and contract accounts may be combined into a single account type during Serenity.
+      Externally Owned Account. An account controlled by a private key. If you own the private key associated with the EOA you have the ability to send expanse and messages from it. Contract accounts also have an address, see :ref:`Accounts`. EOAs and contract accounts may be combined into a single account type during Serenity.
 
 .. _gas:
 
@@ -83,12 +83,12 @@ Glossary
 .. _gas limit:
 
    gas limit
-      Gas limit can apply to both individual transactions, see `transaction gas limit <transaction-gas-limit_>`_ and to blocks, `block-gas-limit`. For individual transactions, the gas limit represents the maximum amount of gas you indicate you are willing to pay for a contract execution transaction. It is meant to protect users from getting their ether depleted when trying to execute buggy or malicious contracts. The block gas limit represents the maximum cumulative gas used for all the transactions in a block. With the launch of Homestead, the block gas limit floor will increase from 3,141,592 gas to 4,712,388 gas (~50% increase).
+      Gas limit can apply to both individual transactions, see `transaction gas limit <transaction-gas-limit_>`_ and to blocks, `block-gas-limit`. For individual transactions, the gas limit represents the maximum amount of gas you indicate you are willing to pay for a contract execution transaction. It is meant to protect users from getting their expanse depleted when trying to execute buggy or malicious contracts. The block gas limit represents the maximum cumulative gas used for all the transactions in a block. With the launch of Homestead, the block gas limit floor will increase from 3,141,592 gas to 4,712,388 gas (~50% increase).
 
 .. _transaction-gas-limit:
 
    gas price
-      Price in ether of one unit of gas specified in a transaction. With the launch of Homestead, the default gas price reduces from 50 shannon to 20 shannon (~60% reduction).
+      Price in expanse of one unit of gas specified in a transaction. With the launch of Homestead, the default gas price reduces from 50 shannon to 20 shannon (~60% reduction).
 
    transaction
       The signed data package that stores a message to be sent from an externally owned account. Simply put, a transaction describes a transfer of information from an EOA to another EOA or a contract account.
@@ -109,7 +109,7 @@ Glossary
       Refers to an approach to public-key cryptography based on the algebraic structure of elliptic curves over finite fields. See `elliptic curve cryptography <https://en.wikipedia.org/wiki/Elliptic_curve_cryptography>`_.
 
    wallet
-      A wallet, in the most generic sense, refers to anything that can store ether or any other crypto token. In the crypto space in general, the term wallet is used to mean anything from a single private/public key pair (like a single paper wallet) all the way to applications that manage multiple key pairs, like the Mist Expanse wallet.
+      A wallet, in the most generic sense, refers to anything that can store expanse or any other crypto token. In the crypto space in general, the term wallet is used to mean anything from a single private/public key pair (like a single paper wallet) all the way to applications that manage multiple key pairs, like the Mist Expanse wallet.
 
    contract
       A persistent piece of code on the Expanse blockchain that encompasses a set of data and executable functions. These functions execute when Expanse transactions are made to them with certain input parameters. Based on the input parameters, the functions will execute and interact with data within and outside of the contract.
@@ -118,19 +118,19 @@ Glossary
       See self-destruct. ``selfdestruct`` acts as an alias to the deprecated ``suicide`` terminology in accordance with `EIP 6 \- Renaming SUICIDE OPCODE <https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-6.md>`_.
 
    selfdestruct
-      A global variable in the Solidity language that allows you to `\"destroy the current contract, sending its funds to the given address\" <https://solidity.readthedocs.org/en/latest/miscellaneous.html#global-variables>`_. ``selfdestruct`` acts as an alias to the deprecated ``suicide`` terminology in accordance with `EIP 6 \- Renaming SUICIDE OPCODE <https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-6.md>`_. It frees up space on the blockchain and prevents future execution of the contract. The contract's address will still persist, but ether sent to it will be lost forever. The possibility to kill a contract has to be implemented by the contract creator him/herself using the Solidity ``selfdestruct`` function.
+      A global variable in the Solidity language that allows you to `\"destroy the current contract, sending its funds to the given address\" <https://solidity.readthedocs.org/en/latest/miscellaneous.html#global-variables>`_. ``selfdestruct`` acts as an alias to the deprecated ``suicide`` terminology in accordance with `EIP 6 \- Renaming SUICIDE OPCODE <https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-6.md>`_. It frees up space on the blockchain and prevents future execution of the contract. The contract's address will still persist, but expanse sent to it will be lost forever. The possibility to kill a contract has to be implemented by the contract creator him/herself using the Solidity ``selfdestruct`` function.
 
    transaction fee
-      Also known as gas cost, it is the amount of ether that the miners will charge for the execution of your transaction.
+      Also known as gas cost, it is the amount of expanse that the miners will charge for the execution of your transaction.
 
    mining
-      The process of verifying transactions and contract execution on the Expanse blockchain in exchange for a reward in ether with the mining of every block.
+      The process of verifying transactions and contract execution on the Expanse blockchain in exchange for a reward in expanse with the mining of every block.
 
    mining pool
       The pooling of resources by miners, who share their processing power over a network, to split the reward equally, according to the amount of work they contributed to solving a block.
 
    mining reward
-      The amount of cryptographic tokens (in this case ether) that is given to the miner who mined a new block.
+      The amount of cryptographic tokens (in this case expanse) that is given to the miner who mined a new block.
 
    state
       Refers to a snapshot of all balances and data at a particular point in time on the blockchain, normally referring to the condition at a particular block.
@@ -212,7 +212,7 @@ Glossary
       The fourth stage of Expanse's release. This is when things are going to get fancy: the network is going to change its mining process from Proof-of-Work to Proof-of-Stake.
 
    frontier
-      Expanse was planned to be released in four major steps with Frontier being the name for the first phase. The Frontier release went live on July 30th, 2015. The command line Frontier phase was mainly meant to get mining operations going with the full reward of 5 ether per block and also to promote the emergence of ether exchanges. Frontier surpassed earlier modest expectations and has nurtured tremendous growth of the ecosystem.
+      Expanse was planned to be released in four major steps with Frontier being the name for the first phase. The Frontier release went live on July 30th, 2015. The command line Frontier phase was mainly meant to get mining operations going with the full reward of 5 expanse per block and also to promote the emergence of expanse exchanges. Frontier surpassed earlier modest expectations and has nurtured tremendous growth of the ecosystem.
 
    olympic
       The Frontier pre-release, which launched on May 9th 2015. It was meant for developers to help test the limits of the Expanse blockchain.

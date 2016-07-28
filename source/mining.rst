@@ -37,12 +37,12 @@ Mining rewards
 The successful PoW miner of the winning block receives:
 
 * a *static block reward* for the 'winning' block, consisting of exactly 5.0 Ether
-* cost of the gas expended within the block – an amount of ether that depends on the current gas price
+* cost of the gas expended within the block – an amount of expanse that depends on the current gas price
 * an extra reward for including uncles as part of the block, in the form of an extra 1/32 per uncle included
 
 All the gas consumed by the execution of all the transactions in the block submitted by the winning miner is paid by the senders of each transaction. The gas cost incurred is credited to the miner's account as part of the consensus protocol. Over time, it is expected these will dwarf the static block reward.
 
-*Uncles* are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralise the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 ether). A maximum of 2 uncles are allowed per block.
+*Uncles* are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralise the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 expanse). A maximum of 2 uncles are allowed per block.
 
     * `Uncles ELI5 on reddit <https://www.reddit.com/r/expanse/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/>`_
     * `Forum thread explaining uncles <https://forum.expanse.org/discussion/2262/eli5-whats-an-uncle-in-expanse-mining>`_
@@ -84,9 +84,9 @@ In order to mine you need a fully synced Expanse client that is enabled for mini
 CPU mining
 ================================================================================
 
-You can use your computer's central processing unit (CPU) to mine ether. This is no longer profitable, since GPU miners are roughly two orders of magnitude more efficient. However, you can use CPU mining to mine on the Morden testnet or a private chain for the purposes of creating the ether you need to test contracts and transactions without spending your real ether on the live network.
+You can use your computer's central processing unit (CPU) to mine expanse. This is no longer profitable, since GPU miners are roughly two orders of magnitude more efficient. However, you can use CPU mining to mine on the Morden testnet or a private chain for the purposes of creating the expanse you need to test contracts and transactions without spending your real expanse on the live network.
 
-.. note:: The testnet ether has no value other than using it for testing purposes (see :ref:`test-networks`).
+.. note:: The testnet expanse has no value other than using it for testing purposes (see :ref:`test-networks`).
 
 Using gexp
 -------------------------------
@@ -105,9 +105,9 @@ You can also start and stop CPU mining at runtime using the `console <https://gi
     > miner.stop()
     true
 
-Note that mining for real ether only makes sense if you are in sync with the network (since you mine on top of the consensus block). Therefore the eth blockchain downloader/synchroniser will delay mining until syncing is complete, and after that mining automatically starts unless you cancel your intention with ``miner.stop()``.
+Note that mining for real expanse only makes sense if you are in sync with the network (since you mine on top of the consensus block). Therefore the eth blockchain downloader/synchroniser will delay mining until syncing is complete, and after that mining automatically starts unless you cancel your intention with ``miner.stop()``.
 
-In order to earn ether you must have your **etherbase** (or **coinbase**) address set. This etherbase defaults to your primary account. If you don't have an etherbase address, then ``gexp --mine`` will not start up.
+In order to earn expanse you must have your **etherbase** (or **coinbase**) address set. This etherbase defaults to your primary account. If you don't have an etherbase address, then ``gexp --mine`` will not start up.
 
 You can set your etherbase on the command line:
 
@@ -149,7 +149,7 @@ You can check your hashrate with `miner.hashrate <https://github.com/expanse-org
     > miner.hashrate
     712000
 
-After you successfully mined some blocks, you can check the ether balance of your etherbase account. Now assuming your etherbase is a local account:
+After you successfully mined some blocks, you can check the expanse balance of your etherbase account. Now assuming your etherbase is a local account:
 
 .. code-block:: javascript
 
@@ -293,7 +293,7 @@ In order to mine on a single GPU all that needs to be done is to run eth with th
  eth -v 1 -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name "OPTIONALNAMEHERE" -x 50 -m on -G
 
 - ``-v 1`` Set verbosity to 1. Let's not get spammed by messages.
-- ``-a YOURWALLETADDRESS`` Set the coinbase, where the mining rewards will go to. The above address is just an example. This argument is really important, make sure to not make a mistake in your wallet address or you will receive no ether payout.
+- ``-a YOURWALLETADDRESS`` Set the coinbase, where the mining rewards will go to. The above address is just an example. This argument is really important, make sure to not make a mistake in your wallet address or you will receive no expanse payout.
 - ``--client-name "OPTIONAL"`` Set an optional client name to identify you on the network
 - ``-x 50`` Request a high amount of peers. Helps with finding peers in the beginning.
 - ``-m on`` Actually launch with mining on.
@@ -365,7 +365,7 @@ As soon as you enter this, the Expanse blockchain will start downloading. Someti
 * Now make sure `gexp` has finished syncing the blockchain. If it is not syncing any longer, you can start the mining process by typing ``ethminer -G`` at the command prompt
 
 At this point some problems may appear. If you get an error, you can abort the miner by pressing ``Ctrl+C``. If the error says
-"Insufficient Memory", your GPU does not have enough memory to mine ether.
+"Insufficient Memory", your GPU does not have enough memory to mine expanse.
 
 Pool mining
 ================================================================================
@@ -421,7 +421,7 @@ Mining resources
 * `Unmaintained list of pools on Forum <https://forum.expanse.org/discussion/3659/list-of-pools>`_
 * `Mining profitability calculator on cryptocompare <https://www.cryptocompare.com/mining/calculator/eth>`_
 * `Mining profitability calculator on cryptowizzard <http://cryptowizzard.github.io/eth-mining-calculator/>`_
-* `Mining profitability calculator on etherscan <http://etherscan.io/ether-mining-calculator/>`_
+* `Mining profitability calculator on etherscan <http://etherscan.io/expanse-mining-calculator/>`_
 * `Mining profitability calculator on In The Ether <http://expanse-mining-calculator.com/>`_
 * `Mining difficulty chart on etherscan <http://etherscan.io/charts/difficulty>`_
 

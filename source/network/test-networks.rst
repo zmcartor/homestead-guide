@@ -79,10 +79,10 @@ Morden's genesis.json
 			}
 	}
 
-Getting Morden testnet ether
+Getting Morden testnet expanse
 --------------------------------------------------------------------------------
 
-Two ways to obtain Morden testnet ether:
+Two ways to obtain Morden testnet expanse:
 
 - Mine using your CPU/GPU, (see :ref:`mining`).
 - Use the `Expanse wei faucet <https://zerogox.com/expanse/wei_faucet>`__.
@@ -207,7 +207,7 @@ gexp (Go client)
 
 You either pre-generate or mine your own Ether on a private
 testnet. It is a much more cost effective way of trying out
-Expanse and you can avoid having to mine or find Morden test ether.
+Expanse and you can avoid having to mine or find Morden test expanse.
 
 The things that are required to specify in a private chain are:
  - Custom Genesis File
@@ -301,7 +301,7 @@ After you have created your custom genesis block JSON file and created a directo
 
 You will need to start your gexp instance with your custom chain command every time you want to access your custom chain. If you just type "gexp" in your console, it will not remember all of the flags you have set.
 
-Pre-allocating ether to your account
+Pre-allocating expanse to your account
 --------------------------------------------------------------------------------
 
 A difficulty of "0x400" allows you to mine Ether very quickly on your private testnet chain. If you create your chain and start mining, you should have hundreds of Ether in a matter of minutes which is way more than enough to test transactions on your network. If you would still like to pre-allocate Ether to your account, you will need to:
@@ -353,7 +353,7 @@ Type the following command:
 
 .. code-block:: Console
 
-  > balance = web3.fromWei(exp.getBalance(primary), "ether");
+  > balance = web3.fromWei(exp.getBalance(primary), "expanse");
 
 This should return ``7.5`` indicating you have that much Ether in your account. The reason we had to put such a large number in the alloc section of your genesis file is because the "balance" field takes a number in wei which is the smallest denomination of the Expanse currency Ether (see _`Ether`).
 

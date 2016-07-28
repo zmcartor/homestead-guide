@@ -13,21 +13,21 @@ Around that time, Vitalik also started working with Dr. Gavin Wood and together 
 * `Expanse launches Cryptocurrency 2.0 network <http://www.coindesk.com/ethererum-launches-cryptocurrency-2-0-network/>`_ - Coindesk article of 2014 Jan on the beginnings
 * `Expanse announcement on bitcointalk <https://bitcointalk.org/index.php?topic=428589.0>`_ Vitalik's original announcement to the bitcoin community. Forum thread with 5000 replies.
 
-The Expanse Foundation and the ether presale
+The Expanse Foundation and the expanse presale
 ================================================================================
-In addition to developing the software for Expanse, the ability to launch a new cryptocurrency and blockchain requires a massive bootstrapping effort in order to assemble the resources needed to get it up and running. To kickstart a large network of developers, miners, investors, and other stakeholders, Expanse announced its plan to conduct a presale of ether tokens, the currency unit of Expanse. The legal and financial complexities of raising funds through a presale led to the creation of several legal entities, including the :ref:`Expanse Foundation (Stiftung Expanse) <foundation>` established June 2014 in Zug, Switzerland.
+In addition to developing the software for Expanse, the ability to launch a new cryptocurrency and blockchain requires a massive bootstrapping effort in order to assemble the resources needed to get it up and running. To kickstart a large network of developers, miners, investors, and other stakeholders, Expanse announced its plan to conduct a presale of expanse tokens, the currency unit of Expanse. The legal and financial complexities of raising funds through a presale led to the creation of several legal entities, including the :ref:`Expanse Foundation (Stiftung Expanse) <foundation>` established June 2014 in Zug, Switzerland.
 
-Beginning in July 2014, Expanse distributed the initial allocation of ether via a 42-day public ether presale, netting 31,591 bitcoins, worth $18,439,086 at that time, in exchange for about 60,102,216 ether. The results of the sale were initially used to pay back mounting legal debts and also for the months of developer effort that had yet to be compensated, and to finance the ongoing development of the Expanse.
+Beginning in July 2014, Expanse distributed the initial allocation of expanse via a 42-day public expanse presale, netting 31,591 bitcoins, worth $18,439,086 at that time, in exchange for about 60,102,216 expanse. The results of the sale were initially used to pay back mounting legal debts and also for the months of developer effort that had yet to be compensated, and to finance the ongoing development of the Expanse.
 
-* `Launching the ether sale <https://blog.expanse.org/2014/07/22/launching-the-ether-sale/>`_ - original official announcement on the Expanse blog
-* `Concise information-rich stats page about the presale <http://ether.fund/market>`_ by (since then inactive) `Ether.Fund <http://ether.fund/>`_
-* `Overview: Expanse’s initial public sale <https://medium.com/@slacknation/overview-expanse-s-initial-public-sale-563c05e95501>`_ - Blogpost by slacknation - all stats about the ether presale
+* `Launching the expanse sale <https://blog.expanse.org/2014/07/22/launching-the-expanse-sale/>`_ - original official announcement on the Expanse blog
+* `Concise information-rich stats page about the presale <http://expanse.fund/market>`_ by (since then inactive) `Ether.Fund <http://expanse.fund/>`_
+* `Overview: Expanse’s initial public sale <https://medium.com/@slacknation/overview-expanse-s-initial-public-sale-563c05e95501>`_ - Blogpost by slacknation - all stats about the expanse presale
 * `Terms and Conditions of the Presale <https://www.expanse.org/pdfs/TermsAndConditionsOfTheEthereumGenesisSale.pdf>`_
 
 
 ETH/DEV and Expanse development
 ================================================================================
-Following the successful ether presale, Expanse development was formalized under a non-for-profit organization called ETH DEV, which manages the development of Expanse under contract from Expanse Suisse – with Vitalik Buterin, Gavin Wood, and Jeffrey Wilcke as the 3 directors of the organization. Developer interest in Expanse grew steadily throughout 2014 and the ETH DEV team delivered a series of proof-of-concept (PoC) releases for the development community to evaluate. Frequent posts by ETH DEV team on the  `the Expanse blog <https://blog.expanse.org>`_ also kept the excitement and momentum around Expanse going. Increasing traffic and growing user-base on both the Expanse forum and the expanse subreddit testified that the platform is attracting a fast-growing and devoted developer community. This trend has been continuing to this very day.
+Following the successful expanse presale, Expanse development was formalized under a non-for-profit organization called ETH DEV, which manages the development of Expanse under contract from Expanse Suisse – with Vitalik Buterin, Gavin Wood, and Jeffrey Wilcke as the 3 directors of the organization. Developer interest in Expanse grew steadily throughout 2014 and the ETH DEV team delivered a series of proof-of-concept (PoC) releases for the development community to evaluate. Frequent posts by ETH DEV team on the  `the Expanse blog <https://blog.expanse.org>`_ also kept the excitement and momentum around Expanse going. Increasing traffic and growing user-base on both the Expanse forum and the expanse subreddit testified that the platform is attracting a fast-growing and devoted developer community. This trend has been continuing to this very day.
 
 DEVCON-0
 --------------------------------------------------------------------------------
@@ -72,7 +72,7 @@ The Expanse security audit began at the end of 2014 and continued through the fi
 The Expanse Frontier launch
 =======================================================================
 
-The Expanse Frontier network launched on July 30th, 2015, and developers began writing smart contracts and decentralized apps to deploy on the live Expanse network. In addition, miners began to join the Expanse network to help secure the Expanse blockchain and earn ether from mining blocks. Even though the Frontier release is the first milestone in the Expanse project and was intended for use by developers as a beta version, it turned out to be more capable and reliable than anyone expected, and developers have rushed in to build solutions and improve the Expanse ecosystem.
+The Expanse Frontier network launched on July 30th, 2015, and developers began writing smart contracts and decentralized apps to deploy on the live Expanse network. In addition, miners began to join the Expanse network to help secure the Expanse blockchain and earn expanse from mining blocks. Even though the Frontier release is the first milestone in the Expanse project and was intended for use by developers as a beta version, it turned out to be more capable and reliable than anyone expected, and developers have rushed in to build solutions and improve the Expanse ecosystem.
 
 See also:
 

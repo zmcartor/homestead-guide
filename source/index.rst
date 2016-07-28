@@ -28,7 +28,7 @@ Contents
    introduction/index.rst
    expanse-clients/index.rst
    account-management.rst
-   ether.rst
+   expanse.rst
    network/index.rst
    mining.rst
    contracts-and-transactions/index.rst

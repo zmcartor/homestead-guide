@@ -50,7 +50,7 @@ execute transactions.
 specify a different value.
 
 “Deployment cost”: depending on the value of the gas price that you want
-to use and the selected scenario. this will display the amount ether
+to use and the selected scenario. this will display the amount expanse
 that the deployment need.
 
 “Deployed Contract”: before any deployment this part is empty. This will

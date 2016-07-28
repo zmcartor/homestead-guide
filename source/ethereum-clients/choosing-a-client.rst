@@ -41,7 +41,7 @@ releases.  The table below contains links to the latest release.
 +------------------------+------------+------------------------+-------------------------------------+
 | :ref:`ethereumjs-lib`  | Javascript | `Expanse Foundation`_ | `ethereumjs-lib-v3.0.0`_            |
 +------------------------+------------+------------------------+-------------------------------------+
-| :ref:`Expanse\(J\)`   | Java       | `\<ether.camp\>`_      | `ethereumJ-v1.3.0-RC5-DaoHardFork`_ |
+| :ref:`Expanse\(J\)`   | Java       | `\<expanse.camp\>`_      | `ethereumJ-v1.3.0-RC5-DaoHardFork`_ |
 +------------------------+------------+------------------------+-------------------------------------+
 | :ref:`ruby-expanse`   | Ruby       | `Jan Xie`_             | `ruby-expanse-v0.9.3`_             |
 +------------------------+------------+------------------------+-------------------------------------+
@@ -49,7 +49,7 @@ releases.  The table below contains links to the latest release.
 +------------------------+------------+------------------------+-------------------------------------+
 
 .. _Ethereum Foundation: https://expanse.org/foundation
-.. _\<ether.camp\>: http://www.ether.camp
+.. _\<expanse.camp\>: http://www.expanse.camp
 .. _BlockApps: http://www.blockapps.net/
 .. _Ethcore: https://ethcore.io/
 .. _Jan Xie: https://github.com/janx/

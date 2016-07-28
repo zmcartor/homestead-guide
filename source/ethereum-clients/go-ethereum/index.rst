@@ -6,7 +6,7 @@ go-expanse
 
 The go-expanse client is commonly referred to as **gexp**, which is the the command line interface for running a full expanse node implemented in Go. By installing and running gexp, you can take part in the expanse frontier live network and:
 
-* mine real ether
+* mine real expanse
 * transfer funds between addresses
 * create contracts and send transactions
 * explore block history

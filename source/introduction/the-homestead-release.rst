@@ -43,7 +43,7 @@ Homestead comes with a few backward-incompatible protocol changes, and therefore
 The changes have the following benefits:
 
 * EIP-2/1 eliminates the excess incentive to create contracts via transactions, where the cost is 21000, rather than contracts, where the cost is 32000.
-* EIP-2/1 also fixes the protocol "bug" that with the help of suicide refunds, it is currently possible to make a simple ether value transfer using only 11664 gas.
+* EIP-2/1 also fixes the protocol "bug" that with the help of suicide refunds, it is currently possible to make a simple expanse value transfer using only 11664 gas.
 * EIP-2/2 fixes a transaction malleability concern (not a security flaw, but a UI incovenience).
 * EIP-2/3 creates a more intuitive "success or fail" distinction in the result of a contract creation process, rather than the current "success, fail, or empty contract" trichotomy
 * EIP-2/4 eliminates the excess incentive to set the timestamp difference to exactly 1 in order to create a block that has slightly higher difficulty and that will thus be guaranteed to beat out any possible forks. This guarantees to keep block time in the 10-20 range and according to simulations restores the target 15 second blocktime (instead of the current effective 17s).

@@ -84,8 +84,8 @@ Tutorials
 * `Dapps for beginners tutorial series <https://dappsforbeginners.wordpress.com/>`_
 * `Eris' Solidity Tutorial Series <https://docs.erisindustries.com/tutorials/solidity/>`_
 * `Tutorials on advanced Solidity <https://github.com/androlo/solidity-workshop>`_
-* http://ethereumj.io/blog/2015/09/09/friendly-ether-bot/
-* https://github.com/ConsenSys/ether-pudding
+* http://ethereumj.io/blog/2015/09/09/friendly-expanse-bot/
+* https://github.com/ConsenSys/expanse-pudding
 
 
 Mix-IDE
