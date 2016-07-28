@@ -11,7 +11,7 @@ available at compile-time.
 
 This specification does not address contracts whose interface is dynamic
 or otherwise known only at run-time. Should these cases become important
-they can be adequately handled as facilities built within the Ethereum
+they can be adequately handled as facilities built within the Expanse
 ecosystem.
 
 Function Selector
@@ -317,7 +317,7 @@ All together, the encoding is (spaces added for clarity):
 Events
 ======
 
-Events are an abstraction of the Ethereum logging/event-watching
+Events are an abstraction of the Expanse logging/event-watching
 protocol. Log entries provide the contract's address, a series of up to
 four topics and some arbitrary length binary data. Events leverage the
 existing function ABI in order to interpret this (together with an
@@ -332,7 +332,7 @@ Those which as not indexed form the byte array of the event.
 In effect, a log entry using this ABI is described as:
 
 -  ``address``: the address of the contract (intrinsically provided by
-   Ethereum);
+   Expanse);
 -  ``topics[0]``:
    ``keccak(EVENT_NAME+"("+EVENT_ARGS.map(canonical_type_of).join(",")+")")``
    (``canonical_type_of`` is a function that simply returns the
@@ -414,7 +414,7 @@ Example Javascript Usage
 
 .. code:: js
 
-    var Test = eth.contract(
+    var Test = exp.contract(
     [{
     "type":"event",
     "inputs": [{"name":"a","type":"uint256","indexed":true},{"name":"b","type":"bytes32","indexed":false}],
@@ -433,23 +433,23 @@ Example Javascript Usage
 
     // examples of usage:
     // every log entry ("event") coming from theTest (i.e. Event & Event2):
-    var f0 = eth.filter(theTest);
+    var f0 = exp.filter(theTest);
     // just log entries ("events") of type "Event" coming from theTest:
-    var f1 = eth.filter(theTest.Event);
+    var f1 = exp.filter(theTest.Event);
     // also written as
     var f1 = theTest.Event();
     // just log entries ("events") of type "Event" and "Event2" coming from theTest:
-    var f2 = eth.filter([theTest.Event, theTest.Event2]);
+    var f2 = exp.filter([theTest.Event, theTest.Event2]);
     // just log entries ("events") of type "Event" coming from theTest with indexed parameter 'a' equal to 69:
-    var f3 = eth.filter(theTest.Event, {'a': 69});
+    var f3 = exp.filter(theTest.Event, {'a': 69});
     // also written as
     var f3 = theTest.Event({'a': 69});
     // just log entries ("events") of type "Event" coming from theTest with indexed parameter 'a' equal to 69 or 42:
-    var f4 = eth.filter(theTest.Event, {'a': [69, 42]});
+    var f4 = exp.filter(theTest.Event, {'a': [69, 42]});
     // also written as
     var f4 = theTest.Event({'a': [69, 42]});
 
-    // options may also be supplied as a second parameter with `earliest`, `latest`, `offset` and `max`, as defined for `eth.filter`.
+    // options may also be supplied as a second parameter with `earliest`, `latest`, `offset` and `max`, as defined for `exp.filter`.
     var options = { 'max': 100 };
     var f4 = theTest.Event({'a': [69, 42]}, options);
 
@@ -468,7 +468,7 @@ Implementation:
 .. code:: js
 
     // e.g. f4 would be similar to:
-    web3.eth.filter({'max': 100, 'address': theTest.address, 'topics': [ [69, 42] ]});
+    web3.exp.filter({'max': 100, 'address': theTest.address, 'topics': [ [69, 42] ]});
     // except that the resultant data would need to be converted from the basic log entry format like:
     {
       'address': theTest.address,

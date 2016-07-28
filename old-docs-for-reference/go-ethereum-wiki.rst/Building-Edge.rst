@@ -10,8 +10,8 @@ branch
    ::
 
        go get -u -d github.com/obscuren/serpent-go
-       go get -u -d github.com/ethereum/go-ethereum/ethereum
-       go get -u -d github.com/ethereum/go-ethereum/mist
+       go get -u -d github.com/expanse-org/go-expanse/expanse
+       go get -u -d github.com/expanse-org/go-expanse/mist
 
 -  Init the serpent submodule
 
@@ -25,10 +25,10 @@ branch
 
    ::
 
-       cd $GOPATH/src/github.com/ethereum/go-ethereum
+       cd $GOPATH/src/github.com/expanse-org/go-expanse
        git checkout develop
 
-       cd $GOPATH/src/github.com/ethereum/eth-go
+       cd $GOPATH/src/github.com/expanse-org/eth-go
        git checkout develop
 
        cd $GOPATH/src/github.com/obscuren/mutan
@@ -38,8 +38,8 @@ branch
 
    ::
 
-       cd $GOPATH/src/github.com/ethereum/go-ethereum/ethereum
+       cd $GOPATH/src/github.com/expanse-org/go-expanse/expanse
        go install -v
 
-       cd $GOPATH/src/github.com/ethereum/go-ethereum/mist
+       cd $GOPATH/src/github.com/expanse-org/go-expanse/mist
        go install -v

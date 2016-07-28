@@ -12,7 +12,7 @@ represent what data is stored (eg. "BTC/USD") and the values represent
 the value that the administrator believes the variable currently is in
 the real world (eg. 235). A simple data feed contract can be found `in
 the standardized contract APIs
-repository <https://github.com/ethereum/dapp-bin/tree/master/standardized_contract_apis/fee_charging_datafeed.sol>`__;
+repository <https://github.com/expanse-org/dapp-bin/tree/master/standardized_contract_apis/fee_charging_datafeed.sol>`__;
 it has a ``set`` function which allows its administrator to set the
 value for a particular key, and a ``get`` function which allows anyone
 to get the value for a particular key; that particular contract also
@@ -22,7 +22,7 @@ Regarding fee setting, note that you should not set the fee too high as
 otherwise it's possible at medium cost to create a "caching passthrough
 contract": essentially, the smart contract equivalent of piracy, and
 there's no way to prevent that without compromising the flexibility that
-makes Ethereum Ethereum; a fee of around 1-10 finney should be fair and
+makes Expanse Expanse; a fee of around 1-10 finney should be fair and
 work well if you do wish to charge.
 
 The way that you would implement the server side code is simple. In
@@ -38,7 +38,7 @@ api:
     for key, url in keys:
         try:
             value = json.loads(open(url))["value"]
-            ethereum.send_transaction(ethereum.get_nonce(ethereum.my_address), ethereum.get_gasprice(),
+            expanse.send_transaction(expanse.get_nonce(expanse.my_address), expanse.get_gasprice(),
                                      200000, MY_DATAFEED_CONTRACT, 0, MY_DATAFEED_ABI.encode('set', [key, value])
         except:
             pass
@@ -55,8 +55,8 @@ If you control:
 -  A service that KYCs people and assigns them unique identity tokens
 -  Any other data repository
 
-Then the Ethereum ecosystem will benefit from you publishing a data feed
-contract on the Ethereum blockchain.
+Then the Expanse ecosystem will benefit from you publishing a data feed
+contract on the Expanse blockchain.
 
 A closely related idea is an **HTTP getter passthrough contract**.
 Essentially, the contract would have one method, ``get(string)``, that
@@ -134,7 +134,7 @@ scheme based on
 `max-flow <https://en.wikipedia.org/wiki/Maximum_flow_problem>`__.
 
 A useful project would be to create an implementation of such a system
-on Ethereum, and create a dapp by which anyone can register an identity,
+on Expanse, and create a dapp by which anyone can register an identity,
 and register trust scores for other identities. Then, create a
 decentralized cloud computing service by which anyone can query "provide
 a proof, consisting of a list of trust paths, showing the Advogato trust
@@ -144,14 +144,14 @@ charity to subsidize it); if user A wants to know "what is B's trust
 score", they can make this query, receive the result, verify the proof,
 and then display it.
 
-This system could then be used by many other dapps on Ethereum,
+This system could then be used by many other dapps on Expanse,
 including financial contract using price feeds and arbitration.
 
 Financial Derivatives Market
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Essentially, a polished, working dapp that allows users to make options
-on any Ethereum asset, and derivatives (eg. CFDs) on any Ethereum price
+on any Expanse asset, and derivatives (eg. CFDs) on any Expanse price
 feed. This should support "multisig price feeds": choosing multiple data
 feed contract addresses that support a particular ticker symbol, and
 taking the median of them, so as to remove reliance on any single party.
@@ -170,7 +170,7 @@ RANDAO
 ~~~~~~
 
 Essentially,
-`this <https://forum.ethereum.org/discussion/2031/randao-a-dao-working-as-rng>`__.
+`this <https://forum.expanse.org/discussion/2031/randao-a-dao-working-as-rng>`__.
 Set it up as a decentralized service which any lottery or other
 randomness-based game can use; also, build a "full node software"
 package/plugin which facilitates participating in the RANDAO by
@@ -182,7 +182,7 @@ Interface with national ID
 Create a system, relying on trusting no one other than the original
 issuer, by which users with electronic identities (eg. Estonian digital
 ID, other electronic passports, crypto KYC schemes, etc) can prove to
-the Ethereum blockchain that they have that particular ID. Note that
+the Expanse blockchain that they have that particular ID. Note that
 this can be plugged into the WoT by, eg, creating a contract which
 trusts everyone who has an Estonian digital ID with score 1.
 
@@ -198,13 +198,13 @@ A decentralized paid cloud computing service for brainwallet
 computations, combined with a client-side solution, in order to
 implement my proposal for ultra-secure brainwallets using
 blind-outsourceable ultrahard KDFs:
-https://blog.ethereum.org/2014/10/23/information-theoretic-account-secure-brainwallets/
+https://blog.expanse.org/2014/10/23/information-theoretic-account-secure-brainwallets/
 
 Estonia ID integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Create a system which integrates the Estonian digital ID system into
-Ethereum; essentially, create a registry where someone can link their
+Expanse; essentially, create a registry where someone can link their
 address to a particular Estonian digital ID by signing a transaction
 with their ID. The registry should cryptographically verify that the
 signature is valid and that it matches a particular ID, and should then
@@ -251,7 +251,7 @@ reasonable.
 There are two possible extensions to this idea:
 
 1. Use techniques similar to `anti-pre-revelation
-   games <https://blog.ethereum.org/2015/08/28/on-anti-pre-revelation-games/#comment-2230211912>`__
+   games <https://blog.expanse.org/2015/08/28/on-anti-pre-revelation-games/#comment-2230211912>`__
    (or possibly other techniques) to allow users to destroy other users'
    security deposits (either probabilistically or fully) without the
    victim knowing who did it. This allows the mechanism to be used more

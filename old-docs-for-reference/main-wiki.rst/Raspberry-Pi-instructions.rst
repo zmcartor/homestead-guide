@@ -23,13 +23,13 @@ the password for each user.
 
 Currently the go client (geth) and the cpp client (eth) are
 preinstalled. You can find instruction on how to use them here:
-https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options and
+https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options and
 here:
-https://github.com/ethereum/cpp-ethereum/wiki/Using-Ethereum-CLI-Client.
+https://github.com/expanse-org/cpp-expanse/wiki/Using-Expanse-CLI-Client.
 But executing eth/geth with ``--help`` will give you more up-to-date
 information on how to use them. Also eth-netstats is installed. You can
 find instructions in how to use it here:
-https://github.com/ethereum/wiki/wiki/Network-Status. It is used to
+https://github.com/expanse-org/wiki/wiki/Network-Status. It is used to
 display your client on the centralized network server
 (http://stats.ethdev.com/). In order to give your client a different
 name, choose your favorite command line text editor and change the
@@ -100,10 +100,10 @@ Just get the binaries
 
 Alternativly, you can use the linux system of your choice and and get
 the arm binaries here: \*
-https://build.ethereum.org/builds/ARM%20Go%20develop%20branch/geth-ARM-latest.tar.bz2
+https://build.expanse.org/builds/ARM%20Go%20develop%20branch/geth-ARM-latest.tar.bz2
 (go) \*
 https://github.com/doublethinkco/webthree-umbrella-cross/releases/tag/crosseth-armhf-apt-2015-12-31
-(cpp-ethereum)
+(cpp-expanse)
 
 Build it yourself
 -----------------
@@ -115,17 +115,17 @@ We start with a ArchLinux system with 2 GB swap. Instructions on how to
 get there can be found here:
 http://archlinuxarm.org/forum/viewtopic.php?f=60&t=8366
 
-go-ethereum
+go-expanse
 ~~~~~~~~~~~
 
 `Installation instructions for
-ARM <https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-ARM>`__
+ARM <https://github.com/expanse-org/go-expanse/wiki/Installation-Instructions-for-ARM>`__
 
-cpp-ethereum
+cpp-expanse
 ~~~~~~~~~~~~
 
 First we install all necessary libaries as described here
-https://github.com/ethereum/cpp-ethereum/wiki/Building-on-ArchLinux (but
+https://github.com/expanse-org/cpp-expanse/wiki/Building-on-ArchLinux (but
 without the qt libs):
 
 These are the required packages from the official repositories:
@@ -164,11 +164,11 @@ Building the client
 
 The instructions for building the client from here and on are identical
 with Ubuntu so the reader should refer to the `relevant
-page <https://github.com/ethereum/cpp-ethereum/wiki/Building-on-Ubuntu#choose-your-source>`__.
+page <https://github.com/expanse-org/cpp-expanse/wiki/Building-on-Ubuntu#choose-your-source>`__.
 but use ``cmake .. -DBUNDLE=minimal -DETHASHCL=0 -DEVMJIT=0`` instead.
 
 Resources:
 
 http://archlinuxarm.org/forum/viewtopic.php?f=60&t=8366
 http://archlinuxarm.org/forum/viewtopic.php?f=31&t=3119
-https://github.com/ethereum/cpp-ethereum/wiki/Building-on-ArchLinux
+https://github.com/expanse-org/cpp-expanse/wiki/Building-on-ArchLinux

@@ -1,7 +1,7 @@
 Network Status Monitoring
 =========================
 
-The `Ethereum (centralised) network status
+The `Expanse (centralised) network status
 monitor <https://ethstats.net>`__ (known sometimes as "eth-netstats") is
 a web-based application to monitor the health of the testnet/mainnet
 through a group of nodes.
@@ -26,7 +26,7 @@ Clone the git repo, then install pm2:
 
 Then edit the ``app.json`` file in it to configure for your node:
 
--  alter the value to the right of ``LISTENING_PORT`` to the Ethereum
+-  alter the value to the right of ``LISTENING_PORT`` to the Expanse
    listening port (default: 30303)
 -  alter the value to the right of ``INSTANCE_NAME`` to whatever you
    wish to name your node;
@@ -65,7 +65,7 @@ Auto-installation on a fresh Ubuntu install
 -------------------------------------------
 
 Fetch and run the build shell. This will install everything you need:
-latest Ethereum - CLI from develop branch (you can choose between eth or
+latest Expanse - CLI from develop branch (you can choose between eth or
 geth), node.js, npm & pm2.
 
 .. code:: bash
@@ -104,7 +104,7 @@ Run it using pm2:
     cd ~/bin
     pm2 start processes.json
 
-Ethereum (eth or geth) must be running with rpc enabled.
+Expanse (eth or geth) must be running with rpc enabled.
 
 ::
 
@@ -122,5 +122,5 @@ To update the API client use the following command:
     ~/bin/www/bin/update.sh
 
 It will stop the current netstats client processes, automatically detect
-your Ethereum implementation and version, update it to the latest
+your Expanse implementation and version, update it to the latest
 develop build, update netstats client and reload the processes.

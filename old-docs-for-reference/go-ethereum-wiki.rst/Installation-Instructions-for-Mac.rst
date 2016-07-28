@@ -1,21 +1,21 @@
 Installing with Homebrew
 ------------------------
 
-By far the easiest way to install go-ethereum is to use our Homebrew
+By far the easiest way to install go-expanse is to use our Homebrew
 tap. If you don't have Homebrew, `install it first <http://brew.sh>`__.
 
 Then run the following commands to add the tap and install ``geth``:
 
 .. code:: shell
 
-    brew tap ethereum/ethereum
-    brew install ethereum
+    brew tap expanse/expanse
+    brew install expanse
 
 You can install the develop branch by running ``--devel``:
 
 .. code:: shell
 
-    brew install ethereum --devel
+    brew install expanse --devel
 
 After installing, run ``geth account new`` to create an account on your
 node.
@@ -26,7 +26,7 @@ Make sure to check the different options and commands with
 ``geth --help``
 
 For options and patches, see:
-https://github.com/ethereum/homebrew-ethereum
+https://github.com/expanse-org/homebrew-expanse
 
 Building from source
 --------------------
@@ -38,7 +38,7 @@ Clone the repository to a directory of your choosing:
 
 .. code:: shell
 
-    git clone https://github.com/ethereum/go-ethereum
+    git clone https://github.com/expanse-org/go-expanse
 
 Building ``geth`` requires some external libraries to be installed:
 
@@ -53,7 +53,7 @@ Finally, build the ``geth`` program using the following command.
 
 .. code:: shell
 
-    cd go-ethereum
+    cd go-expanse
     make geth
 
 You can now run ``build/bin/geth`` to start your node.

@@ -5,7 +5,7 @@ to build for either a different CPU architecture, or an entirely
 different operating system; but maintaining a development environment
 for each and switching between the them quickly becomes unwieldy.
 
-Here we present a very simple way to cross compile Ethereum to various
+Here we present a very simple way to cross compile Expanse to various
 operating systems and architectures using a minimal set of prerequisites
 and a completely containerized approach, guaranteeing that your
 development environment remains clean even after the complex
@@ -27,7 +27,7 @@ optimized code.
 Cross compilation environment
 -----------------------------
 
-Although the ``go-ethereum`` project is written in Go, it does include a
+Although the ``go-expanse`` project is written in Go, it does include a
 bit of C code shared between all implementations to ensure that all
 perform equally well, including a dependency to the GNU Multiple
 Precision Arithmetic Library. Because of these, Go cannot by itself
@@ -70,10 +70,10 @@ succeeded or not.
     -rwxr-xr-x  1 root     root      2551808 Sep 14 16:45 xgo-windows-386.exe
     -rwxr-xr-x  1 root     root      3130368 Sep 14 16:45 xgo-windows-amd64.exe
 
-Building Ethereum
+Building Expanse
 -----------------
 
-Cross compiling Ethereum is analogous to the above example, but an
+Cross compiling Expanse is analogous to the above example, but an
 additional flags is required to satisfy the dependencies:
 
 -  ``--deps`` is used to inject arbitrary C dependency packages and
@@ -85,7 +85,7 @@ would be:
 ::
 
     $ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
-          github.com/ethereum/go-ethereum/cmd/geth
+          github.com/expanse-org/go-expanse/cmd/geth
     ...
 
     $ ls -al
@@ -111,7 +111,7 @@ you'll probably want to build a different branch from possibly an
 entirely different remote repository. These can be controlled via the
 ``--remote`` and ``--branch`` flags.
 
-To build the ``develop`` branch of the official ``go-ethereum``
+To build the ``develop`` branch of the official ``go-expanse``
 repository instead of the default ``master`` branch, you just need to
 specify it as an additional command line flag (``--branch``):
 
@@ -119,7 +119,7 @@ specify it as an additional command line flag (``--branch``):
 
     $ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
           --branch=develop                                          \
-          github.com/ethereum/go-ethereum/cmd/geth
+          github.com/expanse-org/go-expanse/cmd/geth
 
 Additionally, during development you will most probably want to not only
 build a custom branch, but also one originating from your own fork of
@@ -129,9 +129,9 @@ the repository instead of the upstream one. This can be done via the
 ::
 
     $ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
-          --remote=https://github.com/karalabe/go-ethereum          \
+          --remote=https://github.com/karalabe/go-expanse          \
           --branch=rpi-staging                                      \
-          github.com/ethereum/go-ethereum/cmd/geth
+          github.com/expanse-org/go-expanse/cmd/geth
 
 By default ``xgo`` builds binaries for all supported platforms and
 architectures, with Android binaries defaulting to the highest released
@@ -142,7 +142,7 @@ different Android platform, use the ``--targets`` CLI parameter.
 
     $ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
           --targets=android-16/arm,windows/*                        \
-          github.com/ethereum/go-ethereum/cmd/geth
+          github.com/expanse-org/go-expanse/cmd/geth
 
 Building locally
 ~~~~~~~~~~~~~~~~
@@ -164,7 +164,7 @@ Using the Makefile
 Having understood the gist of ``xgo`` based cross compilation, you do
 not need to actually memorize and maintain these commands, as they have
 been incorporated into the official
-`Makefile <https://github.com/ethereum/go-ethereum/blob/master/Makefile>`__
+`Makefile <https://github.com/expanse-org/go-expanse/blob/master/Makefile>`__
 and can be invoked with a trivial ``make`` request:
 
 -  ``make geth-cross``: Cross compiles to every supported OS and

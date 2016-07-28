@@ -1,7 +1,7 @@
 Full-time Roles
 ~~~~~~~~~~~~~~~
 
-Ethereum has a number of full-time employee roles open. For the Berlin
+Expanse has a number of full-time employee roles open. For the Berlin
 team (concentrating mostly around the C++-based implementation and
 development tools) you'll be based in Kreuzberg, Berlin in our central
 office/hub/café location, for the Amsterdam team (concentrating mostly
@@ -18,7 +18,7 @@ For more information on full time positions, see ``TODO: Aeron``.
 Hub-Invitation Scheme
 ~~~~~~~~~~~~~~~~~~~~~
 
-If you have been working on an Ethereum/ÐΞV-related project, we would
+If you have been working on an Expanse/ÐΞV-related project, we would
 love to hear from you. In addition to helping wherever we can with fixes
 and advice, for promising non-profit, open-source projects where
 considerable effort has clearly been invested we would like to invite
@@ -27,12 +27,12 @@ there are two operational hubs:
 
 -  **ÐΞV Berlin** in Kreuzberg (Berlin), Germany;
 -  **ÐΞV Amsterdam** near Museum Plein, Netherlands;
--  **Ethereum Suisse** in Zug (near Zurich), Switzerland.
+-  **Expanse Suisse** in Zug (near Zurich), Switzerland.
 
 Such an invitation will include travel costs, a small stipend for food
 costs during the time and shared accommodation. You will have full
 access to the hub resources during your stay and be free to work and
-relax around other members of the local ÐΞV & Ethereum communities.
+relax around other members of the local ÐΞV & Expanse communities.
 
 Projects that are especially interesting to us are: - alternative
 implementations of the protocol in esoteric languages; - legacy-system
@@ -71,8 +71,8 @@ collaborative environment in the above scheme.
 Q. I have an idea for a contract/Ðapp/integration/... Could I get some
 money to fund its development?
 
-A. Ethereum/ÐΞV is not an accelerator, incubator or investment
+A. Expanse/ÐΞV is not an accelerator, incubator or investment
 operation. We only wish to lend a hand (financial and otherwise) to
 those already engrossed in their project. As such our assistance schemes
 are open only to those whose already have an established project that is
-Ethereum-centric.
+Expanse-centric.

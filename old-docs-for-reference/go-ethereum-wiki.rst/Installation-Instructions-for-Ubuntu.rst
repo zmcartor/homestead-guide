@@ -1,17 +1,17 @@
 Installing from PPA
 -------------------
 
-For the latest development snapshot, both ``ppa:ethereum/ethereum`` and
-``ppa:ethereum/ethereum-dev`` are needed. If you want the stable version
+For the latest development snapshot, both ``ppa:expanse/expanse`` and
+``ppa:expanse/expanse-dev`` are needed. If you want the stable version
 from the last PoC release, add only the first one.
 
 .. code:: shell
 
     sudo apt-get install software-properties-common
-    sudo add-apt-repository -y ppa:ethereum/ethereum
-    sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+    sudo add-apt-repository -y ppa:expanse/expanse
+    sudo add-apt-repository -y ppa:expanse/expanse-dev
     sudo apt-get update
-    sudo apt-get install ethereum
+    sudo apt-get install expanse
 
 After installing, run ``geth account new`` to create an account on your
 node.
@@ -35,12 +35,12 @@ Clone the repository to a directory of your choosing:
 
 .. code:: shell
 
-    git clone https://github.com/ethereum/go-ethereum
+    git clone https://github.com/expanse-org/go-expanse
 
 Install latest distribution of Go (v1.4) if you don't have it already:
 
 `See
-instructions <https://github.com/ethereum/go-ethereum/wiki/Installing-Go#ubuntu-1404>`__
+instructions <https://github.com/expanse-org/go-expanse/wiki/Installing-Go#ubuntu-1404>`__
 
 Building ``geth`` requires some external libraries to be installed:
 
@@ -52,7 +52,7 @@ Finally, build the ``geth`` program using the following command.
 
 .. code:: shell
 
-    cd go-ethereum
+    cd go-expanse
     make geth
 
 You can now run ``build/bin/geth`` to start your node.

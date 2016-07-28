@@ -12,7 +12,7 @@ Linux has a horror-show of distro-specific packaging system steps which are
 the first thing which we need to do before we can start on
 :ref:`Building from source`.   The sections below attempt to capture those
 steps.   If you are using as different distro and hit issues, please
-`let us know <https://gitter.im/ethereum/cpp-ethereum>`_.
+`let us know <https://gitter.im/expanse/cpp-expanse>`_.
 
 
 Clone the repository
@@ -20,8 +20,8 @@ Clone the repository
 
 To clone the source code, execute the following command: ::
 
-    git clone --recursive https://github.com/bobsummerwill/cpp-ethereum.git
-    cd cpp-ethereum
+    git clone --recursive https://github.com/bobsummerwill/cpp-expanse.git
+    cd cpp-expanse
     git checkout merge_repos
     git submodule update --init
 

@@ -1,19 +1,19 @@
 JavaScript Runtime Environment
 ==============================
 
-Ethereum implements a **javascript runtime environment** (JSRE) that can
+Expanse implements a **javascript runtime environment** (JSRE) that can
 be used in either interactive (console) or non-interactive (script)
 mode.
 
-Ethereum's Javascript console exposes the full `web3 JavaScript dapp
-API <https://github.com/ethereum/wiki/wiki/JavaScript-API>`__ and the
+Expanse's Javascript console exposes the full `web3 JavaScript dapp
+API <https://github.com/expanse-org/wiki/wiki/JavaScript-API>`__ and the
 `admin
-API <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#javascript-console-api>`__.
+API <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#javascript-console-api>`__.
 
 Interactive use: the JSRE REPL Console
 --------------------------------------
 
-The ``ethereum CLI`` executable ``geth`` has a JavaScript console (a
+The ``expanse CLI`` executable ``geth`` has a JavaScript console (a
 **Read, Evaluate & Print Loop** = REPL exposing the JSRE), which can be
 started with the ``console`` or ``attach`` subcommand. The ``console``
 subcommands starts the geth node and then opens the console. The
@@ -44,7 +44,7 @@ If you need log information, start with:
 
 ::
 
-    $ geth --verbosity 5 console 2>> /tmp/eth.log
+    $ geth --verbosity 5 console 2>> /tmp/exp.log
 
 Otherwise mute your logs, so that it does not pollute your console:
 
@@ -71,7 +71,7 @@ which is a javascript statement.
 
 ::
 
-    $ geth --exec "eth.blockNumber" attach
+    $ geth --exec "exp.blockNumber" attach
 
 This prints the current block number of a running geth instance.
 
@@ -83,7 +83,7 @@ Or execute a script with more complex statements with:
     $ geth --jspath "/tmp" --exec 'loadScript("checkbalances.js")' attach
 
 Find an example script
-`here <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions#example-script>`__
+`here <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions#example-script>`__
 
 Use the ``--jspath <path/to/my/js/root>`` to set a libdir for your js
 scripts. Parameters to ``loadScript()`` with no absolute path will be
@@ -95,7 +95,7 @@ You can exit the console cleanly by typing ``exit`` or simply with
 Caveat
 ------
 
-The go-ethereum JSRE uses the `Otto JS
+The go-expanse JSRE uses the `Otto JS
 VM <https://github.com/robertkrimen/otto>`__ which has some limitations:
 
 -  "use strict" will parse, but does nothing.
@@ -103,19 +103,19 @@ VM <https://github.com/robertkrimen/otto>`__ which has some limitations:
    with the ECMA5 specification.
 
 Note that the other known limitation of Otto (namely the lack of timers)
-is taken care of. Ethereum JSRE implements both ``setTimeout`` and
+is taken care of. Expanse JSRE implements both ``setTimeout`` and
 ``setInterval``. In addition to this, the console provides
 ``admin.sleep(seconds)`` as well as a "blocktime sleep" method
 ``admin.sleepBlocks(number)``.
 
-Since ``ethereum.js`` uses the
+Since ``expanse.js`` uses the
 ```bignumer.js`` <https://github.com/MikeMcl/bignumber.js>`__ library
 (MIT Expat Licence), it is also autoloded.
 
 Timers
 ------
 
-In addition to the full functionality of JS (as per ECMA5), the Ethereum
+In addition to the full functionality of JS (as per ECMA5), the Expanse
 JSRE is augmented with various timers. It implements ``setInterval``,
 ``clearInterval``, ``setTimeout``, ``clearTimeout`` you may be used to
 using in browser windows. It also provides implementation for
@@ -128,10 +128,10 @@ Management APIs
 ===============
 
 Beside the official `Dapp
-API <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__ interface the go
-Ethereum node has support for additional management API's. These API's
+API <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__ interface the go
+Expanse node has support for additional management API's. These API's
 are offered using `JSON-RPC <http://www.jsonrpc.org/specification>`__
-and follow the same conventions as used in the Dapp API. The go Ethereum
+and follow the same conventions as used in the Dapp API. The go Expanse
 package comes with a console client which has support for all additional
 API's.
 
@@ -140,7 +140,7 @@ How to
 
 It is possible to specify the set of API's which are offered over an
 interface with the ``--${interface}api`` command line argument for the
-go ethereum daemon. Where ``${interface}`` can be ``rpc`` for the
+go expanse daemon. Where ``${interface}`` can be ``rpc`` for the
 ``http`` interface or ``ipc`` for an unix socket on unix or named pipe
 on Windows.
 
@@ -187,12 +187,12 @@ Integration
 
 These additional API's follow the same conventions as the official Dapp
 API. Web3 can be
-`extended <https://github.com/ethereum/web3.js/pull/229>`__ and used to
+`extended <https://github.com/expanse-org/web3.js/pull/229>`__ and used to
 consume these additional API's.
 
 The different functions are split into multiple smaller logically
 grouped API's. Examples are given for the `Javascript
-console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 but can easily be converted to a rpc request.
 
 **2 examples:**
@@ -347,7 +347,7 @@ indication if the account was deleted
 Example
 ^^^^^^^
 
-``personal.deleteAccount(eth.coinbase, "mypasswd")``
+``personal.deleteAccount(exp.coinbase, "mypasswd")``
 
 --------------
 
@@ -369,7 +369,7 @@ Return
 Example
 ^^^^^^^
 
-``personal.unlockAccount(eth.coinbase, "mypasswd", 300)``
+``personal.unlockAccount(exp.coinbase, "mypasswd", 300)``
 
 --------------
 
@@ -468,7 +468,7 @@ Example
 
     > admin.nodeInfo
     {
-       Name: 'Ethereum(G)/v0.9.36/darwin/go1.4.1',
+       Name: 'Expanse(G)/v0.9.36/darwin/go1.4.1',
        NodeUrl: 'enode://c32e13952965e5f7ebc85b02a2eb54b09d55f553161c6729695ea34482af933d0a4b035efb5600fc5c3ea9306724a8cbd83845bb8caaabe0b599fc444e36db7e@89.42.0.12:30303',
        NodeID: '0xc32e13952965e5f7ebc85b02a2eb54b09d55f553161c6729695ea34482af933d0a4b035efb5600fc5c3ea9306724a8cbd83845bb8caaabe0b599fc444e36db7e',
        IP: '89.42.0.12',
@@ -479,7 +479,7 @@ Example
     }
 
 To connect to a node, use the
-`enode-format <https://github.com/ethereum/wiki/wiki/enode-url-format>`__
+`enode-format <https://github.com/expanse-org/wiki/wiki/enode-url-format>`__
 nodeUrl as an argument to `addPeer <#adminaddpeer>`__ or with CLI param
 ``bootnodes``.
 
@@ -494,7 +494,7 @@ admin.addPeer
 
 Pass a ``nodeURL`` to connect a to a peer on the network. The
 ``nodeURL`` needs to be in `enode URL
-format <https://github.com/ethereum/wiki/wiki/enode-url-format>`__. geth
+format <https://github.com/expanse-org/wiki/wiki/enode-url-format>`__. geth
 will maintain the connection until it shuts down and attempt to
 reconnect if the connection drops intermittently.
 
@@ -538,7 +538,7 @@ Example
 ::
 
     > admin.peers
-    [ { ID: '0x6cdd090303f394a1cac34ecc9f7cda18127eafa2a3a06de39f6d920b0e583e062a7362097c7c65ee490a758b442acd5c80c6fce4b148c6a391e946b45131365b', Name: 'Ethereum(G)/v0.9.0/linux/go1.4.1', Caps: 'eth/56, shh/2', RemoteAddress: '54.169.166.226:30303', LocalAddress: '10.1.4.216:58888' } { ID: '0x4f06e802d994aaea9b9623308729cf7e4da61090ffb3615bc7124c5abbf46694c4334e304be4314392fafcee46779e506c6e00f2d31371498db35d28adf85f35', Name: 'Mist/v0.9.0/linux/go1.4.2', Caps: 'eth/58, shh/2', RemoteAddress: '37.142.103.9:30303', LocalAddress: '10.1.4.216:62393' } ]
+    [ { ID: '0x6cdd090303f394a1cac34ecc9f7cda18127eafa2a3a06de39f6d920b0e583e062a7362097c7c65ee490a758b442acd5c80c6fce4b148c6a391e946b45131365b', Name: 'Expanse(G)/v0.9.0/linux/go1.4.1', Caps: 'eth/56, shh/2', RemoteAddress: '54.169.166.226:30303', LocalAddress: '10.1.4.216:58888' } { ID: '0x4f06e802d994aaea9b9623308729cf7e4da61090ffb3615bc7124c5abbf46694c4334e304be4314392fafcee46779e506c6e00f2d31371498db35d28adf85f35', Name: 'Mist/v0.9.0/linux/go1.4.2', Caps: 'eth/58, shh/2', RemoteAddress: '37.142.103.9:30303', LocalAddress: '10.1.4.216:62393' } ]
 
 --------------
 
@@ -599,7 +599,7 @@ admin.startRPC
      admin.startRPC(host, portNumber, corsheader, modules)
 
 Starts the HTTP server for the
-`JSON-RPC <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__.
+`JSON-RPC <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__.
 
 Returns
 '''''''
@@ -624,7 +624,7 @@ admin.stopRPC
     admin.stopRPC()
 
 Stops the HTTP server for the
-`JSON-RPC <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__.
+`JSON-RPC <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__.
 
 Returns
 '''''''
@@ -672,7 +672,7 @@ Example
 .. code:: javascript
 
     admin.datadir
-    '/Users/username/Library/Ethereum'
+    '/Users/username/Library/Expanse'
 
 --------------
 
@@ -738,7 +738,7 @@ admin.getContractInfo
      admin.getContractInfo(address)
 
 this will retrieve the `contract info
-json <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions#contract-info-metadata>`__
+json <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions#contract-info-metadata>`__
 for a contract on the address
 
 Returns
@@ -765,7 +765,7 @@ admin.saveInfo
     admin.saveInfo(contract.info, filename);
 
 will write `contract info
-json <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions#contract-info-metadata>`__
+json <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions#contract-info-metadata>`__
 into the target file, calculates its content hash. This content hash
 then can used to associate a public url with where the contract info is
 publicly available and verifiable. If you register the codehash (hash of
@@ -787,10 +787,10 @@ Examples
     "      return a * 7;\n" +
     "   }\n" +
     "} ";
-    contract = eth.compile.solidity(source).test;
-    txhash = eth.sendTransaction({from: primary, data: contract.code });
+    contract = exp.compile.solidity(source).test;
+    txhash = exp.sendTransaction({from: primary, data: contract.code });
     // after it is uncluded
-    contractaddress = eth.getTransactionReceipt(txhash);
+    contractaddress = exp.getTransactionReceipt(txhash);
     filename = "/tmp/info.json";
     contenthash = admin.saveInfo(contract.info, filename);
 
@@ -825,10 +825,10 @@ Examples
     "      return a * 7;\n" +
     "   }\n" +
     "} ";
-    contract = eth.compile.solidity(source).test;
-    txhash = eth.sendTransaction({from: primary, data: contract.code });
+    contract = exp.compile.solidity(source).test;
+    txhash = exp.sendTransaction({from: primary, data: contract.code });
     // after it is uncluded
-    contractaddress = eth.getTransactionReceipt(txhash);
+    contractaddress = exp.getTransactionReceipt(txhash);
     filename = "/tmp/info.json";
     contenthash = admin.saveInfo(contract.info, filename);
     admin.register(primary, contractaddress, contenthash);
@@ -844,7 +844,7 @@ admin.registerUrl
 
 this will register a contant hash to the contract' codehash. This will
 be used to locate `contract info
-json <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions#contract-info-metadata>`__
+json <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions#contract-info-metadata>`__
 files. Address in the first parameter will be used to send the
 transaction.
 
@@ -864,10 +864,10 @@ Examples
     "      return a * 7;\n" +
     "   }\n" +
     "} ";
-    contract = eth.compile.solidity(source).test;
-    txhash = eth.sendTransaction({from: primary, data: contract.code });
+    contract = exp.compile.solidity(source).test;
+    txhash = exp.sendTransaction({from: primary, data: contract.code });
     // after it is uncluded
-    contractaddress = eth.getTransactionReceipt(txhash);
+    contractaddress = exp.getTransactionReceipt(txhash);
     filename = "/tmp/info.json";
     contenthash = admin.saveInfo(contract.info, filename);
     admin.register(primary, contractaddress, contenthash);
@@ -886,7 +886,7 @@ miner.start
     miner.start(threadCount)
 
 Starts
-`mining <see%20https://github.com/ethereum/go-ethereum/wiki/Mining>`__
+`mining <see%20https://github.com/expanse-org/go-expanse/wiki/Mining>`__
 on with the given ``threadNumber`` of parallel threads. This is an
 optional argument.
 
@@ -937,7 +937,7 @@ miner.startAutoDAG
     miner.startAutoDAG()
 
 Starts automatic pregeneration of the `ethash
-DAG <https://github.com/ethereum/wiki/wiki/Ethash-DAG>`__. This process
+DAG <https://github.com/expanse-org/wiki/wiki/Ethash-DAG>`__. This process
 make sure that the DAG for the subsequent epoch is available allowing
 mining right after the new epoch starts. If this is used by most network
 nodes, then blocktimes are expected to be normal at epoch transition.
@@ -959,7 +959,7 @@ miner.stopAutoDAG
     miner.stopAutoDAG()
 
 Stops automatic pregeneration of the `ethash
-DAG <https://github.com/ethereum/wiki/wiki/Ethash-DAG>`__. Auto DAG is
+DAG <https://github.com/expanse-org/wiki/wiki/Ethash-DAG>`__. Auto DAG is
 switched off automatically when mining is stops.
 
 Returns
@@ -1050,7 +1050,7 @@ debug.setHead
 
 **Sets** the current head of the blockchain to the block referred to by
 *blockNumber*. See
-`web3.eth.getBlock <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetblock>`__
+`web3.exp.getBlock <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethgetblock>`__
 for more details on block fields and lookup by number or hash.
 
 Returns
@@ -1063,7 +1063,7 @@ Example
 
 ::
 
-    debug.setHead(eth.blockNumber-1000)
+    debug.setHead(exp.blockNumber-1000)
 
 --------------
 
@@ -1086,7 +1086,7 @@ Example
 
 ::
 
-    > debug.seedHash(eth.blockNumber)
+    > debug.seedHash(exp.blockNumber)
     '0xf2e59013a0a379837166b59f871b20a8a0d101d1c355ea85d35329360e69c000'
 
 --------------
@@ -1100,7 +1100,7 @@ debug.processBlock
 
 Processes the given block referred to by *blockNumber* with the VM in
 debug mode. See
-`web3.eth.getBlock <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetblock>`__
+`web3.exp.getBlock <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethgetblock>`__
 for more details on block fields and lookup by number or hash. In
 combination with ``setHead``, this can be used to replay processing of a
 block to debug VM execution.
@@ -1128,7 +1128,7 @@ debug.getBlockRlp
 
 Returns the hexadecimal representation of the RLP encoding of the block.
 See
-`web3.eth.getBlock <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetblock>`__
+`web3.exp.getBlock <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethgetblock>`__
 for more details on block fields and lookup by number or hash.
 
 Returns
@@ -1156,7 +1156,7 @@ Prints information about the block such as size, total difficulty, as
 well as header fields properly formatted.
 
 See
-`web3.eth.getBlock <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetblock>`__
+`web3.exp.getBlock <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethgetblock>`__
 for more details on block fields and lookup by number or hash.
 
 Returns
@@ -1211,7 +1211,7 @@ Returns
 
 the raw dump of a block referred to by block number or block hash or
 undefined if the block is not found. see
-`web3.eth.getBlock <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetblock>`__
+`web3.exp.getBlock <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethgetblock>`__
 for more details on block fields and lookup by number or hash.
 
 Example
@@ -1219,7 +1219,7 @@ Example
 
 .. code:: js
 
-    > debug.dumpBlock(eth.blockNumber)
+    > debug.dumpBlock(exp.blockNumber)
 
 --------------
 
@@ -1234,7 +1234,7 @@ Returns
 '''''''
 
 Collection of metrics, see for more information
-`this <https://github.com/ethereum/go-ethereum/wiki/Metrics-and-Monitoring>`__
+`this <https://github.com/expanse-org/go-expanse/wiki/Metrics-and-Monitoring>`__
 wiki page.
 
 Example
@@ -1256,7 +1256,7 @@ loadScript
 Loads a JavaScript file and executes it. Relative paths are interpreted
 as relative to ``jspath`` which is specified as a command line flag, see
 `Command Line
-Options <https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options>`__.
+Options <https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options>`__.
 
 sleep
 ^^^^^
@@ -1289,7 +1289,7 @@ web3
 ^^^^
 
 The ``web3`` exposes all methods of the `JavaScript
-API <https://github.com/ethereum/wiki/wiki/JavaScript-API>`__.
+API <https://github.com/expanse-org/wiki/wiki/JavaScript-API>`__.
 
 --------------
 
@@ -1297,7 +1297,7 @@ net
 ^^^
 
 The ``net`` is a shortcut for
-`web3.net <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3net>`__.
+`web3.net <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3net>`__.
 
 --------------
 
@@ -1305,38 +1305,38 @@ eth
 ^^^
 
 The ``eth`` is a shortcut for
-`web3.eth <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3eth>`__.
+`web3.eth <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3eth>`__.
 In addition to the ``web3`` and ``eth`` interfaces exposed by
-`web3.js <https://github.com/ethereum/web3.js>`__ a few additional calls
+`web3.js <https://github.com/expanse-org/web3.js>`__ a few additional calls
 are exposed.
 
 --------------
 
-eth.sign
+exp.sign
 ^^^^^^^^
 
 ::
 
-    eth.sign(signer, data)
+    exp.sign(signer, data)
 
-eth.pendingTransactions
+exp.pendingTransactions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    eth.pendingTransactions
+    exp.pendingTransactions
 
 Returns pending transactions that belong to one of the users
-``eth.accounts``.
+``exp.accounts``.
 
 --------------
 
-eth.resend
+exp.resend
 ^^^^^^^^^^
 
 ::
 
-    eth.resend(tx, <optional gas price>, <optional gas limit>)
+    exp.resend(tx, <optional gas price>, <optional gas limit>)
 
 Resends the given transaction returned by ``pendingTransactions()`` and
 allows you to overwrite the gas price and gas limit of the transaction.
@@ -1346,9 +1346,9 @@ Example
 
 .. code:: javascript
 
-    eth.sendTransaction({from: eth.accounts[0], to: "...", gasPrice: "1000"})
-    var tx = eth.pendingTransactions()[0]
-    eth.resend(tx, web3.toWei(10, "szabo"))
+    exp.sendTransaction({from: exp.accounts[0], to: "...", gasPrice: "1000"})
+    var tx = exp.pendingTransactions()[0]
+    exp.resend(tx, web3.toWei(10, "szabo"))
 
 --------------
 
@@ -1356,7 +1356,7 @@ shh
 ^^^
 
 The ``shh`` is a shortcut for
-`web3.shh <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3shh>`__.
+`web3.shh <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3shh>`__.
 
 --------------
 
@@ -1364,7 +1364,7 @@ db
 ^^
 
 The ``db`` is a shortcut for
-`web3.db <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3db>`__.
+`web3.db <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3db>`__.
 
 --------------
 

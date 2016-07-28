@@ -6,14 +6,14 @@ Building from source
 Overview
 --------------------------------------------------------------------------------
 
-The **cpp-ethereum** codebase is is mid-transition from several
+The **cpp-expanse** codebase is is mid-transition from several
 Git repositories which are all grouped as sub-modules under the 
-`webthree-umbrella <http://github.com/ethereum/webthree-umbrella>`_ repo
-on Github back to `cpp-ethereum <http://github.com/ethereum/cpp-ethereum>`_.
+`webthree-umbrella <http://github.com/expanse-org/webthree-umbrella>`_ repo
+on Github back to `cpp-expanse <http://github.com/expanse-org/cpp-expanse>`_.
 
 As of right now (only for the v1.3.0 release), the canonical mainline is at:
 
-https://github.com/bobsummerwill/cpp-ethereum/tree/merge_repos
+https://github.com/bobsummerwill/cpp-expanse/tree/merge_repos
 
 We use a common `CMake <https://cmake.org/>`_ build system to generate
 platform-specific build files, meaning that the workflow is very similar

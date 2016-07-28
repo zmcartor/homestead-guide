@@ -1,20 +1,20 @@
--  `Introduction to Ethereum
-   mining <https://github.com/ethereum/wiki/wiki/Mining#introduction>`__
+-  `Introduction to Expanse
+   mining <https://github.com/expanse-org/wiki/wiki/Mining#introduction>`__
    *(main wiki)*
 
 CPU Mining with Geth
 ====================
 
-At Frontier, the first release of Ethereum, you'll just need a) a GPU
-and b) an Ethereum client, Geth. CPU mining will be possible but too
+At Frontier, the first release of Expanse, you'll just need a) a GPU
+and b) an Expanse client, Geth. CPU mining will be possible but too
 inefficient to hold any value.
 
 At the moment, Geth only includes a CPU miner, and the team is testing a
 `GPU miner
-branch <https://github.com/ethereum/go-ethereum/tree/gpu_miner>`__, but
+branch <https://github.com/expanse-org/go-expanse/tree/gpu_miner>`__, but
 this won't be part of Frontier.
 
-The C++ implementation of Ethereum also offers a GPU miner, both as part
+The C++ implementation of Expanse also offers a GPU miner, both as part
 of Eth (its CLI), AlethZero (its GUI) and EthMiner (the standalone
 miner).
 
@@ -22,17 +22,17 @@ miner).
 chain before starting to mine, otherwise you will not be mining on the
 main chain.*
 
-When you start up your Ethereum node with ``geth`` it is not mining by
+When you start up your Expanse node with ``geth`` it is not mining by
 default. To start it in mining mode, you use the ``--mine`` `command
 line
-option <https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options>`__.
+option <https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options>`__.
 The ``-minerthreads`` parameter can be used to set the number parallel
 mining threads (defaulting to the total number of processor cores).
 
 ``geth --mine --minerthreads=4``
 
 You can also start and stop CPU mining at runtime using the
-`console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminerstart>`__.
+`console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#adminminerstart>`__.
 ``miner.start`` takes an optional parameter for the number of miner
 threads.
 
@@ -51,7 +51,7 @@ you cancel your intention with ``miner.stop()``.
 
 In order to earn ether you must have your **etherbase** (or
 **coinbase**) address set. This etherbase defaults to your `primary
-account <https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts>`__.
+account <https://github.com/expanse-org/go-expanse/wiki/Managing-your-accounts>`__.
 If you don't have an etherbase address, then ``geth --mine`` will not
 start up.
 
@@ -66,13 +66,13 @@ You can reset your etherbase on the console too:
 
 ::
 
-    miner.setEtherbase(eth.accounts[2])
+    miner.setEtherbase(exp.accounts[2])
 
 Note that your etherbase does not need to be an address of a local
 account, just an existing one.
 
 There is an option `to add extra
-Data <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminersetextra>`__
+Data <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#adminminersetextra>`__
 (32 bytes only) to your mined blocks. By convention this is interpreted
 as a unicode string, so you can set your short vanity tag.
 
@@ -93,10 +93,10 @@ as a unicode string, so you can set your short vanity tag.
     }
 
 See also `this
-proposal <https://github.com/ethereum/wiki/wiki/Extra-Data>`__
+proposal <https://github.com/expanse-org/wiki/wiki/Extra-Data>`__
 
 You can check your hashrate with
-`miner.hashrate <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminerhashrate>`__,
+`miner.hashrate <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#adminminerhashrate>`__,
 the result is in H/s (Hash operations per second).
 
 ::
@@ -110,16 +110,16 @@ local account:
 
 ::
 
-    > eth.getBalance(eth.coinbase).toNumber();
+    > exp.getBalance(exp.coinbase).toNumber();
     '34698870000000'
 
 In order to spend your earnings `on gas to
-transact <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions>`__,
+transact <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions>`__,
 you will need to have this account unlocked.
 
 ::
 
-    > personal.unlockAccount(eth.coinbase)
+    > personal.unlockAccount(exp.coinbase)
     Password
     true
 
@@ -131,11 +131,11 @@ with the following code snippet on the console:
     function minedBlocks(lastn, addr) {
       addrs = [];
       if (!addr) {
-        addr = eth.coinbase
+        addr = exp.coinbase
       }
-      limit = eth.blockNumber - lastn
-      for (i = eth.blockNumber; i >= limit; i--) {
-        if (eth.getBlock(i).miner == addr) {
+      limit = exp.blockNumber - lastn
+      for (i = exp.blockNumber; i >= limit; i--) {
+        if (exp.getBlock(i).miner == addr) {
           addrs.push(i)
         }
       }
@@ -143,7 +143,7 @@ with the following code snippet on the console:
     }
     // scans the last 1000 blocks and returns the blocknumbers of blocks mined by your coinbase
     // (more precisely blocks the mining reward for which is sent to your coinbase).
-    minedBlocks(1000, eth.coinbase);
+    minedBlocks(1000, exp.coinbase);
     //[352708, 352655, 352559]
 
 Note that it will happen often that you find a block yet it never makes
@@ -170,7 +170,7 @@ the following code:
 
 ::
 
-    etm = eth.getBlock("latest").difficulty/miner.hashrate; // estimated time in seconds
+    etm = exp.getBlock("latest").difficulty/miner.hashrate; // estimated time in seconds
     Math.floor(etm / 3600.) + "h " + Math.floor((etm % 3600)/60) + "m " +  Math.floor(etm % 60) + "s";
     // 1h 3m 30s
 
@@ -236,7 +236,7 @@ Nvidia
 The following instructions are, for the most part, relevant to any
 system with Ubuntu 14.04 and a Nvidia GPU. `Setting up an EC2 instance
 for
-mining <https://forum.ethereum.org/discussion/comment/8889/#Comment_8889>`__
+mining <https://forum.expanse.org/discussion/comment/8889/#Comment_8889>`__
 
 On MacOSx
 ---------
@@ -246,8 +246,8 @@ On MacOSx
     wget http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.29_mac.pkg
     sudo installer -pkg ~/Desktop/cuda_7.0.29_mac.pkg -target /
     brew update
-    brew tap ethereum/ethereum
-    brew reinstall cpp-ethereum --with-gpu-mining --devel --headless --build-from-source
+    brew tap expanse/expanse
+    brew reinstall cpp-expanse --with-gpu-mining --devel --headless --build-from-source
 
 You check your cooling status:
 
@@ -260,35 +260,35 @@ Mining Software
 
 The official Frontier release of ``geth`` only supports a CPU miner
 natively. We are working on a `GPU
-miner <https://github.com/ethereum/go-ethereum/tree/gpuminer>`__, but it
+miner <https://github.com/expanse-org/go-expanse/tree/gpuminer>`__, but it
 may not be available for the Frontier release. Geth however can be used
 in conjunction with ``ethminer``, using the standalone miner as workers
 and ``geth`` as scheduler communicating via
-`JSON-RPC <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__.
+`JSON-RPC <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__.
 
 The `C++ implementation of
-Ethereum <https://github.com/ethereum/cpp-ethereum/>`__ (not officially
+Expanse <https://github.com/expanse-org/cpp-expanse/>`__ (not officially
 released) however has a GPU miner. It can be used from ``eth``,
 ``AlethZero`` (GUI) and ``ethMiner`` (the standalone miner).
 
 `You can install
-this <https://github.com/ethereum/cpp-ethereum/wiki/Installing-clients>`__
+this <https://github.com/expanse-org/cpp-expanse/wiki/Installing-clients>`__
 via ppa on linux, brew tap on MacOS or from source.
 
 On MacOS:
 
 ::
 
-    brew install cpp-ethereum --with-gpu-mining --devel --build-from-source
+    brew install cpp-expanse --with-gpu-mining --devel --build-from-source
 
 On Linux:
 
 ::
 
-    apt-get install cpp-ethereum
+    apt-get install cpp-expanse
 
 On Windows:
-https://github.com/ethereum/cpp-ethereum/wiki/Building-on-Windows
+https://github.com/expanse-org/cpp-expanse/wiki/Building-on-Windows
 
 GPU mining with ethminer
 ------------------------
@@ -303,7 +303,7 @@ To install ``ethminer`` from source:
 
 ::
 
-    cd cpp-ethereum
+    cd cpp-expanse
     cmake -DETHASHCL=1 -DGUI=0
     make -j4
     make install
@@ -323,7 +323,7 @@ Using ethminer with geth
 
 ``ethminer`` communicates with geth on port 8545 (the default RPC port
 in geth). You can change this by giving the ```--rpcport``
-option <https://github.com/ethereum/go-ethereum/Command-Line-Options>`__
+option <https://github.com/expanse-org/go-expanse/Command-Line-Options>`__
 to ``geth``. Ethminer will find get on any port. Note that you need to
 set the CORS header with ``--rpccorsdomain localhost``. You can also set
 port on ``ethminer`` with ``-F http://127.0.0.1:3301``. Setting the
@@ -387,17 +387,17 @@ Further Resources:
    rigs <https://github.com/sammy007/ether-proxy>`__ (supports solo and
    pool mining proxy with web interface and rigs availability
    monitoring)
--  `Ethereum forum mining FAQ live
-   update <https://forum.ethereum.org/discussion/197/mining-faq-live-updates>`__
+-  `Expanse forum mining FAQ live
+   update <https://forum.expanse.org/discussion/197/mining-faq-live-updates>`__
 -  `yates randall mining
    video <https://www.youtube.com/watch?v=CnKnclkkbKg>`__
--  https://blog.ethereum.org/2014/07/05/stake/
--  https://blog.ethereum.org/2014/10/03/slasher-ghost-developments-proof-stake/
--  https://blog.ethereum.org/2014/06/19/mining/
--  https://github.com/ethereum/wiki/wiki/Ethash
+-  https://blog.expanse.org/2014/07/05/stake/
+-  https://blog.expanse.org/2014/10/03/slasher-ghost-developments-proof-stake/
+-  https://blog.expanse.org/2014/06/19/mining/
+-  https://github.com/expanse-org/wiki/wiki/Ethash
 -  `Benchmarking results for GPU
-   mining <https://forum.ethereum.org/discussion/2134/gpu-mining-is-out-come-and-let-us-know-of-your-bench-scores>`__
+   mining <https://forum.expanse.org/discussion/2134/gpu-mining-is-out-come-and-let-us-know-of-your-bench-scores>`__
 -  `historic
    moment <https://twitter.com/gavofyork/status/586623875577937922>`__
 -  `live mining statistic <https://etherapps.info/stats/mining>`__
--  `netstat ethereum network monitor <stats.ethdev.com>`__
+-  `netstat expanse network monitor <stats.ethdev.com>`__

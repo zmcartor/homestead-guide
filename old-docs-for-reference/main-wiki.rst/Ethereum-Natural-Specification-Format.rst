@@ -1,7 +1,7 @@
 Solidity contracts can have a special form of comments that form the
-basis of the Ethereum Natural Specification Format. For a usage example
+basis of the Expanse Natural Specification Format. For a usage example
 please check
-`here <https://github.com/ethereum/wiki/wiki/Natspec-Example/>`__.
+`here <https://github.com/expanse-org/wiki/wiki/Natspec-Example/>`__.
 
 Documentation Example
 =====================
@@ -119,7 +119,7 @@ json file as output:
 
 Note that the key by which to find the methods is the function's
 canonical signature as defined in the `Contract
-ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#signature>`__
+ABI <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI#signature>`__
 and not simply the function's name.
 
 Developer Documentation
@@ -154,4 +154,4 @@ Example usage
 
 There is a detailed example of using the Natspec feature with the cpp
 client
-`here <https://github.com/ethereum/wiki/wiki/Natspec-Example/>`__.
+`here <https://github.com/expanse-org/wiki/wiki/Natspec-Example/>`__.

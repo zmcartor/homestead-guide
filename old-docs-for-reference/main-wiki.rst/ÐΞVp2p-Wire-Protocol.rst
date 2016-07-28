@@ -1,7 +1,7 @@
-Peer-to-peer communications between nodes running Ethereum/Whisper/&c.
+Peer-to-peer communications between nodes running Expanse/Whisper/&c.
 clients are designed to be governed by a simple wire-protocol making use
 of existing ÐΞV technologies and standards such as
-`RLP <https://github.com/ethereum/wiki/wiki/RLP>`__ wherever practical.
+`RLP <https://github.com/expanse-org/wiki/wiki/RLP>`__ wherever practical.
 
 This document is intended to specify this protocol comprehensively.
 
@@ -15,7 +15,7 @@ on which the connection may be listened and made will be 30303. Though
 TCP provides a connection-oriented medium, ÐΞVp2p nodes communicate in
 terms of packets. RLPx provides facilities to send and receive packets.
 For more information about RLPx, refer to the `protocol
-specification <https://github.com/ethereum/devp2p/tree/master/rlpx.md>`__.
+specification <https://github.com/expanse-org/devp2p/tree/master/rlpx.md>`__.
 
 ÐΞVp2p nodes find peers through the RLPx discovery protocol DHT. Peer
 connections can also be initiated by supplying the endpoint of a peer to
@@ -52,7 +52,7 @@ P2P
 sides. No other messages may be sent until a Hello is received. \*
 ``p2pVersion`` Specifies the implemented version of the P2P protocol.
 Now must be 1. \* ``clientId`` Specifies the client software identity,
-as a human-readable string (e.g. "Ethereum(++)/1.0.0"). \* ``cap``
+as a human-readable string (e.g. "Expanse(++)/1.0.0"). \* ``cap``
 Specifies a peer capability name as a length-3 ASCII string. Current
 supported capabilities are ``eth``, ``shh``. \* ``capVersion`` Specifies
 a peer capability version as a positive integer. Current supported

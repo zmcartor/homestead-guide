@@ -9,7 +9,7 @@ collision-free, meaning that colliding keys for different preimage
 objects are assumed to be practically impossible.
 
 DPA serves as a fast, redundant store optimized for speedy retrieval and
-long-term reliability. Its most frequent use within Ethereum is to cache
+long-term reliability. Its most frequent use within Expanse is to cache
 objects that can be retrieved and/or re-constructed by other means at
 significant cost. Since the key is derived from the preimage, there is
 no sense in which we can talk about multiple or alternative values for
@@ -155,6 +155,6 @@ Routing
 -------
 
 It is based on Kademlia's routing.
-`details <https://github.com/ethereum/wiki/wiki/Cademlia-Peer-Selection>`__
+`details <https://github.com/expanse-org/wiki/wiki/Cademlia-Peer-Selection>`__
 
 *to be continued...*

@@ -8,7 +8,7 @@ eliminating trivial errors and providing considerable convenience for
 the user. Unfortunately, this is a heavily regulated and centralised
 service accessible only to large, well-established institutions. The
 present protocol, ICAP, may be viewed as a decentralised version of it
-suitable for any institutions containing funds on the Ethereum system.
+suitable for any institutions containing funds on the Expanse system.
 
 IBAN
 ~~~~
@@ -39,7 +39,7 @@ For the UK, the BBAN is composed of:
 Proposed Design
 ===============
 
-Introduce a new IBAN country code: *XE*, formulated as the Ethereum *E*
+Introduce a new IBAN country code: *XE*, formulated as the Expanse *E*
 prefixed with the "extended" *X*, as used in non-jurisdictional
 currencies (e.g. XRP, XCP).
 
@@ -54,8 +54,8 @@ comprise one field:
 
 -  Account identifier, 30 characters alphanumeric (< 155-bit). This will
    be interpreted as a big-endian encoded base-36 integer representing
-   the least significant bits of a 160-bit Ethereum address. As such,
-   these Ethereum addresses will generally begin with a zero byte.
+   the least significant bits of a 160-bit Expanse address. As such,
+   these Expanse addresses will generally begin with a zero byte.
 
 e.g. XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS corresponds to the address
 ``00c5496aee77c1ba1f0854206a26dda82a81d6d8``.
@@ -68,7 +68,7 @@ The same as the direct encoding, except that the code is 31 characters
 
 -  Account identifier, 31 characters alphanumeric (< 161-bit). This will
    be interpreted as a big-endian encoded base-36 integer representing a
-   160-bit Ethereum address.
+   160-bit Expanse address.
 
 Indirect
 ^^^^^^^^
@@ -89,16 +89,16 @@ client-account address length of 20 characters, of the form:
 
 Split into:
 
--  ``XE`` The country code for Ethereum;
+-  ``XE`` The country code for Expanse;
 -  ``66`` The checksum;
 -  ``ETH`` The asset identifier within the client account - in this
-   case, "ETH" is the only valid asset identifier, since Ethereum's base
+   case, "ETH" is the only valid asset identifier, since Expanse's base
    registry contract supports only this asset;
 -  ``XREG`` The institution code for the account - in this case,
-   Ethereum's base registry contract;
+   Expanse's base registry contract;
 -  ``GAVOFYORK`` The client identifier within the institution - in this
    case, a direct payment with no additional data to whatever primary
-   address is associated with the name "GAVOFYORK" in Ethereum's base
+   address is associated with the name "GAVOFYORK" in Expanse's base
    registry contract;
 
 Notes
@@ -136,7 +136,7 @@ Transaction Semantics
 =====================
 
 The mechanism for indirect asset transfer over three routing protocols
-are specified, all of which are specific to the Ethereum domain
+are specified, all of which are specific to the Expanse domain
 (country-code of ``XE``). One is for currency transfers directly to an
 included address ("direct"), another is for clients with the system
 address found through a Registry-lookup system of the client-ID, denoted
@@ -154,32 +154,32 @@ exactly the data segment (the last 30 characters) of the IBAN code.
 Indirect ETH Asset: Simple transfers
 ------------------------------------
 
-Within the ETH asset code of Ethereum's country-code (XE), i.e. as long
+Within the ETH asset code of Expanse's country-code (XE), i.e. as long
 as the code begins with ``XE**ETH`` (where ``**`` is the valid
 checksum), then we can define the required transaction to be the deposit
 address given by a call to the *registry contract* denoted by the
 institution code. For institutions not beginning with ``X``, this
-corresponds to the primary address associated with the *Ethereum
+corresponds to the primary address associated with the *Expanse
 standard name*:
 
 [institution code] ``/`` [client identifier]
 
-The *Ethereum standard name* is simply the normal hierarchical lookup
-mechanism, as specified in the Ethereum standard interfaces document.
+The *Expanse standard name* is simply the normal hierarchical lookup
+mechanism, as specified in the Expanse standard interfaces document.
 
 We define a *registry contract* as a contract fulfilling the Registry
-interface as specified in the Ethereum standard interfaces document.
+interface as specified in the Expanse standard interfaces document.
 
 **TODO**: JS code for specifying the transfer.
 
 Indirect XET Asset: Institution transfers
 -----------------------------------------
 
-For the ``XET`` asset code within the Ethereum country code (i.e. while
+For the ``XET`` asset code within the Expanse country code (i.e. while
 the code begins XE\*\*XET), then we can derive the transaction that must
-be made through a lookup to the Ethereum ``iban`` registry contract. For
+be made through a lookup to the Expanse ``iban`` registry contract. For
 a given institution, this contract specifies two values: the deposit
-call signature hash and the institution's Ethereum address.
+call signature hash and the institution's Expanse address.
 
 At present, only a single such deposit call is defined, which is:
 
@@ -189,7 +189,7 @@ At present, only a single such deposit call is defined, which is:
 
 whose signature hash is ``0x13765838``. The transaction to transfer the
 assets should be formed as an ether-laden call to the institution's
-Ethereum address using the ``deposit`` method as specified above, with
+Expanse address using the ``deposit`` method as specified above, with
 the client account determined through the value of the big-endian,
 base-36 interpretation of the alpha-numeric *Institution client
 identifier*, literally using the value of the characters ``0`` to ``9``,

@@ -2,15 +2,15 @@ This page is not actively maintained.
 =====================================
 
 The current Solidity documentation can be found at
-http://ethereum.github.io/solidity/
+http://expanse.github.io/solidity/
 
 Foreword
 ========
 
 Solidity is roughly speaking, an object-oriented language designed for
-writing contracts in Ethereum. Contracts are (typically) small programs
-which govern the behaviour of accounts within the Ethereum state. These
-programs operate within the context of the Ethereum environment. Such
+writing contracts in Expanse. Contracts are (typically) small programs
+which govern the behaviour of accounts within the Expanse state. These
+programs operate within the context of the Expanse environment. Such
 accounts are able to pass messages between themselves as well as doing
 practically Turing complete computation.
 
@@ -25,8 +25,8 @@ vocabulary and idiomatic grammar.
 
 We see language grammar actually tieing in with many of the aspects of
 this: the ``event`` primitives along with the ``indexed`` keyword
-explicitly address the logging environment which Ethereum provides. The
-variadic return values mimic the fact that output data of Ethereum's
+explicitly address the logging environment which Expanse provides. The
+variadic return values mimic the fact that output data of Expanse's
 calling mechanism is, like the input data, an arbitrary byte array.
 
 Basic Contract Anatomy
@@ -36,7 +36,7 @@ Hello, World!
 -------------
 
 No language would be complete without a Hello World program. Operating
-within the Ethereum environment, Solidity has no obvious way of
+within the Expanse environment, Solidity has no obvious way of
 "outputting" a string. The closest we can do is to use a log event to
 place a string into the blockchain:
 
@@ -78,7 +78,7 @@ message, we can introduce a function. The function you've already seen
 is the so-called default function. Why this is default will be properly
 explained later, but for now, suffice it to say that it is simply the
 function that gets called when this contract (well, an instantiation of
-it, anyway) receives a message from the Ethereum Environment.
+it, anyway) receives a message from the Expanse Environment.
 
 The syntax of a function is similar to Javascript: it begins with the
 ``function`` keyword, then has a parenthesised parameter list, and

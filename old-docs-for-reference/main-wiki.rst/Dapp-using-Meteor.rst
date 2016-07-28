@@ -6,7 +6,7 @@ dapp and probably answer a few questions on why Meteor should be used.
 3. `Connect your dapp <#connect-your-%C3%90app>`__
 4. `Run your dapp <#run-your-%C3%90app>`__
 5. `Add dapp styles <#add-%C3%90app-styles>`__
-6. `Using Ethereum:elements <#using-ethereumelements>`__
+6. `Using Expanse:elements <#using-ethereumelements>`__
 7. `Dapp code structure <#%C3%90app-code-structure>`__
 8. `Bundle your dapp <#bundle-your-%C3%90app>`__
 
@@ -76,24 +76,24 @@ Next add the web3 package:
 
 .. code:: bash
 
-    $ meteor add ethereum:web3
+    $ meteor add expanse:web3
 
 I recommend also to add the following packages:
 
--  `ethereum:dapp-styles <https://atmospherejs.com/ethereum/dapp-styles>`__
+-  `expanse:dapp-styles <https://atmospherejs.com/expanse/dapp-styles>`__
    - The LESS/CSS framework which gives your dapp a nice Mist-consistent
    look.
--  `ethereum:tools <https://atmospherejs.com/ethereum/tools>`__ - This
+-  `expanse:tools <https://atmospherejs.com/expanse/tools>`__ - This
    package gives you the ``EthTools`` object with a set of formatting an
    conversion functions and template helpers for ether.
--  `ethereum:elements <https://atmospherejs.com/ethereum/elements>`__ -
-   A set of interface elements specifically made for Ethereum, see this
-   `Demo <http://ethereum-elements.meteor.com>`__ for more.
--  `ethereum:accounts <https://atmospherejs.com/ethereum/accounts>`__ -
+-  `expanse:elements <https://atmospherejs.com/expanse/elements>`__ -
+   A set of interface elements specifically made for Expanse, see this
+   `Demo <http://expanse-elements.meteor.com>`__ for more.
+-  `expanse:accounts <https://atmospherejs.com/expanse/accounts>`__ -
    Gives you the reactive ``EthAccounts`` collection with all current
-   available Ethereum accounts, where balances will be automatically
+   available Expanse accounts, where balances will be automatically
    updated.
--  `ethereum:blocks <https://atmospherejs.com/ethereum/blocks>`__ -
+-  `expanse:blocks <https://atmospherejs.com/expanse/blocks>`__ -
    Gives you the reactive ``EthBlocks`` collection with the latest 50
    blocks. To get the lastest block use ``EthBlocks.latest`` (It will
    also have the latest default gasPrice)
@@ -119,7 +119,7 @@ Folders with specific treatment - ``client`` - files in a folder called
 ``client`` will only be loaded by the client part of your app and as we
 are building a dapp, thats where most of our files go. - ``lib`` - files
 in folders called ``lib`` will load before other files in the same
-folder. This is an ideal place your init files, libraries, or Ethereum
+folder. This is an ideal place your init files, libraries, or Expanse
 specific files. - ``public`` - a folder called ``public`` contains assets
 meteor will make available on the root of your webserver (or later
 bundled dapp) - There are a few more specific folders like ``server``,
@@ -177,7 +177,7 @@ the geth node:
 
 .. code:: js
 
-    > web3.eth.accounts
+    > web3.exp.accounts
     ['0xfff2b43a7433ddf50bb82227ed519cd6b142d382']
 
 Add dapp styles
@@ -185,7 +185,7 @@ Add dapp styles
 
 If you want your dapp to nicely fit later into Mist and have follow the
 official look use the `dapp-styles css css/less
-framework <https://atmospherejs.com/ethereum/dapp-styles>`__.
+framework <https://atmospherejs.com/expanse/dapp-styles>`__.
 
 *Note that they are under heavy development and the class names and
 elements may change.*
@@ -195,7 +195,7 @@ To add it simple add the following packages to your dapp:
 .. code:: bash
 
     $ meteor add less
-    $ meteor add ethereum:dapp-styles
+    $ meteor add expanse:dapp-styles
 
 Now rename you ``myDapp.css`` to ``myDapp.less`` and add the following
 line inside:
@@ -203,29 +203,29 @@ line inside:
 .. code:: css
 
     // libs
-    @import '{ethereum:dapp-styles}/dapp-styles.less';
+    @import '{expanse:dapp-styles}/dapp-styles.less';
 
 Now you can use all ``dapp-styles`` classes and also overwrite all variables
 of the framework. You can find them `in the
-repo <https://github.com/ethereum/dapp-styles/blob/master/constants.import.less>`__.
+repo <https://github.com/expanse-org/dapp-styles/blob/master/constants.import.less>`__.
 Overwrite them by copying them to your ``myDapp.less`` file and set
 different values.
 
-Using Ethereum packages
+Using Expanse packages
 -----------------------
 
 To make your live as a dapp developer easier we provide some packages
 that help you build dapps faster.
 
 If you add the recommended packages above you should have the
-`ethereum:tools <https://atmospherejs.com/ethereum/tools>`__,
-`accounts <https://atmospherejs.com/ethereum/accounts>`__ and
-`ethereum:blocks <https://atmospherejs.com/ethereum/blocks>`__ packages
+`expanse:tools <https://atmospherejs.com/expanse/tools>`__,
+`accounts <https://atmospherejs.com/expanse/accounts>`__ and
+`expanse:blocks <https://atmospherejs.com/expanse/blocks>`__ packages
 available.
 
 These 3 packages give you the ``EthTools``, ``EthAccounts`` and
 ``Ethblocks`` objects, which give you formatter functions, a collection
-with the accounts from ``web3.eth.accounts`` (with auto updated balance)
+with the accounts from ``web3.exp.accounts`` (with auto updated balance)
 and a collection of the last 50 blocks.
 
 Most of these functions are reactive so they should make building
@@ -259,8 +259,8 @@ If you now check your dapp in the browser you should see the latest
 block number, which will increase once you mine.
 
 *For more examples please checkout the packages readmes and the
-`demo <http://ethereum-elements.meteor.com>`__
-(`source <https://github.com/frozeman/meteor-ethereum-elements-demo>`__)
+`demo <http://expanse-elements.meteor.com>`__
+(`source <https://github.com/frozeman/meteor-expanse-elements-demo>`__)
 for more.*
 
 Dapp code structure
@@ -275,17 +275,17 @@ like `Building Single-page Web Apps with
 Meteor <https://www.packtpub.com/web-development/building-single-page-web-apps-meteor>`__
 or `Discover Meteor <http://discovermeteor.com>`__.*
 
-TODO Short: - put Ethereum related stuff into
-``client/lib/ethereum/somefile.js`` - use
+TODO Short: - put Expanse related stuff into
+``client/lib/expanse/somefile.js`` - use
 ``myCollection.observe({added: func, changed: func, removed: func})`` to
-communicate to Ethereum, keep Ethereum logic out of your app as much as
+communicate to Expanse, keep Expanse logic out of your app as much as
 possible. This way you just write and read from your reactive
 collections and the observe functions will handle the rest (e.g.
 sendTransactions) - Filters etc will add logs etc to your collections.
 So you keep all the callback mess out of your app logic.
 
 For an example see the
-`Ethereum-Wallet <https://github.com/ethereum/meteor-dapp-wallet>`__.
+`Expanse-Wallet <https://github.com/expanse-org/meteor-dapp-wallet>`__.
 
 Bundle your dapp
 ----------------

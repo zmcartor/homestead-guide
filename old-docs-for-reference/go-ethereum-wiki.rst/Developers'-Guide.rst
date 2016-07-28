@@ -1,7 +1,7 @@
 **NOTE: These instructions are for people who want to contribute Go
-source code changes. If you just want to run ethereum, use the normal
+source code changes. If you just want to run expanse, use the normal
 `Installation
-Instructions <https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum>`__**
+Instructions <https://github.com/expanse-org/go-expanse/wiki/Building-Expanse>`__**
 
 Developers' guide
 =================
@@ -9,7 +9,7 @@ Developers' guide
 This document is the entry point for developers of the etherum go
 implementation. Developers here refer to the hands-on: who are
 interested in build, develop, debug, submit a bug report or pull request
-or contribute to ``go-ethereum`` with code.
+or contribute to ``go-expanse`` with code.
 
 Build and Test
 --------------
@@ -18,11 +18,11 @@ Go environment
 ~~~~~~~~~~~~~~
 
 We assume that you have ```go`` v1.4
-installed <https://github.com/ethereum/go-ethereum/wiki/Installing-Go>`__,
+installed <https://github.com/expanse-org/go-expanse/wiki/Installing-Go>`__,
 and ``GOPATH`` is set.
 
 **Note**:You must have your working copy under
-``$GOPATH/src/github.com/ethereum/go-ethereum``. You also usually want
+``$GOPATH/src/github.com/expanse-org/go-expanse``. You also usually want
 to checkout the ``develop`` branch (instead of master).
 
 Since ``go`` does not use relative path for import, working in any other
@@ -30,18 +30,18 @@ directory will have no effect, since the import paths will be appended
 to ``$GOPATH/src``, and if the lib does not exist, the version at master
 HEAD will be downloaded.
 
-Most likely you will be working from your fork of ``go-ethereum``, let's
-say from ``github.com/nirname/go-ethereum``. Clone or move your fork
+Most likely you will be working from your fork of ``go-expanse``, let's
+say from ``github.com/nirname/go-expanse``. Clone or move your fork
 into the right place:
 
 ::
 
-    git clone git@github.com:nirname/go-ethereum.git $GOPATH/src/github.com/ethereum/go-ethereum
+    git clone git@github.com:nirname/go-expanse.git $GOPATH/src/github.com/expanse-org/go-expanse
 
 Godep for dependency management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-go-ethereum uses `Godep <https://github.com/tools/godep>`__ to manage
+go-expanse uses `Godep <https://github.com/tools/godep>`__ to manage
 dependencies.
 
 Install godep:
@@ -59,7 +59,7 @@ Make sure that go binaries are on your executable path:
 ``godep`` should be prepended to all go calls ``build``, ``install`` and
 ``test``.
 
-Alternatively, you can prepend the go-ethereum Godeps directory to your
+Alternatively, you can prepend the go-expanse Godeps directory to your
 current ``GOPATH``:
 
 ::
@@ -69,21 +69,21 @@ current ``GOPATH``:
 Building executables
 ~~~~~~~~~~~~~~~~~~~~
 
-Switch to the go-ethereum repository root directory (Godep expects a
+Switch to the go-expanse repository root directory (Godep expects a
 local `Godeps
-folder <https://github.com/ethereum/go-ethereum/tree/develop/Godeps>`__
+folder <https://github.com/expanse-org/go-expanse/tree/develop/Godeps>`__
 ).
 
 Each wrapper/executable found in `the ``cmd``
-directory <https://github.com/ethereum/go-ethereum/tree/develop/cmd>`__
+directory <https://github.com/expanse-org/go-expanse/tree/develop/cmd>`__
 can be built individually.
 
 Building Geth (CLI)
 ~~~~~~~~~~~~~~~~~~~
 
-**Note**: Geth (the ethereum command line client) is the focus of the
+**Note**: Geth (the expanse command line client) is the focus of the
 `Frontier
-release <https://github.com/ethereum/go-ethereum/wiki/Frontier>`__.
+release <https://github.com/expanse-org/go-expanse/wiki/Frontier>`__.
 
 To build the CLI:
 
@@ -92,10 +92,10 @@ To build the CLI:
     godep go install -v ./cmd/geth
 
 See the `documentation on how to use
-Geth <https://github.com/ethereum/go-ethereum/wiki/Geth>`__
+Geth <https://github.com/expanse-org/go-expanse/wiki/Geth>`__
 
-Read about cross compilation of go-ethereum
-`here <https://github.com/ethereum/go-ethereum/wiki/Cross-compiling-Ethereum>`__.
+Read about cross compilation of go-expanse
+`here <https://github.com/expanse-org/go-expanse/wiki/Cross-compiling-Expanse>`__.
 
 Git flow
 ~~~~~~~~
@@ -136,14 +136,14 @@ for more see `go test
 flags <http://golang.org/cmd/go/#hdr-Description_of_testing_flags>`__
 
 See integration testing information on the `Testing wiki
-page <https://github.com/ethereum/go-ethereum/wiki/Testing>`__
+page <https://github.com/expanse-org/go-expanse/wiki/Testing>`__
 
 Metrics and monitoring
 ~~~~~~~~~~~~~~~~~~~~~~
 
 ``geth`` can do node behaviour monitoring, aggregation and show
 performance metric charts. Read about `metrics and
-monitoring <https://github.com/ethereum/go-ethereum/wiki/Metrics-and-Monitoring>`__
+monitoring <https://github.com/expanse-org/go-expanse/wiki/Metrics-and-Monitoring>`__
 
 Add and update dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +163,7 @@ To track a new dependency, add it to the project as normal than run
     godep save ./...
 
 Changes to the `Godeps
-folder <https://github.com/ethereum/go-ethereum/tree/develop/Godeps>`__
+folder <https://github.com/expanse-org/go-expanse/tree/develop/Godeps>`__
 should be manually verified then committed.
 
 To make life easier try `git
@@ -222,13 +222,13 @@ Dev Tutorials
 -------------
 
 -  `Private networks, local clusters and
-   monitoring <https://github.com/ethereum/go-ethereum/wiki/Setting-up-private-network-or-local-cluster>`__
+   monitoring <https://github.com/expanse-org/go-expanse/wiki/Setting-up-private-network-or-local-cluster>`__
 
 -  `P2P
-   101 <https://github.com/ethereum/go-ethereum/wiki/Peer-to-Peer>`__: a
+   101 <https://github.com/expanse-org/go-expanse/wiki/Peer-to-Peer>`__: a
    tutorial about setting up and creating a p2p server and p2p sub
    protocol.
 
 -  `How to
-   Whisper <https://github.com/ethereum/go-ethereum/wiki/How-to-Whisper>`__:
+   Whisper <https://github.com/expanse-org/go-expanse/wiki/How-to-Whisper>`__:
    an introduction to whisper.

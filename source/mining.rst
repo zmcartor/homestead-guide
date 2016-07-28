@@ -7,18 +7,18 @@ Mining
 Introduction
 ================================================================================
 
-The word mining originates in the context of the gold analogy for crypto currencies. Gold or precious metals are scarce, so are digital tokens, and the only way to increase the total volume is through mining. This is appropriate to the extent that in Ethereum too, the only mode of issuance post launch is via mining. Unlike these examples however, mining is also the way to secure the network by creating, verifying, publishing and propagating blocks in the blockchain.
+The word mining originates in the context of the gold analogy for crypto currencies. Gold or precious metals are scarce, so are digital tokens, and the only way to increase the total volume is through mining. This is appropriate to the extent that in Expanse too, the only mode of issuance post launch is via mining. Unlike these examples however, mining is also the way to secure the network by creating, verifying, publishing and propagating blocks in the blockchain.
 
 - Mining Ether = Securing the Network = Verifying Computation
 
 What is mining?
 --------------------------------------------------------------------------------
 
-Ethereum, like all blockchain technologies, uses an incentive-driven model of security. Consensus is based on choosing the block with the highest total difficulty. Miners produce blocks which the others check for validity. Among other well-formedness criteria, a block is only valid if it contains *proof of work* (PoW) of a given *difficulty*. Note that in the Ethereum Serenity milestone, this is likely going to be replaced by a  (see :ref:`proof of stake model <POS vs POW>` ).
+Expanse, like all blockchain technologies, uses an incentive-driven model of security. Consensus is based on choosing the block with the highest total difficulty. Miners produce blocks which the others check for validity. Among other well-formedness criteria, a block is only valid if it contains *proof of work* (PoW) of a given *difficulty*. Note that in the Expanse Serenity milestone, this is likely going to be replaced by a  (see :ref:`proof of stake model <POS vs POW>` ).
 
-The Ethereum blockchain is in many ways similar to the Bitcoin blockchain, although it does have some differences. The main difference between Ethereum and Bitcoin with regard to the blockchain architecture is that, unlike Bitcoin, Ethereum blocks contain a copy of both the transaction list and the most recent state (the root hash of the merkle patricia trie encoding the state to be more precise). Aside from that, two other values, the block number and the difficulty, are also stored in the block.
+The Expanse blockchain is in many ways similar to the Bitcoin blockchain, although it does have some differences. The main difference between Expanse and Bitcoin with regard to the blockchain architecture is that, unlike Bitcoin, Expanse blocks contain a copy of both the transaction list and the most recent state (the root hash of the merkle patricia trie encoding the state to be more precise). Aside from that, two other values, the block number and the difficulty, are also stored in the block.
 
-The proof of work algorithm used is called `Ethash <https://github.com/ethereum/wiki/wiki/Ethash>`_ (a modified version of `the Dagger-Hashimoto algorithm <https://github.com/ethereum/wiki/wiki/Dagger-Hashimoto>`_) and involves finding a *nonce* input to the algorithm so that the result is below a certain difficulty threshold. The point in PoW algorithms is that there is no better strategy to find such a nonce than enumerating the possibilities, while verification of a solution is trivial and cheap. Since outputs have a uniform distribution (as they are the result of the application of a hash function), we can guarantee that, on average, the time needed to find such a nonce depends on the difficulty threshold. This makes it possible to control the time of finding a new block just by manipulating the difficulty.
+The proof of work algorithm used is called `Ethash <https://github.com/expanse-org/wiki/wiki/Ethash>`_ (a modified version of `the Dagger-Hashimoto algorithm <https://github.com/expanse-org/wiki/wiki/Dagger-Hashimoto>`_) and involves finding a *nonce* input to the algorithm so that the result is below a certain difficulty threshold. The point in PoW algorithms is that there is no better strategy to find such a nonce than enumerating the possibilities, while verification of a solution is trivial and cheap. Since outputs have a uniform distribution (as they are the result of the application of a hash function), we can guarantee that, on average, the time needed to find such a nonce depends on the difficulty threshold. This makes it possible to control the time of finding a new block just by manipulating the difficulty.
 
 As dictated by the protocol, the difficulty dynamically adjusts in such a way that on average one block is produced by the entire network every 15 seconds. We say that the network produces a blockchain with a *15 second block time*.
 This "heartbeat" basically punctuates the synchronisation of system state
@@ -27,7 +27,7 @@ rewriting history by malicious actors are impossible unless the attacker possess
 
 Any node participating in the network can be a miner and their expected revenue from mining will be directly proportional to their (relative) mining power or *hashrate*, i.e., the number of nonces tried per second normalised by the total hashrate of the network.
 
-Ethash PoW is *memory hard*, making it *ASIC resistant*. Memory hardness is achieved with a proof of work algorithm that requires choosing subsets of a fixed resource dependent on the nonce and block header. This resource (a few gigabyte size data) is called a **DAG**. The `DAG <https://github.com/ethereum/wiki/wiki/Ethash-DAG>`_ is totally different every 30000 blocks, a 125-hour window called *epoch* (roughly 5.2 days) and takes a while to generate. Since the DAG only depends on block height, it can be pregenerated but if its not, the client needs to wait until the end of this process to produce a block. If clients do not pregenerate and cache DAGs ahead of time the network may experience massive block delay on each epoch transition. Note that the DAG does not need to be generated for verifying the PoW essentially allowing for verification with both low CPU and small memory.
+Ethash PoW is *memory hard*, making it *ASIC resistant*. Memory hardness is achieved with a proof of work algorithm that requires choosing subsets of a fixed resource dependent on the nonce and block header. This resource (a few gigabyte size data) is called a **DAG**. The `DAG <https://github.com/expanse-org/wiki/wiki/Ethash-DAG>`_ is totally different every 30000 blocks, a 125-hour window called *epoch* (roughly 5.2 days) and takes a while to generate. Since the DAG only depends on block height, it can be pregenerated but if its not, the client needs to wait until the end of this process to produce a block. If clients do not pregenerate and cache DAGs ahead of time the network may experience massive block delay on each epoch transition. Note that the DAG does not need to be generated for verifying the PoW essentially allowing for verification with both low CPU and small memory.
 
 As a special case, when you start up your node from scratch, mining will only start once the DAG is built for the current epoch.
 
@@ -44,8 +44,8 @@ All the gas consumed by the execution of all the transactions in the block submi
 
 *Uncles* are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralise the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 ether). A maximum of 2 uncles are allowed per block.
 
-    * `Uncles ELI5 on reddit <https://www.reddit.com/r/ethereum/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/>`_
-    * `Forum thread explaining uncles <https://forum.ethereum.org/discussion/2262/eli5-whats-an-uncle-in-ethereum-mining>`_
+    * `Uncles ELI5 on reddit <https://www.reddit.com/r/expanse/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/>`_
+    * `Forum thread explaining uncles <https://forum.expanse.org/discussion/2262/eli5-whats-an-uncle-in-expanse-mining>`_
 
 
 Mining success depends on the set block difficulty. Block difficulty dynamically adjusts each block in order to regulate the network hashing power to produce a 12 second blocktime. Your chances of finding a block therefore follows from your hashrate relative to difficulty.
@@ -68,16 +68,16 @@ so that it can shared between different client implementations as well as multip
 The algorithm
 ================================================================================
 
-Our algorithm, `Ethash <https://github.com/ethereum/wiki/wiki/Ethash>`__ (previously known as Dagger-Hashimoto), is based around the provision of a large, transient, randomly generated dataset which forms a DAG (the Dagger-part), and attempting to solve a particular constraint on it, partly determined through a block's header-hash.
+Our algorithm, `Ethash <https://github.com/expanse-org/wiki/wiki/Ethash>`__ (previously known as Dagger-Hashimoto), is based around the provision of a large, transient, randomly generated dataset which forms a DAG (the Dagger-part), and attempting to solve a particular constraint on it, partly determined through a block's header-hash.
 
 It is designed to hash a fast verifiability time within a slow CPU-only environment, yet provide vast speed-ups for mining when provided with a large amount of memory with high-bandwidth. The large memory requirements mean that large-scale miners get comparatively little super-linear benefit. The high bandwidth requirement means that a speed-up from piling on many super-fast processing units sharing the same memory gives little benefit over a single unit. This is important in that pool mining have no benefit for nodes doing verification, thus discourageing centralisation.
 
-Communication between the external mining application and the Ethereum daemon for work provision and submission happens through the JSON-RPC API. Two RPC functions are provided; ``eth_getWork`` and ``eth_submitWork``.
+Communication between the external mining application and the Expanse daemon for work provision and submission happens through the JSON-RPC API. Two RPC functions are provided; ``eth_getWork`` and ``eth_submitWork``.
 
-These are formally documented on the `JSON-RPC API <https://github.com/ethereum/wiki/wiki/JSON-RPC>`_ wiki article under `miner <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#miner>`_.
+These are formally documented on the `JSON-RPC API <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`_ wiki article under `miner <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#miner>`_.
 
 
-In order to mine you need a fully synced Ethereum client that is enabled for mining and at least one ethereum account. This account is used to send the mining rewards to and is often referred to as *coinbase* or *etherbase*. Visit the ":ref:`creating_an_account`" section of this guide to learn how to create an account.
+In order to mine you need a fully synced Expanse client that is enabled for mining and at least one expanse account. This account is used to send the mining rewards to and is often referred to as *coinbase* or *etherbase*. Visit the ":ref:`creating_an_account`" section of this guide to learn how to create an account.
 
 .. warning:: Ensure your blockchain is fully synchronised with the main chain before starting to mine, otherwise you will not be mining on the main chain.
 
@@ -90,13 +90,13 @@ You can use your computer's central processing unit (CPU) to mine ether. This is
 
 Using geth
 -------------------------------
-When you start up your ethereum node with ``geth`` it is not mining by
-default. To start it in CPU mining mode, you use the ``--mine`` `command line option <https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options>`__.
+When you start up your expanse node with ``geth`` it is not mining by
+default. To start it in CPU mining mode, you use the ``--mine`` `command line option <https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options>`__.
 The ``-minerthreads`` parameter can be used to set the number parallel mining threads (defaulting to the total number of processor cores).
 
 ``geth --mine --minerthreads=4``
 
-You can also start and stop CPU mining at runtime using the `console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminerstart>`__. ``miner.start`` takes an optional parameter for the number of miner threads.
+You can also start and stop CPU mining at runtime using the `console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#adminminerstart>`__. ``miner.start`` takes an optional parameter for the number of miner threads.
 
 .. code-block:: Javascript
 
@@ -120,11 +120,11 @@ You can reset your etherbase on the console too:
 
 .. code-block:: javascript
 
-    miner.setEtherbase(eth.accounts[2])
+    miner.setEtherbase(exp.accounts[2])
 
 Note that your etherbase does not need to be an address of a local account, just an existing one.
 
-There is an option `to add extra Data <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#minersetextra>`__ (32 bytes only) to your mined blocks. By convention this is interpreted as a unicode string, so you can set your short vanity tag.
+There is an option `to add extra Data <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#minersetextra>`__ (32 bytes only) to your mined blocks. By convention this is interpreted as a unicode string, so you can set your short vanity tag.
 
 .. code-block:: javascript
 
@@ -142,7 +142,7 @@ There is an option `to add extra Data <https://github.com/ethereum/go-ethereum/w
     ...
     }
 
-You can check your hashrate with `miner.hashrate <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#adminminerhashrate>`_, the result is in H/s (Hash operations per second).
+You can check your hashrate with `miner.hashrate <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#adminminerhashrate>`_, the result is in H/s (Hash operations per second).
 
 .. code-block:: javascript
 
@@ -153,14 +153,14 @@ After you successfully mined some blocks, you can check the ether balance of you
 
 .. code-block:: javascript
 
-    > eth.getBalance(eth.coinbase).toNumber();
+    > exp.getBalance(exp.coinbase).toNumber();
     '34698870000000'
 
 In order to spend your earnings on gas to transact, you will need to have this account unlocked.
 
 .. code-block:: javascript
 
-    > personal.unlockAccount(eth.coinbase)
+    > personal.unlockAccount(exp.coinbase)
     Password
     true
 
@@ -171,11 +171,11 @@ You can check which blocks are mined by a particular miner (address) with the fo
     function minedBlocks(lastn, addr) {
       addrs = [];
       if (!addr) {
-        addr = eth.coinbase
+        addr = exp.coinbase
       }
-      limit = eth.blockNumber - lastn
-      for (i = eth.blockNumber; i >= limit; i--) {
-        if (eth.getBlock(i).miner == addr) {
+      limit = exp.blockNumber - lastn
+      for (i = exp.blockNumber; i >= limit; i--) {
+        if (exp.getBlock(i).miner == addr) {
           addrs.push(i)
         }
       }
@@ -183,7 +183,7 @@ You can check which blocks are mined by a particular miner (address) with the fo
     }
     // scans the last 1000 blocks and returns the blocknumbers of blocks mined by your coinbase
     // (more precisely blocks the mining reward for which is sent to your coinbase).
-    minedBlocks(1000, eth.coinbase);
+    minedBlocks(1000, exp.coinbase);
     //[352708, 352655, 352559]
 
 Note that it will happen often that you find a block yet it never makes it to the canonical chain. This means when you locally include your mined block, the current state will show the mining reward credited to your account, however, after a while, the better chain is discovered and we switch to a chain in which your block is not included and therefore no mining reward is credited. Therefore it is quite possible that as a miner monitoring their coinbase balance will find that it may fluctuate quite a bit.
@@ -223,8 +223,8 @@ Mac set-up
  wget http://developer.download.nvidia.com/compute/cuda/7_0/Prod/local_installers/cuda_7.0.29_mac.pkg
  sudo installer -pkg ~/Desktop/cuda_7.0.29_mac.pkg -target /
  brew update
- brew tap ethereum/ethereum
- brew reinstall cpp-ethereum --with-gpu-mining --devel --headless --build-from-source
+ brew tap expanse/expanse
+ brew reinstall cpp-expanse --with-gpu-mining --devel --headless --build-from-source
 
 You check your cooling status:
 
@@ -234,19 +234,19 @@ You check your cooling status:
 
 Windows set-up
 -------------------------------
-`Download the latest Eth\+\+ installation <https://github.com/ethereum/webthree-umbrella/releases>`_ and choose ethminer at the "Choose Components" screen of the installation screen.
+`Download the latest Eth\+\+ installation <https://github.com/expanse-org/webthree-umbrella/releases>`_ and choose ethminer at the "Choose Components" screen of the installation screen.
 
 ..  image:: img/eth_miner_setup.png
 ..   :height: 513px
 ..   :width: 399 px
-   :alt: ethereum-ethminer-set-upfdg
+   :alt: expanse-ethminer-set-upfdg
 
 Using ethminer with geth
 -------------------------------
 
 .. code-block:: bash
 
-    geth account new // Set-up ethereum account if you do not have one
+    geth account new // Set-up expanse account if you do not have one
     geth --rpc --rpccorsdomain localhost 2>> geth.log &
     ethminer -G  // -G for GPU, -M for benchmark
     tail -f geth.log
@@ -300,7 +300,7 @@ In order to mine on a single GPU all that needs to be done is to run eth with th
 - ``-G`` set GPU mining on.
 
 While the client is running you can interact with it using either
-geth attach` or [ethconsole](https://github.com/ethereum/ethereum-console).
+geth attach` or [ethconsole](https://github.com/expanse-org/expanse-console).
 
 Mining on a multiple GPUs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -353,15 +353,15 @@ Use ethminer ``--list-devices`` to list possible numbers to substitute for the X
 
 
 
-To start mining on Windows, first `download the geth windows binary <https://build.ethereum.org/builds/Windows%20Go%20master%20branch/>`_.
+To start mining on Windows, first `download the geth windows binary <https://build.expanse.org/builds/Windows%20Go%20master%20branch/>`_.
 
 * Unzip Geth (right-click and select unpack) and launch Command Prompt. Use `cd` to navigate to the location of the Geth data folder. (e.g. ``cd /`` to go to the ``C:`` drive)
 * Start geth by typing ``geth --rpc``.
 
-As soon as you enter this, the Ethereum blockchain will start downloading. Sometimes your firewall may block the synchronisation process (it will prompt you when doing so). If this is the case, click "Allow access".
+As soon as you enter this, the Expanse blockchain will start downloading. Sometimes your firewall may block the synchronisation process (it will prompt you when doing so). If this is the case, click "Allow access".
 
 * First `download and install ethminer <http://cryptomining-blog.com/tag/ethminer-cuda-download/>`_, the C++ mining software (your firewall or Windows itself may act up, allow access)
-* Open up another Command Prompt (leave the first one running!), change directory by typing ``cd /Program\ Files/Ethereum(++)/release``
+* Open up another Command Prompt (leave the first one running!), change directory by typing ``cd /Program\ Files/Expanse(++)/release``
 * Now make sure `geth` has finished syncing the blockchain. If it is not syncing any longer, you can start the mining process by typing ``ethminer -G`` at the command prompt
 
 At this point some problems may appear. If you get an error, you can abort the miner by pressing ``Ctrl+C``. If the error says
@@ -384,7 +384,7 @@ Mining pools
 * `ethpool`_ - Predictable solo mining, unconventional payout scheme, affiliated with `etherchain\.org`_.
 * `supernova`_
 * `coinmine.pl`_
-* `eth.pp.ua`_
+* `exp.pp.ua`_
 * `talkether`_ - Unconventional payout scheme, partially decentralized
 * `weipool`_
 * `ethereumpool`_
@@ -398,31 +398,31 @@ Mining pools
 .. _Ethpool: https://github.com/etherchain-org/ethpool-core
 .. _Ethpool source: https://github.com/etherchain-org/ethpool-core
 .. _ethereumpool: https://ethereumpool.co/
-.. _nanopool: http://eth.nanopool.org/
+.. _nanopool: http://exp.nanopool.org/
 .. _pooleum: http://www.pooleum.com
 .. _alphapool: http://www.alphapool.xyz/
 .. _dwarfpool: http://dwarfpool.com/eth
 .. _talkether: http://talkether.org/
 .. _weipool: http://weipool.org/
-.. _supernova: https://eth.suprnova.cc/
+.. _supernova: https://exp.suprnova.cc/
 .. _coinmine.pl: https://www2.coinmine.pl/eth/
-.. _eth.pp.ua:  https://eth.pp.ua/
+.. _eth.pp.ua:  https://exp.pp.ua/
 .. _coinotron: https://www.coinotron.com/
 .. _etherchain.org: https://etherchain.org/
-.. _unitedminers: http://eth.unitedminers.cloud/
-.. _cryptopool: http://ethereum.cryptopool.online/
+.. _unitedminers: http://exp.unitedminers.cloud/
+.. _cryptopool: http://expanse.cryptopool.online/
 
 
 Mining resources
 =======================================================
 
 * `Top miners of last 24h on etherchain <https://etherchain.org/statistics/miners>`_
-* `pool hashrate distribution for august 2015 <ehttp://cryptomining-blog.com/5607-the-current-state-of-ethereum-mining-pools/>`_
-* `Unmaintained list of pools on Forum <https://forum.ethereum.org/discussion/3659/list-of-pools>`_
+* `pool hashrate distribution for august 2015 <ehttp://cryptomining-blog.com/5607-the-current-state-of-expanse-mining-pools/>`_
+* `Unmaintained list of pools on Forum <https://forum.expanse.org/discussion/3659/list-of-pools>`_
 * `Mining profitability calculator on cryptocompare <https://www.cryptocompare.com/mining/calculator/eth>`_
 * `Mining profitability calculator on cryptowizzard <http://cryptowizzard.github.io/eth-mining-calculator/>`_
 * `Mining profitability calculator on etherscan <http://etherscan.io/ether-mining-calculator/>`_
-* `Mining profitability calculator on In The Ether <http://ethereum-mining-calculator.com/>`_
+* `Mining profitability calculator on In The Ether <http://expanse-mining-calculator.com/>`_
 * `Mining difficulty chart on etherscan <http://etherscan.io/charts/difficulty>`_
 
 
@@ -431,6 +431,6 @@ Mining resources
 POS vs POW
 -----------------------------
 
-* https://www.reddit.com/r/ethereum/comments/38db1z/eli5_the_difference_between_pos_and_pow/
-* https://blog.ethereum.org/2014/11/25/proof-stake-learned-love-weak-subjectivity/
-* https://www.reddit.com/r/ethereum/comments/42o8oy/can_someone_explain_the_switch_to_pos_how_and_when/
+* https://www.reddit.com/r/expanse/comments/38db1z/eli5_the_difference_between_pos_and_pow/
+* https://blog.expanse.org/2014/11/25/proof-stake-learned-love-weak-subjectivity/
+* https://www.reddit.com/r/expanse/comments/42o8oy/can_someone_explain_the_switch_to_pos_how_and_when/

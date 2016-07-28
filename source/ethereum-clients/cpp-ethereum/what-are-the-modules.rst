@@ -7,7 +7,7 @@ What are the modules?
 What are the primary executables?
 ================================================================================
 
-- **eth** A command-line Ethereum full-node that can be controlled via RPC.
+- **eth** A command-line Expanse full-node that can be controlled via RPC.
 - **mix** An IDE for contract and user interface development, testing and deployment to the blockchain.
 - **solc**  The solidity command line compiler
 - **lllc** The LLL command-line compiler.
@@ -16,15 +16,15 @@ What are the primary executables?
 Deprecated executables, to be retired soon
 ================================================================================
 
-- **AlethZero** A Qt-based all-encompassing GUI for interacting with Ethereum (receives minimal support).
+- **AlethZero** A Qt-based all-encompassing GUI for interacting with Expanse (receives minimal support).
 - **EthKey** Key management CLI.
 
 
 What are the various modules?
 ================================================================================
 
-- **AlethZero** - A Qt-based GUI for interacting with Ethereum. Receives minimal support.
-- **libethereum** - Modules related to the Ethereum part of web3, i.e. consensus engine, blockchain download, virtual machine.
+- **AlethZero** - A Qt-based GUI for interacting with Expanse. Receives minimal support.
+- **libethereum** - Modules related to the Expanse part of web3, i.e. consensus engine, blockchain download, virtual machine.
     - **ethkey**: stand-alone key management
     - **ethminer**: stand-alone ethash miner
     - ethvm: stand-alone EVM execution utility
@@ -34,7 +34,7 @@ What are the various modules?
     - libethashseal: generic wrapper around the POW block seal engine. Also contains the genesis states for all ethash-based chains.
     - libethcore: collection of core data structures and concepts
     - libethereum: main consensus engine (minus EVM). Includes the State and BlockChain classes.
-    - libevm: Ethereum Virtual Machine implementation (interpreter).
+    - libevm: Expanse Virtual Machine implementation (interpreter).
     - libevmasm: EVM assembly tools, also contains the optimizer.
     - libevmcore: elementary data structures of the EVM, opcodes, gas costs, ...
     - liblll: Low-level LISP-like Language compiler & assembler.
@@ -64,7 +64,7 @@ What are the various modules?
     - libjsconsole: JavaScript console for access to eth - deprecated, to be replaced by nodejs application
     - libjsengine: underlying engine for libjsconsole, to be removed
     - libweb3jsonrpc: json-rpc server-side endpoint, provides http and IPC (unix socket, windows pipe) connectors
-    - libwebthree: service connectors for ethereum, swarm/ipfs and whisper.
+    - libwebthree: service connectors for expanse, swarm/ipfs and whisper.
     - libwhisper: whisper implementation
 - **webthree-helpers** - build system and some external dependencies
     - cmake: cmake files for build system, contains specification of inter-dependencies

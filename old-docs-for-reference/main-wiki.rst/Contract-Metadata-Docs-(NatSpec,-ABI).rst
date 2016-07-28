@@ -1,24 +1,24 @@
 This is the main entry point for NatSpec and generally details a safe
-and efficient *standard* for Ethereum contract metadata distribution.
+and efficient *standard* for Expanse contract metadata distribution.
 
 By metadata we mean all information related to a contract that is
 thought to be relevant to and immutably linked to a specific version of
-a contract on the Ethereum blockchain. This includes:
+a contract on the Expanse blockchain. This includes:
 
 -  Contract source code
 -  `ABI
-   definition <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__
+   definition <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__
 -  `NatSpec user
-   doc <https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format#user-documentation>`__
+   doc <https://github.com/expanse-org/wiki/wiki/Expanse-Natural-Specification-Format#user-documentation>`__
 -  `NatSpec developer's
-   doc <https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format#developer-documentation>`__
+   doc <https://github.com/expanse-org/wiki/wiki/Expanse-Natural-Specification-Format#developer-documentation>`__
 
 These resources have their *standard specification* in json format,
 ideally meant to be produced by IDE infrastructures or compilers
 directly.
 
 For instance, the
-`solidity <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__
+`solidity <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__
 compiler offers a ``doxygen`` style way of specifying natspec with
 inline smart comments. Upon compilation it creates both NatSpec user doc
 as well ABI definition. But note that there is nothing inherently
@@ -28,12 +28,12 @@ extending it.
 
 Since dapps and IDEs will typically want to interact with these
 resources, standardising their deployment and distribution is important
-for a smooth Ethereum experience.
+for a smooth Expanse experience.
 
 A specially important example of this is the **NatSpec transaction
 confirmation notice scheme**, which we will use to illustrate the point.
 However, the strategy described here trivially extends to arbitrary
-immutable metadata fixed to an Ethereum contract.
+immutable metadata fixed to an Expanse contract.
 
 Transaction Confirmation Notice
 ===============================
@@ -44,7 +44,7 @@ provide templating which allows parts of the user notice to be
 instantiated depending on the parameters of the actual transaction sent
 to the contract.
 
-Trusted Ethereum client implementations are required to call back from
+Trusted Expanse client implementations are required to call back from
 their backend instantiating the natspec transaction notice from actual
 transaction data and present it to the user for confirmation.
 
@@ -64,16 +64,16 @@ Metadata Authentication
 called ``cmd`` file, that stands for *contract metadata doc*.
 
 The ``cmd`` file's content is hashed and content hash is registered on a
-name registry via a contract on the Ethereum blockchain under the code
+name registry via a contract on the Expanse blockchain under the code
 hash, see
-https://github.com/ethereum/dapp-bin/blob/master/NatSpecReg/contract.sol
+https://github.com/expanse-org/dapp-bin/blob/master/NatSpecReg/contract.sol
 *Registering* in this context will simply mean a key value pair is
 recorded in an immutable contract storage as a result of a transaction
 sent to the registry contract.
 
 This provides a public immutable authentication for contract metadata,
 since: - the authenticity of the link between the contract and metadata
-is secured by Ethereum consensus - the authenticity of actual metadata
+is secured by Expanse consensus - the authenticity of actual metadata
 content is secured by content hashing - the binding is tamper proof
 
 Dapp IDE environments are supposed to support the functionality, that
@@ -95,7 +95,7 @@ namereg entry, we propose the following business process:
    satisfying level of certainty (X blocks).
 
 How it looks like in ``Alethzero`` is illustrated [here]\|(
-https://github.com/ethereum/wiki/wiki/NatSpec-Example)
+https://github.com/expanse-org/wiki/wiki/NatSpec-Example)
 
 Metadata Access
 ---------------
@@ -137,7 +137,7 @@ should be registered before contract creation
 failure/hacking, etc)
 
 Read more
-`here <https://github.com/ethereum/wiki/wiki/NatSpec-Determination>`__
+`here <https://github.com/expanse-org/wiki/wiki/NatSpec-Determination>`__
 
 Name registry contracts
 -----------------------

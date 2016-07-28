@@ -4,7 +4,7 @@
 Transaction Tests
 ################################################################################
 
-Describes a complete transaction and its `RLP <https://github.com/ethereum/wiki/wiki/RLP>`_ representation using the .json file. 
+Describes a complete transaction and its `RLP <https://github.com/expanse-org/wiki/wiki/RLP>`_ representation using the .json file. 
 The client should read the rlp and check whether the transaction is valid, has the correct sender and corresponds to the transaction parameters.
 If it is an invalid transaction, the transaction and the sender object will be missing.
 
@@ -48,4 +48,4 @@ Sections
 * ``value`` - A scalar value equal to the number of Wei to be transferred to the message call's recipient or, in the case of contract creation, as an endowment to the newly created account.
 * ``v, r, s`` - Values corresponding to the signature of the transaction and used to determine the sender of the transaction.
 * ``sender`` - the address of the sender, derived from the v,r,s values.
-* ``blocknumber`` - indicates network rules for the transaction. Since blocknumber = **1000000** Homestead rules are applied to transaction. (see https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2.mediawiki)
+* ``blocknumber`` - indicates network rules for the transaction. Since blocknumber = **1000000** Homestead rules are applied to transaction. (see https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-2.mediawiki)

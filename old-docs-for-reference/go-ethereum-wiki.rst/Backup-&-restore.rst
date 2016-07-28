@@ -10,9 +10,9 @@ Everything ``geth`` persists gets written inside its data directory
 (except for the PoW Ethash DAG, see note below). The default data
 directory locations are platform specific:
 
--  Mac: ``~/Library/Ethereum``
--  Linux: ``~/.ethereum``
--  Windows: ``%APPDATA%/Ethereum``
+-  Mac: ``~/Library/Expanse``
+-  Linux: ``~/.expanse``
+-  Windows: ``%APPDATA%/Expanse``
 
 Accounts are stored in the ``keystore`` subdirectory. The contents of
 this directories should be transportable between nodes, platforms,
@@ -20,11 +20,11 @@ implementations (C++, Go, Python).
 
 To configure the location of the data directory, the ``--datadir``
 parameter can be specified. See `CLI
-Options <https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options>`__
+Options <https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options>`__
 for more details.
 
 ***Note:** The `Ethash
-DAG <https://github.com/ethereum/go-ethereum/wiki/Mining#ethash-dag>`__
+DAG <https://github.com/expanse-org/go-expanse/wiki/Mining#ethash-dag>`__
 is stored at ``~/.ethash`` (Mac/Linux) or ``~/AppData/Ethash`` (Windows)
 so that it can be reused by all clients. You can store this in a
 different location by using a symbolic link.*
@@ -78,7 +78,7 @@ Import binary-format blockchain exports with:
 
     geth import <filename>
 
-*See https://github.com/ethereum/wiki/wiki/Blockchain-import-export for
+*See https://github.com/expanse-org/wiki/wiki/Blockchain-import-export for
 more info*
 
 And finally: **DO NOT FORGET YOUR PASSWORD** and **BACKUP YOUR

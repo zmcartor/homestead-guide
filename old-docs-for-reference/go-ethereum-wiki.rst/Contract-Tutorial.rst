@@ -2,7 +2,7 @@ Introduction
 ------------
 
 Now that you mastered the basics on how to get started and how to send
-ether, it's time to get your hands dirty in what really makes Ethereum
+ether, it's time to get your hands dirty in what really makes Expanse
 stand out of the crowd: smart contracts. Smart contracts are pieces of
 code that live on the blockchain and execute commands exactly how they
 were told to. They can read other contracts, make decisions, send ether
@@ -22,7 +22,7 @@ So let's start now.
 Your first citizen: the greeter
 -------------------------------
 
-Now that you’ve mastered the basics of Ethereum, let’s move into your
+Now that you’ve mastered the basics of Expanse, let’s move into your
 first serious contract. The Frontier is a big open territory and
 sometimes you might feel lonely, so our first order of business will be
 to create a little automatic companion to greet you whenever you feel
@@ -74,7 +74,7 @@ simple and easy to read.
 The inherited characteristic *"mortal"* simply means that the greeter
 contract can be killed by its owner, to clean up the blockchain and
 recover funds locked into it when the contract is no longer needed.
-Contracts in Ethereum are, by default, immortal and have no owner,
+Contracts in Expanse are, by default, immortal and have no owner,
 meaning that once deployed the author has no special privileges anymore.
 Consider this before deploying.
 
@@ -90,7 +90,7 @@ compiler built in on your geth console. To test it, use this command:
 
 ::
 
-    eth.getCompilers()
+    exp.getCompilers()
 
 If you have it installed, it should output something like this:
 
@@ -104,7 +104,7 @@ Using an online compiler
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don't have solC installed, we have a `online solidity
-compiler <https://chriseth.github.io/cpp-ethereum/>`__ available. But be
+compiler <https://chriseth.github.io/cpp-expanse/>`__ available. But be
 aware that **if the compiler is compromised, your contract is not
 safe**. For this reason, if you want to use the online compiler we
 encourage you to `host your
@@ -118,7 +118,7 @@ command line. Open the terminal and execute these commands:
 
 ::
 
-    sudo add-apt-repository ppa:ethereum/ethereum
+    sudo add-apt-repository ppa:expanse/expanse
     sudo apt-get update
     sudo apt-get install solc
     which solc
@@ -132,8 +132,8 @@ You need `brew <http://brew.sh>`__ in order to install on your mac
 
 ::
 
-    brew install cpp-ethereum
-    brew linkapps cpp-ethereum
+    brew install cpp-expanse
+    brew linkapps cpp-expanse
     which solc
 
 Take note of the path given by the last line, you'll need it soon.
@@ -160,9 +160,9 @@ Compile from source
 
 ::
 
-    git clone https://github.com/ethereum/cpp-ethereum.git
-    mkdir cpp-ethereum/build
-    cd cpp-ethereum/build
+    git clone https://github.com/expanse-org/cpp-expanse.git
+    mkdir cpp-expanse/build
+    cd cpp-expanse/build
     cmake -DJSONRPC=OFF -DMINER=OFF -DETHKEY=OFF -DSERPENT=OFF -DGUI=OFF -DTESTS=OFF -DJSCONSOLE=OFF ..
     make -j4
     make install
@@ -183,12 +183,12 @@ Now type again:
 
 ::
 
-    eth.getCompilers()
+    exp.getCompilers()
 
 If you now have solC installed, then congratulations, you can keep
 reading. If you don't, then go to our
-`forums <http://forum.ethereum.org>`__ or
-`subreddit <http://www.reddit.com/r/ethereum>`__ and berate us on
+`forums <http://forum.expanse.org>`__ or
+`subreddit <http://www.reddit.com/r/expanse>`__ and berate us on
 failing to make the process easier.
 
 Compiling your contract
@@ -203,7 +203,7 @@ this) <http://www.textfixer.com/tools/remove-line-breaks.php>`__:
 
     var greeterSource = 'contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }'
 
-    var greeterCompiled = web3.eth.compile.solidity(greeterSource)
+    var greeterCompiled = web3.exp.compile.solidity(greeterSource)
 
 You have now compiled your code. Now you need to get it ready for
 deployment, this includes setting some variables up, like what is your
@@ -213,9 +213,9 @@ greeting. Edit the first line below to something more interesting than
 ::
 
     var _greeting = "Hello World!"
-    var greeterContract = web3.eth.contract(greeterCompiled.greeter.info.abiDefinition);
+    var greeterContract = web3.exp.contract(greeterCompiled.greeter.info.abiDefinition);
 
-    var greeter = greeterContract.new(_greeting,{from:web3.eth.accounts[0], data: greeterCompiled.greeter.code, gas: 1000000}, function(e, contract){
+    var greeter = greeterContract.new(_greeting,{from:web3.exp.accounts[0], data: greeterCompiled.greeter.code, gas: 1000000}, function(e, contract){
       if(!e) {
 
         if(!contract.address) {
@@ -234,7 +234,7 @@ Using the online compiler
 
 If you don't have solC installed, you can simply use the online
 compiler. Copy the source code above to the `online solidity
-compiler <https://chriseth.github.io/cpp-ethereum/>`__ and then your
+compiler <https://chriseth.github.io/cpp-expanse/>`__ and then your
 compiled code should appear on the left pane. Copy the code on the box
 labeled **Geth deploy** to a text file. Now change the first line to
 your greeting:
@@ -254,14 +254,14 @@ You will probably be asked for the password you picked in the beginning,
 because you need to pay for the gas costs to deploying your contract.
 This contract is estimated to need 172 thousand gas to deploy (according
 to the `online solidity
-compiler <https://chriseth.github.io/cpp-ethereum/>`__), at the time of
+compiler <https://chriseth.github.io/cpp-expanse/>`__), at the time of
 writing, gas on the test net is priced at 1 to 10 microethers per unit
 of gas (nicknamed "szabo" = 1 followed by 12 zeroes in wei). To know the
 latest price in ether all you can see the `latest gas prices at the
 network stats page <https://stats.ethdev.com>`__ and multiply both
 terms.
 
-**Notice that the cost is not paid to the `ethereum
+**Notice that the cost is not paid to the `expanse
 developers <../foundation>`__, instead it goes to the *Miners*, people
 who are running computers who keep the network running. Gas price is set
 by the market of the current supply and demand of computation. If the
@@ -274,11 +274,11 @@ verify the deployed code (compiled) by using this command:
 
 ::
 
-    eth.getCode(greeter.address)
+    exp.getCode(greeter.address)
 
 If it returns anything other than "0x" then congratulations! Your little
 Greeter is live! If the contract is created again (by performing another
-eth.sendTransaction), it will be published to a new address.
+exp.sendTransaction), it will be published to a new address.
 
 Run the Greeter
 ~~~~~~~~~~~~~~~
@@ -317,13 +317,13 @@ the contract on any machine connected to the network. Replace 'ABI' and
 
 ::
 
-    var greeter = eth.contract(ABI).at(Address);
+    var greeter = exp.contract(ABI).at(Address);
 
 This particular example can be instantiated by anyone by simply calling:
 
 ::
 
-    var greeter2 = eth.contract([{constant:false,inputs:[],name:'kill',outputs:[],type:'function'},{constant:true,inputs:[],name:'greet',outputs:[{name:'',type:'string'}],type:'function'},{inputs:[{name:'_greeting',type:'string'}],type:'constructor'}]).at('greeterAddress');
+    var greeter2 = exp.contract([{constant:false,inputs:[],name:'kill',outputs:[],type:'function'},{constant:true,inputs:[],name:'greet',outputs:[{name:'',type:'string'}],type:'function'},{inputs:[{name:'_greeting',type:'string'}],type:'constructor'}]).at('greeterAddress');
 
 Replace *greeterAddress* with your contract's address.
 
@@ -351,13 +351,13 @@ transaction.
 
 ::
 
-    greeter.kill.sendTransaction({from:eth.accounts[0]})
+    greeter.kill.sendTransaction({from:exp.accounts[0]})
 
 You can verify that the deed is done simply seeing if this returns 0:
 
 ::
 
-    eth.getCode(greeter.contractAddress)
+    exp.getCode(greeter.contractAddress)
 
 Notice that every contract has to implement its own kill clause. In this
 particular case only the account that created the contract can kill it.
@@ -382,7 +382,7 @@ ownership**) or even be simply used as an exchange of value within a
 community (**a currency**).
 
 You could do all those things by creating a centralized server, but
-using an Ethereum token contract comes with some free functionalities:
+using an Expanse token contract comes with some free functionalities:
 for one, it's a decentralized service and tokens can be still exchanged
 even if the original service goes down for any reason. The code can
 guarantee that no tokens will ever be created other than the ones set in
@@ -391,11 +391,11 @@ this eliminates the scenarios where one single server break-in can
 result in the loss of funds from thousands of clients.
 
 You could create your own token on a different blockchain, but creating
-on Ethereum is easier — so you can focus your energy on the innovation
+on Expanse is easier — so you can focus your energy on the innovation
 that will make your coin stand out - and it's more secure, as your
-security is provided by all the miners who are supporting the Ethereum
-network. Finally, by creating your token in Ethereum, your coin will be
-compatible with any other contract running on Ethereum.
+security is provided by all the miners who are supporting the Expanse
+network. Finally, by creating your token in Expanse, your coin will be
+compatible with any other contract running on Expanse.
 
 The Code
 ~~~~~~~~
@@ -446,7 +446,7 @@ Compile and Deploy
 
     var tokenSource = ' contract token { mapping (address => uint) public coinBalanceOf; event CoinTransfer(address sender, address receiver, uint amount); /* Initializes contract with initial supply tokens to the creator of the contract */ function token(uint supply) { coinBalanceOf[msg.sender] = supply; } /* Very simple trade function */ function sendCoin(address receiver, uint amount) returns(bool sufficient) { if (coinBalanceOf[msg.sender] < amount) return false; coinBalanceOf[msg.sender] -= amount; coinBalanceOf[receiver] += amount; CoinTransfer(msg.sender, receiver, amount); return true; } }'
 
-    var tokenCompiled = eth.compile.solidity(tokenSource)
+    var tokenCompiled = exp.compile.solidity(tokenSource)
 
 Now let’s set up the contract, just like we did in the previous section.
 Change the "initial Supply" to the amount of non divisible tokens you
@@ -457,11 +457,11 @@ account.
 ::
 
     var supply = 10000;
-    var tokenContract = web3.eth.contract(tokenCompiled.token.info.abiDefinition);
+    var tokenContract = web3.exp.contract(tokenCompiled.token.info.abiDefinition);
     var token = tokenContract.new(
       supply,
       {
-        from:web3.eth.accounts[0],
+        from:web3.exp.accounts[0],
         data:tokenCompiled.token.code,
         gas: 1000000
       }, function(e, contract){
@@ -483,7 +483,7 @@ Online Compiler
 
 **If you don't have solC installed, you can simply use the online
 compiler.** Copy the contract code to the `online solidity
-compiler <https://chriseth.github.io/cpp-ethereum/>`__, if there are no
+compiler <https://chriseth.github.io/cpp-expanse/>`__, if there are no
 errors on the contract you should see a text box labeled **Geth
 Deploy**. Copy the content to a text file so you can change the first
 line to set the initial supply, like this:
@@ -507,7 +507,7 @@ balance with:
 
 ::
 
-    token.coinBalanceOf(eth.accounts[0]) + " tokens"
+    token.coinBalanceOf(exp.accounts[0]) + " tokens"
 
 It should have all the 10 000 tokens that were created once the contract
 was published. Since there is not any other defined way for new coins to
@@ -531,14 +531,14 @@ in order to send them to someone else, use this command:
 
 ::
 
-    token.sendCoin.sendTransaction(eth.accounts[1], 1000, {from: eth.accounts[0]})
+    token.sendCoin.sendTransaction(exp.accounts[1], 1000, {from: exp.accounts[0]})
 
 If a friend has registered a name on the registrar you can send it
 without knowing their address, doing this:
 
 ::
 
-    token.sendCoin.sendTransaction(registrar.addr("Alice"), 2000, {from: eth.accounts[0]})
+    token.sendCoin.sendTransaction(registrar.addr("Alice"), 2000, {from: exp.accounts[0]})
 
 Note that our first function **coinBalanceOf** was simply called
 directly on the contract instance and returned a value. This was
@@ -555,8 +555,8 @@ check both accounts balances:
 
 ::
 
-    token.coinBalanceOf.call(eth.accounts[0])/100 + "% of all tokens"
-    token.coinBalanceOf.call(eth.accounts[1])/100 + "% of all tokens"
+    token.coinBalanceOf.call(exp.accounts[0])/100 + "% of all tokens"
+    token.coinBalanceOf.call(exp.accounts[1])/100 + "% of all tokens"
     token.coinBalanceOf.call(registrar.addr("Alice"))/100 + "% of all tokens"
 
 Improvement suggestions
@@ -564,7 +564,7 @@ Improvement suggestions
 
 Right now this cryptocurrency is quite limited as there will only ever
 be 10,000 coins and all are controlled by the coin creator, but you can
-change that. You could for example reward ethereum miners, by creating a
+change that. You could for example reward expanse miners, by creating a
 transaction that will reward who found the current block:
 
 ::
@@ -601,7 +601,7 @@ friends with a reference to your contract’s ABI:
 
 ::
 
-    token = eth.contract([{constant:false,inputs:[{name:'receiver',type:'address'},{name:'amount',type:'uint256'}],name:'sendCoin',outputs:[{name:'sufficient',type:'bool'}],type:'function'},{constant:true,inputs:[{name:'',type:'address'}],name:'coinBalanceOf',outputs:[{name:'',type:'uint256'}],type:'function'},{inputs:[{name:'supply',type:'uint256'}],type:'constructor'},{anonymous:false,inputs:[{indexed:false,name:'sender',type:'address'},{indexed:false,name:'receiver',type:'address'},{indexed:false,name:'amount',type:'uint256'}],name:'CoinTransfer',type:'event'}]).at('0x4a4ce7844735c4b6fc66392b200ab6fe007cfca8')
+    token = exp.contract([{constant:false,inputs:[{name:'receiver',type:'address'},{name:'amount',type:'uint256'}],name:'sendCoin',outputs:[{name:'sufficient',type:'bool'}],type:'function'},{constant:true,inputs:[{name:'',type:'address'}],name:'coinBalanceOf',outputs:[{name:'',type:'uint256'}],type:'function'},{inputs:[{name:'supply',type:'uint256'}],type:'constructor'},{anonymous:false,inputs:[{indexed:false,name:'sender',type:'address'},{indexed:false,name:'receiver',type:'address'},{indexed:false,name:'amount',type:'uint256'}],name:'CoinTransfer',type:'event'}]).at('0x4a4ce7844735c4b6fc66392b200ab6fe007cfca8')
 
 Just replace the address at the end for your own token address, then
 anyone that uses this snippet will immediately be able to use your
@@ -641,7 +641,7 @@ If that function returns "0x00..", you can claim it to yourself:
 
 ::
 
-    registrar.reserve.sendTransaction(tokenName, {from: eth.accounts[0]});
+    registrar.reserve.sendTransaction(tokenName, {from: exp.accounts[0]});
 
 Wait for the previous transaction to be picked up. Wait up to thirty
 seconds and then try:
@@ -655,9 +655,9 @@ set your chosen name to any address you want:
 
 ::
 
-    registrar.setAddress.sendTransaction(tokenName, token.address, true,{from: eth.accounts[0]});
+    registrar.setAddress.sendTransaction(tokenName, token.address, true,{from: exp.accounts[0]});
 
-*You can replace **token.address** for **eth.accounts[0]** if you want
+*You can replace **token.address** for **exp.accounts[0]** if you want
 to use it as a personal nickname.*
 
 Wait a little bit for that transaction to be picked up too and test it:
@@ -671,7 +671,7 @@ account simply by typing
 
 ::
 
-    eth.sendTransaction({from: eth.accounts[0], to: registrar.addr("MyFirstCoin"), value: web3.toWei(1, "ether")})
+    exp.sendTransaction({from: exp.accounts[0], to: registrar.addr("MyFirstCoin"), value: web3.toWei(1, "ether")})
 
 **Tip: don't mix registrar.addr for registrar.owner. The first is to
 which address that name is pointed at: anyone can point a name to
@@ -684,7 +684,7 @@ code to instantiate could use a name instead of an address.
 
 ::
 
-    token = eth.contract([{constant:false,inputs:[{name:'receiver',type:'address'},{name:'amount',type:'uint256'}],name:'sendCoin',outputs:[{name:'sufficient',type:'bool'}],type:'function'},{constant:true,inputs:[{name:'',type:'address'}],name:'coinBalanceOf',outputs:[{name:'',type:'uint256'}],type:'function'},{inputs:[{name:'supply',type:'uint256'}],type:'constructor'},{anonymous:false,inputs:[{indexed:false,name:'sender',type:'address'},{indexed:false,name:'receiver',type:'address'},{indexed:false,name:'amount',type:'uint256'}],name:'CoinTransfer',type:'event'}]).at(registrar.addr("MyFirstCoin"))
+    token = exp.contract([{constant:false,inputs:[{name:'receiver',type:'address'},{name:'amount',type:'uint256'}],name:'sendCoin',outputs:[{name:'sufficient',type:'bool'}],type:'function'},{constant:true,inputs:[{name:'',type:'address'}],name:'coinBalanceOf',outputs:[{name:'',type:'uint256'}],type:'function'},{inputs:[{name:'supply',type:'uint256'}],type:'constructor'},{anonymous:false,inputs:[{indexed:false,name:'sender',type:'address'},{indexed:false,name:'receiver',type:'address'},{indexed:false,name:'amount',type:'uint256'}],name:'CoinTransfer',type:'event'}]).at(registrar.addr("MyFirstCoin"))
 
 This also means that the owner of the coin can update the coin by
 pointing the registrar to the new contract. This would, of course,
@@ -695,20 +695,20 @@ Of course this is a rather unpleasant big chunk of code just to allow
 others to interact with a contract. There are some avenues being
 investigated to upload the contract ABI to the network, so that all the
 user will need is the contract name. You can `read about these
-approaches <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions#natspec>`__
+approaches <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions#natspec>`__
 but they are very experimental and will certainly change in the future.
 
 Learn More
 ~~~~~~~~~~
 
 -  `Meta coin
-   standard <https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs>`__
+   standard <https://github.com/expanse-org/wiki/wiki/Standardized_Contract_APIs>`__
    is a proposed standardization of function names for coin and token
-   contracts, to allow them to be automatically added to other Ethereum
+   contracts, to allow them to be automatically added to other Expanse
    contract that utilizes trading, like exchanges or escrow.
 
 -  `Formal
-   proofing <https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format#documentation-output>`__
+   proofing <https://github.com/expanse-org/wiki/wiki/Expanse-Natural-Specification-Format#documentation-output>`__
    is a way where the contract developer will be able to assert some
    invariant qualities of the contract, like the total cap of the coin.
    *Not yet implemented*.
@@ -810,7 +810,7 @@ crowdsale:
 
 ::
 
-    var _beneficiary = eth.accounts[1];    // create an account for this
+    var _beneficiary = exp.accounts[1];    // create an account for this
     var _fundingGoal = web3.toWei(100, "ether"); // raises 100 ether
     var _duration = 30;     // number of minutes the campaign will last
     var _price = web3.toWei(0.02, "ether"); // the price of the tokens, in ether
@@ -838,9 +838,9 @@ copy the following commands on the terminal:
 
 ::
 
-    var crowdsaleCompiled = eth.compile.solidity(' contract token { mapping (address => uint) public coinBalanceOf; function token() {} function sendCoin(address receiver, uint amount) returns(bool sufficient) { } } contract Crowdsale { address public beneficiary; uint public fundingGoal; uint public amountRaised; uint public deadline; uint public price; token public tokenReward; Funder[] public funders; event FundTransfer(address backer, uint amount, bool isContribution); /* data structure to hold information about campaign contributors */ struct Funder { address addr; uint amount; } /* at initialization, setup the owner */ function Crowdsale(address _beneficiary, uint _fundingGoal, uint _duration, uint _price, token _reward) { beneficiary = _beneficiary; fundingGoal = _fundingGoal; deadline = now + _duration * 1 minutes; price = _price; tokenReward = token(_reward); } /* The function without name is the default function that is called whenever anyone sends funds to a contract */ function () { Funder f = funders[++funders.length]; f.addr = msg.sender; f.amount = msg.value; amountRaised += f.amount; tokenReward.sendCoin(msg.sender, f.amount/price); FundTransfer(f.addr, f.amount, true); } modifier afterDeadline() { if (now >= deadline) _ } /* checks if the goal or time limit has been reached and ends the campaign */ function checkGoalReached() afterDeadline { if (amountRaised >= fundingGoal){ beneficiary.send(amountRaised); FundTransfer(beneficiary, amountRaised, false); } else { FundTransfer(0, 11, false); for (uint i = 0; i < funders.length; ++i) { funders[i].addr.send(funders[i].amount); FundTransfer(funders[i].addr, funders[i].amount, false); } } suicide(beneficiary); } }');
+    var crowdsaleCompiled = exp.compile.solidity(' contract token { mapping (address => uint) public coinBalanceOf; function token() {} function sendCoin(address receiver, uint amount) returns(bool sufficient) { } } contract Crowdsale { address public beneficiary; uint public fundingGoal; uint public amountRaised; uint public deadline; uint public price; token public tokenReward; Funder[] public funders; event FundTransfer(address backer, uint amount, bool isContribution); /* data structure to hold information about campaign contributors */ struct Funder { address addr; uint amount; } /* at initialization, setup the owner */ function Crowdsale(address _beneficiary, uint _fundingGoal, uint _duration, uint _price, token _reward) { beneficiary = _beneficiary; fundingGoal = _fundingGoal; deadline = now + _duration * 1 minutes; price = _price; tokenReward = token(_reward); } /* The function without name is the default function that is called whenever anyone sends funds to a contract */ function () { Funder f = funders[++funders.length]; f.addr = msg.sender; f.amount = msg.value; amountRaised += f.amount; tokenReward.sendCoin(msg.sender, f.amount/price); FundTransfer(f.addr, f.amount, true); } modifier afterDeadline() { if (now >= deadline) _ } /* checks if the goal or time limit has been reached and ends the campaign */ function checkGoalReached() afterDeadline { if (amountRaised >= fundingGoal){ beneficiary.send(amountRaised); FundTransfer(beneficiary, amountRaised, false); } else { FundTransfer(0, 11, false); for (uint i = 0; i < funders.length; ++i) { funders[i].addr.send(funders[i].amount); FundTransfer(funders[i].addr, funders[i].amount, false); } } suicide(beneficiary); } }');
 
-    var crowdsaleContract = web3.eth.contract(crowdsaleCompiled.Crowdsale.info.abiDefinition);
+    var crowdsaleContract = web3.exp.contract(crowdsaleCompiled.Crowdsale.info.abiDefinition);
     var crowdsale = crowdsaleContract.new(
       _beneficiary,
       _fundingGoal,
@@ -848,7 +848,7 @@ copy the following commands on the terminal:
       _price,
       _reward,
       {
-        from:web3.eth.accounts[0],
+        from:web3.exp.accounts[0],
         data:crowdsaleCompiled.Crowdsale.code,
         gas: 1000000
       }, function(e, contract){
@@ -865,7 +865,7 @@ copy the following commands on the terminal:
         }    })
 
 **If you are using the *online compiler* Copy the contract code to the
-`online solidity compiler <https://chriseth.github.io/cpp-ethereum/>`__,
+`online solidity compiler <https://chriseth.github.io/cpp-expanse/>`__,
 and then grab the content of the box labeled **\ Geth Deploy\ **. Since
 you have already set the parameters, you don't need to change anything
 to that text, simply paste the resulting text on your geth window.**
@@ -881,14 +881,14 @@ always double check by doing this:
 
 ::
 
-    eth.getCode(crowdsale.address)
+    exp.getCode(crowdsale.address)
 
 Now fund your newly created contract with the necessary tokens so it can
 automatically distribute rewards to the contributors!
 
 ::
 
-    token.sendCoin.sendTransaction(crowdsale.address, 5000,{from: eth.accounts[0]})
+    token.sendCoin.sendTransaction(crowdsale.address, 5000,{from: exp.accounts[0]})
 
 After the transaction is picked, you can check the amount of tokens the
 crowdsale address has, and all other variables this way:
@@ -942,13 +942,13 @@ Check if that's available and register:
 ::
 
     registrar.addr(name)
-    registrar.reserve.sendTransaction(name, {from: eth.accounts[0]});
+    registrar.reserve.sendTransaction(name, {from: exp.accounts[0]});
 
 Wait for the previous transaction to be picked up and then:
 
 ::
 
-    registrar.setAddress.sendTransaction(name, crowdsale.address, true,{from: eth.accounts[0]});
+    registrar.setAddress.sendTransaction(name, crowdsale.address, true,{from: exp.accounts[0]});
 
 Contribute to the crowdsale
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -963,14 +963,14 @@ executing this command:
 
     var amount = web3.toWei(5, "ether") // decide how much to contribute
 
-    eth.sendTransaction({from: eth.accounts[0], to: crowdsale.address, value: amount, gas: 1000000})
+    exp.sendTransaction({from: exp.accounts[0], to: crowdsale.address, value: amount, gas: 1000000})
 
 Alternatively, if you want someone else to send it, they can even use
 the name registrar to contribute:
 
 ::
 
-    eth.sendTransaction({from: eth.accounts[0], to: registrar.addr("mycrowdsale"), value: amount, gas: 500000})
+    exp.sendTransaction({from: exp.accounts[0], to: registrar.addr("mycrowdsale"), value: amount, gas: 500000})
 
 Now wait a minute for the blocks to pickup and you can check if the
 contract received the ether by doing any of these commands:
@@ -978,7 +978,7 @@ contract received the ether by doing any of these commands:
 ::
 
     web3.fromWei(crowdsale.amountRaised.call(), "ether") + " ether"
-    token.coinBalanceOf.call(eth.accounts[0]) + " tokens"
+    token.coinBalanceOf.call(exp.accounts[0]) + " tokens"
     token.coinBalanceOf.call(crowdsale.address) + " tokens"
 
 Recover funds
@@ -987,21 +987,21 @@ Recover funds
 Once the deadline is passed someone has to wake up the contract to have
 the funds sent to either the beneficiary or back to the funders (if it
 failed). This happens because there is no such thing as an active loop
-or timer on Ethereum so any future transactions must be pinged by
+or timer on Expanse so any future transactions must be pinged by
 someone.
 
 ::
 
-    crowdsale.checkGoalReached.sendTransaction({from:eth.accounts[0], gas: 2000000})
+    crowdsale.checkGoalReached.sendTransaction({from:exp.accounts[0], gas: 2000000})
 
 You can check your accounts with these lines of code:
 
 ::
 
-    web3.fromWei(eth.getBalance(eth.accounts[0]), "ether") + " ether"
-    web3.fromWei(eth.getBalance(eth.accounts[1]), "ether") + " ether"
-    token.coinBalanceOf.call(eth.accounts[0]) + " tokens"
-    token.coinBalanceOf.call(eth.accounts[1]) + " tokens"
+    web3.fromWei(exp.getBalance(exp.accounts[0]), "ether") + " ether"
+    web3.fromWei(exp.getBalance(exp.accounts[1]), "ether") + " ether"
+    token.coinBalanceOf.call(exp.accounts[0]) + " tokens"
+    token.coinBalanceOf.call(exp.accounts[1]) + " tokens"
 
 The crowdsale instance is setup to self destruct once it has done its
 job, so if the deadline is over and everyone got their prizes the
@@ -1009,7 +1009,7 @@ contract is no more, as you can see by running this:
 
 ::
 
-    eth.getCode(crowdsale.address)
+    exp.getCode(crowdsale.address)
 
 So you raised a 100 ethers and successfully distributed your original
 coin among the crowdsale donors. What could you do next with those
@@ -1180,16 +1180,16 @@ parameters with care, as you won't be able to change them in the future.
 
 ::
 
-    var daoCompiled = eth.compile.solidity('contract token { mapping (address => uint) public coinBalanceOf; function token() { } function sendCoin(address receiver, uint amount) returns(bool sufficient) { } } contract Democracy { uint public minimumQuorum; uint public debatingPeriod; token public voterShare; address public founder; Proposal[] public proposals; uint public numProposals; event ProposalAdded(uint proposalID, address recipient, uint amount, bytes32 data, string description); event Voted(uint proposalID, int position, address voter); event ProposalTallied(uint proposalID, int result, uint quorum, bool active); struct Proposal { address recipient; uint amount; bytes32 data; string description; uint creationDate; bool active; Vote[] votes; mapping (address => bool) voted; } struct Vote { int position; address voter; } function Democracy(token _voterShareAddress, uint _minimumQuorum, uint _debatingPeriod) { founder = msg.sender; voterShare = token(_voterShareAddress); minimumQuorum = _minimumQuorum || 10; debatingPeriod = _debatingPeriod * 1 minutes || 30 days; } function newProposal(address _recipient, uint _amount, bytes32 _data, string _description) returns (uint proposalID) { if (voterShare.coinBalanceOf(msg.sender)>0) { proposalID = proposals.length++; Proposal p = proposals[proposalID]; p.recipient = _recipient; p.amount = _amount; p.data = _data; p.description = _description; p.creationDate = now; p.active = true; ProposalAdded(proposalID, _recipient, _amount, _data, _description); numProposals = proposalID+1; } else { return 0; } } function vote(uint _proposalID, int _position) returns (uint voteID){ if (voterShare.coinBalanceOf(msg.sender)>0 && (_position >= -1 || _position <= 1 )) { Proposal p = proposals[_proposalID]; if (p.voted[msg.sender] == true) return; voteID = p.votes.length++; Vote v = p.votes[voteID]; v.position = _position; v.voter = msg.sender; p.voted[msg.sender] = true; Voted(_proposalID, _position, msg.sender); } else { return 0; } } function executeProposal(uint _proposalID) returns (int result) { Proposal p = proposals[_proposalID]; /* Check if debating period is over */ if (now > (p.creationDate + debatingPeriod) && p.active){ uint quorum = 0; /* tally the votes */ for (uint i = 0; i < p.votes.length; ++i) { Vote v = p.votes[i]; uint voteWeight = voterShare.coinBalanceOf(v.voter); quorum += voteWeight; result += int(voteWeight) * v.position; } /* execute result */ if (quorum > minimumQuorum && result > 0 ) { p.recipient.call.value(p.amount)(p.data); p.active = false; } else if (quorum > minimumQuorum && result < 0) { p.active = false; } } ProposalTallied(_proposalID, result, quorum, p.active); } }');
+    var daoCompiled = exp.compile.solidity('contract token { mapping (address => uint) public coinBalanceOf; function token() { } function sendCoin(address receiver, uint amount) returns(bool sufficient) { } } contract Democracy { uint public minimumQuorum; uint public debatingPeriod; token public voterShare; address public founder; Proposal[] public proposals; uint public numProposals; event ProposalAdded(uint proposalID, address recipient, uint amount, bytes32 data, string description); event Voted(uint proposalID, int position, address voter); event ProposalTallied(uint proposalID, int result, uint quorum, bool active); struct Proposal { address recipient; uint amount; bytes32 data; string description; uint creationDate; bool active; Vote[] votes; mapping (address => bool) voted; } struct Vote { int position; address voter; } function Democracy(token _voterShareAddress, uint _minimumQuorum, uint _debatingPeriod) { founder = msg.sender; voterShare = token(_voterShareAddress); minimumQuorum = _minimumQuorum || 10; debatingPeriod = _debatingPeriod * 1 minutes || 30 days; } function newProposal(address _recipient, uint _amount, bytes32 _data, string _description) returns (uint proposalID) { if (voterShare.coinBalanceOf(msg.sender)>0) { proposalID = proposals.length++; Proposal p = proposals[proposalID]; p.recipient = _recipient; p.amount = _amount; p.data = _data; p.description = _description; p.creationDate = now; p.active = true; ProposalAdded(proposalID, _recipient, _amount, _data, _description); numProposals = proposalID+1; } else { return 0; } } function vote(uint _proposalID, int _position) returns (uint voteID){ if (voterShare.coinBalanceOf(msg.sender)>0 && (_position >= -1 || _position <= 1 )) { Proposal p = proposals[_proposalID]; if (p.voted[msg.sender] == true) return; voteID = p.votes.length++; Vote v = p.votes[voteID]; v.position = _position; v.voter = msg.sender; p.voted[msg.sender] = true; Voted(_proposalID, _position, msg.sender); } else { return 0; } } function executeProposal(uint _proposalID) returns (int result) { Proposal p = proposals[_proposalID]; /* Check if debating period is over */ if (now > (p.creationDate + debatingPeriod) && p.active){ uint quorum = 0; /* tally the votes */ for (uint i = 0; i < p.votes.length; ++i) { Vote v = p.votes[i]; uint voteWeight = voterShare.coinBalanceOf(v.voter); quorum += voteWeight; result += int(voteWeight) * v.position; } /* execute result */ if (quorum > minimumQuorum && result > 0 ) { p.recipient.call.value(p.amount)(p.data); p.active = false; } else if (quorum > minimumQuorum && result < 0) { p.active = false; } } ProposalTallied(_proposalID, result, quorum, p.active); } }');
 
-    var democracyContract = web3.eth.contract(daoCompiled.Democracy.info.abiDefinition);
+    var democracyContract = web3.exp.contract(daoCompiled.Democracy.info.abiDefinition);
 
     var democracy = democracyContract.new(
         _voterShareAddress,
         _minimumQuorum,
         _debatingPeriod,
         {
-          from:web3.eth.accounts[0],
+          from:web3.exp.accounts[0],
           data:daoCompiled.Democracy.code,
           gas: 3000000
         }, function(e, contract){
@@ -1207,7 +1207,7 @@ parameters with care, as you won't be able to change them in the future.
         })
 
 **If you are using the *online compiler* Copy the contract code to the
-`online solidity compiler <https://chriseth.github.io/cpp-ethereum/>`__,
+`online solidity compiler <https://chriseth.github.io/cpp-expanse/>`__,
 and then grab the content of the box labeled **\ Geth Deploy\ **. Since
 you have already set the parameters, you don't need to change anything
 to that text, simply paste the resulting text on your geth window.**
@@ -1239,15 +1239,15 @@ registrar.addr("nameYouWant") before reserving!)
 ::
 
     var name = "MyPersonalDemocracy"
-    registrar.reserve.sendTransaction(name, {from: eth.accounts[0]})
-    var democracy = eth.contract(daoCompiled.Democracy.info.abiDefinition).at(democracy.address);
-    democracy.setup.sendTransaction(registrar.addr("MyFirstCoin"),{from:eth.accounts[0]})
+    registrar.reserve.sendTransaction(name, {from: exp.accounts[0]})
+    var democracy = exp.contract(daoCompiled.Democracy.info.abiDefinition).at(democracy.address);
+    democracy.setup.sendTransaction(registrar.addr("MyFirstCoin"),{from:exp.accounts[0]})
 
 Wait for the previous transactions to be picked up and then:
 
 ::
 
-    registrar.setAddress.sendTransaction(name, democracy.address, true,{from: eth.accounts[0]});
+    registrar.setAddress.sendTransaction(name, democracy.address, true,{from: exp.accounts[0]});
 
 The Democracy Watchbots
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1292,7 +1292,7 @@ ether you got from the crowdfunding into your new organization:
 
 ::
 
-    eth.sendTransaction({from: eth.accounts[1], to: democracy.address, value: web3.toWei(100, "ether")})
+    exp.sendTransaction({from: exp.accounts[1], to: democracy.address, value: web3.toWei(100, "ether")})
 
 This should take only a minute and your country is ready for business!
 Now, as a first priority, your organisation needs a nice logo, but
@@ -1307,7 +1307,7 @@ hire him.
     amount =  web3.toWei(10, "ether");
     shortNote = "Logo Design";
 
-    democracy.newProposal.sendTransaction( recipient, amount, '', shortNote,  {from: eth.accounts[0], gas:1000000})
+    democracy.newProposal.sendTransaction( recipient, amount, '', shortNote,  {from: exp.accounts[0], gas:1000000})
 
 After a minute, anyone can check the proposal recipient and amount by
 executing these commands:
@@ -1327,7 +1327,7 @@ what they are and for whom:
 ::
 
     function checkAllProposals() {
-        console.log("Country Balance: " + web3.fromWei( eth.getBalance(democracy.address), "ether") );
+        console.log("Country Balance: " + web3.fromWei( exp.getBalance(democracy.address), "ether") );
         for (i = 0; i< (Number(democracy.numProposals())); i++ ) {
             var p = democracy.proposals(i);
             var timeleft = Math.floor(((Math.floor(Date.now() / 1000)) - Number(p[4]) - Number(democracy.debatingPeriod()))/60);
@@ -1350,7 +1350,7 @@ command:
 
 ::
 
-    democracy = eth.contract( [{ constant: true, inputs: [{ name: '', type: 'uint256' } ], name: 'proposals', outputs: [{ name: 'recipient', type: 'address' }, { name: 'amount', type: 'uint256' }, { name: 'data', type: 'bytes32' }, { name: 'descriptionHash', type: 'bytes32' }, { name: 'creationDate', type: 'uint256' }, { name: 'numVotes', type: 'uint256' }, { name: 'quorum', type: 'uint256' }, { name: 'active', type: 'bool' } ], type: 'function' }, { constant: false, inputs: [{ name: '_proposalID', type: 'uint256' } ], name: 'executeProposal', outputs: [{ name: 'result', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'debatingPeriod', outputs: [{ name: '', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'numProposals', outputs: [{ name: '', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'founder', outputs: [{ name: '', type: 'address' } ], type: 'function' }, { constant: false, inputs: [{ name: '_proposalID', type: 'uint256' }, { name: '_position', type: 'int256' } ], name: 'vote', outputs: [{ name: 'voteID', type: 'uint256' } ], type: 'function' }, { constant: false, inputs: [{ name: '_voterShareAddress', type: 'address' } ], name: 'setup', outputs: [ ], type: 'function' }, { constant: false, inputs: [{ name: '_recipient', type: 'address' }, { name: '_amount', type: 'uint256' }, { name: '_data', type: 'bytes32' }, { name: '_descriptionHash', type: 'bytes32' } ], name: 'newProposal', outputs: [{ name: 'proposalID', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'minimumQuorum', outputs: [{ name: '', type: 'uint256' } ], type: 'function' }, { inputs: [ ], type: 'constructor' } ] ).at(registrar.addr('MyPersonalCountry'))
+    democracy = exp.contract( [{ constant: true, inputs: [{ name: '', type: 'uint256' } ], name: 'proposals', outputs: [{ name: 'recipient', type: 'address' }, { name: 'amount', type: 'uint256' }, { name: 'data', type: 'bytes32' }, { name: 'descriptionHash', type: 'bytes32' }, { name: 'creationDate', type: 'uint256' }, { name: 'numVotes', type: 'uint256' }, { name: 'quorum', type: 'uint256' }, { name: 'active', type: 'bool' } ], type: 'function' }, { constant: false, inputs: [{ name: '_proposalID', type: 'uint256' } ], name: 'executeProposal', outputs: [{ name: 'result', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'debatingPeriod', outputs: [{ name: '', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'numProposals', outputs: [{ name: '', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'founder', outputs: [{ name: '', type: 'address' } ], type: 'function' }, { constant: false, inputs: [{ name: '_proposalID', type: 'uint256' }, { name: '_position', type: 'int256' } ], name: 'vote', outputs: [{ name: 'voteID', type: 'uint256' } ], type: 'function' }, { constant: false, inputs: [{ name: '_voterShareAddress', type: 'address' } ], name: 'setup', outputs: [ ], type: 'function' }, { constant: false, inputs: [{ name: '_recipient', type: 'address' }, { name: '_amount', type: 'uint256' }, { name: '_data', type: 'bytes32' }, { name: '_descriptionHash', type: 'bytes32' } ], name: 'newProposal', outputs: [{ name: 'proposalID', type: 'uint256' } ], type: 'function' }, { constant: true, inputs: [ ], name: 'minimumQuorum', outputs: [{ name: '', type: 'uint256' } ], type: 'function' }, { inputs: [ ], type: 'constructor' } ] ).at(registrar.addr('MyPersonalCountry'))
 
 Then anyone who owns any of your tokens can vote on the proposals by
 doing this:
@@ -1359,11 +1359,11 @@ doing this:
 
     var proposalID = 0;
     var position = -1; // +1 for voting yea, -1 for voting nay, 0 abstains but counts as quorum
-    democracy.vote.sendTransaction(proposalID, position, {from: eth.accounts[0], gas: 1000000});
+    democracy.vote.sendTransaction(proposalID, position, {from: exp.accounts[0], gas: 1000000});
 
     var proposalID = 1;
     var position = 1; // +1 for voting yea, -1 for voting nay, 0 abstains but counts as quorum
-    democracy.vote.sendTransaction(proposalID, position, {from: eth.accounts[0], gas: 1000000});
+    democracy.vote.sendTransaction(proposalID, position, {from: exp.accounts[0], gas: 1000000});
 
 Unless you changed the basic parameters in the code, any proposal will
 have to be debated for at least a week until it can be executed. After
@@ -1378,15 +1378,15 @@ voted again.
 ::
 
     var proposalID = 1;
-    democracy.executeProposal.sendTransaction(proposalID, {from: eth.accounts[0], gas: 1000000});
+    democracy.executeProposal.sendTransaction(proposalID, {from: exp.accounts[0], gas: 1000000});
 
 If the proposal passed then you should be able to see Bob's ethers
 arriving on his address:
 
 ::
 
-    web3.fromWei(eth.getBalance(democracy.address), "ether") + " ether";
-    web3.fromWei(eth.getBalance(registrar.addr("bob")), "ether") + " ether";
+    web3.fromWei(exp.getBalance(democracy.address), "ether") + " ether";
+    web3.fromWei(exp.getBalance(registrar.addr("bob")), "ether") + " ether";
 
 **Try for yourself:** This is a very simple democracy contract, which
 could be vastly improved: currently, all proposals have the same
@@ -1410,9 +1410,9 @@ through a trustless crowdfunding and used it to kickstart your own
 personal democratic organization.
 
 For the sake of simplicity, we only used the democratic organization you
-created to send ether around, the native currency of Ethereum. While
+created to send ether around, the native currency of Expanse. While
 that might be good enough for some, this is only scratching the surface
-of what can be done. In the Ethereum network contracts have all the same
+of what can be done. In the Expanse network contracts have all the same
 rights as any normal user, meaning that your organization could do any
 of the transactions that you executed coming from your own accounts.
 
@@ -1432,7 +1432,7 @@ What could happen next?
    holders approved.
 
 -  The organization could hold not only ethers, but any kind of other
-   coin created on Ethereum, including assets whose value are tied to
+   coin created on Expanse, including assets whose value are tied to
    the bitcoin or dollar.
 
 -  The DAO could be programmed to allow a proposal with multiple

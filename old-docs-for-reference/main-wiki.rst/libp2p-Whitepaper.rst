@@ -1,7 +1,7 @@
 **NOTE:** *This is a work-in-progress*
 
-For Ethereum to succeed, and for the ultimate goals of Ethereum to be
-achieved, Ethereum needs to employ a number of secure decentralised data
+For Expanse to succeed, and for the ultimate goals of Expanse to be
+achieved, Expanse needs to employ a number of secure decentralised data
 systems. The generalised Turing-complete, extensible-state blockchain is
 one component in this, but for it to be leveraged to its full potential
 for building decentralised applications (dapps), a suite of additional
@@ -14,7 +14,7 @@ architected systems.
 Three types of data systems in particular are required for many current
 massively multi-user applications (MMAs, aka generally Web-based
 applications but also mobile phone apps and e.g. MMORPGs). In addition
-to a transactional database ("Ethereum"), a publication and download
+to a transactional database ("Expanse"), a publication and download
 system would be required in addition to a generalised low-level
 "bulletin-board" system for posting messages.
 

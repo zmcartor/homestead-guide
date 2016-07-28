@@ -4,7 +4,7 @@ Getting Geth
 The Frontier tool is called Geth (the old english third person singular
 conjugation of "to go". Quite appropriate given geth is written in
 `Go <https://golang.org/>`__. Geth is a multipurpose command line tool
-that runs a full Ethereum node implemented in Go. It offers three
+that runs a full Expanse node implemented in Go. It offers three
 interfaces: the `command line subcommands and
 options <./Command-Line-Options>`__, a Json-rpc server and an
 interactive console.
@@ -15,9 +15,9 @@ release) and paste the command below:
 
 ::
 
-    bash <(curl https://install-geth.ethereum.org)
+    bash <(curl https://install-geth.expanse.org)
 
-This script will detect your OS and will attempt to install the Ethereum
+This script will detect your OS and will attempt to install the Expanse
 CLI. For more options including package managers, check the OS-specific
 subsections.
 

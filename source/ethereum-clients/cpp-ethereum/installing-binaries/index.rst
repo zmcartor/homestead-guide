@@ -4,12 +4,12 @@
 Installing binaries
 ================================================================================
 
-The cpp-ethereum development team and the broader Ethereum community publish
+The cpp-expanse development team and the broader Expanse community publish
 binary releases in many different forms for a variety of platforms.   This
 aims to be a complete list of those releases.
 
 If you are aware of other third-party packaging efforts, please let us know on
-the `cpp-ethereum gitter channel <http://gitter.im/ethereum/cpp-ethereum>`_,
+the `cpp-expanse gitter channel <http://gitter.im/expanse/cpp-expanse>`_,
 and we will add them to this list.
 
 .. toctree::

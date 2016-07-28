@@ -13,8 +13,8 @@ doublethinkco was a
 <http://doublethink.co/2016/02/23/we-have-blockgrantx-funding/>`_ in Feb 2016.
 
 See the
-`cpp-ethereum-cross README
-<https://github.com/doublethinkco/cpp-ethereum-cross>`_
+`cpp-expanse-cross README
+<https://github.com/doublethinkco/cpp-expanse-cross>`_
 for a full matrix of platforms and known status.
 
 Here are the cross-build binaries from doublethinkco:

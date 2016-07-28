@@ -1,4 +1,4 @@
-An Ethereum node can be described with a URL scheme "enode".
+An Expanse node can be described with a URL scheme "enode".
 
 The hexadecimal node ID is encoded in the username portion of the URL,
 separated from the host by an @ sign. The hostname can only be given as
@@ -19,5 +19,5 @@ used in the ``bootnodes`` command line option of the client or as the
 argument to ``suggestPeer(nodeURL)`` function in the JSRE.
 
 See also -
-https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options -
-https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console
+https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options -
+https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console

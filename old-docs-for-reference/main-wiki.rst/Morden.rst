@@ -1,4 +1,4 @@
-Morden is the first Ethereum alternative testnet. It is expected to
+Morden is the first Expanse alternative testnet. It is expected to
 continue throughout the Frontier and Homestead era.
 
 Usage
@@ -85,6 +85,6 @@ genesis.json
 Getting Ether
 ~~~~~~~~~~~~~
 
-One way to get Ether is by using the `Ethereum wei
-faucet <https://zerogox.com/ethereum/wei_faucet>`__. Just type in your
+One way to get Ether is by using the `Expanse wei
+faucet <https://zerogox.com/expanse/wei_faucet>`__. Just type in your
 account address and enjoy some free ether.

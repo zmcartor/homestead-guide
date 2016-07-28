@@ -23,7 +23,7 @@ Steps: ::
             mesa-dri-drivers snappy-devel ncurses-devel readline-devel curl-devel \
             python-devel jsoncpp-devel argtable-devel
 
-Build json-rpc from github as per https://github.com/ethereum/cpp-ethereum/issues/617: ::
+Build json-rpc from github as per https://github.com/expanse-org/cpp-expanse/issues/617: ::
 
     git clone https://github.com/cinemast/libjson-rpc-cpp
     cd libjson-rpc-cpp
@@ -96,7 +96,7 @@ version 5.6.0 others may also work find it out :D ::
     make
     make install
 	
-Install json-rpc from github https://github.com/ethereum/cpp-ethereum/issues/617: ::
+Install json-rpc from github https://github.com/expanse-org/cpp-expanse/issues/617: ::
 
     git clone https://github.com/cinemast/libjson-rpc-cpp
     cd libjson-rpc-cpp

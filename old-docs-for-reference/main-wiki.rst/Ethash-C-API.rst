@@ -1,5 +1,5 @@
 This is just a documentation of the request of the C API described in
-`this PR <https://github.com/ethereum/ethash/pull/11>`__.
+`this PR <https://github.com/expanse-org/ethash/pull/11>`__.
 
 .. code:: c
 

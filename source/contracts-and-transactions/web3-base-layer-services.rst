@@ -2,9 +2,9 @@
 Web3 Base Layer Services
 ********************************************************************************
 
-In addition to the Ethereum blockchain, more components are being developed that decentralise other important aspects of web applications.
+In addition to the Expanse blockchain, more components are being developed that decentralise other important aspects of web applications.
 
-.. image:: ../img/ethereum-protocols.png
+.. image:: ../img/expanse-protocols.png
 
 Swarm - Decentralised data storage and distribution
 ================================================================================
@@ -28,7 +28,7 @@ Name registry
 
 Because dapps can be stored anywhere, including the Swarm network, the name registry maps names to their content or location. This is a decentralised alternative to the Domain Name System (DNS).
 
-See https://github.com/ethereum/EIPs/issues/26
+See https://github.com/expanse-org/EIPs/issues/26
 
 Contract registry
 ================================================================================

@@ -74,14 +74,14 @@ Name resolution
 ===============
 
 The host part in a bzz webaddress should be resolved with our version of
-DNS, ie. using both ``NameReg`` (name registration contract on ethereum)
+DNS, ie. using both ``NameReg`` (name registration contract on expanse)
 and a simple mutable storage in swarm.
 
 signed version store
 --------------------
 
 The point of channels
-(https://github.com/ethereum/go-ethereum/wiki/Swarm---Channels ) is to
+(https://github.com/expanse-org/go-expanse/wiki/Swarm---Channels ) is to
 have a total order over a set of manifests.
 
 The typical usecase is that it should be enough to know the name of a
@@ -100,7 +100,7 @@ update.
 Alternatively, swarm provides the protocol for associating a channel and
 a position with a swarm hash. The versioning can be authenticated since
 a message containing host name, sequence position index and swarm hash
-is signed by the public key registered in ethereum NameReg for the host.
+is signed by the public key registered in expanse NameReg for the host.
 
 Publishers, fans or paid bookkeepers track updates of a channel and wrap
 accumulated messages into a tracker manifest. Most probably publishers
@@ -149,7 +149,7 @@ Third, put an *eth* inside the host somehow.
 Ad-hoc constructs like ``bzz://eth:my-website.home`` will be rejected by
 host pattern matchers.
 
-Abusing subdomains ``bzz://eth.my-website.home`` would cause ambiguity
+Abusing subdomains ``bzz://exp.my-website.home`` would cause ambiguity
 and potential collision. Abusing auth ``user:pass@my-website.home``
 would disable basic auth.
 
@@ -225,12 +225,12 @@ example 4
 
 ::
 
-      bzz://stable.ethereum.org:8.1/download/go/mac-os
+      bzz://stable.expanse.org:8.1/download/go/mac-os
 
--  *stable.ethereum.org* is looked up in NameReg to yield public key *P*
--  stable.ethereum.org:s4:e10 is looked up in the immutable store to
+-  *stable.expanse.org* is looked up in NameReg to yield public key *P*
+-  stable.expanse.org:s4:e10 is looked up in the immutable store to
    yield a message
-   ``[stable.ethereum.org,s4:e10,3,45fbf6ae6aaaafedcbcb467ccc]``
+   ``[stable.expanse.org,s4:e10,3,45fbf6ae6aaaafedcbcb467ccc]``
 -  ``45fbf6ae6aaaafedcbcb467ccc`` is looked up in swarm to yield the
    manifest
 -  manifest entry for path ``video`` results in the actual document's

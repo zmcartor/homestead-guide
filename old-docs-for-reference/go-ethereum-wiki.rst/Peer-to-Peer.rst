@@ -1,5 +1,5 @@
 The peer to peer package
-(`go-ethereum/p2p <https://github.com/ethereum/go-ethereum/tree/develop/p2p>`__)
+(`go-expanse/p2p <https://github.com/expanse-org/go-expanse/tree/develop/p2p>`__)
 allows you to rapidly and easily add peer to peer networking to any type
 of application. The p2p package is set up in a modular structure and
 extending the p2p with your own additional sub protocols is easy and
@@ -10,8 +10,8 @@ a few settings:
 
 .. code:: go
 
-    import "github.com/ethereum/go-ethereum/crypto"
-    import "github.com/ethereum/go-ethereum/p2p"
+    import "github.com/expanse-org/go-expanse/crypto"
+    import "github.com/expanse-org/go-expanse/p2p"
 
     nodekey, _ := crypto.GenerateKey()
     srv := p2p.Server{
@@ -127,8 +127,8 @@ message passing sub protocol.
         "fmt"
         "os"
 
-        "github.com/ethereum/go-ethereum/crypto"
-        "github.com/ethereum/go-ethereum/p2p"
+        "github.com/expanse-org/go-expanse/crypto"
+        "github.com/expanse-org/go-expanse/p2p"
     )
 
     const messageId = 0

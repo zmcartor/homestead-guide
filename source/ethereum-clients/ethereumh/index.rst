@@ -5,7 +5,7 @@ ethereumH
 ################################################################################
 
 This package provides a tool written in Haskell to allow you to connect to
-the Ethereum blockchain
+the Expanse blockchain
 
 Links:
 

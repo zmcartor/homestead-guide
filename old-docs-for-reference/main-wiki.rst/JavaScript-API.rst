@@ -1,22 +1,22 @@
 Web3 JavaScript Ðapp API
 ========================
 
-To make your Ðapp work on Ethereum, you can use the ``web3`` object
+To make your Ðapp work on Expanse, you can use the ``web3`` object
 provided by the `web3.js
-library <https://github.com/ethereum/web3.js>`__. Under the hood it
+library <https://github.com/expanse-org/web3.js>`__. Under the hood it
 communicates to a local node through `RPC
-calls <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__. web3.js works
-with any Ethereum node, which exposes an RPC layer.
+calls <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__. web3.js works
+with any Expanse node, which exposes an RPC layer.
 
 ``web3`` contains the ``eth`` object - ``web3.eth`` (for specifically
-Ethereum blockchain interactions) and the ``shh`` object - ``web3.shh``
+Expanse blockchain interactions) and the ``shh`` object - ``web3.shh``
 (for Whisper interaction). Over time we'll introduce other objects for
 each of the other web3 protocols. Working `examples can be found
-here <https://github.com/ethereum/web3.js/tree/master/example>`__.
+here <https://github.com/expanse-org/web3.js/tree/master/example>`__.
 
 If you want to look at some more sophisticated examples using web3.js
 check out these `useful Ðapp
-patterns <https://github.com/ethereum/wiki/wiki/Useful-Ðapp-Patterns>`__.
+patterns <https://github.com/expanse-org/wiki/wiki/Useful-Ðapp-Patterns>`__.
 
 Getting Started
 ---------------
@@ -36,7 +36,7 @@ the following methods:
 
 -  npm: ``$ npm install web3``
 -  bower: ``$ bower install web3``
--  meteor: ``$meteor add ethereum:web3``
+-  meteor: ``$meteor add expanse:web3``
 -  vanilla: link the ``dist./web3.min.js``
 
 The you need to create a web3 instance, setting a provider. To make sure
@@ -68,7 +68,7 @@ style:
 
 .. code:: js
 
-    web3.eth.getBlock(48, function(error, result){
+    web3.exp.getBlock(48, function(error, result){
         if(!error)
             console.log(result)
         else
@@ -88,8 +88,8 @@ processing of requests.
 .. code:: js
 
     var batch = web3.createBatch();
-    batch.add(web3.eth.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
-    batch.add(web3.eth.contract(abi).at(address).balance.request(address, callback2));
+    batch.add(web3.exp.getBalance.request('0x0000000000000000000000000000000000000000', 'latest', callback));
+    batch.add(web3.exp.contract(abi).at(address).balance.request(address, callback2));
     batch.execute();
 
 A note on big numbers in web3.js
@@ -113,7 +113,7 @@ automatically.
 .. code:: js
 
     var balance = new BigNumber('131242344353464564564574574567456');
-    // or var balance = web3.eth.getBalance(someAddress);
+    // or var balance = web3.exp.getBalance(someAddress);
 
     balance.plus(21).toString(10); // toString(10) converts it to a number string
     // "131242344353464564564574574567477"
@@ -138,7 +138,7 @@ Web3.js API Reference
    -  `api <#web3versionapi>`__
    -  `node <#web3versionnode>`__
    -  `network <#web3versionnetwork>`__
-   -  `ethereum <#web3versionethereum>`__
+   -  `expanse <#web3versionethereum>`__
    -  `whisper <#web3versionwhisper>`__
 
 -  `isConnected() <#web3isconnected>`__
@@ -268,7 +268,7 @@ web3.version.api
 Returns
 '''''''
 
-``String`` - The Ethereum JS API version.
+``String`` - The Expanse JS API version.
 
 Example
 '''''''
@@ -328,26 +328,26 @@ Example
 
 --------------
 
-web3.version.ethereum
+web3.version.expanse
 ^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.version.ethereum
+    web3.version.expanse
     // or async
     web3.version.getEthereum(callback(error, result){ ... })
 
 Returns
 '''''''
 
-``String`` - The Ethereum protocol version.
+``String`` - The Expanse protocol version.
 
 Example
 '''''''
 
 .. code:: js
 
-    var version = web3.version.ethereum;
+    var version = web3.version.expanse;
     console.log(version); // 60
 
 --------------
@@ -480,7 +480,7 @@ Parameters
 ''''''''''
 
 1. ``Boolean`` - If ``true`` it will uninstall all filters, but will
-   keep the `web3.eth.isSyncing() <#web3ethissyncing>`__ polls
+   keep the `web3.exp.isSyncing() <#web3ethissyncing>`__ polls
 
 Returns
 '''''''
@@ -584,7 +584,7 @@ Example
 .. code:: js
 
     var str = web3.toAscii("0x657468657265756d000000000000000000000000000000000000000000000000");
-    console.log(str); // "ethereum"
+    console.log(str); // "expanse"
 
 --------------
 
@@ -613,10 +613,10 @@ Example
 
 .. code:: js
 
-    var str = web3.fromAscii('ethereum');
+    var str = web3.fromAscii('expanse');
     console.log(str); // "0x657468657265756d"
 
-    var str2 = web3.fromAscii('ethereum', 32);
+    var str2 = web3.fromAscii('expanse', 32);
     console.log(str2); // "0x657468657265756d000000000000000000000000000000000000000000000000"
 
 --------------
@@ -686,7 +686,7 @@ web3.fromWei
 
     web3.fromWei(number, unit)
 
-Converts a number of wei into the following Ethereum units:
+Converts a number of wei into the following Expanse units:
 
 -  ``kwei``/``ada``
 -  ``mwei``/``babbage``
@@ -728,7 +728,7 @@ web3.toWei
 
     web3.toWei(number, unit)
 
-Converts an Ethereum unit into wei. Possible units are:
+Converts an Expanse unit into wei. Possible units are:
 
 -  ``kwei``/``ada``
 -  ``mwei``/``babbage``
@@ -857,7 +857,7 @@ Example
 web3.eth
 ~~~~~~~~
 
-Contains the Ethereum blockchain related methods.
+Contains the Expanse blockchain related methods.
 
 Example
 '''''''
@@ -868,18 +868,18 @@ Example
 
 --------------
 
-web3.eth.defaultAccount
+web3.exp.defaultAccount
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.defaultAccount
+    web3.exp.defaultAccount
 
 This default address is used for the following methods (optionally you
 can overwrite it by specifying the ``from`` property):
 
--  `web3.eth.sendTransaction() <#web3ethsendtransaction>`__
--  `web3.eth.call() <#web3ethcall>`__
+-  `web3.exp.sendTransaction() <#web3ethsendtransaction>`__
+-  `web3.exp.call() <#web3ethcall>`__
 
 Values
 ''''''
@@ -899,30 +899,30 @@ Example
 
 .. code:: js
 
-    var defaultAccount = web3.eth.defaultAccount;
+    var defaultAccount = web3.exp.defaultAccount;
     console.log(defaultAccount); // ''
 
     // set the default block
-    web3.eth.defaultAccount = '0x8888f1f195afa192cfee860698584c030f4c9db1';
+    web3.exp.defaultAccount = '0x8888f1f195afa192cfee860698584c030f4c9db1';
 
 --------------
 
-web3.eth.defaultBlock
+web3.exp.defaultBlock
 ^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.defaultBlock
+    web3.exp.defaultBlock
 
 This default block is used for the following methods (optionally you can
 override it by passing the defaultBlock parameter):
 
--  `web3.eth.getBalance() <#web3ethgetbalance>`__
--  `web3.eth.getCode() <#web3ethgetcode>`__
--  `web3.eth.getTransactionCount() <#web3ethgettransactioncount>`__
--  `web3.eth.getStorageAt() <#web3ethgetstorageat>`__
--  `web3.eth.call() <#web3ethcall>`__
--  `web3.eth.estimateGas() <#web3ethestimategas>`__
+-  `web3.exp.getBalance() <#web3ethgetbalance>`__
+-  `web3.exp.getCode() <#web3ethgetcode>`__
+-  `web3.exp.getTransactionCount() <#web3ethgettransactioncount>`__
+-  `web3.exp.getStorageAt() <#web3ethgetstorageat>`__
+-  `web3.exp.call() <#web3ethcall>`__
+-  `web3.exp.estimateGas() <#web3ethestimategas>`__
 
 Values
 ''''''
@@ -949,22 +949,22 @@ Example
 
 .. code:: js
 
-    var defaultBlock = web3.eth.defaultBlock;
+    var defaultBlock = web3.exp.defaultBlock;
     console.log(defaultBlock); // 'latest'
 
     // set the default block
-    web3.eth.defaultBlock = 231;
+    web3.exp.defaultBlock = 231;
 
 --------------
 
-web3.eth.syncing
+web3.exp.syncing
 ^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.syncing
+    web3.exp.syncing
     // or async
-    web3.eth.getSyncing(callback(error, result){ ... })
+    web3.exp.getSyncing(callback(error, result){ ... })
 
 This property is read only and returns the either a sync object, when
 the node is syncing or ``false``.
@@ -984,7 +984,7 @@ Example
 
 .. code:: js
 
-    var sync = web3.eth.syncing;
+    var sync = web3.exp.syncing;
     console.log(sync);
     /*
     {
@@ -996,12 +996,12 @@ Example
 
 --------------
 
-web3.eth.isSyncing
+web3.exp.isSyncing
 ^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.isSyncing(callback);
+    web3.exp.isSyncing(callback);
 
 This convenience function calls the ``callback`` everytime a sync
 starts, updates and stops.
@@ -1032,11 +1032,11 @@ Example
 
 .. code:: js
 
-    web3.eth.isSyncing(function(error, sync){
+    web3.exp.isSyncing(function(error, sync){
         if(!error) {
             // stop all app activity
             if(sync === true) {
-               // we use `true`, so it stops all filters, but not the web3.eth.syncing polling
+               // we use `true`, so it stops all filters, but not the web3.exp.syncing polling
                web3.reset(true);
 
             // show sync info
@@ -1052,14 +1052,14 @@ Example
 
 --------------
 
-web3.eth.coinbase
+web3.exp.coinbase
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.coinbase
+    web3.exp.coinbase
     // or async
-    web3.eth.getCoinbase(callback(error, result){ ... })
+    web3.exp.getCoinbase(callback(error, result){ ... })
 
 This property is read only and returns the coinbase address were the
 mining rewards go to.
@@ -1074,19 +1074,19 @@ Example
 
 .. code:: js
 
-    var coinbase = web3.eth.coinbase;
+    var coinbase = web3.exp.coinbase;
     console.log(coinbase); // "0x407d73d8a49eeb85d32cf465507dd71d507100c1"
 
 --------------
 
-web3.eth.mining
+web3.exp.mining
 ^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.mining
+    web3.exp.mining
     // or async
-    web3.eth.getMining(callback(error, result){ ... })
+    web3.exp.getMining(callback(error, result){ ... })
 
 This property is read only and says whether the node is mining or not.
 
@@ -1100,19 +1100,19 @@ Example
 
 .. code:: js
 
-    var mining = web3.eth.mining;
+    var mining = web3.exp.mining;
     console.log(mining); // true or false
 
 --------------
 
-web3.eth.hashrate
+web3.exp.hashrate
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.hashrate
+    web3.exp.hashrate
     // or async
-    web3.eth.getHashrate(callback(error, result){ ... })
+    web3.exp.getHashrate(callback(error, result){ ... })
 
 This property is read only and returns the number of hashes per second
 that the node is mining with.
@@ -1127,19 +1127,19 @@ Example
 
 .. code:: js
 
-    var hashrate = web3.eth.hashrate;
+    var hashrate = web3.exp.hashrate;
     console.log(hashrate); // 493736
 
 --------------
 
-web3.eth.gasPrice
+web3.exp.gasPrice
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.gasPrice
+    web3.exp.gasPrice
     // or async
-    web3.eth.getGasPrice(callback(error, result){ ... })
+    web3.exp.getGasPrice(callback(error, result){ ... })
 
 This property is read only and returns the current gas price. The gas
 price is determined by the x latest blocks median gas price.
@@ -1156,19 +1156,19 @@ Example
 
 .. code:: js
 
-    var gasPrice = web3.eth.gasPrice;
+    var gasPrice = web3.exp.gasPrice;
     console.log(gasPrice.toString(10)); // "10000000000000"
 
 --------------
 
-web3.eth.accounts
+web3.exp.accounts
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.accounts
+    web3.exp.accounts
     // or async
-    web3.eth.getAccounts(callback(error, result){ ... })
+    web3.exp.getAccounts(callback(error, result){ ... })
 
 This property is read only and returns a list of accounts the node
 controls.
@@ -1183,19 +1183,19 @@ Example
 
 .. code:: js
 
-    var accounts = web3.eth.accounts;
+    var accounts = web3.exp.accounts;
     console.log(accounts); // ["0x407d73d8a49eeb85d32cf465507dd71d507100c1"]
 
 --------------
 
-web3.eth.blockNumber
+web3.exp.blockNumber
 ^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.blockNumber
+    web3.exp.blockNumber
     // or async
-    web3.eth.getBlockNumber(callback(error, result){ ... })
+    web3.exp.getBlockNumber(callback(error, result){ ... })
 
 This property is read only and returns the current block number.
 
@@ -1209,20 +1209,20 @@ Example
 
 .. code:: js
 
-    var number = web3.eth.blockNumber;
+    var number = web3.exp.blockNumber;
     console.log(number); // 2744
 
 --------------
 
-web3.eth.register
+web3.exp.register
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.register(addressHexString [, callback])
+    web3.exp.register(addressHexString [, callback])
 
 (Not Implemented yet) Registers the given address to be included in
-``web3.eth.accounts``. This allows non-private-key owned accounts to be
+``web3.exp.accounts``. This allows non-private-key owned accounts to be
 associated as an owned account (e.g., contract wallets).
 
 Parameters
@@ -1242,16 +1242,16 @@ Example
 
 .. code:: js
 
-    web3.eth.register("0x407d73d8a49eeb85d32cf465507dd71d507100ca")
+    web3.exp.register("0x407d73d8a49eeb85d32cf465507dd71d507100ca")
 
 --------------
 
-web3.eth.unRegister
+web3.exp.unRegister
 ^^^^^^^^^^^^^^^^^^^
 
 ::
 
-     web3.eth.unRegister(addressHexString [, callback])
+     web3.exp.unRegister(addressHexString [, callback])
 
 (Not Implemented yet) Unregisters a given address.
 
@@ -1272,16 +1272,16 @@ Example
 
 .. code:: js
 
-    web3.eth.unregister("0x407d73d8a49eeb85d32cf465507dd71d507100ca")
+    web3.exp.unregister("0x407d73d8a49eeb85d32cf465507dd71d507100ca")
 
 --------------
 
-web3.eth.getBalance
+web3.exp.getBalance
 ^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getBalance(addressHexString [, defaultBlock] [, callback])
+    web3.exp.getBalance(addressHexString [, defaultBlock] [, callback])
 
 Get the balance of an address at a given block.
 
@@ -1291,7 +1291,7 @@ Parameters
 1. ``String`` - The address to get the balance of.
 2. ``Number|String`` - (optional) If you pass this parameter it will not
    use the default block set with
-   `web3.eth.defaultBlock <#web3ethdefaultblock>`__.
+   `web3.exp.defaultBlock <#web3ethdefaultblock>`__.
 3. ``Function`` - (optional) If you pass a callback the HTTP request is
    made asynchronous. See `this note <#using-callbacks>`__ for details.
 
@@ -1308,19 +1308,19 @@ Example
 
 .. code:: js
 
-    var balance = web3.eth.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
+    var balance = web3.exp.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
     console.log(balance); // instanceof BigNumber
     console.log(balance.toString(10)); // '1000000000000'
     console.log(balance.toNumber()); // 1000000000000
 
 --------------
 
-web3.eth.getStorageAt
+web3.exp.getStorageAt
 ^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getStorageAt(addressHexString, position [, defaultBlock] [, callback])
+    web3.exp.getStorageAt(addressHexString, position [, defaultBlock] [, callback])
 
 Get the storage at a specific position of an address.
 
@@ -1331,7 +1331,7 @@ Parameters
 2. ``Number`` - The index position of the storage.
 3. ``Number|String`` - (optional) If you pass this parameter it will not
    use the default block set with
-   `web3.eth.defaultBlock <#web3ethdefaultblock>`__.
+   `web3.exp.defaultBlock <#web3ethdefaultblock>`__.
 4. ``Function`` - (optional) If you pass a callback the HTTP request is
    made asynchronous. See `this note <#using-callbacks>`__ for details.
 
@@ -1345,17 +1345,17 @@ Example
 
 .. code:: js
 
-    var state = web3.eth.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0);
+    var state = web3.exp.getStorageAt("0x407d73d8a49eeb85d32cf465507dd71d507100c1", 0);
     console.log(state); // "0x03"
 
 --------------
 
-web3.eth.getCode
+web3.exp.getCode
 ^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getCode(addressHexString [, defaultBlock] [, callback])
+    web3.exp.getCode(addressHexString [, defaultBlock] [, callback])
 
 Get the code at a specific address.
 
@@ -1365,7 +1365,7 @@ Parameters
 1. ``String`` - The address to get the code from.
 2. ``Number|String`` - (optional) If you pass this parameter it will not
    use the default block set with
-   `web3.eth.defaultBlock <#web3ethdefaultblock>`__.
+   `web3.exp.defaultBlock <#web3ethdefaultblock>`__.
 3. ``Function`` - (optional) If you pass a callback the HTTP request is
    made asynchronous. See `this note <#using-callbacks>`__ for details.
 
@@ -1379,17 +1379,17 @@ Example
 
 .. code:: js
 
-    var code = web3.eth.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8");
+    var code = web3.exp.getCode("0xd5677cf67b5aa051bb40496e68ad359eb97cfbf8");
     console.log(code); // "0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"
 
 --------------
 
-web3.eth.getBlock
+web3.exp.getBlock
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-     web3.eth.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
+     web3.exp.getBlock(blockHashOrBlockNumber [, returnTransactionObjects] [, callback])
 
 Returns a block matching the block number or block hash.
 
@@ -1447,7 +1447,7 @@ Example
 
 .. code:: js
 
-    var info = web3.eth.getBlock(3150);
+    var info = web3.exp.getBlock(3150);
     console.log(info);
     /*
     {
@@ -1476,12 +1476,12 @@ Example
 
 --------------
 
-web3.eth.getBlockTransactionCount
+web3.exp.getBlockTransactionCount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getBlockTransactionCount(hashStringOrBlockNumber [, callback])
+    web3.exp.getBlockTransactionCount(hashStringOrBlockNumber [, callback])
 
 Returns the number of transaction in a given block.
 
@@ -1504,17 +1504,17 @@ Example
 
 .. code:: js
 
-    var number = web3.eth.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
+    var number = web3.exp.getBlockTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
     console.log(number); // 1
 
 --------------
 
-web3.eth.getUncle
+web3.exp.getUncle
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getUncle(blockHashStringOrNumber, uncleNumber [, returnTransactionObjects] [, callback])
+    web3.exp.getUncle(blockHashStringOrNumber, uncleNumber [, returnTransactionObjects] [, callback])
 
 Returns a blocks uncle by a given uncle index position.
 
@@ -1535,7 +1535,7 @@ Returns
 '''''''
 
 ``Object`` - the returned uncle. For a return value see
-`web3.eth.getBlock() <#web3ethgetblock>`__.
+`web3.exp.getBlock() <#web3ethgetblock>`__.
 
 **Note**: An uncle doesn't contain individual transactions.
 
@@ -1544,17 +1544,17 @@ Example
 
 .. code:: js
 
-    var uncle = web3.eth.getUncle(500, 0);
-    console.log(uncle); // see web3.eth.getBlock
+    var uncle = web3.exp.getUncle(500, 0);
+    console.log(uncle); // see web3.exp.getBlock
 
 --------------
 
-web3.eth.getTransaction
+web3.exp.getTransaction
 '''''''''''''''''''''''
 
 ::
 
-    web3.eth.getTransaction(transactionHash [, callback])
+    web3.exp.getTransaction(transactionHash [, callback])
 
 Returns a transaction matching the given transaction hash.
 
@@ -1596,7 +1596,7 @@ Example
     var blockNumber = 668;
     var indexOfTransaction = 0
 
-    var transaction = web3.eth.getTransaction(blockNumber, indexOfTransaction);
+    var transaction = web3.exp.getTransaction(blockNumber, indexOfTransaction);
     console.log(transaction);
     /*
     {
@@ -1616,7 +1616,7 @@ Example
 
 --------------
 
-web3.eth.getTransactionFromBlock
+web3.exp.getTransactionFromBlock
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -1640,24 +1640,24 @@ Returns
 '''''''
 
 ``Object`` - A transaction object, see
-`web3.eth.getTransaction <#web3ethgettransaction>`__:
+`web3.exp.getTransaction <#web3ethgettransaction>`__:
 
 Example
 '''''''
 
 .. code:: js
 
-    var transaction = web3.eth.getTransactionFromBlock('0x4534534534', 2);
-    console.log(transaction); // see web3.eth.getTransaction
+    var transaction = web3.exp.getTransactionFromBlock('0x4534534534', 2);
+    console.log(transaction); // see web3.exp.getTransaction
 
 --------------
 
-web3.eth.getTransactionReceipt
+web3.exp.getTransactionReceipt
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getTransactionReceipt(hashString [, callback])
+    web3.exp.getTransactionReceipt(hashString [, callback])
 
 Returns the receipt of a transaction by transaction hash.
 
@@ -1701,7 +1701,7 @@ Example
 
 .. code:: js
 
-    var receipt = web3.eth.getTransactionReceipt('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b');
+    var receipt = web3.exp.getTransactionReceipt('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b');
     console.log(receipt);
     {
       "transactionHash": "0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b",
@@ -1718,12 +1718,12 @@ Example
 
 --------------
 
-web3.eth.getTransactionCount
+web3.exp.getTransactionCount
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getTransactionCount(addressHexString [, defaultBlock] [, callback])
+    web3.exp.getTransactionCount(addressHexString [, defaultBlock] [, callback])
 
 Get the numbers of transactions sent from this address.
 
@@ -1733,7 +1733,7 @@ Parameters
 1. ``String`` - The address to get the numbers of transactions from.
 2. ``Number|String`` - (optional) If you pass this parameter it will not
    use the default block set with
-   `web3.eth.defaultBlock <#web3ethdefaultblock>`__.
+   `web3.exp.defaultBlock <#web3ethdefaultblock>`__.
 3. ``Function`` - (optional) If you pass a callback the HTTP request is
    made asynchronous. See `this note <#using-callbacks>`__ for details.
 
@@ -1747,17 +1747,17 @@ Example
 
 .. code:: js
 
-    var number = web3.eth.getTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
+    var number = web3.exp.getTransactionCount("0x407d73d8a49eeb85d32cf465507dd71d507100c1");
     console.log(number); // 1
 
 --------------
 
-web3.eth.sendTransaction
+web3.exp.sendTransaction
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.sendTransaction(transactionObject [, callback])
+    web3.exp.sendTransaction(transactionObject [, callback])
 
 Sends a transaction to the network.
 
@@ -1767,7 +1767,7 @@ Parameters
 1. ``Object`` - The transaction object to send:
 
 -  ``from``: ``String`` - The address for the sending account. Uses the
-   `web3.eth.defaultAccount <#web3ethdefaultaccount>`__ property, if not
+   `web3.exp.defaultAccount <#web3ethdefaultaccount>`__ property, if not
    specified.
 -  ``to``: ``String`` - (optional) The destination address of the
    message, left undefined for a contract-creation transaction.
@@ -1781,7 +1781,7 @@ Parameters
    To-Be-Determined) The price of gas for this transaction in wei,
    defaults to the mean network gas price.
 -  ``data``: ``String`` - (optional) Either a `byte
-   string <https://github.com/ethereum/wiki/wiki/Solidity,-Docs-and-ABI>`__
+   string <https://github.com/expanse-org/wiki/wiki/Solidity,-Docs-and-ABI>`__
    containing the associated data of the message, or in the case of a
    contract-creation transaction, the initialisation code.
 -  ``nonce``: ``Number`` - (optional) Integer of a nonce. This allows to
@@ -1796,7 +1796,7 @@ Returns
 ``String`` - The 32 Bytes transaction hash as HEX string.
 
 If the transaction was a contract creation use
-`web3.eth.getTransactionReceipt() <#web3gettransactionreceipt>`__ to get
+`web3.exp.getTransactionReceipt() <#web3gettransactionreceipt>`__ to get
 the contract address, after the transaction was mined.
 
 Example
@@ -1805,23 +1805,23 @@ Example
 .. code:: js
 
 
-    // compiled solidity source code using https://chriseth.github.io/cpp-ethereum/
+    // compiled solidity source code using https://chriseth.github.io/cpp-expanse/
     var code = "603d80600c6000396000f3007c01000000000000000000000000000000000000000000000000000000006000350463c6888fa18114602d57005b600760043502
     8060005260206000f3";
 
-    web3.eth.sendTransaction({data: code}, function(err, address) {
+    web3.exp.sendTransaction({data: code}, function(err, address) {
       if (!err)
         console.log(address); // "0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385"
     });
 
 --------------
 
-web3.eth.call
+web3.exp.call
 ^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.call(callObject [, defaultBlock] [, callback])
+    web3.exp.call(callObject [, defaultBlock] [, callback])
 
 Executes a message call transaction, which is directly executed in the
 VM of the node, but never mined into the blockchain.
@@ -1830,11 +1830,11 @@ Parameters
 ''''''''''
 
 1. ``Object`` - A transaction object see
-   `web3.eth.sendTransaction <#web3ethsendtransaction>`__, with the
+   `web3.exp.sendTransaction <#web3ethsendtransaction>`__, with the
    difference that for calls the ``from`` property is optional as well.
 2. ``Number|String`` - (optional) If you pass this parameter it will not
    use the default block set with
-   `web3.eth.defaultBlock <#web3ethdefaultblock>`__.
+   `web3.exp.defaultBlock <#web3ethdefaultblock>`__.
 3. ``Function`` - (optional) If you pass a callback the HTTP request is
    made asynchronous. See `this note <#using-callbacks>`__ for details.
 
@@ -1849,7 +1849,7 @@ Example
 
 .. code:: js
 
-    var result = web3.eth.call({
+    var result = web3.exp.call({
         to: "0xc4abd0339eb8d57087278718986382264244252f",
         data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
     });
@@ -1857,12 +1857,12 @@ Example
 
 --------------
 
-web3.eth.estimateGas
+web3.exp.estimateGas
 ^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.estimateGas(callObject [, defaultBlock] [, callback])
+    web3.exp.estimateGas(callObject [, defaultBlock] [, callback])
 
 Executes a message call or transaction, which is directly executed in
 the VM of the node, but never mined into the blockchain and returns the
@@ -1871,7 +1871,7 @@ amount of the gas used.
 Parameters
 ''''''''''
 
-See `web3.eth.sendTransaction <#web3ethsendtransaction>`__, expect that
+See `web3.exp.sendTransaction <#web3ethsendtransaction>`__, expect that
 all properties are optional.
 
 Returns
@@ -1884,7 +1884,7 @@ Example
 
 .. code:: js
 
-    var result = web3.eth.estimateGas({
+    var result = web3.exp.estimateGas({
         to: "0xc4abd0339eb8d57087278718986382264244252f",
         data: "0xc6888fa10000000000000000000000000000000000000000000000000000000000000003"
     });
@@ -1892,15 +1892,15 @@ Example
 
 --------------
 
-web3.eth.filter
+web3.exp.filter
 ^^^^^^^^^^^^^^^
 
 .. code:: js
 
     // can be 'latest' or 'pending'
-    var filter = web3.eth.filter(filterString);
+    var filter = web3.exp.filter(filterString);
     // OR object are log filter options
-    var filter = web3.eth.filter(options);
+    var filter = web3.exp.filter(options);
 
     // watch for changes
     filter.watch(function(error, result){
@@ -1909,7 +1909,7 @@ web3.eth.filter
     });
 
     // Additionally you can start watching right away, by passing a callback:
-    web3.eth.filter(options, function(error, result){
+    web3.exp.filter(options, function(error, result){
       if (!error)
         console.log(result);
     });
@@ -1989,7 +1989,7 @@ Example
 
 .. code:: js
 
-    var filter = web3.eth.filter('pending');
+    var filter = web3.exp.filter('pending');
 
     filter.watch(function (error, log) {
       console.log(log); //  {"address":"0x0000000000000000000000000000000000000000", "data":"0x0000000000000000000000000000000000000000000000000000000000000000", ...}
@@ -2005,16 +2005,16 @@ Example
 
 --------------
 
-web3.eth.contract
+web3.exp.contract
 ^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.contract(abiArray)
+    web3.exp.contract(abiArray)
 
 Creates a contract object for a solidity contract, which can be used to
 initiate contracts on an address. You can read more about events
-`here <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#example-javascript-usage>`__.
+`here <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI#example-javascript-usage>`__.
 
 Parameters
 ''''''''''
@@ -2029,7 +2029,7 @@ Returns
 
 .. code:: js
 
-    var MyContract = web3.eth.contract(abiArray);
+    var MyContract = web3.exp.contract(abiArray);
 
     // instantiate by address
     var contractInstance = MyContract.at([address]);
@@ -2083,7 +2083,7 @@ deploy the contract using the compiled byte code:
 
 **Note** When you deploy a new contract, you should check for the next
 12 blocks or so if the contract code is still at the address (using
-`web3.eth.getCode() <#web3ethgetcode>`__), to make sure a fork didn't
+`web3.exp.getCode() <#web3ethgetcode>`__), to make sure a fork didn't
 change that.
 
 Example
@@ -2111,7 +2111,7 @@ Example
     }];
 
     // creation of contract object
-    var MyContract = web3.eth.contract(abi);
+    var MyContract = web3.exp.contract(abi);
 
     // initiate contract for an address
     var myContractInstance = MyContract.at('0xc4abd0339eb8d57087278718986382264244252f');
@@ -2124,7 +2124,7 @@ Example
     myContractInstance.myStateChangingMethod('someParam1', 23, {value: 200, gas: 2000});
 
     // short hand style
-    web3.eth.contract(abi).at(address).myAwesomeMethod(...);
+    web3.exp.contract(abi).at(address).myAwesomeMethod(...);
 
     // create filter
     var filter = myContractInstance.myEvent({a: 5}, function (error, result) {
@@ -2173,7 +2173,7 @@ Parameters
    function.
 -  ``Object`` - (optional) The (previous) last parameter can be a
    transaction object, see
-   `web3.eth.sendTransaction <#web3ethsendtransaction>`__ parameter 1
+   `web3.exp.sendTransaction <#web3ethsendtransaction>`__ parameter 1
    for more.
 -  ``Function`` - (optional) If you pass a callback as the last
    parameter the HTTP request is made asynchronous. See `this
@@ -2184,7 +2184,7 @@ Returns
 
 ``String`` - If its a call the result data, if its a send transaction a
 created contract address, or the transaction hash, see
-`web3.eth.sendTransaction <#web3ethsendtransaction>`__ for details.
+`web3.exp.sendTransaction <#web3ethsendtransaction>`__ for details.
 
 Example
 '''''''
@@ -2192,7 +2192,7 @@ Example
 .. code:: js
 
     // creation of contract object
-    var MyContract = web3.eth.contract(abi);
+    var MyContract = web3.exp.contract(abi);
 
     // initiate contract for an address
     var myContractInstance = MyContract.at('0x78e97bcc5b5dd9ed228fed7a4887c0d7287344a9');
@@ -2267,7 +2267,7 @@ Example
 
 .. code:: js
 
-    var MyContract = web3.eth.contract(abi);
+    var MyContract = web3.exp.contract(abi);
     var myContractInstance = MyContract.at('0x78e97bcc5b5dd9ed228fed7a4887c0d7287344a9');
 
     // watch for an event with {some: 'args'}
@@ -2330,7 +2330,7 @@ Example
 
 .. code:: js
 
-    var MyContract = web3.eth.contract(abi);
+    var MyContract = web3.exp.contract(abi);
     var myContractInstance = MyContract.at('0x78e97bcc5b5dd9ed228fed7a4887c0d7287344a9');
 
     // watch for an event with {some: 'args'}
@@ -2349,12 +2349,12 @@ Example
 
 --------------
 
-web3.eth.getCompilers
+web3.exp.getCompilers
 ^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.getCompilers([callback])
+    web3.exp.getCompilers([callback])
 
 Gets a list of available compilers.
 
@@ -2374,17 +2374,17 @@ Example
 
 .. code:: js
 
-    var number = web3.eth.getCompilers();
+    var number = web3.exp.getCompilers();
     console.log(number); // ["lll", "solidity", "serpent"]
 
 --------------
 
-web3.eth.compile.solidity
+web3.exp.compile.solidity
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.compile.solidity(sourceString [, callback])
+    web3.exp.compile.solidity(sourceString [, callback])
 
 Compiles solidity source code.
 
@@ -2411,7 +2411,7 @@ Example
         "       return a * 7;\n" +
         "   }\n" +
         "}\n";
-    var compiled = web3.eth.compile.solidity(source);
+    var compiled = web3.exp.compile.solidity(source);
     console.log(compiled);
     // {
       "test": {
@@ -2452,12 +2452,12 @@ Example
 
 --------------
 
-web3.eth.compile.lll
+web3.exp.compile.lll
 ^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3. eth.compile.lll(sourceString [, callback])
+    web3. exp.compile.lll(sourceString [, callback])
 
 Compiles LLL source code.
 
@@ -2480,17 +2480,17 @@ Example
 
     var source = "...";
 
-    var code = web3.eth.compile.lll(source);
+    var code = web3.exp.compile.lll(source);
     console.log(code); // "0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b6021600435602b565b8060005260206000f35b600081600702905091905056"
 
 --------------
 
-web3.eth.compile.serpent
+web3.exp.compile.serpent
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.compile.serpent(sourceString [, callback])
+    web3.exp.compile.serpent(sourceString [, callback])
 
 Compiles serpent source code.
 
@@ -2510,17 +2510,17 @@ Returns
 
     var source = "...";
 
-    var code = web3.eth.compile.serpent(source);
+    var code = web3.exp.compile.serpent(source);
     console.log(code); // "0x603880600c6000396000f3006001600060e060020a600035048063c6888fa114601857005b6021600435602b565b8060005260206000f35b600081600702905091905056"
 
 --------------
 
-web3.eth.namereg
+web3.exp.namereg
 ^^^^^^^^^^^^^^^^
 
 ::
 
-    web3.eth.namereg
+    web3.exp.namereg
 
 Returns GlobalRegistrar object.
 
@@ -2528,7 +2528,7 @@ Usage
 '''''
 
 see
-`namereg <https://github.com/ethereum/web3.js/blob/master/example/namereg.html>`__
+`namereg <https://github.com/expanse-org/web3.js/blob/master/example/namereg.html>`__
 example
 
 --------------
@@ -2670,7 +2670,7 @@ web3.shh
 ~~~~~~~~
 
 `Whisper
-Overview <https://github.com/ethereum/wiki/wiki/Whisper-Overview>`__
+Overview <https://github.com/expanse-org/wiki/wiki/Whisper-Overview>`__
 
 Example
 '''''''
@@ -2885,12 +2885,12 @@ Callback return
 
 --------------
 
-web3.eth.sendIBANTransaction
+web3.exp.sendIBANTransaction
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var txHash = web3.eth.sendIBANTransaction('0x00c5496aee77c1ba1f0854206a26dda82a81d6d8', 'XE81ETHXREGGAVOFYORK', 0x100);
+    var txHash = web3.exp.sendIBANTransaction('0x00c5496aee77c1ba1f0854206a26dda82a81d6d8', 'XE81ETHXREGGAVOFYORK', 0x100);
 
 Sends IBAN transaction from user account to destination IBAN address.
 
@@ -2903,41 +2903,41 @@ Parameters
 
 --------------
 
-web3.eth.iban
+web3.exp.iban
 ^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
 
 --------------
 
-web3.eth.iban.fromAddress
+web3.exp.iban.fromAddress
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = web3.eth.iban.fromAddress('0x00c5496aee77c1ba1f0854206a26dda82a81d6d8');
+    var i = web3.exp.iban.fromAddress('0x00c5496aee77c1ba1f0854206a26dda82a81d6d8');
     console.log(i.toString()); // 'XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS
 
 --------------
 
-web3.eth.iban.fromBban
+web3.exp.iban.fromBban
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = web3.eth.iban.fromBban('ETHXREGGAVOFYORK');
+    var i = web3.exp.iban.fromBban('ETHXREGGAVOFYORK');
     console.log(i.toString()); // "XE81ETHXREGGAVOFYORK"
 
 --------------
 
-web3.eth.iban.createIndirect
+web3.exp.iban.createIndirect
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = web3.eth.iban.createIndirect({
+    var i = web3.exp.iban.createIndirect({
       institution: "XREG",
       identifier: "GAVOFYORK"
     });
@@ -2945,93 +2945,93 @@ web3.eth.iban.createIndirect
 
 --------------
 
-web3.eth.iban.isValid
+web3.exp.iban.isValid
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var valid = web3.eth.iban.isValid("XE81ETHXREGGAVOFYORK");
+    var valid = web3.exp.iban.isValid("XE81ETHXREGGAVOFYORK");
     console.log(valid); // true
 
-    var valid2 = web3.eth.iban.isValid("XE82ETHXREGGAVOFYORK");
+    var valid2 = web3.exp.iban.isValid("XE82ETHXREGGAVOFYORK");
     console.log(valid2); // false, cause checksum is incorrect
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
     var valid3 = i.isValid();
     console.log(valid3); // true
 
 --------------
 
-web3.eth.iban.isDirect
+web3.exp.iban.isDirect
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
     var direct = i.isDirect();
     console.log(direct); // false
 
 --------------
 
-web3.eth.iban.isIndirect
+web3.exp.iban.isIndirect
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
     var indirect = i.isIndirect();
     console.log(indirect); // true
 
 --------------
 
-web3.eth.iban.checksum
+web3.exp.iban.checksum
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
     var checksum = i.checksum();
     console.log(checksum); // "81"
 
 --------------
 
-web3.eth.iban.institution
+web3.exp.iban.institution
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
     var institution = i.institution();
     console.log(institution); // 'XREG'
 
 --------------
 
-web3.eth.iban.client
+web3.exp.iban.client
 ^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban("XE81ETHXREGGAVOFYORK");
+    var i = new web3.exp.iban("XE81ETHXREGGAVOFYORK");
     var client = i.client();
     console.log(client); // 'GAVOFYORK'
 
 --------------
 
-web3.eth.iban.address
+web3.exp.iban.address
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban('XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS');
+    var i = new web3.exp.iban('XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS');
     var address = i.address();
     console.log(address); // '00c5496aee77c1ba1f0854206a26dda82a81d6d8'
 
 --------------
 
-web3.eth.iban.toString
+web3.exp.iban.toString
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: js
 
-    var i = new web3.eth.iban('XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS');
+    var i = new web3.exp.iban('XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS');
     console.log(i.toString()); // 'XE7338O073KYGTWWZN0F2WZ0R8PX5ZPPZS'

@@ -1,7 +1,7 @@
 **UPDATE** IceCream has been removed as of 0.9.0 in favour of more
 advanced other tools.
 
-Go Ethereum comes with a handy EVM debugger called iceCREAM (after the
+Go Expanse comes with a handy EVM debugger called iceCREAM (after the
 famous 'SoftICE' kernel debugger). This article will give you a basic
 understanding of debugging EVM code and operating the iceCREAM debugger.
 
@@ -10,7 +10,7 @@ understanding of debugging EVM code and operating the iceCREAM debugger.
 
 The interface of the debugger is pretty straight forward and can be
 accessed from within
-`Ethereal <http://github.com/ethereum/go-ethereum/>`__ menu (⌘-D)
+`Ethereal <http://github.com/expanse-org/go-expanse/>`__ menu (⌘-D)
 
 -  In the centre of the window you'll find the main editor which support
    `mutan <http://github.com/obscuren/mutan>`__ and `serpent <>`__.

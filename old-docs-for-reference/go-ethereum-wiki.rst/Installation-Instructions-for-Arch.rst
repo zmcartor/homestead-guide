@@ -11,6 +11,6 @@ Download and build geth
 
 .. code:: shell
 
-    git clone https://github.com/ethereum/go-ethereum
-    cd go-ethereum
+    git clone https://github.com/expanse-org/go-expanse
+    cd go-expanse
     make geth

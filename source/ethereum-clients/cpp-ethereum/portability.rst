@@ -1,10 +1,10 @@
-.. _cpp-ethereum-portability:
+.. _cpp-expanse-portability:
 
 ################################################################################
 Portability
 ################################################################################
 
-The Ethereum C++ client code is exceedingly portable, and is being successfully
+The Expanse C++ client code is exceedingly portable, and is being successfully
 used on a huge range of different operating systems and devices.
 
 We continue to expand our range and are very open to pull-requests which add

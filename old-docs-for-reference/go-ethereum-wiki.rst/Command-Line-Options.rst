@@ -4,7 +4,7 @@ Command line options
 ::
 
     NAME:
-       geth - the go-ethereum command line interface
+       geth - the go-expanse command line interface
 
     USAGE:
        geth [options] command [command options] [arguments...]
@@ -24,8 +24,8 @@ Command line options
        makedag      generate ethash dag (for testing)
        gpuinfo      gpuinfo
        gpubench     benchmark GPU
-       version      print Ethereum version numbers
-       wallet       Ethereum presale wallet
+       version      print Expanse version numbers
+       wallet       Expanse presale wallet
        account      manage accounts
        console      Geth Console: interactive JavaScript environment
        attach       Geth Console: interactive JavaScript environment (connect to node)
@@ -33,7 +33,7 @@ Command line options
        help, h      Shows a list of commands or help for one command
 
     ETHEREUM OPTIONS:
-      --datadir "/home/youruser/.ethereum"  Data directory for the databases and keystore
+      --datadir "/home/youruser/.expanse"  Data directory for the databases and keystore
       --networkid "1"                       Network identifier (integer, 0=Olympic, 1=Frontier, 2=Morden)
       --olympic                             Olympic network: pre-configured pre-release test network
       --testnet                             Morden network: pre-configured test network with modified starting nonces (replay protection)
@@ -55,7 +55,7 @@ Command line options
       --rpcapi "db,eth,net,web3"                                            API's offered over the HTTP-RPC interface
       --ipcdisable                                                          Disable the IPC-RPC server
       --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3"      API's offered over the IPC-RPC interface
-      --ipcpath "/home/youruser/.ethereum/geth.ipc"                         Filename for IPC socket/pipe
+      --ipcpath "/home/youruser/.expanse/geth.ipc"                         Filename for IPC socket/pipe
       --rpccorsdomain                                                       Domains from which to accept cross origin requests (browser enforced)
       --jspath "."                                                          JavaSript root path for `loadScript` and document root for `admin.httpGet`
       --exec                                                                Execute JavaScript statement (only in combination with console/attach)
@@ -111,7 +111,7 @@ Command line options
       --help, -h    show help
 
 Note that the default for datadir is platform-specific. See `backup &
-restore <https://github.com/ethereum/go-ethereum/wiki/Backup-&-restore>`__
+restore <https://github.com/expanse-org/go-expanse/wiki/Backup-&-restore>`__
 for more information.
 
 Examples
@@ -121,7 +121,7 @@ Accounts
 ~~~~~~~~
 
 See `Account
-management <https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts>`__
+management <https://github.com/expanse-org/go-expanse/wiki/Managing-your-accounts>`__
 
 Import ether presale wallet into your node (prompts for password):
 
@@ -129,7 +129,7 @@ Import ether presale wallet into your node (prompts for password):
 
     geth wallet import /path/to/my/etherwallet.json
 
-Import an EC privatekey into an ethereum account (prompts for password):
+Import an EC privatekey into an expanse account (prompts for password):
 
 ::
 
@@ -139,7 +139,7 @@ Geth JavaScript Runtime Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See `Geth javascript
-console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 
 Bring up the geth javascript console:
 
@@ -182,8 +182,8 @@ ports 30303 and 30304, respectively:
 
 ::
 
-    geth --mine --minerthreads 4 --datadir /usr/local/share/ethereum/30303 --port 30303
-    geth --mine --minerthreads 4 --datadir /usr/local/share/ethereum/30304 --port 30304
+    geth --mine --minerthreads 4 --datadir /usr/local/share/expanse/30303 --port 30303
+    geth --mine --minerthreads 4 --datadir /usr/local/share/expanse/30304 --port 30304
 
 Start an rpc client on port 8000:
 
@@ -204,7 +204,7 @@ In the datadir, delete the blockchain directory. For an example above:
 
 ::
 
-    rm -rf /usr/local/share/ethereum/30303/blockchain
+    rm -rf /usr/local/share/expanse/30303/blockchain
 
 Sample usage in testing environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

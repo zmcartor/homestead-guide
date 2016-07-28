@@ -1,6 +1,6 @@
-Peer-to-peer communications between nodes running Ethereum clients run
+Peer-to-peer communications between nodes running Expanse clients run
 using the underlying `ÐΞVp2p Wire
-Protocol <https://github.com/ethereum/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol>`__.
+Protocol <https://github.com/expanse-org/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol>`__.
 
 Basic Chain Syncing
 ~~~~~~~~~~~~~~~~~~~
@@ -16,13 +16,13 @@ Basic Chain Syncing
 -  Ask for N blocks from our peer using the hashes. Mark them as on
    their way so we don't get them from another peer.
 
-Ethereum Sub-protocol
+Expanse Sub-protocol
 ~~~~~~~~~~~~~~~~~~~~~
 
 **Status** [``+0x00``: ``P``, ``protocolVersion``: ``P``, ``networkId``:
 ``P``, ``td``: ``P``, ``bestHash``: ``B_32``, ``genesisHash``: ``B_32``]
-Inform a peer of it's current **ethereum** state. This message should be
-sent *after* the initial handshake and *prior* to any **ethereum**
+Inform a peer of it's current **expanse** state. This message should be
+sent *after* the initial handshake and *prior* to any **expanse**
 related messages. \* ``protocolVersion`` is one of: \* ``0x00`` for
 PoC-1; \* ``0x01`` for PoC-2; \* ``0x07`` for PoC-3; \* ``0x09`` for
 PoC-4. \* ``0x17`` for PoC-5. \* ``0x1c`` for PoC-6. \* ``networkId``
@@ -47,7 +47,7 @@ considered Bad Form, and may reduce the reputation of the sending node.
 ``receivingAddress``: ``B_20``, ``value``: ``P``, ``...``], ``...``]
 Specify (a) transaction(s) that the peer should make sure is included on
 its transaction queue. The items in the list (following the first item
-``0x12``) are transactions in the format described in the main Ethereum
+``0x12``) are transactions in the format described in the main Expanse
 specification. Nodes must not resend the same transaction to a peer in
 the same session. This packet must contain at least one (new)
 transaction.
@@ -72,14 +72,14 @@ might have to re-request them.
 **Blocks** [``+0x06``, [``blockHeader``, ``transactionList``,
 ``uncleList``], ``...``] Specify (a) block(s) as an answer to
 ``GetBlocks``. The items in the list (following the message ID) are
-blocks in the format described in the main Ethereum specification. This
+blocks in the format described in the main Expanse specification. This
 may validly contain no blocks if no blocks were able to be returned for
 the ``GetBlocks`` query.
 
 **NewBlock** [``+0x07``, [``blockHeader``, ``transactionList``,
 ``uncleList``], ``totalDifficulty``] Specify a single block that the
 peer should know about. The composite item in the list (following the
-message ID) is a block in the format described in the main Ethereum
+message ID) is a block in the format described in the main Expanse
 specification. - ``totalDifficulty`` is the total difficulty of the
 block (aka score).
 
@@ -120,7 +120,7 @@ with at most ``maxHeaders`` items.
 **BlockHeaders** [``+0x04``, ``blockHeader_0``, ``blockHeader_1``,
 ``...``] Reply to ``GetBlockHeaders``. The items in the list (following
 the message ID) are block headers in the format described in the main
-Ethereum specification, previously asked for in a ``GetBlockHeaders``
+Expanse specification, previously asked for in a ``GetBlockHeaders``
 message. This may validly contain no block headers if no block headers
 were able to be returned for the ``GetBlockHeaders`` query.
 
@@ -131,7 +131,7 @@ Specify the set of blocks that we're interested in with the hashes.
 **BlockBodies** [``+0x06``, [``transactions_0``, ``uncles_0``] ,
 ``...``] Reply to ``GetBlockBodies``. The items in the list (following
 the message ID) are some of the blocks, minus the header, in the format
-described in the main Ethereum specification, previously asked for in a
+described in the main Expanse specification, previously asked for in a
 ``GetBlockBodies`` message. This may validly contain no items if no
 blocks were able to be returned for the ``GetBlockBodies`` query.
 
@@ -162,9 +162,9 @@ Provide a set of receipts which correspond to previously asked in
 Session Management
 ~~~~~~~~~~~~~~~~~~
 
-For the Ethereum sub-protocol, upon an active session, a ``Status``
+For the Expanse sub-protocol, upon an active session, a ``Status``
 message must be sent. Following the reception of the peer's ``Status``
-message, the Ethereum session is active and any other messages may be
+message, the Expanse session is active and any other messages may be
 sent. All transactions should initially be sent with one or more
 Transactions messages.
 
@@ -178,16 +178,16 @@ Upcoming changes
 ~~~~~~~~~~~~~~~~
 
 -  `Light Client
-   Protocol <https://github.com/ethereum/wiki/wiki/Light-client-protocol>`__
+   Protocol <https://github.com/expanse-org/wiki/wiki/Light-client-protocol>`__
 
 Changes (PoC-7)
 ~~~~~~~~~~~~~~~
 
 -  `NewBlock
-   Message <https://github.com/ethereum/wiki/wiki/NewBlock-Message>`__
+   Message <https://github.com/expanse-org/wiki/wiki/NewBlock-Message>`__
 
 Changed (PoC-6)
 ~~~~~~~~~~~~~~~
 
 -  `Parallel Block
-   Downloads <https://github.com/ethereum/wiki/wiki/Parallel-Block-Downloads>`__
+   Downloads <https://github.com/expanse-org/wiki/wiki/Parallel-Block-Downloads>`__

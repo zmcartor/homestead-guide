@@ -1,17 +1,17 @@
-Running tests on go-ethereum
+Running tests on go-expanse
 ============================
 
-This page assumes go-ethereum has been configured according to the
+This page assumes go-expanse has been configured according to the
 `Developers
-Guide <https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide>`__.
+Guide <https://github.com/expanse-org/go-expanse/wiki/Developers'-Guide>`__.
 All commands (unless stated otherwise) are assumed to be run from
-``$GOPATH/src/github.com/ethereum/go-ethereum``
+``$GOPATH/src/github.com/expanse-org/go-expanse``
 
 Unit tests
 ----------
 
-See `Travis <https://travis-ci.org/ethereum/go-ethereum/builds>`__ or
-`Coveralls <https://coveralls.io/r/ethereum/go-ethereum>`__ for status.
+See `Travis <https://travis-ci.org/expanse/go-expanse/builds>`__ or
+`Coveralls <https://coveralls.io/r/expanse/go-expanse>`__ for status.
 
 Test the full codebase locally by changing to the repository directory
 and running
@@ -62,7 +62,7 @@ Flags:
 VM
 ^^
 
-`VM Test wiki <https://github.com/ethereum/tests/wiki/VM-Tests>`__
+`VM Test wiki <https://github.com/expanse-org/tests/wiki/VM-Tests>`__
 
 ::
 
@@ -71,7 +71,7 @@ VM
 State
 ^^^^^
 
-`State Test wiki <https://github.com/ethereum/tests/wiki/State-tests>`__
+`State Test wiki <https://github.com/expanse-org/tests/wiki/State-tests>`__
 
 ::
 
@@ -81,7 +81,7 @@ Transaction
 ^^^^^^^^^^^
 
 `Transaction Test
-wiki <https://github.com/ethereum/tests/wiki/Transaction-Tests>`__
+wiki <https://github.com/expanse-org/tests/wiki/Transaction-Tests>`__
 
 ::
 
@@ -91,7 +91,7 @@ Blockchain
 ^^^^^^^^^^
 
 `Blockchain Test
-wiki <https://github.com/ethereum/tests/wiki/Blockchain-Tests-II>`__
+wiki <https://github.com/expanse-org/tests/wiki/Blockchain-Tests-II>`__
 
 ::
 
@@ -100,7 +100,7 @@ wiki <https://github.com/ethereum/tests/wiki/Blockchain-Tests-II>`__
 RPC
 ~~~
 
-`RPC Tests repo <https://github.com/ethereum/rpc-tests>`__
+`RPC Tests repo <https://github.com/expanse-org/rpc-tests>`__
 
 1. Load test JSON with
 
@@ -108,4 +108,4 @@ RPC
 
        geth blocktest <pathToTheTestRepo>/BlockTests/bcRPC_API_Test.json RPC_API_Test rpc
 
-2. Run rpc-tests (https://github.com/ethereum/rpc-tests#usage)
+2. Run rpc-tests (https://github.com/expanse-org/rpc-tests#usage)

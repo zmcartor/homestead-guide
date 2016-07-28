@@ -1,9 +1,9 @@
 .. _Ethereum Tests:
 
 ################################################################################
-Ethereum Tests
+Expanse Tests
 ################################################################################
-| Common tests for all clients to test against. The `git repo <https://github.com/ethereum/tests>`_ updated regulary with new tests. 
+| Common tests for all clients to test against. The `git repo <https://github.com/expanse-org/tests>`_ updated regulary with new tests. 
 | This section describes basic test concepts and templates which are created by cpp-client. 
 |
 

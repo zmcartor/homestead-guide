@@ -5,15 +5,15 @@ i.e., something I'm envisioning for *soon*\ (tm)
 
 .. code:: go
 
-    eth, err := eth.New(/*config*/)
+    eth, err := exp.New(/*config*/)
     if err != nil {
         logger.Fatalln(err)
     }
 
     // State holds accounts without matching private keys
-    state := eth.State()
+    state := exp.State()
     // wallet holds accounts with matching private keys
-    wallet := eth.Wallet()
+    wallet := exp.Wallet()
     wallet.NewAccount() // create a new account (return Account)
     wallet.Accounts() // return []Account
 

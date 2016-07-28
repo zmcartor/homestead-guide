@@ -1,9 +1,9 @@
-See also: https://github.com/ethereum/wiki/wiki/Design-Rationale, for
+See also: https://github.com/expanse-org/wiki/wiki/Design-Rationale, for
 descriptions of potentially counterintuitive design decisions in
-Ethereum.
+Expanse.
 
 The purpose of this document is to attempt to create a taxonomy of key
-security properties that we are targeting for the Ethereum protocol,
+security properties that we are targeting for the Expanse protocol,
 implementation and materials to have at launch time, as well as provide
 supplementary information where needed for each one.
 
@@ -21,7 +21,7 @@ Proof of Work
 ~~~~~~~~~~~~~
 
 The working spec description of Dagger Hashimoto is available at
-https://github.com/ethereum/wiki/wiki/Ethash
+https://github.com/expanse-org/wiki/wiki/Ethash
 
 The algorithm is intended to have the following key properties:
 
@@ -47,11 +47,11 @@ Block algorithm
 ~~~~~~~~~~~~~~~
 
 A simulator of difficulty adjustment is available at
-https://github.com/ethereum/economic-modeling/blob/master/diffadjust/blkdiff.py
+https://github.com/expanse-org/economic-modeling/blob/master/diffadjust/blkdiff.py
 .
 
 The modified GHOST algorithm is defined
-`here <https://github.com/ethereum/wiki/wiki/White-Paper#modified-ghost-implementation>`__.
+`here <https://github.com/expanse-org/wiki/wiki/White-Paper#modified-ghost-implementation>`__.
 
 The following properties are desired:
 
@@ -62,7 +62,7 @@ The following properties are desired:
    (ie. it should be optimal to mine on the head)
 -  The 12 second block time should not induce an excessively high orphan
    rate and higher confirmation times than expected.
--  Ethereum should remain reasonably light-client friendly, especially
+-  Expanse should remain reasonably light-client friendly, especially
    for low-power IoT (patch solution if necessary: block skiplists, eg.
    every block with number % n^k == 0 must refer to the block n^k blocks
    ago, for say n = 4 and k = 0...3; this basically entails turning
@@ -77,7 +77,7 @@ Gas economics
 ~~~~~~~~~~~~~
 
 -  The floating gas limit should achieve the compatibility objectives
-   described in https://github.com/ethereum/wiki/wiki/White-Paper#fees
+   described in https://github.com/expanse-org/wiki/wiki/White-Paper#fees
 -  There should not exist a way for a transaction to get itself executed
    and spend large amounts of computational resources on many nodes
    without paying for gas
@@ -129,7 +129,7 @@ VM
 
 -  The VM implementation and the formal specifications (so called Yellow
    Paper) should be equivalent. The VM implementation can be found at
-   https://github.com/ethereum/go-ethereum/tree/master/vm
+   https://github.com/expanse-org/go-expanse/tree/master/vm
 -  The VM should be resistant to the following attack scenarios:
 -  Transactions/messages whose execution will somehow escape the VM and
    either reveal or modify memory or hard drive contents of the client's
@@ -145,7 +145,7 @@ Wire protocol
 ~~~~~~~~~~~~~
 
 The wire protocol is described here:
-https://github.com/ethereum/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol
+https://github.com/expanse-org/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol
 
 The wire protocol should be secure against the following issues:
 
@@ -183,7 +183,7 @@ Libraries
 -  secp256k1 with a Go bridge (https://github.com/obscuren/secp256k1-go)
 -  A fork of the official golang sha3 package
    (https://github.com/obscuren/sha3) (Reason for using a sha3 fork is
-   because the official sha3 has switched to FIPS-202 which Ethereum
+   because the official sha3 has switched to FIPS-202 which Expanse
    can't use because genesis addresses have been generated using an
    earlier version of sha3)
 -  Official ripemd package (code.google.com/p/go.crypto/ripemd160)

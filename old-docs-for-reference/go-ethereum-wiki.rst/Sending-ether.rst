@@ -6,22 +6,22 @@ is as follows:
 
 .. code:: JavaScript
 
-    > eth.sendTransaction({from:sender, to:receiver, value: amount})
+    > exp.sendTransaction({from:sender, to:receiver, value: amount})
 
 Using the built-in JavaScript, you can easily set variables to hold
 these values. For example:
 
 .. code:: JavaScript
 
-    > var sender = eth.accounts[0];
-    > var receiver = eth.accounts[1];
+    > var sender = exp.accounts[0];
+    > var receiver = exp.accounts[1];
     > var amount = web3.toWei(0.01, "ether")
 
 Alternatively, you can compose a transaction in a single line with:
 
 .. code:: JavaScript
 
-    > eth.sendTransaction({from:eth.coinbase, to:eth.accounts[1], value: web3.toWei(0.05, "ether")})
+    > exp.sendTransaction({from:exp.coinbase, to:exp.accounts[1], value: web3.toWei(0.05, "ether")})
     Please unlock account d1ade25ccd3d550a7eb532ac759cac7be09c2719.
     Passphrase: 
     Account is now unlocked for this session.

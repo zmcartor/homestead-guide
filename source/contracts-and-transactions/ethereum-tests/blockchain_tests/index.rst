@@ -136,4 +136,4 @@ It is used to define a situation when you have 3 blocks already imported but the
 
 ``"chainname" = "string"`` This is used for defining forks in the same test. You could mine blocks to chain "A": 1, 2, 3 then to chain "B": 1, 2, 3, 4 (chainB becomes primary). Then again to chain "A": 4, 5, 6  (chainA becomes primary) and so on. chainname could also be defined in uncle header section. If defined in uncle header it tells on which chain's block uncle header would be populated from. When running test, this field could be used for information purpose only.
 
-``"chainnetwork" = "string"`` Defines on which network rules this block was mined. (see the difference https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2.mediawiki). When running test, this field could be used for information purpose only.
+``"chainnetwork" = "string"`` Defines on which network rules this block was mined. (see the difference https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-2.mediawiki). When running test, this field could be used for information purpose only.

@@ -2,10 +2,10 @@ Overview
 ========
 
 Beside the official `Dapp
-API <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__ interface the go
-Ethereum node has support for additional management API's. These API's
+API <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__ interface the go
+Expanse node has support for additional management API's. These API's
 are offered using `JSON-RPC <http://www.jsonrpc.org/specification>`__
-and follow the same conventions as used in the Dapp API. The go Ethereum
+and follow the same conventions as used in the Dapp API. The go Expanse
 package comes with a console client which has support for all additional
 API's.
 
@@ -14,7 +14,7 @@ How to
 
 It is possible to specify the set of API's which are offered over an
 interface with the ``--${interface}api`` command line argument for the
-go ethereum daemon. Where ``${interface}`` can be ``rpc`` for the
+go expanse daemon. Where ``${interface}`` can be ``rpc`` for the
 ``http`` interface or ``ipc`` for an unix socket on unix or named pipe
 on Windows.
 
@@ -61,12 +61,12 @@ Integration
 
 These additional API's follow the same conventions as the official dapp
 API. Web3 can be
-`extended <https://github.com/ethereum/web3.js/pull/229>`__ and used to
+`extended <https://github.com/expanse-org/web3.js/pull/229>`__ and used to
 consume these additional API's.
 
 The different functions are split into multiple smaller logically
 grouped API's. Examples are given for the `Javascript
-console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 but can easily be converted to a rpc request.
 
 **2 examples:**
@@ -103,7 +103,7 @@ Db
 --
 
 This is the official Dapp API. See for more information `this
-page <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__.
+page <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__.
 
 Debug
 -----
@@ -119,13 +119,13 @@ Eth
 ---
 
 This is the official Dapp API. See for more information `this
-page <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__.
+page <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__.
 
 Miner
 -----
 
 Allows full control over the miner and
-`DAG <https://github.com/ethereum/wiki/wiki/Ethash-DAG>`__. \*
+`DAG <https://github.com/expanse-org/wiki/wiki/Ethash-DAG>`__. \*
 `start <#miner_start>`__ \* `stop <#miner_stop>`__ \*
 `hashrate <#miner_hashrate>`__ \* `setExtra <#miner_setExtra>`__ \*
 `setGasPrice <#miner_setGasPrice>`__ \*
@@ -155,7 +155,7 @@ Web3
 ----
 
 This is the official Dapp API. See for more information `this
-page <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__.
+page <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__.
 
 admin\_addPeer
 ~~~~~~~~~~~~~~
@@ -255,7 +255,7 @@ Example
 admin\_setSolc
 ~~~~~~~~~~~~~~
 
-Set the path to the solidity compiler for ``eth.compileSolidity``.
+Set the path to the solidity compiler for ``exp.compileSolidity``.
 
 Parameters
 ^^^^^^^^^^
@@ -414,7 +414,7 @@ Return
 Example
 ^^^^^^^
 
-``debug.seedHash(eth.blockNumber)``
+``debug.seedHash(exp.blockNumber)``
 
 --------------
 
@@ -436,7 +436,7 @@ Return
 Example
 ^^^^^^^
 
-``debug.setHead(eth.blockNumber-5000)``
+``debug.setHead(exp.blockNumber-5000)``
 
 --------------
 
@@ -705,7 +705,7 @@ Return
 Example
 ^^^^^^^
 
-``personal.unlockAccount(eth.coinbase, "mypasswd", 300)``
+``personal.unlockAccount(exp.coinbase, "mypasswd", 300)``
 
 --------------
 

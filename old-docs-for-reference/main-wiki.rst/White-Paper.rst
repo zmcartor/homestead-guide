@@ -22,7 +22,7 @@ directly controlled by a piece of code implementing arbitrary rules
 contracts" <http://szabo.best.vwh.net/smart_contracts_idea.html>`__) or
 even blockchain-based "`decentralized autonomous
 organizations <http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/>`__"
-(DAOs). What Ethereum intends to provide is a blockchain with a built-in
+(DAOs). What Expanse intends to provide is a blockchain with a built-in
 fully fledged Turing-complete programming language that can be used to
 create "contracts" that can be used to encode arbitrary state transition
 functions, allowing users to create any of the systems described above,
@@ -42,12 +42,12 @@ Table of Contents
       Applications <#alternative-blockchain-applications>`__
    -  `Scripting <#scripting>`__
 
--  `Ethereum <#ethereum>`__
+-  `Expanse <#expanse>`__
 
-   -  `Ethereum Accounts <#ethereum-accounts>`__
+   -  `Expanse Accounts <#expanse-accounts>`__
    -  `Messages and Transactions <#messages-and-transactions>`__
-   -  `Ethereum State Transition
-      Function <#ethereum-state-transition-function>`__
+   -  `Expanse State Transition
+      Function <#expanse-state-transition-function>`__
    -  `Code Execution <#code-execution>`__
    -  `Blockchain and Mining <#blockchain-and-mining>`__
 
@@ -309,7 +309,7 @@ catch up (hence, "51% attack").
 Merkle Trees
 ~~~~~~~~~~~~
 
-.. figure:: https://raw.githubusercontent.com/ethereum/www/master-postsale/src/extras/gh_wiki/spv_bitcoin.png
+.. figure:: https://raw.githubusercontent.com/expanse/www/master-postsale/src/extras/gh_wiki/spv_bitcoin.png
    :alt: SPV in bitcoin
 
    SPV in bitcoin
@@ -516,22 +516,22 @@ blockchain allows for unlimited freedom in building a feature set, but
 at the cost of development time, bootstrapping effort and security.
 Using scripting is easy to implement and standardize, but is very
 limited in its capabilities, and meta-protocols, while easy, suffer from
-faults in scalability. With Ethereum, we intend to build an alternative
+faults in scalability. With Expanse, we intend to build an alternative
 framework that provides even larger gains in ease of development as well
 as even stronger light client properties, while at the same time
 allowing applications to share an economic environment and blockchain
 security.
 
-Ethereum
+Expanse
 --------
 
-The intent of Ethereum is to create an alternative protocol for building
+The intent of Expanse is to create an alternative protocol for building
 decentralized applications, providing a different set of tradeoffs that
 we believe will be very useful for a large class of decentralized
 applications, with particular emphasis on situations where rapid
 development time, security for small and rarely used applications, and
 the ability of different applications to very efficiently interact, are
-important. Ethereum does this by building what is essentially the
+important. Expanse does this by building what is essentially the
 ultimate abstract foundational layer: a blockchain with a built-in
 Turing-complete programming language, allowing anyone to write smart
 contracts and decentralized applications where they can create their own
@@ -544,12 +544,12 @@ be built on top of the platform, with vastly more power than that
 offered by Bitcoin scripting because of the added powers of
 Turing-completeness, value-awareness, blockchain-awareness and state.
 
-Ethereum Accounts
+Expanse Accounts
 ~~~~~~~~~~~~~~~~~
 
-In Ethereum, the state is made up of objects called "accounts", with
+In Expanse, the state is made up of objects called "accounts", with
 each account having a 20-byte address and state transitions being direct
-transfers of value and information between accounts. An Ethereum account
+transfers of value and information between accounts. An Expanse account
 contains four fields:
 
 -  The **nonce**, a counter used to make sure each transaction can only
@@ -558,7 +558,7 @@ contains four fields:
 -  The account's **contract code**, if present
 -  The account's **storage** (empty by default)
 
-"Ether" is the main internal crypto-fuel of Ethereum, and is used to pay
+"Ether" is the main internal crypto-fuel of Expanse, and is used to pay
 transaction fees. In general, there are two types of accounts:
 **externally owned accounts**, controlled by private keys, and
 **contract accounts**, controlled by their contract code. An externally
@@ -568,9 +568,9 @@ account, every time the contract account receives a message its code
 activates, allowing it to read and write to internal storage and send
 other messages or create contracts in turn.
 
-Note that "contracts" in Ethereum should not be seen as something that
+Note that "contracts" in Expanse should not be seen as something that
 should be "fulfilled" or "complied with"; rather, they are more like
-"autonomous agents" that live inside of the Ethereum execution
+"autonomous agents" that live inside of the Expanse execution
 environment, always executing a specific piece of code when "poked" by a
 message or transaction, and having direct control over their own ether
 balance and their own key/value store to keep track of persistent
@@ -579,7 +579,7 @@ variables.
 Messages and Transactions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The term "transaction" is used in Ethereum to refer to the signed data
+The term "transaction" is used in Expanse to refer to the signed data
 package that stores a message to be sent from an externally owned
 account. Transactions contain:
 
@@ -602,7 +602,7 @@ to register and the second field being the IP address to register it to.
 The contract would read these values from the message data and
 appropriately place them in storage.
 
-The ``STARTGAS`` and ``GASPRICE`` fields are crucial for Ethereum's
+The ``STARTGAS`` and ``GASPRICE`` fields are crucial for Expanse's
 anti-denial of service model. In order to prevent accidental or hostile
 infinite loops or other computational wastage in code, each transaction
 is required to set a limit to how many computational steps of code
@@ -622,7 +622,7 @@ Messages
 
 Contracts have the ability to send "messages" to other contracts.
 Messages are virtual objects that are never serialized and exist only in
-the Ethereum execution environment. A message contains:
+the Expanse execution environment. A message contains:
 
 -  The sender of the message (implicit)
 -  The recipient of the message
@@ -645,7 +645,7 @@ to B with 1000 gas, and B consumes 600 gas before sending a message to
 C, and the internal execution of C consumes 300 gas before returning,
 then B can spend another 100 gas before running out of gas.
 
-Ethereum State Transition Function
+Expanse State Transition Function
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: http://vitalik.ca/files/ethertransition.png?1
@@ -653,7 +653,7 @@ Ethereum State Transition Function
 
    ethertransition.png
 
-The Ethereum state transition function, ``APPLY(S,TX) -> S'`` can be
+The Expanse state transition function, ``APPLY(S,TX) -> S'`` can be
 defined as follows:
 
 1. Check if the transaction is well-formed (ie. has the right number of
@@ -726,8 +726,8 @@ newly created contract.
 Code Execution
 ~~~~~~~~~~~~~~
 
-The code in Ethereum contracts is written in a low-level, stack-based
-bytecode language, referred to as "Ethereum virtual machine code" or
+The code in Expanse contracts is written in a low-level, stack-based
+bytecode language, referred to as "Expanse virtual machine code" or
 "EVM code". The code consists of a series of bytes, where each byte
 represents an operation. In general, code execution is an infinite loop
 that consists of repeatedly carrying out the operation at the current
@@ -748,7 +748,7 @@ message, as well as block header data, and the code can also return a
 byte array of data as an output.
 
 The formal execution model of EVM code is surprisingly simple. While the
-Ethereum virtual machine is running, its full computational state can be
+Expanse virtual machine is running, its full computational state can be
 defined by the tuple
 ``(block_state, transaction, message, code, memory, stack, pc, gas)``,
 where ``block_state`` is the global state containing all accounts and
@@ -760,8 +760,8 @@ pops two items off the stack and pushes their sum, reduces ``gas`` by 1
 and increments ``pc`` by 1, and ``SSTORE`` pushes the top two items off
 the stack and inserts the second item into the contract's storage at the
 index specified by the first item. Although there are many ways to
-optimize Ethereum virtual machine execution via just-in-time
-compilation, a basic implementation of Ethereum can be done in a few
+optimize Expanse virtual machine execution via just-in-time
+compilation, a basic implementation of Expanse can be done in a few
 hundred lines of code.
 
 Blockchain and Mining
@@ -772,19 +772,19 @@ Blockchain and Mining
 
    apply\_block\_diagram.png
 
-The Ethereum blockchain is in many ways similar to the Bitcoin
+The Expanse blockchain is in many ways similar to the Bitcoin
 blockchain, although it does have some differences. The main difference
-between Ethereum and Bitcoin with regard to the blockchain architecture
-is that, unlike Bitcoin, Ethereum blocks contain a copy of both the
+between Expanse and Bitcoin with regard to the blockchain architecture
+is that, unlike Bitcoin, Expanse blocks contain a copy of both the
 transaction list and the most recent state. Aside from that, two other
 values, the block number and the difficulty, are also stored in the
-block. The basic block validation algorithm in Ethereum is as follows:
+block. The basic block validation algorithm in Expanse is as follows:
 
 1. Check if the previous block referenced exists and is valid.
 2. Check that the timestamp of the block is greater than that of the
    referenced previous block and less than 15 minutes into the future
 3. Check that the block number, difficulty, transaction root, uncle root
-   and gas limit (various low-level Ethereum-specific concepts) are
+   and gas limit (various low-level Expanse-specific concepts) are
    valid.
 4. Check that the proof of work on the block is valid.
 5. Let ``S[0]`` be the state at the end of the previous block.
@@ -825,7 +825,7 @@ download and validate block ``B``.
 Applications
 ------------
 
-In general, there are three types of applications on top of Ethereum.
+In general, there are three types of applications on top of Expanse.
 The first category is financial applications, providing users with more
 powerful ways of managing and entering into contracts using their money.
 This includes sub-currencies, financial derivatives, hedging contracts,
@@ -845,7 +845,7 @@ sub-currencies representing assets such as USD or gold to company
 stocks, individual tokens representing smart property, secure
 unforgeable coupons, and even token systems with no ties to conventional
 value at all, used as point systems for incentivization. Token systems
-are surprisingly easy to implement in Ethereum. The key point to
+are surprisingly easy to implement in Expanse. The key point to
 understand is that all a currency, or token system, fundamentally is a
 database with one operation: subtract X units from A and give X units to
 B, with the proviso that (i) A had at least X units before the
@@ -868,7 +868,7 @@ few extra lines of code need to be added to provide for the initial step
 of distributing the currency units in the first place and a few other
 edge cases, and ideally a function would be added to let other contracts
 query for the balance of an address. But that's all there is to it.
-Theoretically, Ethereum-based token systems acting as sub-currencies can
+Theoretically, Expanse-based token systems acting as sub-currencies can
 potentially include another important feature that on-chain
 Bitcoin-based meta-currencies lack: the ability to pay transaction fees
 directly in that currency. The way this would be implemented is that the
@@ -949,7 +949,7 @@ mapping domain names like "bitcoin.org" (or, in Namecoin's case,
 "bitcoin.bit") to an IP address. Other use cases include email
 authentication and potentially more advanced reputation systems. Here is
 the basic contract to provide a Namecoin-like name registration system
-on Ethereum:
+on Expanse:
 
 ::
 
@@ -957,7 +957,7 @@ on Ethereum:
         if !self.storage[name]:
             self.storage[name] = value
 
-The contract is very simple; all it is is a database inside the Ethereum
+The contract is very simple; all it is is a database inside the Expanse
 network that can be added to, but not modified or removed from. Anyone
 can register a name with some value, and that registration then sticks
 forever. A more sophisticated name registration contract will also have
@@ -980,7 +980,7 @@ shows that, particularly at the "uncanny valley" 20-200 GB level at
 which neither free quotas nor enterprise-level discounts kick in,
 monthly prices for mainstream file storage costs are such that you are
 paying for more than the cost of the entire hard drive in a single
-month. Ethereum contracts can allow for the development of a
+month. Expanse contracts can allow for the development of a
 decentralized file storage ecosystem, where individual users can earn
 small quantities of money by renting out their own hard drives and
 unused space can be used to further drive down the costs of file
@@ -1103,7 +1103,7 @@ This can be expanded to natural disaster insurance generally.
 **3. A decentralized data feed**. For financial contracts for
 difference, it may actually be possible to decentralize the data feed
 via a protocol called
-"`SchellingCoin <http://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/>`__".
+"`SchellingCoin <http://blog.expanse.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/>`__".
 SchellingCoin basically works as follows: N parties all put into the
 system the value of a given datum (eg. the ETH/USD price), the values
 are sorted, and everyone between the 25th and 75th percentile gets one
@@ -1116,10 +1116,10 @@ or even the result of a particular hard computation.
 
 **4. Smart multisignature escrow**. Bitcoin allows multisignature
 transaction contracts where, for example, three out of a given five keys
-can spend the funds. Ethereum allows for more granularity; for example,
+can spend the funds. Expanse allows for more granularity; for example,
 four out of five can spend everything, three out of five can spend up to
 10% per day, and two out of five can spend up to 0.5% per day.
-Additionally, Ethereum multisig is asynchronous - two parties can
+Additionally, Expanse multisig is asynchronous - two parties can
 register their signatures on the blockchain at different times and the
 last signature will automatically send the transaction.
 
@@ -1140,7 +1140,7 @@ algorithms can easily be implemented on top of such a platform.
 **6. Peer-to-peer gambling**. Any number of peer-to-peer gambling
 protocols, such as Frank Stajano and Richard Clayton's
 `Cyberdice <http://www.cl.cam.ac.uk/~fms27/papers/2008-StajanoCla-cyberdice.pdf>`__,
-can be implemented on the Ethereum blockchain. The simplest gambling
+can be implemented on the Expanse blockchain. The simplest gambling
 protocol is actually simply a contract for difference on the next block
 hash, and more advanced protocols can be built up from there, creating
 gambling services with near-zero fees that have no ability to cheat.
@@ -1184,7 +1184,7 @@ As described by Sompolinsky and Zohar, GHOST solves the first issue of
 network security loss by including stale blocks in the calculation of
 which chain is the "longest"; that is to say, not just the parent and
 further ancestors of a block, but also the stale descendants of the
-block's ancestor (in Ethereum jargon, "uncles") are added to the
+block's ancestor (in Expanse jargon, "uncles") are added to the
 calculation of which block has the largest total proof of work backing
 it. To solve the second issue of centralization bias, we go beyond the
 protocol described by Sompolinsky and Zohar, and also provide block
@@ -1192,7 +1192,7 @@ rewards to stales: a stale block receives 87.5% of its base reward, and
 the nephew that includes the stale block receives the remaining 12.5%.
 Transaction fees, however, are not awarded to uncles.
 
-Ethereum implements a simplified version of GHOST which only goes down
+Expanse implements a simplified version of GHOST which only goes down
 seven levels. Specifically, it is defined as follows:
 
 -  A block must specify a parent, and it must specify 0 or more uncles
@@ -1213,7 +1213,7 @@ This limited version of GHOST, with uncles includable only up to 7
 generations, was used for two reasons. First, unlimited GHOST would
 include too many complications into the calculation of which uncles for
 a given block are valid. Second, unlimited GHOST with compensation as
-used in Ethereum removes the incentive for a miner to mine on the main
+used in Expanse removes the incentive for a miner to mine on the main
 chain and not the chain of a public attacker.
 
 Fees
@@ -1292,18 +1292,18 @@ further analysis.
 
 There is another factor disincentivizing large block sizes in Bitcoin:
 blocks that are large will take longer to propagate, and thus have a
-higher probability of becoming stales. In Ethereum, highly gas-consuming
+higher probability of becoming stales. In Expanse, highly gas-consuming
 blocks can also take longer to propagate both because they are
 physically larger and because they take longer to process the
 transaction state transitions to validate. This delay disincentive is a
-significant consideration in Bitcoin, but less so in Ethereum because of
+significant consideration in Bitcoin, but less so in Expanse because of
 the GHOST protocol; hence, relying on regulated block limits provides a
 more stable baseline.
 
 Computation And Turing-Completeness
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An important note is that the Ethereum virtual machine is
+An important note is that the Expanse virtual machine is
 Turing-complete; this means that EVM code can encode any computation
 that can be conceivably carried out, including infinite loops. EVM code
 allows looping in two ways. First, there is a ``JUMP`` instruction that
@@ -1396,7 +1396,7 @@ that case why not just let the protocol be Turing-complete?
 Currency And Issuance
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Ethereum network includes its own built-in currency, ether, which
+The Expanse network includes its own built-in currency, ether, which
 serves the dual purpose of providing a primary liquidity layer to allow
 for efficient exchange between various types of digital assets and, more
 importantly, of providing a mechanism for paying transaction fees. For
@@ -1419,12 +1419,12 @@ useful later and should not be included in clients at this point.
 The issuance model will be as follows:
 
 -  Ether will be released in a currency sale at the price of 1000-2000
-   ether per BTC, a mechanism intended to fund the Ethereum organization
+   ether per BTC, a mechanism intended to fund the Expanse organization
    and pay for development that has been used with success by other
    platforms such as Mastercoin and NXT. Earlier buyers will benefit
    from larger discounts. The BTC received from the sale will be used
    entirely to pay salaries and bounties to developers and invested into
-   various for-profit and non-profit projects in the Ethereum and
+   various for-profit and non-profit projects in the Expanse and
    cryptocurrency ecosystem.
 -  0.099x the total amount sold (60102216 ETH) will be allocated to the
    organization to compensate early contributors and pay ETH-denominated
@@ -1450,7 +1450,7 @@ The issuance model will be as follows:
 
 **Long-Term Supply Growth Rate (percent)**
 
-.. figure:: https://www.ethereum.org/gh_wiki/inflation.svg
+.. figure:: https://www.expanse.org/gh_wiki/inflation.svg
    :alt: SPV in bitcoin
 
    SPV in bitcoin
@@ -1486,12 +1486,12 @@ to the annual issuance divided by the loss rate (eg. at a loss rate of
 1%, once the supply reaches 26X then 0.26X will be mined and 0.26X lost
 every year, creating an equilibrium).
 
-Note that in the future, it is likely that Ethereum will switch to a
+Note that in the future, it is likely that Expanse will switch to a
 proof-of-stake model for security, reducing the issuance requirement to
 somewhere between zero and 0.05X per year. In the event that the
-Ethereum organization loses funding or for any other reason disappears,
+Expanse organization loses funding or for any other reason disappears,
 we leave open a "social contract": anyone has the right to create a
-future candidate version of Ethereum, with the only condition being that
+future candidate version of Expanse, with the only condition being that
 the quantity of ether must be at most equal to
 ``60102216 * (1.198 + 0.26 * n)`` where ``n`` is the number of years
 after the genesis block. Creators are free to crowd-sell or otherwise
@@ -1521,11 +1521,11 @@ pools indirectly control roughly 50% of processing power in the Bitcoin
 network, although this is mitigated by the fact that miners can switch
 to other mining pools if a pool or coalition attempts a 51% attack.
 
-The current intent at Ethereum is to use a mining algorithm where miners
+The current intent at Expanse is to use a mining algorithm where miners
 are required to fetch random data from the state, compute some randomly
 selected transactions from the last N blocks in the blockchain, and
 return the hash of the result. This has two important benefits. First,
-Ethereum contracts can include any kind of computation, so an Ethereum
+Expanse contracts can include any kind of computation, so an Expanse
 ASIC would essentially be an ASIC for general computation - ie. a better
 CPU. Second, mining requires access to the entire blockchain, forcing
 miners to store the entire blockchain and at least be capable of
@@ -1547,16 +1547,16 @@ solution rather than purely a technical one.
 Scalability
 ~~~~~~~~~~~
 
-One common concern about Ethereum is the issue of scalability. Like
-Bitcoin, Ethereum suffers from the flaw that every transaction needs to
+One common concern about Expanse is the issue of scalability. Like
+Bitcoin, Expanse suffers from the flaw that every transaction needs to
 be processed by every node in the network. With Bitcoin, the size of the
 current blockchain rests at about 15 GB, growing by about 1 MB per hour.
 If the Bitcoin network were to process Visa's 2000 transactions per
 second, it would grow by 1 MB per three seconds (1 GB per hour, 8 TB per
-year). Ethereum is likely to suffer a similar growth pattern, worsened
-by the fact that there will be many applications on top of the Ethereum
+year). Expanse is likely to suffer a similar growth pattern, worsened
+by the fact that there will be many applications on top of the Expanse
 blockchain instead of just a currency as is the case with Bitcoin, but
-ameliorated by the fact that Ethereum full nodes need to store just the
+ameliorated by the fact that Expanse full nodes need to store just the
 state instead of the entire blockchain history.
 
 The problem with such a large blockchain size is centralization risk. If
@@ -1577,7 +1577,7 @@ problem, but there exists a blockchain modification `suggested by Peter
 Todd <http://sourceforge.net/p/bitcoin/mailman/message/31709140/>`__
 which will alleviate this issue.
 
-In the near term, Ethereum will use two additional strategies to cope
+In the near term, Expanse will use two additional strategies to cope
 with this problem. First, because of the blockchain-based mining
 algorithms, at least every miner will be forced to be a full node,
 creating a lower bound on the number of full nodes. Second and more
@@ -1607,15 +1607,15 @@ proof of validity.
 Conclusion
 ----------
 
-The Ethereum protocol was originally conceived as an upgraded version of
+The Expanse protocol was originally conceived as an upgraded version of
 a cryptocurrency, providing advanced features such as on-blockchain
 escrow, withdrawal limits, financial contracts, gambling markets and the
-like via a highly generalized programming language. The Ethereum
+like via a highly generalized programming language. The Expanse
 protocol would not "support" any of the applications directly, but the
 existence of a Turing-complete programming language means that arbitrary
 contracts can theoretically be created for any transaction type or
-application. What is more interesting about Ethereum, however, is that
-the Ethereum protocol moves far beyond just currency. Protocols around
+application. What is more interesting about Expanse, however, is that
+the Expanse protocol moves far beyond just currency. Protocols around
 decentralized file storage, decentralized computation and decentralized
 prediction markets, among dozens of other such concepts, have the
 potential to substantially increase the efficiency of the computational
@@ -1625,10 +1625,10 @@ substantial array of applications that have nothing to do with money at
 all.
 
 The concept of an arbitrary state transition function as implemented by
-the Ethereum protocol provides for a platform with unique potential;
+the Expanse protocol provides for a platform with unique potential;
 rather than being a closed-ended, single-purpose protocol intended for a
 specific array of applications in data storage, gambling or finance,
-Ethereum is open-ended by design, and we believe that it is extremely
+Expanse is open-ended by design, and we believe that it is extremely
 well-suited to serving as a foundational layer for a very large number
 of both financial and non-financial protocols in the years to come.
 
@@ -1683,9 +1683,9 @@ Further Reading
     http://garzikrants.blogspot.ca/2013/01/storj-and-bitcoin-autonomous-agents.html
 18. Mike Hearn on Smart Property at Turing Festival:
     http://www.youtube.com/watch?v=Pu4PAMFPo5Y
-19. Ethereum RLP:
-    https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-RLP
-20. Ethereum Merkle Patricia trees:
-    https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-Patricia-Tree
+19. Expanse RLP:
+    https://github.com/expanse-org/wiki/wiki/%5BEnglish%5D-RLP
+20. Expanse Merkle Patricia trees:
+    https://github.com/expanse-org/wiki/wiki/%5BEnglish%5D-Patricia-Tree
 21. Peter Todd on Merkle sum trees:
     http://sourceforge.net/p/bitcoin/mailman/message/31709140/

@@ -7,20 +7,20 @@ implicitly. eg:
 1, newFilter it should either get all logs or poll for new logs. It's
 shouldn't do both in the same time. In my story, I don't want to poll
 for filter changes, but I want to get all logs between block X and Y.
-Same as caktux here: https://github.com/ethereum/web3.js/issues/250
+Same as caktux here: https://github.com/expanse-org/web3.js/issues/250
 
 examples of new solution
 
 1st.
 
-\`\`\` var x = web3.eth.filter(...); // sync: eth\_newFilter
+\`\`\` var x = web3.exp.filter(...); // sync: eth\_newFilter
 x.watch(function (err, log) { // async poll: eth\_getFilterChanges
 
 }) \`\`\`
 
 2nd.
 
-\`\`\` web3.eth.filter(..., function (err, x) { // async: eth\_newFilter
+\`\`\` web3.exp.filter(..., function (err, x) { // async: eth\_newFilter
 x.watch(function (err, log) { // async poll: eth\_getFilterChanges
 
 ::
@@ -33,9 +33,9 @@ x.watch(function (err, log) { // async poll: eth\_getFilterChanges
 
 3rd.
 
-``var x = web3.eth.filter(...)                // sync: eth_newFilter var logs = x.logs();                        // sync: eth_getFilterLogs``
+``var x = web3.exp.filter(...)                // sync: eth_newFilter var logs = x.logs();                        // sync: eth_getFilterLogs``
 
-4th. \`\`\` var x = web3.eth.filter(...) // sync: eth\_newFilter var
+4th. \`\`\` var x = web3.exp.filter(...) // sync: eth\_newFilter var
 logs = x.logs(function (err, logs) { // sync: eth\_getFilterLogs
 
 } \`\`\`

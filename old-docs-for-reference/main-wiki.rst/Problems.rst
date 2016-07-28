@@ -159,7 +159,7 @@ substantially sublinear in the number of transactions.
    attacker can profit by performing one attack to reverse very many
    small transactions at the same time
 -  Ideally, the solution should work for and maintain as many properties
-   as possible of a generalized account-based blockchain (eg. Ethereum),
+   as possible of a generalized account-based blockchain (eg. Expanse),
    though solutions specific to currency, domain registrations or other
    specialized use caes are acceptable
 
@@ -327,9 +327,9 @@ If this construction can be made better, the potential benefits are
 massive. The most interesting possibility in the world of cryptocurrency
 is the idea of an on-blockchain contract containing private information.
 This basically allows for the scripting properties of Turing-complete
-blockchain technologies, such as Ethereum, to be exported into any other
+blockchain technologies, such as Expanse, to be exported into any other
 financial or non-financial system on the internet; for example, one can
-imagine an Ethereum contract which contains a user's online banking
+imagine an Expanse contract which contains a user's online banking
 password, and if certain conditions of the contract are satisfied the
 contract would initiate an HTTPS session with the bank, using some node
 as an intermediary, and log into the bank account with the user's
@@ -347,7 +347,7 @@ obfuscation algorithm.
 -  Successful attacks must have an expected runtime above 2^80
 -  The algorithm should be sufficiently fast that a standard ECDSA
    signature or an AES encryption should be feasible within 108
-   computational steps (more specifically, 108 gas in the Ethereum VM)
+   computational steps (more specifically, 108 gas in the Expanse VM)
 
 5. Hash-Based Cryptography
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -532,7 +532,7 @@ higher per unit hashpower than the cost of those first N units of mining
 per user then one can call an algorithm economically ASIC resistant.
 
 For a more in-depth discussion on ASIC-resistant hardware, see
-https://blog.ethereum.org/2014/06/19/mining/
+https://blog.expanse.org/2014/06/19/mining/
 
 **Problem**: Create two functions, ``PoWProduce(data,diff) -> nonce``
 and ``PoWVerify(data,nonce,diff) -> { 0, 1 }``, to serve as alternatives
@@ -676,7 +676,7 @@ generally be solved with timestamping, but special corner cases do tend
 to appear in overcomplicated designs.
 
 The Slasher algorithm, described
-`here <http://blog.ethereum.org/2014/01/15/slasher-a-punitive-proof-of-stake-algorithm/>`__
+`here <http://blog.expanse.org/2014/01/15/slasher-a-punitive-proof-of-stake-algorithm/>`__
 and implemented by Zack Hess as a proof-of-concept
 `here <https://github.com/zack-bitcoin/slasher>`__, represents my own
 attempt at fixing the nothing-at-stake problem. The core idea is that
@@ -693,7 +693,7 @@ this is a smaller issue because such attacks would be very obvious and
 can automatically trigger warnings.
 
 For a more in-depth discussion on proof of stake, see
-https://blog.ethereum.org/2014/07/05/stake/
+https://blog.expanse.org/2014/07/05/stake/
 
 **Problem**: create a proof-of-stake algorithm that solves the
 nothing-at-stake problem and long-range attack problems, without
@@ -1144,7 +1144,7 @@ chain, that block will get discarded and the miner will receive no
 reward). Assuming that most participants act truthfully, the incentive
 is to go along with the projected majority and tell the truth as well.
 This insight can be extended into
-`SchellingCoin <http://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/>`__,
+`SchellingCoin <http://blog.expanse.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/>`__,
 a generalized data feed protocol, protocols for proof of bandwidth, and
 anything else that can be quickly verified. The challenge is, however,
 what if verification has a cost? What if it takes some effort to
@@ -1294,7 +1294,7 @@ without making the first token difficult.
 -  Everyone is part of a social network with similar characteristics to
    social networks now found in the real world, and social data can be
    provably provided to cryptoeconomic systems (eg. blockchains,
-   Ethereum contracts)
+   Expanse contracts)
 -  The cost of obtaining one anti-Sybil token for a human should be as
    low as possible
 -  The cost of obtaining multiple anti-Sybil tokens for a human should

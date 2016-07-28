@@ -1,4 +1,4 @@
-One of the main criticisms that has been made of Ethereum, and
+One of the main criticisms that has been made of Expanse, and
 Bitcoin-like blockchain protocols in general, is the issue of
 scalability. Although Bitcoin's core developers, and other platforms
 such as Ripple, have continued to make iterative improvements to the way
@@ -7,7 +7,7 @@ the state ("ledger" or "UTXO set") from the transaction list or using
 separate data structures to store the two on disk/memory, fundamentally
 no one has successfully implemented any way to improve upon the
 fundamental limitation that every full node must process every
-transaction. At this point, Ethereum also does not solve this problem.
+transaction. At this point, Expanse also does not solve this problem.
 However, the block protocol described here, and specifically the stack
 trace mechanism, allows for secure "light nodes" to exist, which
 download only the headers of every block and not the full transaction
@@ -77,7 +77,7 @@ for the genesis block where the ``extra_data`` field will take up many
 kilobytes.
 
 The ``state_root`` is the root of a `Patricia
-Tree <https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-Patricia-Tree>`__
+Tree <https://github.com/expanse-org/wiki/wiki/%5BEnglish%5D-Patricia-Tree>`__
 containing (key, value) pairs for all accounts where each address is
 represented as a 20-byte binary string. At the address of each account,
 the value stored in the Merkle Patricia tree is a string which is the
@@ -162,7 +162,7 @@ we have better alternatives:
 Mining Process
 ~~~~~~~~~~~~~~
 
-.. figure:: https://www.ethereum.org/gh_wiki/500px-Minerchart3.png
+.. figure:: https://www.expanse.org/gh_wiki/500px-Minerchart3.png
    :alt: Mining Process
 
    Mining Process
@@ -217,7 +217,7 @@ remaining zero in the block header with this value
 Block Validation Algorithm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: https://www.ethereum.org/gh_wiki/500px-Minerchart2.png
+.. figure:: https://www.expanse.org/gh_wiki/500px-Minerchart2.png
    :alt: Mining Process
 
    Mining Process
@@ -289,7 +289,7 @@ block to the new block and continue to the next step. Otherwise, exit.
 Semi-collaborative Block Validation Via Challenge-Response Protocol
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Ethereum, a ''light node'' can be defined as a node that accepts
+In Expanse, a ''light node'' can be defined as a node that accepts
 block headers, and performs the verifications in (2) with the exception
 of the transaction and stacktrace trie hash verifications but does not
 perform the verifications in (4) and (6), similar to the headers-only
@@ -300,7 +300,7 @@ state of a given account, it can request the value from other nodes in
 the network alongside the minimal subset of Patricia tree nodes that
 prove that the given key/value pair is actually in the state.
 
-Although Ethereum cannot run without at least some full nodes processing
+Although Expanse cannot run without at least some full nodes processing
 and verifying every transaction that takes place in the network, this
 block protocol is designed to provide a somewhat weaker assurance: as
 long as at least one honest full node exists, light clients can be just
@@ -417,7 +417,7 @@ certain quantity of transaction fees is to process every transaction.
 Furthermore, in Bitcoin transaction fees all go to the miner. Thus, in
 Bitcoin a light node has no way of knowing if a given block is valid or
 if it gives its creator excessive fees, and can only rely on the
-computational majority as a source of information for this. In Ethereum,
+computational majority as a source of information for this. In Expanse,
 all changes to the state are incorporated into the stacktrace, so this
 weakness does not exist and, given the weak security assumption that at
 least one full node with at least 0.01% mining power or stake is honest,

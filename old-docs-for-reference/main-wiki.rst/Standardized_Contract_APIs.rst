@@ -1,4 +1,4 @@
-Although Ethereum allows developers to create absolutely any kind of
+Although Expanse allows developers to create absolutely any kind of
 application without restriction to specific feature types, and prides
 itself on its "lack of features", there is nevertheless a need to
 standardize certain very common use cases in order to allow users and
@@ -7,12 +7,12 @@ sending currency units, registering names, making offers on exchanges,
 and other similar functions. A standard typically consists of a set of
 function signatures for a few methods, eg. ``send``, ``register``,
 ``delete``, providing the set of arguments and their formats in the
-`Ethereum contract
-ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__
+`Expanse contract
+ABI <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__
 language.
 
 The standards described below have sample implementations available
-`here <https://github.com/ethereum/dapp-bin/tree/master/standardized_contract_apis>`__.
+`here <https://github.com/expanse-org/dapp-bin/tree/master/standardized_contract_apis>`__.
 
 All function names are in lower camelCase (eg. ``sendCoin``) and all
 event names are in upper CamelCase (eg. ``CoinTransfer``). Input

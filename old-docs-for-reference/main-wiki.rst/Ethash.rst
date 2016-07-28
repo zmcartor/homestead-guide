@@ -3,11 +3,11 @@ clarifications) update the algorithm, please update the revision number
 in this sentence. Also, in all implementations please include a spec
 revision number**
 
-Ethash is the planned PoW algorithm for Ethereum 1.0. It is the latest
+Ethash is the planned PoW algorithm for Expanse 1.0. It is the latest
 version of Dagger-Hashimoto, although it can no longer appropriately be
 called that since many of the original features of both algorithms have
 been drastically changed in the last month of research and development.
-See https://github.com/ethereum/wiki/wiki/Dagger-Hashimoto for the
+See https://github.com/expanse-org/wiki/wiki/Dagger-Hashimoto for the
 original version.
 
 The general route that the algorithm takes is as follows:
@@ -29,7 +29,7 @@ The large dataset is updated once every 30000 blocks, so the vast
 majority of a miner's effort will be reading the dataset, not making
 changes to it.
 
-See https://github.com/ethereum/wiki/wiki/Ethash-Design-Rationale for
+See https://github.com/expanse-org/wiki/wiki/Ethash-Design-Rationale for
 design rationale considerations for this algorithm.
 
 Definitions

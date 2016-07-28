@@ -4,10 +4,10 @@ UDP-based RPC protocol
 4 packet types: *ping*, *pong*, *findnode* and *neighbors*
 
 See details at either: \*
-`devp2p <https://github.com/ethereum/devp2p>`__ repository's `node
+`devp2p <https://github.com/expanse-org/devp2p>`__ repository's `node
 discovery
-protocol <https://github.com/ethereum/devp2p/blob/master/rlpx.md>`__
-page \* `go-ethereum <https://github.com/ethereum/go-ethereum>`__
+protocol <https://github.com/expanse-org/devp2p/blob/master/rlpx.md>`__
+page \* `go-expanse <https://github.com/expanse-org/go-expanse>`__
 repository's `node discovery
-protocol <https://github.com/ethereum/go-ethereum/wiki/RLPx-----Node-Discovery-Protocol>`__
+protocol <https://github.com/expanse-org/go-expanse/wiki/RLPx-----Node-Discovery-Protocol>`__
 page

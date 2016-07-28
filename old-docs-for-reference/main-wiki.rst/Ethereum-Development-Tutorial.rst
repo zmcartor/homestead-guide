@@ -2,19 +2,19 @@
 API's might be different.*
 
 The purpose of this page is to serve as an introduction to the basics of
-Ethereum that you will need to understand from a development standpoint,
+Expanse that you will need to understand from a development standpoint,
 in order to produce contracts and decentralized applications. For a
-general introduction to Ethereum, see `the white
-paper <https://github.com/ethereum/wiki/wiki/White-Paper>`__, and for a
+general introduction to Expanse, see `the white
+paper <https://github.com/expanse-org/wiki/wiki/White-Paper>`__, and for a
 full technical spec see the `yellow <http://gavwood.com/Paper.pdf>`__
 papers, although those are not prerequisites for this page; that is to
-say, this page is meant as an alternative introduction to Ethereum
+say, this page is meant as an alternative introduction to Expanse
 specifically targeted towards application developers.
 
 Introduction
 ~~~~~~~~~~~~
 
-Ethereum is a platform that is intended to allow people to easily write
+Expanse is a platform that is intended to allow people to easily write
 decentralized applications (dapps) using blockchain technology. A
 decentralized application is an application which serves some specific
 purpose to its users, but which has the important property that the
@@ -30,15 +30,15 @@ and dispute resolution, are either handled directly by the network or
 left open for anyone to participate, using tools like internal token
 systems and reputation systems to ensure that users get access to
 high-quality services. Early examples of dapps include BitTorrent for
-file sharing and Bitcoin for currency. Ethereum takes the primary
+file sharing and Bitcoin for currency. Expanse takes the primary
 developments used by BitTorrent and Bitcoin, the peer to peer network
 and the blockchain, and generalizes them in order to allow developers to
 use these technologies for any purpose.
 
-The Ethereum blockchain can be alternately described as a blockchain
+The Expanse blockchain can be alternately described as a blockchain
 with a built-in programming language, or as a consensus-based globally
 executed virtual machine. The part of the protocol that actually handles
-internal state and computation is referred to as the Ethereum Virtual
+internal state and computation is referred to as the Expanse Virtual
 Machine (EVM). From a practical standpoint, the EVM can be thought of as
 a large decentralized computer containing millions of objects, called
 "accounts", which have the ability to maintain an internal database,
@@ -52,10 +52,10 @@ There are two types of accounts:
 2. **Contract**: an account that has its own code, and is controlled by
    code.
 
-By default, the Ethereum execution environment is lifeless; nothing
+By default, the Expanse execution environment is lifeless; nothing
 happens and the state of every account remains the same. However, any
 user can trigger an action by sending a transaction from an externally
-owned account, setting Ethereum's wheels in motion. If the destination
+owned account, setting Expanse's wheels in motion. If the destination
 of the transaction is another EOA, then the transaction may transfer
 some ether but otherwise does nothing. However, if the destination is a
 contract, then the contract in turn activates, and automatically runs
@@ -103,7 +103,7 @@ Contracts generally serve four purposes:
 Contracts interact with each other through an activity that is
 alternately called either "calling" or "sending messages". A "message"
 is an object containing some quantity of ether (a special internal
-currency used in Ethereum with the primary purpose of paying transaction
+currency used in Expanse with the primary purpose of paying transaction
 fees), a byte-array of data of any size, the addresses of a sender and a
 recipient. When a contract receives a message it has the option of
 returning some data, which the original sender of the message can then
@@ -122,7 +122,7 @@ messages that have been signed with `Lamport
 signatures <https://en.wikipedia.org/wiki/Lamport_signature>`__
 alongside traditional ECDSA (but because he's old fashioned, he prefers
 to use a version of Lamport sigs based on SHA256, which is not supported
-in Ethereum directly).
+in Expanse directly).
 
 The betting contract itself needs to fetch data about the San Francisco
 weather from some contract, and it also needs to talk to the GavCoin
@@ -291,12 +291,12 @@ position 8.
 
 Fortunately, you do not have to program in low-level assembly; a
 high-level language exists, especially designed for writing contracts,
-known as `Solidity <https://github.com/ethereum/wiki/wiki/Solidity>`__
+known as `Solidity <https://github.com/expanse-org/wiki/wiki/Solidity>`__
 exists to make it much easier for you to write contracts (there are
 several others, too, including
-`LLL <https://github.com/ethereum/cpp-ethereum/wiki/LLL-PoC-5>`__,
-`Serpent <https://github.com/ethereum/wiki/wiki/Serpent>`__ and
-`Mutan <https://github.com/ethereum/go-ethereum/wiki/Mutan-0.2>`__,
+`LLL <https://github.com/expanse-org/cpp-expanse/wiki/LLL-PoC-5>`__,
+`Serpent <https://github.com/expanse-org/wiki/wiki/Serpent>`__ and
+`Mutan <https://github.com/expanse-org/go-expanse/wiki/Mutan-0.2>`__,
 which you may find easier to learn or use depending on your experience).
 Any code you write in these languages gets compiled into EVM, and to
 create the contracts you send the transaction containing the EVM
@@ -336,7 +336,7 @@ Gas
 One important aspect of the way the EVM works is that every single
 operation that is executed inside the EVM is actually simultaneously
 executed by every full node. This is a necessary component of the
-Ethereum 1.0 consensus model, and has the benefit that any contract on
+Expanse 1.0 consensus model, and has the benefit that any contract on
 the EVM can call any other contract at almost zero cost, but also has
 the drawback that computational steps on the EVM are very expensive.
 Roughly, a good heuristic to use is that you will not be able to do
@@ -350,14 +350,14 @@ messaging system, anything to do with graphical interfaces, and
 applications best suited for cloud computing like genetic algorithms,
 graph analysis or machine learning.
 
-In order to prevent deliberate attacks and abuse, the Ethereum protocol
+In order to prevent deliberate attacks and abuse, the Expanse protocol
 charges a fee per computational step. The fee is market-based, though
 mandatory in practice; a floating limit on the number of operations that
 can be contained in a block forces even miners who can afford to include
 transactions at close to no cost to charge a fee commensurate with the
 cost of the transaction to the entire network; see `the whitepaper
 section on
-fees <https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-White-Paper#fees>`__
+fees <https://github.com/expanse-org/wiki/wiki/%5BEnglish%5D-White-Paper#fees>`__
 for more details on the economic underpinnings of our fee and block
 operation limit system.
 
@@ -401,13 +401,13 @@ paper <http://gavwood.com/Paper.pdf>`__. Note that high-level languages
 will often have their own wrappers for these opcodes, sometimes with
 very different interfaces.
 
-Basics of the Ethereum Blockchain
+Basics of the Expanse Blockchain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Ethereum blockchain (or "ledger") is the decentralized, massively
+The Expanse blockchain (or "ledger") is the decentralized, massively
 replicated database in which the current state of all accounts is
 stored. The blockchain uses a database called a `Patricia
-tree <https://github.com/ethereum/wiki/wiki/Patricia-Tree>`__ (or
+tree <https://github.com/expanse-org/wiki/wiki/Patricia-Tree>`__ (or
 "trie") to store all accounts; this is essentially a specialized kind of
 Merkle tree that acts as a generic key/value store. Like a standard
 Merkle tree, a Patricia tree has a "root hash" that can be used to refer
@@ -427,7 +427,7 @@ another Patricia tree which stores the storage data.
    we
 
 Every minute, a miner produces a new block (the concept of mining in
-Ethereum is exactly the same as in Bitcoin; see any Bitcoin tutorial for
+Expanse is exactly the same as in Bitcoin; see any Bitcoin tutorial for
 more info on this), and that block contains a list of transactions that
 happened since the last block and the root hash of the Patricia tree
 representing the new state ("state tree") after applying those
@@ -454,29 +454,29 @@ Graphical Interfaces (*OUTDATED API*)
 A contract by itself is a powerful thing, but it is not a complete dapp.
 A dapp, rather, is defined as a combination of a contract and a
 graphical interface for using that contract (note: this is only true for
-now; future versions of Ethereum will include whisper, a protocol for
+now; future versions of Expanse will include whisper, a protocol for
 allowing nodes in a dapp to send direct peer-to-peer messages to each
 other without the blockchain). Right now, the interface is implemented
 as an HTML/CSS/JS webpage, with a special Javascript API in the form of
-the ``eth`` object for working with the Ethereum blockchain. The key
+the ``eth`` object for working with the Expanse blockchain. The key
 parts of the Javascript API are as follows:
 
--  ``eth.transact(from, ethervalue, to, data, gaslimit, gasprice)`` -
+-  ``exp.transact(from, ethervalue, to, data, gaslimit, gasprice)`` -
    sends a transaction to the desired address from the desired address
    (note: ``from`` must be a private key and ``to`` must be an address
    in hex form) with the desired parameters
 -  ``(string).pad(n)`` - converts a number, encoded as a string, to
    binary form ``n`` bytes long
--  ``eth.gasPrice`` - returns the current gas price
--  ``eth.secretToAddress(key)`` - converts a private key into an address
--  ``eth.storageAt(acct, index)`` - returns the desired account's
+-  ``exp.gasPrice`` - returns the current gas price
+-  ``exp.secretToAddress(key)`` - converts a private key into an address
+-  ``exp.storageAt(acct, index)`` - returns the desired account's
    storage entry at the desired index
--  ``eth.key`` - the user's private key
--  ``eth.watch(acct, index, f)`` - calls ``f`` when the given storage
+-  ``exp.key`` - the user's private key
+-  ``exp.watch(acct, index, f)`` - calls ``f`` when the given storage
    entry of the given account changes
 
 You do not need any special source file or library to use the ``eth``
-object; however, your dapp will only work when opened in an Ethereum
+object; however, your dapp will only work when opened in an Expanse
 client, not a regular web browser. For an example of the Javascript API
 being used in practice, see `the source code of this
 webpage <http://gavwood.com/gavcoin.html>`__.
@@ -484,4 +484,4 @@ webpage <http://gavwood.com/gavcoin.html>`__.
 Fine Points To Keep Track Of
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See https://github.com/ethereum/wiki/wiki/Subtleties
+See https://github.com/expanse-org/wiki/wiki/Subtleties

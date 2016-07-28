@@ -12,7 +12,7 @@ option here. Do not forget it.
 This document is meant to reflect accurate information on accounts as
 used by the frontier release.
 
-The Ethereum CLI ``geth`` provides account management via the
+The Expanse CLI ``geth`` provides account management via the
 ``account`` subcommand:
 
 ::
@@ -36,14 +36,14 @@ Note that exporting your key in unencrypted format is NOT supported.
 
 Keys are stored under ``<DATADIR>/keystore``. Make sure you backup your
 keys regularly! See `DATADIR backup &
-restore <https://github.com/ethereum/go-ethereum/wiki/Backup-&-restore>`__
+restore <https://github.com/expanse-org/go-expanse/wiki/Backup-&-restore>`__
 for more information. The newest format of the keyfiles is:
 ``UTC--<created_at UTC ISO8601>-<address hex>``. The order of accounts
 when listing, is lexicographic, but as a consequence of the timestamp
 format, it is actually order of creation
 
 It is safe to transfer the entire directory or the individual keys
-therein between Ethereum nodes. Note that in case you are adding keys to
+therein between Expanse nodes. Note that in case you are adding keys to
 your node from a different node, the order of accounts may change. So
 make sure you do not rely or change the index in your scripts or code
 snippets.
@@ -64,7 +64,7 @@ You can get info about further subcommands by
 ``geth account help <subcommand>``
 
 Accounts can also be managed via the `Javascript
-Console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+Console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 
 Examples
 --------
@@ -198,7 +198,7 @@ For non-interactive use the passphrase can be specified with the
     geth --password <passwordfile> account import <keyfile>
 
 **Note**: Since you can directly copy your encrypted accounts to another
-Ethereum instance, this import/export mechanism is not needed when you
+Expanse instance, this import/export mechanism is not needed when you
 transfer an account between nodes.
 
 **Warning:** when you copy keys into an existing node's keystore, the
@@ -292,7 +292,7 @@ When using the console:
 
 ::
 
-    > eth.accounts
+    > exp.accounts
     ['0x407d73d8a49eeb85d32cf465507dd71d507100c1']
 
 or via RPC:
@@ -358,7 +358,7 @@ To check your the etherbase account balance:
 
 ::
 
-    > web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+    > web3.fromWei(exp.getBalance(exp.coinbase), "ether")
     6.5
 
 Print all balances with a JavaScript function:
@@ -367,8 +367,8 @@ Print all balances with a JavaScript function:
 
     function checkAllBalances() {
     var i =0;
-    eth.accounts.forEach( function(e){
-        console.log("  eth.accounts["+i+"]: " +  e + " \tbalance: " + web3.fromWei(eth.getBalance(e), "ether") + " ether");
+    exp.accounts.forEach( function(e){
+        console.log("  exp.accounts["+i+"]: " +  e + " \tbalance: " + web3.fromWei(exp.getBalance(e), "ether") + " ether");
     i++;
     })
     };
@@ -378,14 +378,14 @@ That can then be executed with:
 ::
 
     > checkAllBalances();
-      eth.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719   balance: 63.11848 ether
-      eth.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0   balance: 0 ether
-      eth.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32   balance: 1 ether
-      eth.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99   balance: 6 ether
+      exp.accounts[0]: 0xd1ade25ccd3d550a7eb532ac759cac7be09c2719   balance: 63.11848 ether
+      exp.accounts[1]: 0xda65665fc30803cb1fb7e6d86691e20b1826dee0   balance: 0 ether
+      exp.accounts[2]: 0xe470b1a7d2c9c5c6f03bbaa8fa20db6d404a0c32   balance: 1 ether
+      exp.accounts[3]: 0xf4dd5c3794f1fd0cdc0327a83aa472609c806e99   balance: 6 ether
 
 Since this function will disappear after restarting geth, it can be
 helpful to store commonly used functions to be recalled later. The
-`loadScript <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#loadscript>`__
+`loadScript <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#loadscript>`__
 function makes this very easy.
 
 First, save the ``checkAllBalances()`` function definition to a file on

@@ -23,8 +23,8 @@ Mining
     var mining_threads = 1
 
     function checkWork() {
-        if (eth.getBlock("pending").transactions.length > 0) {
-            if (eth.mining) return;
+        if (exp.getBlock("pending").transactions.length > 0) {
+            if (exp.mining) return;
             console.log("== Pending transactions! Mining...");
             miner.start(mining_threads);
         } else {
@@ -33,8 +33,8 @@ Mining
         }
     }
 
-    eth.filter("latest", function(err, block) { checkWork(); });
-    eth.filter("pending", function(err, block) { checkWork(); });
+    exp.filter("latest", function(err, block) { checkWork(); });
+    exp.filter("pending", function(err, block) { checkWork(); });
 
     checkWork();
 
@@ -47,7 +47,7 @@ Quick scripts
 
 ::
 
-    $ geth --exec "eth.accounts" console 2>/dev/null
+    $ geth --exec "exp.accounts" console 2>/dev/null
 
     ["0x0000000000000000000000000000000000000000"]
 
@@ -55,6 +55,6 @@ Quick scripts
 
 ::
 
-    $ geth --exec "eth.accounts" attach
+    $ geth --exec "exp.accounts" attach
 
     ["0x0000000000000000000000000000000000000000"]

@@ -6,14 +6,14 @@ Thats fine as you can check for the current block e.g. using:
 
 .. code:: js
 
-    web3.eth.filter('latest').watch(function(err, res){
+    web3.exp.filter('latest').watch(function(err, res){
        // i can get the current block here
-       web3.eth.getBlock('latest');
+       web3.exp.getBlock('latest');
     });
 
 The problem is that when a lot of blocks came in since the last time you
 polled with a return of ``[null, null, null, ...]``, your callback will
-fire multiple times accordingly, but using ``eth.getBlock`` inside will
+fire multiple times accordingly, but using ``exp.getBlock`` inside will
 always give me the latest block, which is actually wrong.
 
 New Proposal

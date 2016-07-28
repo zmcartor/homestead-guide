@@ -1,30 +1,30 @@
 **FRONTIER IS COMING**
 
 -  `Frontier launch final
-   steps <https://blog.ethereum.org/2015/07/27/final-steps/>`__
+   steps <https://blog.expanse.org/2015/07/27/final-steps/>`__
 -  `Etherchain API <https://etherchain.org/frontier>`__ look out for
    block #1028201
 -  `Olympic network stats <https://stats.ethdev.com/>`__
 
-Ethereum Frontier Release
+Expanse Frontier Release
 =========================
 
 Introduction
 ------------
 
 Frontier is the first in a series of releases that punctuate the roadmap
-for the development of Ethereum. Frontier will be followed by
+for the development of Expanse. Frontier will be followed by
 ‘Homestead’, ‘Metropolis’ and ‘Serenity’ throughout the coming year,
 each adding new features and improving the user friendliness and
 security of the platform.
 
-Ethereum is special and different from other software projects in that
+Expanse is special and different from other software projects in that
 its release also involves launching a live network. After a year and a
 half of development the Proof of Concept series completed 9 cycles. The
 10th iteration resulted in the Olympic testnet, which gradually led to
 the Release Candidate client for Frontier.
 
-The Ethereum network goes live when the clients consent on the **genesis
+The Expanse network goes live when the clients consent on the **genesis
 block** and start mining transactions on it. The genesis block will
 reference an initial system state where all the accounts set up by the
 presale exist with the correct amount of pre-issued ether allocated.
@@ -45,7 +45,7 @@ continuation of the state in Frontier.
 Mining reward is the full amount of 5 ether per block (as opposed to our
 earlier proposal of a reduced amount). Mining rewards are discussed in
 detail
-`here <https://github.com/ethereum/go-ethereum/wiki/Mining#mining-rewards>`__
+`here <https://github.com/expanse-org/go-expanse/wiki/Mining#mining-rewards>`__
 
 Safety warnings
 ---------------
@@ -59,47 +59,47 @@ Safety warnings
 -  **You are responsible for your own karma.** Don't be a jerk and
    respect others.
 
-**WARNING:** Before you interact with the Ethereum Frontier network,
+**WARNING:** Before you interact with the Expanse Frontier network,
 make sure you read the documentation and understand the caveats and
 risks. Please read the `legal
-disclaimer <https://github.com/ethereum/go-ethereum/wiki/Disclaimer>`__
+disclaimer <https://github.com/expanse-org/go-expanse/wiki/Disclaimer>`__
 
 Components released
 -------------------
 
-The focus of Frontier is the Go implementation of an Ethereum full node,
+The focus of Frontier is the Go implementation of an Expanse full node,
 with a command line interface codenamed "Geth".
 
 By `installing and running
-``geth`` <https://github.com/ethereum/go-ethereum/wiki/Geth>`__, you can
-take part in the Ethereum live network, mine ether on the blockchain,
+``geth`` <https://github.com/expanse-org/go-expanse/wiki/Geth>`__, you can
+take part in the Expanse live network, mine ether on the blockchain,
 transfer funds between addresses, create contracts and send
 transactions.
 
-**WARNING**: before you use ``geth`` or interact with the Ethereum
+**WARNING**: before you use ``geth`` or interact with the Expanse
 Frontier live network, make sure you read the documentation and fully
 understand the `caveats and
-risks <https://github.com/ethereum/go-ethereum/wiki/Disclaimer>`__.
+risks <https://github.com/expanse-org/go-expanse/wiki/Disclaimer>`__.
 
 Apart from ``geth``, the Go CLI, the Frontier release contains the
 following components:
 
 -  ``web3.js`` library implementing the `JavaScript
-   API <https://github.com/ethereum/wiki/wiki/JavaScript-API>`__ for
-   dapps to conveniently interact with an Ethereum node
+   API <https://github.com/expanse-org/wiki/wiki/JavaScript-API>`__ for
+   dapps to conveniently interact with an Expanse node
 -  ``solc`` a standalone solidity compiler. You only need this if you
    want to use your dapp or `console to compile solidity
-   code <https://github.com/ethereum/go-ethereum/wiki/Contracts-and-Transactions#compiling-a-contract>`__.
+   code <https://github.com/expanse-org/go-expanse/wiki/Contracts-and-Transactions#compiling-a-contract>`__.
 -  ``ethminer`` a standalone miner for openCL `GPU
-   mining <https://github.com/ethereum/go-ethereum/wiki/Mining#gpu-mining>`__
+   mining <https://github.com/expanse-org/go-expanse/wiki/Mining#gpu-mining>`__
 -  ``netstat`` a `network monitoring
-   GUI <https://github.com/ethereum/wiki/wiki/Network-Status>`__ allows
+   GUI <https://github.com/expanse-org/wiki/wiki/Network-Status>`__ allows
    you to add your node to the http://stats.ethdev.com page
 
 The actual launch process
 -------------------------
 
-Ethereum is not something that’s centrally ‘launched’, but instead
+Expanse is not something that’s centrally ‘launched’, but instead
 emerges from consensus. Users will have to voluntarily download and run
 a specific version of the software, then manually generate and load the
 Genesis block to join the official project’s network.
@@ -107,7 +107,7 @@ Genesis block to join the official project’s network.
 Once Frontier has been installed on their machines, users will need to
 generate the Genesis block themselves, then load it into their Frontier
 clients. A script and instructions on how to do this will be provided as
-part of the new Ethereum website, as well as our various wikis.
+part of the new Expanse website, as well as our various wikis.
 
 We’re often asked how existing users will switch from the test network
 to the live network: it will be done through a switch at the Geth
@@ -156,10 +156,10 @@ https://stats.ethdev.com/. It gives a quick overview of the health of
 the network, block resolution time and Gas statistics. Remember that
 participation in the stats page is voluntary, and nodes have to add
 themselves before they appear on the panel. See details on `network
-monitoring <https://github.com/ethereum/wiki/wiki/Network-Status>`__
+monitoring <https://github.com/expanse-org/wiki/wiki/Network-Status>`__
 
 In addition to the stats page, we will have a status page at
-https://status.ethereum.org/ (no link as the site is not live yet) which
+https://status.expanse.org/ (no link as the site is not live yet) which
 will gives a concise overview of any issue that might be affecting
 Frontier. Use it as your first port of call if you think something might
 not be right.
@@ -174,7 +174,7 @@ https://badblocks.ethdev.com (currently operating on the testnet).
 A Clean Testnet
 ---------------
 
-During the last couple of months, the Ethereum test network was pushed
+During the last couple of months, the Expanse test network was pushed
 to its limits in order to test scalability and block propagation times.
 As part of this test we encouraged users to spam the network with
 transactions, contract creation code and call to contracts, at times
@@ -193,19 +193,19 @@ the Frontier Genesis block, but instead will be handed out by a
 Foundation bot during the weeks following the release.
 
 Resources: - `Frontier launch final
-steps <https://blog.ethereum.org/2015/07/27/final-steps/>`__ - `Frontier
+steps <https://blog.expanse.org/2015/07/27/final-steps/>`__ - `Frontier
 is
-coming <https://blog.ethereum.org/2015/07/22/frontier-is-coming-what-to-expect-and-how-to-prepare/>`__
+coming <https://blog.expanse.org/2015/07/22/frontier-is-coming-what-to-expect-and-how-to-prepare/>`__
 blogpost by Stephan Tual announcing the launch. - `The frontier
-website <https://frontier.ethereum.org>`__ - `Original announcement of
+website <https://frontier.expanse.org>`__ - `Original announcement of
 the release
-scheme <https://blog.ethereum.org/2015/03/03/ethereum-launch-process>`__
+scheme <https://blog.expanse.org/2015/03/03/expanse-launch-process>`__
 by Vinay Gupta - `Follow-up
-blogpost <https://blog.ethereum.org/2015/03/12/getting-to-the-frontier/>`__
+blogpost <https://blog.expanse.org/2015/03/12/getting-to-the-frontier/>`__
 - `Least Authority audit
-blogpost <https://blog.ethereum.org/2015/07/07/know-ethereum-secure/>`__
+blogpost <https://blog.expanse.org/2015/07/07/know-expanse-secure/>`__
 with links to the audit report, - `Deja Vu audit
-blogpost <http://www.dejavusecurity.com/blog/2015/7/23/deja-vu-security-assists-in-ethereum-release>`__
+blogpost <http://www.dejavusecurity.com/blog/2015/7/23/deja-vu-security-assists-in-expanse-release>`__
 - `Olympic. Frontier
-prerelease <https://blog.ethereum.org/2015/05/09/olympic-frontier-pre-release/>`__,
+prerelease <https://blog.expanse.org/2015/05/09/olympic-frontier-pre-release/>`__,
 Vitalik's blogpost detailing olympic rewards.

@@ -2,9 +2,9 @@
 *****************************************************
 Using Testeth
 *****************************************************
-Ethereum cpp-client testeth tool for creation and execution of ethereum tests.  
+Expanse cpp-client testeth tool for creation and execution of expanse tests.  
 
-To run tests you should open folder (see also `Installing and building <../../ethereum-clients/cpp-ethereum/index.html#installing-and-building>`_)
+To run tests you should open folder (see also `Installing and building <../../expanse-clients/cpp-expanse/index.html#installing-and-building>`_)
 
    ``/build/libethereum/test``
  
@@ -17,17 +17,17 @@ Or just the test suite:
     
    ``./testeth -t <TEST_SUITE>``
  
-You could also use ``--filltests`` option to rerun test creation from .json files which are located at ``../cpp-ethereum/test/<TEST_FILLER>.json``  
+You could also use ``--filltests`` option to rerun test creation from .json files which are located at ``../cpp-expanse/test/<TEST_FILLER>.json``  
 
     ``./testeth -t <TEST_SUITE>/<TEST_CASE> --filltests``
 
 By default using ``--filltests`` option ``testeth`` recreate tests to the ``ETHEREUM_TEST_PATH`` folder. You might want to set this variable globally on your system like:
 
 |    ``nano /etc/environment``
-|    ``ETHEREUM_TEST_PATH="/home/user/ethereum/tests"``
+|    ``ETHEREUM_TEST_PATH="/home/user/expanse/tests"``
 |
 
-Filler files are test templates which are used to fill initial parameters defined at test specification `Ethereum Tests <../ethereum-tests/index.html>`_ and then create a complete test ``.json`` file. You might find filler files very useful when creating your own tests. 
+Filler files are test templates which are used to fill initial parameters defined at test specification `Expanse Tests <../expanse-tests/index.html>`_ and then create a complete test ``.json`` file. You might find filler files very useful when creating your own tests. 
 
 The ``--checkstate`` option adds a BOOST error if the post state of filled test differs from it's ``expected`` section.
 

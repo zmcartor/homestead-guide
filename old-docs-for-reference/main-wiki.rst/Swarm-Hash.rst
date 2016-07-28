@@ -2,17 +2,17 @@ Introduction
 ============
 
 Swarm Hash (a.k.a.
-```bzzhash`` <https://github.com/ethersphere/go-ethereum/tree/bzz/bzz/bzzhash>`__)
+```bzzhash`` <https://github.com/ethersphere/go-expanse/tree/bzz/bzz/bzzhash>`__)
 is a Merkle tree hash designed for the purpose of efficient storage and
 retrieval in content-addressed storage, both local and networked. While
 it is used in
-`Swarm <https://github.com/ethereum/go-ethereum/wiki/Swarm---distributed-preimage-archive>`__,
+`Swarm <https://github.com/expanse-org/go-expanse/wiki/Swarm---distributed-preimage-archive>`__,
 there is nothing Swarm-specific in it and the authors recommend it as a
 drop-in substitute of sequential-iterative hash functions (like SHA3)
 whenever one is used for referencing integrity-sensitive content, as it
 constitutes an improvement in terms of performance and usability without
 compromising security. For instance in the `URL Hint
-Protocol <https://github.com/ethereum/wiki/wiki/URL-Hint-Protocol>`__.
+Protocol <https://github.com/expanse-org/wiki/wiki/URL-Hint-Protocol>`__.
 
 In particular, it can take advantage of parallelisms (including SMP and
 massively-parallel architectures such as GPU's) for faster calculation
@@ -68,9 +68,9 @@ the chunk size, and the number of leaf chunks is an integer power of
 branching size (the fix maximum chunk size divided by hash length).
 
 A `parallelized implementation in
-Go <https://github.com/ethersphere/go-ethereum/tree/bzz/bzz>`__ is
+Go <https://github.com/ethersphere/go-expanse/tree/bzz/bzz>`__ is
 available as well as `a command-line
-tool <https://github.com/ethersphere/go-ethereum/tree/bzz/bzz/bzzhash>`__
+tool <https://github.com/ethersphere/go-expanse/tree/bzz/bzz/bzzhash>`__
 for hashing files on the local filesystem using the strict
 interpretation.
 
@@ -95,6 +95,6 @@ References
    wikipedia <http://en.wikipedia.org/wiki/Length_extension_attack>`__
 -  `IETF RFC4880 <https://tools.ietf.org/html/rfc4880>`__
 -  `bzzhash
-   code <https://github.com/ethersphere/go-ethereum/tree/bzz/bzz/bzzhash>`__
+   code <https://github.com/ethersphere/go-expanse/tree/bzz/bzz/bzzhash>`__
 -  `Swarm documentation and draft
-   specs <https://github.com/ethereum/go-ethereum/wiki/Swarm---distributed-preimage-archive>`__
+   specs <https://github.com/expanse-org/go-expanse/wiki/Swarm---distributed-preimage-archive>`__

@@ -9,14 +9,14 @@ create and run applications in the IDE.
 Note that the software is in still in proof-of-concept state. Things are
 changing rapidly and this tutorial might not be up to date. If that is
 the case `please open an
-issue <https://github.com/ethereum/cpp-ethereum/issues>`__ or `edit the
-wiki <https://github.com/ethereum/wiki/wiki/Mix%3A-The-DApp-IDE/_edit>`__.
+issue <https://github.com/expanse-org/cpp-expanse/issues>`__ or `edit the
+wiki <https://github.com/expanse-org/wiki/wiki/Mix%3A-The-DApp-IDE/_edit>`__.
 
 Getting started.
 ----------------
 
-This tutorial assumes you have `C++ Ethereum
-installed <https://github.com/ethereum/cpp-ethereum/wiki>`__. If this is
+This tutorial assumes you have `C++ Expanse
+installed <https://github.com/expanse-org/cpp-expanse/wiki>`__. If this is
 the case, then Mix is already installed.
 
 Creating a new project
@@ -29,7 +29,7 @@ In the IDE, choose ``File > New Project``. Enter the project name
 "MovieRatings" and a path for the project file. To the left there is a
 project items list with two items added by default: Sample and
 index.html. Contract contains
-`Solidity <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__
+`Solidity <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__
 contract code, and index.html is for the front-end. You can add new
 contract files to the project using file menu. All files will be copied
 to the project directory. By default a sample contract is created.
@@ -46,7 +46,7 @@ Select Sample and enter the text for the rating contract:
         }
 
 Check `Solidity
-tutorial <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__
+tutorial <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__
 for solidity reference.
 
 Now select ``index.html`` and enter the following html code:
@@ -88,20 +88,20 @@ Now select ``index.html`` and enter the following html code:
 
 Note that Mix exposes the following objects into the global window
 context: \*
-```web3`` <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3>`__
-- Ethereum JavaScript API
+```web3`` <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3>`__
+- Expanse JavaScript API
 
 -  ``contracts`` - A collection of contract objects. A key to the
    collection is the contract name. A value is an object with the
    following properties:
 -  ``contract`` - Contract object instance (created as in
-   ``web3.eth.contract``)
+   ``web3.exp.contract``)
 -  ``address`` - Contract address from the last deployed state (see
    below)
 -  ``interface`` - Contract ABI
 
 Check the `JavaScript API
-Reference <https://github.com/ethereum/wiki/wiki/JavaScript-API>`__ for
+Reference <https://github.com/expanse-org/wiki/wiki/JavaScript-API>`__ for
 further information.
 
 Select ``File > Save`` to save project files. You should see the web
@@ -169,7 +169,7 @@ the following information is available:
 -  Memory - Machine memory allocated up to this execution point
 -  Call data - Transaction or call parameters
 
-See the `Ethereum Yellow Paper <http://gavwood.com/Paper.pdf>`__ for VM
+See the `Expanse Yellow Paper <http://gavwood.com/Paper.pdf>`__ for VM
 instruction description.
 
 Deployment to network
@@ -187,7 +187,7 @@ The deployment process includes three steps:
 -  **Package dapp**: This step is used to package and upload frontend
    resources.
 
--  **Register**: To render the dapp, the Ethereum browser (Mist or
+-  **Register**: To render the dapp, the Expanse browser (Mist or
    AlethZero) needs to access this package. This step will register the
    URL where the resources are stored.
 
@@ -200,7 +200,7 @@ three parts (see above):
 
 -  *Select Scenario*
 
-"Ethereum node URL" is the location where a node is running, there must
+"Expanse node URL" is the location where a node is running, there must
 be a node running in order to initiate deployment.
 
 "Pick Scenario to deploy" is a mandatory step. Mix will execute
@@ -262,10 +262,10 @@ contract
 "Http URL" is the url where resources are hosted (pastebin.com or
 similar)
 
-"Ethereum URL" is the url that users will use in AlethZero or Mist to
+"Expanse URL" is the url that users will use in AlethZero or Mist to
 access your dapp.
 
-"Formatted Ethereum URL" is the url that users will use in AlethZero or
+"Formatted Expanse URL" is the url that users will use in AlethZero or
 Mist to access your dapp.
 
 "Gas Price" shows the default gas price of the network. You can also

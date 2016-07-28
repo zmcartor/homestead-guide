@@ -59,7 +59,7 @@ Desirable properties of meta-consensus include:
 Existing work on this includes `Arthur Breitman's
 Tezos <http://tezos.com/>`__, Bitshares' `delegated proof of
 stake <https://bitshares.org/blog/delegated-proof-of-stake/>`__, and the
-not-yet-released Ethereum 2.0 proposal.
+not-yet-released Expanse 2.0 proposal.
 
 Public Goods Preference Revelation and Incentivization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,7 +174,7 @@ Anti-pre-revelation
 ~~~~~~~~~~~~~~~~~~~
 
 There are many protocols such as
-`Schellingcoin <https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/>`__,
+`Schellingcoin <https://blog.expanse.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/>`__,
 `Augur <http://augur.net>`__, N-of-N protocols in random number
 generation, etc, that rely on some notion of users first
 cryptographically "committing" to some value ``x``, eg. by submitting

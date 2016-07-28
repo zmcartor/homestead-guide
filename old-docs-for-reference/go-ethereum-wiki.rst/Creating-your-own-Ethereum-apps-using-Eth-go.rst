@@ -1,12 +1,12 @@
-The modular nature of Go and the Ethereum Go implementation,
-`eth-go <https://github.com/ethereum/eth-go>`__, make it very easy to
-build your own Ethereum native applications.
+The modular nature of Go and the Expanse Go implementation,
+`eth-go <https://github.com/expanse-org/eth-go>`__, make it very easy to
+build your own Expanse native applications.
 
 This post will cover the minimal steps required to build an native
-Ethereum application.
+Expanse application.
 
-Ethereum comes with a global config found in the
-`ethutil <https://github.com/ethereum/eth-go/tree/master/ethutil>`__
+Expanse comes with a global config found in the
+`ethutil <https://github.com/expanse-org/eth-go/tree/master/ethutil>`__
 package. The global config requires you to set a base path to store it's
 files (database, settings, etc).
 
@@ -22,10 +22,10 @@ globalConf instance and an id string to identify your app to other nodes
 in the network.
 
 Once you've configured the global config you can set up and create your
-Ethereum node. The Ethereum Object, or Node, will handle all trafic from
-and to the Ethereum network as well as handle all incoming block and
+Expanse node. The Expanse Object, or Node, will handle all trafic from
+and to the Expanse network as well as handle all incoming block and
 transactions. A new node can be created through the ``new`` method found
-in `eth-go <https://github.com/ethereum/eth-go>`__.
+in `eth-go <https://github.com/expanse-org/eth-go>`__.
 
 .. code:: go
 
@@ -33,20 +33,20 @@ in `eth-go <https://github.com/ethereum/eth-go>`__.
             // Read config
             ethutil.ReadConfig(".test", ethutil.LogStd, nil, "MyEthApp")
 
-            // Create a new Ethereum node
-            ethereum, err := eth.New(eth.CapDefault, false)
+            // Create a new Expanse node
+            expanse, err := exp.New(exp.CapDefault, false)
             if err != nil {
                     panic(fmt.Sprintf("Could not start node: %s\n", err))
             }
             // Set the port (default 30303)
-            ethereum.Port = "10101"
+            expanse.Port = "10101"
             // Once we reach max, bounce them off.
-            ethereum.MaxPeers = 10
+            expanse.MaxPeers = 10
     }
 
 New requires two arguments; the capabilities of the node and whether or
 not to use UPNP for port-forwarding. If you don't want to fallback to
-client-only features set an Ethereum port and the max amount of peers
+client-only features set an Expanse port and the max amount of peers
 this node can connect to.
 
 In order to identify the node to the network you'll be required to
@@ -59,15 +59,15 @@ using the ``KeyRing`` found in the ``ethutil`` package.
             // Read config
             ethutil.ReadConfig(".test", ethutil.LogStd, nil, "MyEthApp")
 
-            // Create a new Ethereum node
-            ethereum, err := eth.New(eth.CapDefault, false)
+            // Create a new Expanse node
+            expanse, err := exp.New(exp.CapDefault, false)
             if err != nil {
                 panic(fmt.Sprintf("Could not start node: %s\n", err))
             }
             // Set the port (default 30303)
-            ethereum.Port = "10101"
+            expanse.Port = "10101"
             // Once we reach max, bounce them off.
-            ethereum.MaxPeers = 10
+            expanse.MaxPeers = 10
 
             keyRing := ethutil.GetKeyRing()
             // Create a new key if non exist
@@ -83,7 +83,7 @@ using the ``KeyRing`` found in the ``ethutil`` package.
             }
     }
 
-Once the base Ethereum stack has been set up it's time to fire up its
+Once the base Expanse stack has been set up it's time to fire up its
 engines and connect to the main network.
 
 .. code:: go
@@ -91,23 +91,23 @@ engines and connect to the main network.
     package main
 
     import (
-            "github.com/ethereum/eth-go"
-            "github.com/ethereum/eth-go/ethutil"
+            "github.com/expanse-org/eth-go"
+            "github.com/expanse-org/eth-go/ethutil"
     )
 
     func main() {
             // Read config
             ethutil.ReadConfig(".test", ethutil.LogStd, nil, "MyEthApp")
 
-            // Create a new Ethereum node
-            ethereum, err := eth.New(eth.CapDefault, false)
+            // Create a new Expanse node
+            expanse, err := exp.New(exp.CapDefault, false)
             if err != nil {
                     panic(fmt.Sprintf("Could not start node: %s\n", err))
             }
             // Set the port (default 30303)
-            ethereum.Port = "10101"
+            expanse.Port = "10101"
             // Once we reach max, bounce them off.
-            ethereum.MaxPeers = 10
+            expanse.MaxPeers = 10
 
             keyRing := ethutil.GetKeyRing()
             // Create a new key if non exist
@@ -122,11 +122,11 @@ engines and connect to the main network.
                     keyRing.Add(keyPair)
             }
 
-            ethereum.Start(true)
-            ethereum.WaitForShutdown()
+            expanse.Start(true)
+            expanse.WaitForShutdown()
     }
 
-``ethereum.Start()`` takes one argument, whether or not we want to
+``expanse.Start()`` takes one argument, whether or not we want to
 connect to one of the known seed nodes. If you want your own little
 testnet-in-a-box you can disable it else set it to true.
 

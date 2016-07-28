@@ -19,7 +19,7 @@ Standard Dataset
 
 .. code:: python
 
-    from ethereum import trie, db, utils
+    from expanse import trie, db, utils
     import time
 
     MIN_COUNT = 32

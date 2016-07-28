@@ -6,9 +6,9 @@ RPC
 ================================================================================
 
 In previous sections we have seen how contracts can be written, deployed and interacted with. Now it's time to dive in the details of communicating
-with the Ethereum network and smart contracts.
+with the Expanse network and smart contracts.
 
-An Ethereum node offers a `RPC <https://wikipedia.org/wiki/Remote_procedure_call>`_ interface. This interface gives Ðapp's access to the Ethereum
+An Expanse node offers a `RPC <https://wikipedia.org/wiki/Remote_procedure_call>`_ interface. This interface gives Ðapp's access to the Expanse
 blockchain and functionality that the node provides, such as compiling smart contract code. It uses a subset of the
 `JSON-RPC 2.0 <http://www.jsonrpc.org/specification>`_ specification (no support for notifications or named parameters) as serialisation protocol and
 is available over HTTP and IPC (unix domain sockets on linux/OSX and named pipe's on Windows).
@@ -21,10 +21,10 @@ The RPC interface uses a couple of conventions that are not part of the JSON-RPC
 
 * Numbers are hex encoded. This decision was made because some languages have no or limited support for working with extremly large numbers. To prevent
   these type of errors numbers are hex encoded and it is up to the deverloper to parse these numbers and handle them appropriately. See the
-  `hex encoding section <https://github.com/ethereum/wiki/wiki/JSON-RPC#output-hex-values>`_ on the wiki for examples.
+  `hex encoding section <https://github.com/expanse-org/wiki/wiki/JSON-RPC#output-hex-values>`_ on the wiki for examples.
 * Default block number, several RPC methods accept a block number. In some cases it's not possible to give a block number or not very convenient. For
   these cases the default block number can be one of these strings ["earliest", "latest", "pending"]. See the
-  `wiki page <https://github.com/ethereum/wiki/wiki/JSON-RPC#the-default-block-parameter>`_ for a list of RPC methods that use the default block parameters.
+  `wiki page <https://github.com/expanse-org/wiki/wiki/JSON-RPC#the-default-block-parameter>`_ for a list of RPC methods that use the default block parameters.
 
 
 Deploy contract
@@ -123,11 +123,11 @@ Interacting with smart contracts
 ================================================================================
 Now that our contract is deployed we can interact with it. There are 2 methods for this, sending a transaction or :ref:`using call as previously explained <interacting_with_a_contract>`. In this example we will be sending a transaction to the multiply method of the contract.
 
-If we look at the documentation for the `eth_sendTransaction <https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendtransaction>`_ we can see that we need to supply
+If we look at the documentation for the `eth_sendTransaction <https://github.com/expanse-org/wiki/wiki/JSON-RPC#eth_sendtransaction>`_ we can see that we need to supply
 several arguments. In our case we need to specify the ``from``, ``to`` and ``data`` arguments. ``From`` is the public address of our account and ``to``
 the contract address. The ``data`` argument is a bit harder. It contains a payload that defines which method must be called and with which arguments.
 This is were the ABI comes into play. The ABI defines how to define and encode data for the EVM. You can read 
-`all the details about the ABI here <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`_.
+`all the details about the ABI here <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`_.
 
 The bytes of the payload is the function selector and defines which method is called. This is done by taking the first 4 bytes from the Keccak hash
 over the function name and its argument types and hex encode it. The `multiply` function accepts an `uint` which is an
@@ -138,10 +138,10 @@ over the function name and its argument types and hex encode it. The `multiply` 
    > web3.sha3("multiply(uint256)").substring(0, 8)
    "c6888fa1"
 
-See for details `this page <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector>`_.
+See for details `this page <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI#function-selector>`_.
 
 The next step is to encode the arguments. We only have one uint256, lets assume we supply the value 6. The ABI has a
-`section <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#argument-encoding>`_ which specifies how to encode uint256 types.
+`section <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI#argument-encoding>`_ which specifies how to encode uint256 types.
 
    `int<M>: enc(X) is the big-endian two's complement encoding of X, padded on the higher-oder (left) side with 0xff for negative X and with zero bytes
    for positive X such that the length is a multiple of 32 bytes.`
@@ -195,14 +195,14 @@ event created the log:
 You can read more about events, topics and indexing in the `Solidity tutorial <http://solidity.readthedocs.org/en/latest/contracts.html#events>`_.
 
 This was just a brief introduction into some of the most common tasks. See for a full list of available RPC methods the
-`RPC wiki page <https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-methods>`_.
+`RPC wiki page <https://github.com/expanse-org/wiki/wiki/JSON-RPC#json-rpc-methods>`_.
 
 .. _using_web3.js:
 
 Web3.js
 ================================================================================
 As we have seen in the previous example using the JSON-RPC interface can be quite tedious and error-prone, especially when we have to deal with the
-ABI. Web3.js is a javascript library that works on top of the Ethereum RPC interface. Its goal is to provide a more user friendly interface and
+ABI. Web3.js is a javascript library that works on top of the Expanse RPC interface. Its goal is to provide a more user friendly interface and
 reducing the chance for errors.
 
 Deploying the Multiply7 contract using web3 would look like:
@@ -210,11 +210,11 @@ Deploying the Multiply7 contract using web3 would look like:
 .. code:: js
 
    var source = 'contract Multiply7 { event Print(uint); function multiply(uint input) returns (uint) { Print(input * 7); return input * 7; } }';
-   var compiled = web3.eth.compile.solidity(source);
+   var compiled = web3.exp.compile.solidity(source);
    var code = compiled.Multiply7.code;
    var abi = compiled.Multiply7.info.abiDefinition;
 
-   web3.eth.contract(abi).new({from: "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", data: code}, function (err, contract) {
+   web3.exp.contract(abi).new({from: "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", data: code}, function (err, contract) {
       if (!err && contract.address)
          console.log("deployed on:", contract.address);
       }
@@ -227,8 +227,8 @@ Load a deployed contract and send a transaction:
 .. code:: js
 
    var source = 'contract Multiply7 { event Print(uint); function multiply(uint input) returns (uint) { Print(input * 7); return input * 7; } }';
-   var compiled = web3.eth.compile.solidity(source);
-   var Multiply7 = web3.eth.contract(compiled.Multiply7.info.abiDefinition);
+   var compiled = web3.exp.compile.solidity(source);
+   var Multiply7 = web3.exp.contract(compiled.Multiply7.info.abiDefinition);
    var multi = Multiply7.at("0x0ab60714033847ad7f0677cc7514db48313976e2")
    multi.multiply.sendTransaction(6, {from: "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a"})
 
@@ -239,12 +239,12 @@ Register a callback which is called when the ``Print`` event created a log.
    multi.Print(function(err, data) { console.log(JSON.stringify(data)) })
    {"address":"0x0ab60714033847ad7f0677cc7514db48313976e2","args": {"":"21"},"blockHash":"0x259c7dc07c99eed9dd884dcaf3e00a81b2a1c83df2d9855ce14c464b59f0c8b3","blockNumber":539,"event":"Print","logIndex":0, "transactionHash":"0x5c115aaa5418118457e96d3c44a3b66fe9f2bead630d79455d0ecd832dc88d48","transactionIndex":0}
 
-See for more information the `web3.js <https://github.com/ethereum/wiki/wiki/JavaScript-API>`_ wiki page.
+See for more information the `web3.js <https://github.com/expanse-org/wiki/wiki/JavaScript-API>`_ wiki page.
 
 Console
 ================================================================================
 
-The geth `console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`_ offers a command line interface with a javascript runtime. It
+The geth `console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`_ offers a command line interface with a javascript runtime. It
 can connect to a local or remote geth or eth node. It will load the web3.js library that users can use. This allows users to deploy and interact with
 smart contract from the console using web3.js. In fact the examples in the :ref:`Web3.js <using_web3.js>` section can by copied into the console.
 
@@ -252,7 +252,7 @@ smart contract from the console using web3.js. In fact the examples in the :ref:
 Viewing Contracts and Transactions
 ================================================================================
 
-There are several online blockchain explorers available that will allow you to inspect the Ethereum blockchain.
+There are several online blockchain explorers available that will allow you to inspect the Expanse blockchain.
 See for a list: :ref:`Blockchain explorers <blockchain_explorers>`.
 
 
@@ -269,5 +269,5 @@ Other Resources
 --------------------------------------------------------------------------------
 
 * `EtherNodes <http://ethernodes.org/>`_ - Geographic distribution of nodes and split by client
-* `EtherListen <http://www.etherlisten.com>`_ - Realtime Ethereum transaction visualizer and audializer
+* `EtherListen <http://www.etherlisten.com>`_ - Realtime Expanse transaction visualizer and audializer
 

@@ -1,7 +1,7 @@
 Building Geth for Android is a non trivial task, as it requires cross
 compiling external C dependencies (`GNU Arithmetic
 Library <https://gmplib.org/>`__); internal C dependencies
-(`ethash <https://github.com/ethereum/ethash>`__); as well as the entire
+(`ethash <https://github.com/expanse-org/ethash>`__); as well as the entire
 CGO enabled Go code-base to Android. This is further complicated by the
 Position Independent Executables (PIE) security feature introduced since
 Android 4.1 Jelly Bean, requiring different compiler and linker options
@@ -13,8 +13,8 @@ compiler is used, which assembles an entire multi-platform cross
 compiler suite into a single mega docker container. Details about using
 ``xgo`` can be found in the project's
 `README <https://github.com/karalabe/xgo/blob/master/README.md>`__, with
-Ethereum specifics on the go-ethereum cross compilation `wiki
-page <https://github.com/ethereum/go-ethereum/wiki/Cross-compiling-Ethereum>`__.
+Expanse specifics on the go-expanse cross compilation `wiki
+page <https://github.com/expanse-org/go-expanse/wiki/Cross-compiling-Expanse>`__.
 
 TL;DR
 
@@ -24,7 +24,7 @@ TL;DR
     $ xgo --deps=https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2 \
           --branch=develop                                          \
           --targets=android-16/arm                                  \
-          github.com/ethereum/go-ethereum/cmd/geth
+          github.com/expanse-org/go-expanse/cmd/geth
 
     $ ls -al
       -rwxr-xr-x  1 root  root  23213348 Sep 14 19:35 geth-android-16-arm
@@ -33,7 +33,7 @@ Deploying a binary
 ------------------
 
 Currently ``xgo`` will compile a native Android binary that can be
-copied onto a device and executed from a terminal emulator. As Ethereum
+copied onto a device and executed from a terminal emulator. As Expanse
 Android support at the moment is mostly a developer feature, there have
 been no attempts at making it even remotely user friendly (installers,
 APKs, etc).

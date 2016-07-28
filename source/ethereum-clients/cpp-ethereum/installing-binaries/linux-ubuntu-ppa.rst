@@ -19,29 +19,29 @@ supporting Ubuntu 32-bit builds.
 Installing the "eth" command-line tool
 --------------------------------------------------------------------------------
 
-WARNING: The **ethereum-qt** PPA will upgrade your system-wide Qt5
+WARNING: The **expanse-qt** PPA will upgrade your system-wide Qt5
 installation, from 5.2 on Trusty and 5.3 on Utopic, to 5.5.
 
 For the latest stable version: ::
 
-    sudo add-apt-repository ppa:ethereum/ethereum-qt
-    sudo add-apt-repository ppa:ethereum/ethereum
+    sudo add-apt-repository ppa:expanse/expanse-qt
+    sudo add-apt-repository ppa:expanse/expanse
     sudo apt-get update
-    sudo apt-get install cpp-ethereum
+    sudo apt-get install cpp-expanse
 
 If you want to use the cutting edge developer version: ::
 
-    sudo add-apt-repository ppa:ethereum/ethereum-qt
-    sudo add-apt-repository ppa:ethereum/ethereum
-    sudo add-apt-repository ppa:ethereum/ethereum-dev
+    sudo add-apt-repository ppa:expanse/expanse-qt
+    sudo add-apt-repository ppa:expanse/expanse
+    sudo add-apt-repository ppa:expanse/expanse-dev
     sudo apt-get update
-    sudo apt-get install cpp-ethereum
+    sudo apt-get install cpp-expanse
 
 
 Installing the Mix IDE
 --------------------------------------------------------------------------------
 
-The `Mix IDE <https://github.com/ethereum/mix>`_ is shipped on
+The `Mix IDE <https://github.com/expanse-org/mix>`_ is shipped on
 Ubuntu as part of the developer PPA (above).  So follow the steps
 directly above, and then also do: ::
 

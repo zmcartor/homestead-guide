@@ -1,10 +1,10 @@
-Ethereum(Go) Requires QML 5.4+
+Expanse(Go) Requires QML 5.4+
 
 Mac OS X
 --------
 
 Please see `build instruction for
-OSX <https://github.com/ethereum/go-ethereum/wiki/Building-Instructions-for-Mac>`__
+OSX <https://github.com/expanse-org/go-expanse/wiki/Building-Instructions-for-Mac>`__
 
 Linux
 -----
@@ -15,7 +15,7 @@ Ubuntu 14.04
 ::
 
     sudo apt-get install pkg-config
-    sudo add-apt-repository ppa:ethereum/ethereum-qt
+    sudo add-apt-repository ppa:expanse/expanse-qt
     sudo apt-get update
     sudo apt-get install -y qtbase5-dev qtbase5-private-dev libqt5opengl5-dev qtdeclarative5-dev qml-module-qtquick-controls qml-module-qtquick-dialogs libqt5webengine5-dev
 

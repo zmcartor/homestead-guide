@@ -4,15 +4,15 @@
 Contributors
 ********************************************************************************
 
-This documentation was built collectively by the Ethereum community as part of
+This documentation was built collectively by the Expanse community as part of
 a project called the
-`Homestead Documentation Initiative <https://www.reddit.com/r/ethereum/comments/45116k/call_to_action_homestead_documentation_initiative/>`_
+`Homestead Documentation Initiative <https://www.reddit.com/r/expanse/comments/45116k/call_to_action_homestead_documentation_initiative/>`_
 which was coordinated by:
 
 - `Viktor Trón ("zelig") <https://github.com/zelig>`_
 - `Hudson Jameson ("Souptacular") <https://github.com/Souptacular>`_
  
-We would like to thank everybody who helped in this effort for `their contributions <https://github.com/ethereum/homestead-guide/graphs/contributors>`_:
+We would like to thank everybody who helped in this effort for `their contributions <https://github.com/expanse-org/homestead-guide/graphs/contributors>`_:
 
 .. image:: ../img/Feels-Good-Man-Frog-02.png
 

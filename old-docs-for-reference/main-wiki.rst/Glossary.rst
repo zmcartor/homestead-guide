@@ -10,15 +10,15 @@ Bitcoin users are forced to contend with learning not just the common
 basics of cryptography, but also additional internal jargon such as
 "blocks", "confirmations", "mining", "SPV clients" and "51% attacks", as
 well as economic concepts like incentive-compatibility and the fine
-nuances of centralization and decentralization. Ethereum, being a
+nuances of centralization and decentralization. Expanse, being a
 decentralized application development platform based on a generalization
 of a cryptocurrency, necessarily incorporates both of these sets of
 concepts, as well as adding many of its own. To help anyone new to
-Ethereum, whether they are in it as cryptocurrency enthusiasts, business
+Expanse, whether they are in it as cryptocurrency enthusiasts, business
 owners, social or political visionaries, web developers or are simply
 ordinary people looking to see how the technology can improve their
 lives, the following list is intended to provide a basic summary of the
-vocabulary that Ethereum users often tend to use:
+vocabulary that Expanse users often tend to use:
 
 Cryptography
 ~~~~~~~~~~~~
@@ -105,7 +105,7 @@ See also: https://bitcoin.org/en/vocabulary
    perhaps unfulfilled trade orders; in other cases more complex
    relationships may be stored inside of accounts.
 -  **Proof of work**: one important property of a block in Bitcoin,
-   Ethereum and many other crypto-ledgers is that the hash of the block
+   Expanse and many other crypto-ledgers is that the hash of the block
    must be smaller than some target value. The reason this is necessary
    is that in a decentralized system anyone can produce blocks, so in
    order to prevent the network from being flooded with blocks, and to
@@ -117,7 +117,7 @@ See also: https://bitcoin.org/en/vocabulary
    takes an average of 4.3 billion attempts. In all such systems, the
    target value self-adjusts so that on average one node in the network
    finds a block every N minutes (eg. N = 10 for Bitcoin and 1 for
-   Ethereum).
+   Expanse).
 -  **Nonce**: a meaningless value in a block which can be adjusted in
    order to try to satisfy the proof of work condition
 -  **Mining**: mining is the process of repeatedly aggregating
@@ -160,15 +160,15 @@ See also: https://bitcoin.org/en/vocabulary
    bandwidth and gigabytes of storage on full blockchain validation and
    maintennance.
 
-Ethereum Blockchain
+Expanse Blockchain
 ~~~~~~~~~~~~~~~~~~~
 
-See also: http://ethereum.org/ethereum.html
+See also: http://expanse.org/expanse.html
 
 -  **Serialization**: the process of converting a data structure into a
-   sequence of bytes. Ethereum internally uses an encoding format called
+   sequence of bytes. Expanse internally uses an encoding format called
    recursive-length prefix encoding (RLP), described
-   `here <https://github.com/ethereum/wiki/wiki/RLP>`__
+   `here <https://github.com/expanse-org/wiki/wiki/RLP>`__
 -  **Patricia tree** (or **trie**): a data structure which stores the
    state of every account. The trie is built by starting from each
    individual node, then splitting the nodes into groups of up to 16 and
@@ -185,7 +185,7 @@ See also: http://ethereum.org/ethereum.html
    is indeed in the tree with that exact content. Patricia trees are
    also used to store the internal storage of accounts as well as
    transactions and uncles. See
-   `here <http://easythereentropy.wordpress.com/2014/06/04/understanding-the-ethereum-trie/>`__
+   `here <http://easythereentropy.wordpress.com/2014/06/04/understanding-the-expanse-trie/>`__
    for a more detailed description.
 -  **GHOST**: GHOST is a protocol by which blocks can contain a hash of
    not just their parent, but also hashes for stales that are other
@@ -201,14 +201,14 @@ See also: http://ethereum.org/ethereum.html
    prevents replay attacks where a transaction sending eg. 20 coins from
    A to B can be replayed by B over and over to continually drain A's
    balance.
--  **EVM code**: Ethereum virtual machine code, the programming language
-   in which accounts on the Ethereum blockchain can contain code. The
+-  **EVM code**: Expanse virtual machine code, the programming language
+   in which accounts on the Expanse blockchain can contain code. The
    EVM code associated with an account is executed every time a message
    is sent to that account, and has the ability to read/write storage
    and itself send messages.
 -  **Message**: a sort of "virtual transaction" sent by EVM code from
    one account to another. Note that "transactions" and "messages" in
-   Ethereum are different; a "transaction" in Ethereum parlance
+   Expanse are different; a "transaction" in Expanse parlance
    specifically refers to a physical digitally signed piece of data that
    goes in the blockchain, and every transaction triggers an associated
    message, but messages can also be sent by EVM code, in which case
@@ -221,9 +221,9 @@ See also: http://ethereum.org/ethereum.html
 -  **Contract**: an account which contains, and is controlled by, EVM
    code. Contracts cannot be controlled by private keys directly; unless
    built into the EVM code, a contract has no owner once released.
--  **Ether**: the primary internal cryptographic token of the Ethereum
+-  **Ether**: the primary internal cryptographic token of the Expanse
    network. Ether is used to pay transaction and computation fees for
-   Ethereum transactions.
+   Expanse transactions.
 -  **Gas**: a measurement roughly equivalent to computational steps.
    Every transaction is required to include a gas limit and a fee that
    it is willing to pay per gas; miners have the choice of including the
@@ -241,9 +241,9 @@ See also: http://ethereum.org/ethereum.html
 Non-blockchain
 ~~~~~~~~~~~~~~
 
--  **EtherBrowser**: the upcoming primary client for Ethereum, which
+-  **EtherBrowser**: the upcoming primary client for Expanse, which
    will exist in the form of a web browser that can be used to access
-   both normal websites and applications built on top of the Ethereum
+   both normal websites and applications built on top of the Expanse
    platform
 -  **Whisper**: an upcoming P2P messaging protocol that will be
    integrated into the EtherBrowser
@@ -261,7 +261,7 @@ Surrounding concepts: applications and governance
    which either uses or creates a decentralized network for some
    specific purpose (eg. connecting buyers and sellers in some
    marketplace, sharing files, online file storage, maintaining a
-   currency). Ethereum-based decentralized applications (also called
+   currency). Expanse-based decentralized applications (also called
    dapps, where the Đ is the Norse letter "eth") typically consist of an
    HTML/Javascript webpage, and if viewed inside the EtherBrowser the
    browser recognizes special Javascript APIs for sending transactions

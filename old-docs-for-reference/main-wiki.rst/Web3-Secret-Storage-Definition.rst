@@ -173,7 +173,7 @@ Alterations from Version 1
 --------------------------
 
 This version fixes several inconsistencies with the version 1 published
-`here <https://github.com/ethereum/go-ethereum/wiki/Passphrase-protected-key-store-spec>`__.
+`here <https://github.com/expanse-org/go-expanse/wiki/Passphrase-protected-key-store-spec>`__.
 In brief these are:
 
 -  Capitalisation is unjustified and inconsistent (``scrypt`` lowercase,

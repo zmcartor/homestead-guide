@@ -1,29 +1,29 @@
 Serpent is one of the high-level programming languages used to write
-Ethereum contracts. The language, as suggested by its name, is designed
+Expanse contracts. The language, as suggested by its name, is designed
 to be very similar to Python; it is intended to be maximally clean and
 simple, combining many of the efficiency benefits of a low-level
 language with ease-of-use in programming style, and at the same time
 adding special domain-specific features for contract programming. The
 latest version of the Serpent compiler, available `on
-github <http://github.com/ethereum/serpent>`__, is written in C++,
+github <http://github.com/expanse-org/serpent>`__, is written in C++,
 allowing it to be easily included in any client.
 
-This tutorial assumes basic knowledge of how Ethereum works, including
+This tutorial assumes basic knowledge of how Expanse works, including
 the concept of blocks, transactions, contracts and messages and the fact
 that contracts take a byte array as input and provide a byte array as
 output. If you do not, then go
-`here <https://github.com/ethereum/wiki/wiki/Ethereum-Development-Tutorial>`__
+`here <https://github.com/expanse-org/wiki/wiki/Expanse-Development-Tutorial>`__
 for a basic tutorial.
 
 This documentation is not complete and these examples may further help:
 
 https://github.com/AugurProject/augur-core/tree/master/tests/serpent\_tests
 
-https://github.com/ethereum/serpent/tree/develop/examples
+https://github.com/expanse-org/serpent/tree/develop/examples
 
 https://github.com/AugurProject/augur-core/tree/master/src
 
-https://github.com/ethereum/dapp-bin
+https://github.com/expanse-org/dapp-bin
 
 Differences Between Serpent and Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,19 +52,19 @@ In order to install the Serpent python library and executable do:
 
 ::
 
-    $ sudo pip install ethereum-serpent
+    $ sudo pip install expanse-serpent
 
 You can install pyethereum itself as well:
 
 ::
 
-    $ sudo pip install ethereum
+    $ sudo pip install expanse
 
 If you want a library you can directly call from C++, instead do:
 
 ::
 
-    $ git clone http://github.com/ethereum/serpent
+    $ git clone http://github.com/expanse-org/serpent
     $ cd serpent
     $ make
     $ sudo make install
@@ -175,12 +175,12 @@ EVM). Use the letter ``s`` for variable-length string arguments, and
 ``a`` for arrays; more on these later.
 
 Now, what if you want to actually run the contract? That is where
-`pyethereum <https://github.com/ethereum/pyethereum>`__ comes in. Open
+`pyethereum <https://github.com/expanse-org/pyethereum>`__ comes in. Open
 up a Python console in the same directory, and run:
 
 ::
 
-    >>> from ethereum import tester as t
+    >>> from expanse import tester as t
     >>> s = t.state()
     >>> c = s.abi_contract('mul2.se')
     >>> c.double(42)
@@ -245,7 +245,7 @@ environment:
 
 ::
 
-    >>> from ethereum import tester as t
+    >>> from expanse import tester as t
     >>> s = t.state()
     >>> c = s.abi_contract('namecoin.se')
     >>> c.register(0x67656f726765, 45)
@@ -299,7 +299,7 @@ And open Python:
 
 ::
 
-    >>> from ethereum import tester as t
+    >>> from expanse import tester as t
     >>> s = t.state()
     >>> c = s.abi_contract('returnten.se')
     >>> c.returnten()
@@ -632,7 +632,7 @@ Or to take the max of an array:
     x = maxarray([1, 9, 5, 6, 2, 4]:6)
 
 For a highly contrived example of just how powerful macros can be, see
-https://github.com/ethereum/serpent/blob/poc7/examples/peano.se
+https://github.com/expanse-org/serpent/blob/poc7/examples/peano.se
 
 Note that macros are not functions; they are copied into code every time
 they are used. Hence, if you have a long macro, you may instead want to
@@ -692,10 +692,10 @@ simply show this with an example:
 This returns 156, the integer portion of 12.5^2. A purely integer-based
 version of this code would have simply returned 144. An interesting use
 case would be rewriting the `elliptic curve signature pubkey recovery
-code <https://github.com/ethereum/serpent/blob/df0aa0e1285d7667d4a0cc81b1e11e0abb31fff3/examples/ecc/jacobian_add.se>`__
+code <https://github.com/expanse-org/serpent/blob/df0aa0e1285d7667d4a0cc81b1e11e0abb31fff3/examples/ecc/jacobian_add.se>`__
 using types in order to make the code neater by making all additions and
 multiplications implicitly modulo P, or using `long integer
-types <https://github.com/ethereum/serpent/blob/poc7/examples/long_integer_macros.se>`__
+types <https://github.com/expanse-org/serpent/blob/poc7/examples/long_integer_macros.se>`__
 to do RSA and other large-value-based cryptography in EVM code.
 
 Miscellaneous
@@ -766,8 +766,8 @@ particularly:
    and lt() instead of '/' and '<'.
 
 -  To upgrade Serpent, you may need to do
-   ``pip uninstall ethereum-serpent`` and ``python setup.py install``.
-   (Avoid ``pip install ethereum-serpent`` since it will get from PyPI
+   ``pip uninstall expanse-serpent`` and ``python setup.py install``.
+   (Avoid ``pip install expanse-serpent`` since it will get from PyPI
    which is probably old.) (Also avoid using the master branch, which is
    probably even older than the PyPI version; use the develop branch
    instead.)

@@ -1,9 +1,9 @@
-technical notes to the go-ethereum blockchain synchronisation module
+technical notes to the go-expanse blockchain synchronisation module
 
 Intro
 -----
 
-An Ethereum node needs to acquire the set of blocks from which the
+An Expanse node needs to acquire the set of blocks from which the
 current consensus can be proved. This includes scenarios where the node
 starts up from scratch (i.e., with an empty database) in which case the
 block pool acts as a *download manager* as well as normal operation
@@ -16,8 +16,8 @@ same task: finding the best chain to give to the blockchain manager.
 the blockchain.
 
 In order the achieve this, the blockpool can only rely on p2p
-communication using the `Ethereum wire
-protocol <https://github.com/ethereum/wiki/wiki/Ethereum-Wire-Protocol>`__.
+communication using the `Expanse wire
+protocol <https://github.com/expanse-org/wiki/wiki/Expanse-Wire-Protocol>`__.
 
 Terminology
 -----------
@@ -52,9 +52,9 @@ sequences of blocks and blockhashes in the blockpool.
 Interface with network protocol and peers
 -----------------------------------------
 
-As a proper decentralised consensus system, Ethereum relies only on
+As a proper decentralised consensus system, Expanse relies only on
 other peers to synchronise. The `eth wire
-protocol <https://github.com/ethereum/wiki/wiki/Ethereum-Wire-Protocol>`__
+protocol <https://github.com/expanse-org/wiki/wiki/Expanse-Wire-Protocol>`__
 defines the messages that the blockpool can use to communicate. For a
 naive new node, the only entry point to the blockchain is the head block
 advertised by a peer as part of their status message (``StatusMsg``,
@@ -86,9 +86,9 @@ the peer.
 Adding and removing a peer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```AddPeer`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L262>`__
+```AddPeer`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L262>`__
 is `called by the ``eth``
-protocol <https://github.com/ethereum/go-ethereum/blob/develop/eth/protocol.go#L342>`__
+protocol <https://github.com/expanse-org/go-expanse/blob/develop/eth/protocol.go#L342>`__
 right after receiving the `*status message* <>`__ (or protocol
 handshake) from a peer. The blockpool registers the peer with
 information about its total difficulty and current head block. It also
@@ -97,9 +97,9 @@ directly to a peer (``requestBlockHashes`` and ``requestBlocks``) and
 report a peer error (``peerError``).
 
 Once a peer is removed (disconnect or eviction), the `protocol calls
-back <https://github.com/ethereum/go-ethereum/blob/develop/eth/protocol.go#L138>`__
+back <https://github.com/expanse-org/go-expanse/blob/develop/eth/protocol.go#L138>`__
 to the BlockPool to unregister the peer with
-```RemovePeer`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L276>`__.
+```RemovePeer`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L276>`__.
 
 The blockpool synchronisation relies on choosing the *best peer* out of
 the connected peers. The best peer is defined as the peer with the
@@ -145,11 +145,11 @@ of the following 4 ways:
    self and other peers, a peer switch happens: the new peer is promoted
    best peer, the current best peer (if there was one) is demoted.
 -  when `a new block message
-   arrives <https://github.com/ethereum/go-ethereum/blob/develop/eth/protocol.go#L253>`__,
+   arrives <https://github.com/expanse-org/go-expanse/blob/develop/eth/protocol.go#L253>`__,
    it contains the new total difficulty, as well as the head block
    (including its header hash). To allow for the update of peers head
    info and a potential peer switch, the `protocol calls
-   ``AddPeer`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L549>`__.
+   ``AddPeer`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L549>`__.
    In the special case when a new block message arrives from the best
    peer, its head information is updated and a new process is launched
    to obtain the peer's new head section.
@@ -164,9 +164,9 @@ Add block hashes
 ~~~~~~~~~~~~~~~~
 
 The third entry poing,
-```AddBlockHashes`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L292>`__
+```AddBlockHashes`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L292>`__
 is `called by the ``eth``
-protocol <https://github.com/ethereum/go-ethereum/blob/develop/eth/protocol.go#L188>`__
+protocol <https://github.com/expanse-org/go-expanse/blob/develop/eth/protocol.go#L188>`__
 when a ``blockHashesMsg`` (blockhashes message) arrives. Since the
 blockpool needs to follow the canonical chain of the best peer at all
 times, only the best peer can add block hashes. If this is not the case,
@@ -175,9 +175,9 @@ times, only the best peer can add block hashes. If this is not the case,
 Add blocks
 ~~~~~~~~~~
 
-```AddBlocks`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L549>`__
+```AddBlocks`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L549>`__
 is `called by the ``eth``
-protocol <https://github.com/ethereum/go-ethereum/blob/develop/eth/protocol.go#L250>`__
+protocol <https://github.com/expanse-org/go-expanse/blob/develop/eth/protocol.go#L250>`__
 when a ``blocksMsg`` (blocks message) arrives. The various blocks are
 requested from multiple peers therefore they are accepted from any peer.
 The peer is recorded on the pool node as the source of the block, this
@@ -198,7 +198,7 @@ the sequence of block hashes in the response from the best peer are used
 to build up a sequence nodes replicating the head section of the peer's
 canonical chain. If the peer fails to respond to requests, after a
 period of
-```blockTimeout`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L34>`__,
+```blockTimeout`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L34>`__,
 an ``ErrInsufficientChainInfo`` error is raised. As a consequence, the
 peer is disconnected and suspended for ``PeerSuspensionInterval`` during
 which it is not allowed to reconnect.
@@ -235,13 +235,13 @@ invalid block, its source (may not be online any more) is given a
 ``ErrInvalidBlock`` error resulting in disconnect and suspension.
 
 If a block process does not complete within a set period of time
-```blockTimeout`` <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L34>`__,
+```blockTimeout`` <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L34>`__,
 the chain is killed and the synchronisation is reattempted with
 (potentially) new peers. Note that these timeouts are needed to protect
 against attacks where a rogue peer is sending random blockhashes
 indefinitely.
 
-Interface to Ethereum core
+Interface to Expanse core
 --------------------------
 
 The interface of the Blockpool with the core is defined with the help of
@@ -253,7 +253,7 @@ Block verification
 
 Initial block validation that does not require the block to have a known
 (already processed and valid) parent block. `Soft proof of work
-validation <https://github.com/ethereum/ethash/blob/master/ethash.go#L360>`__
+validation <https://github.com/expanse-org/ethash/blob/master/ethash.go#L360>`__
 is such a step.
 
 This is used as a first line of defence: when received, blocks are
@@ -267,7 +267,7 @@ Inserting a block into blockchain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add one or more blocks on top of a known block. See
-```ChainManager.InsertChain`` <https://github.com/ethereum/go-ethereum/blob/develop/core/chain_manager.go#L404>`__
+```ChainManager.InsertChain`` <https://github.com/expanse-org/go-expanse/blob/develop/core/chain_manager.go#L404>`__
 The chain manager runs the vm and does proper block validation as well
 as establishes which block has the highest total difficulty defining the
 head of the node. If the chain manager finds a block invalid, the peer
@@ -287,7 +287,7 @@ Query if block is known
 
 When receiving block hashes and blocks, we need to check whether the
 block is already in the blockchain. See
-```ChainManager.HasBlock`` <https://github.com/ethereum/go-ethereum/blob/develop/core/chain_manager.go#L292>`__.
+```ChainManager.HasBlock`` <https://github.com/expanse-org/go-expanse/blob/develop/core/chain_manager.go#L292>`__.
 
 Current Total Difficulty
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -337,7 +337,7 @@ Errors
 ------
 
 The Blockpool uses these
-`errors <https://github.com/ethereum/go-ethereum/blob/develop/blockpool/blockpool.go#L62>`__
+`errors <https://github.com/expanse-org/go-expanse/blob/develop/blockpool/blockpool.go#L62>`__
 that are meant to be 'assigned' to peers.
 
 -  ``ErrInvalidBlock`` : Invalid block. Block insertion fails. (Fatal)

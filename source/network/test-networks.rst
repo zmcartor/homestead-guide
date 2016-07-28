@@ -6,7 +6,7 @@ Test Networks
 
 Morden testnet
 ================================================================================
-Morden is a public Ethereum alternative testnet. It is expected to
+Morden is a public Expanse alternative testnet. It is expected to
 continue throughout the Frontier and Homestead milestones of the software.
 
 Usage
@@ -39,7 +39,7 @@ geth (Go client)
 
 Details
 --------------------------------------------------------------------------------
-All parameters are the same as the main Ethereum network except:
+All parameters are the same as the main Expanse network except:
 
 -  Network Name: **Morden**
 -  Network Identity: 2
@@ -85,7 +85,7 @@ Getting Morden testnet ether
 Two ways to obtain Morden testnet ether:
 
 - Mine using your CPU/GPU, (see :ref:`mining`).
-- Use the `Ethereum wei faucet <https://zerogox.com/ethereum/wei_faucet>`__.
+- Use the `Expanse wei faucet <https://zerogox.com/expanse/wei_faucet>`__.
 
 
 ********************************************************************************
@@ -120,7 +120,7 @@ In that case, the genesis block description provided by --config will be overwri
 
 	- sealEngine (engine use to mine block)
 
-		"Ethash" is the Ethereum proof of work engine (used by the live network).
+		"Ethash" is the Expanse proof of work engine (used by the live network).
 
 		"NoProof" no proof of work is needed to mine a block.
 
@@ -207,7 +207,7 @@ geth (Go client)
 
 You either pre-generate or mine your own Ether on a private
 testnet. It is a much more cost effective way of trying out
-Ethereum and you can avoid having to mine or find Morden test ether.
+Expanse and you can avoid having to mine or find Morden test ether.
 
 The things that are required to specify in a private chain are:
  - Custom Genesis File
@@ -244,7 +244,7 @@ Command line parameters for private network
 --------------------------------------------------------------------------------
 
 There are some command line options (also called “flags”) that are
-necessary in order to make sure that your network is private. We already covered the genesis flag, but we need a few more. Note that all of the commands below are to be used in the geth Ethereum client.
+necessary in order to make sure that your network is private. We already covered the genesis flag, but we need a few more. Note that all of the commands below are to be used in the geth Expanse client.
 
 ``--nodiscover``
 
@@ -275,7 +275,7 @@ This dictates what URLs can connect to your node in order to perform RPC client 
 
 ``--datadir "/home/TestChain1"``
 
-This is the data directory that your private chain data will be stored in (under the :file:`nubits` . Choose a location that is separate from your public Ethereum chain folder.
+This is the data directory that your private chain data will be stored in (under the :file:`nubits` . Choose a location that is separate from your public Expanse chain folder.
 
 
 ``--port "30303"``
@@ -306,7 +306,7 @@ Pre-allocating ether to your account
 
 A difficulty of "0x400" allows you to mine Ether very quickly on your private testnet chain. If you create your chain and start mining, you should have hundreds of Ether in a matter of minutes which is way more than enough to test transactions on your network. If you would still like to pre-allocate Ether to your account, you will need to:
 
-1. Create a new Ethereum account after you create your private chain
+1. Create a new Expanse account after you create your private chain
 2. Copy your new account address
 3. Add the following command to your Custom_Genesis.json file:
 
@@ -339,24 +339,24 @@ Alternatively, you can launch the console with ``geth console`` (keep the same p
 
 .. code-block:: Console
 
-  > eth.accounts
+  > exp.accounts
 
 This will return the array of account addresses you possess.
 
 .. code-block:: Console
 
-  > primary = eth.accounts[0]
+  > primary = exp.accounts[0]
 
-.. note:: Replace ``0`` with your account's index. This console command should return your primary Ethereum address.
+.. note:: Replace ``0`` with your account's index. This console command should return your primary Expanse address.
 
 Type the following command:
 
 .. code-block:: Console
 
-  > balance = web3.fromWei(eth.getBalance(primary), "ether");
+  > balance = web3.fromWei(exp.getBalance(primary), "ether");
 
-This should return ``7.5`` indicating you have that much Ether in your account. The reason we had to put such a large number in the alloc section of your genesis file is because the "balance" field takes a number in wei which is the smallest denomination of the Ethereum currency Ether (see _`Ether`).
+This should return ``7.5`` indicating you have that much Ether in your account. The reason we had to put such a large number in the alloc section of your genesis file is because the "balance" field takes a number in wei which is the smallest denomination of the Expanse currency Ether (see _`Ether`).
 
 
-* https://www.reddit.com/r/ethereum/comments/3kdnus/question_about_private_chain_mining_dont_upvote/
-* http://adeduke.com/2015/08/how-to-create-a-private-ethereum-chain/
+* https://www.reddit.com/r/expanse/comments/3kdnus/question_about_private_chain_mining_dont_upvote/
+* http://adeduke.com/2015/08/how-to-create-a-private-expanse-chain/

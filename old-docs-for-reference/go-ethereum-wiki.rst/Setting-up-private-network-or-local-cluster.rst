@@ -1,17 +1,17 @@
 This page describes how to set up a local cluster of nodes, advise how
 to make it private, and how to hook up your nodes on the eth-netstat
-network monitoring app. A fully controlled Ethereum network is useful as
+network monitoring app. A fully controlled Expanse network is useful as
 a backend for network integration testing (core developers working on
 issues related to networking/blockchain synching/message propagation,
 etc or dapp developers testing multi-block and multi-user scenarios).
 
 We assume you are able to build ``geth`` following the `build
-instructions <https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum>`__
+instructions <https://github.com/expanse-org/go-expanse/wiki/Building-Expanse>`__
 
 Setting up multiple nodes
 -------------------------
 
-In order to run multiple Ethereum nodes locally, you have to make sure:
+In order to run multiple Expanse nodes locally, you have to make sure:
 - each instance has a separate data directory (``--datadir``) - each
 instance runs on a different port (both eth and rpc)
 (``--port and --rpcport``) - in case of a cluster the instances must
@@ -79,7 +79,7 @@ script, and the README there for usage and examples.
 Private network
 ---------------
 
-An Ethereum network is a private network if the nodes are not connected
+An Expanse network is a private network if the nodes are not connected
 to the main network nodes. In this context private only means reserved
 or isolated, rather than protected or secure. Since connections between
 nodes are valid only if peers have identical protocol version and
@@ -93,13 +93,13 @@ will not connect to other nodes and form a private network.
 Monitoring your nodes
 ---------------------
 
-`This page <https://github.com/ethereum/wiki/wiki/Network-Status>`__
-describes how to use the `The Ethereum (centralised) network status
+`This page <https://github.com/expanse-org/wiki/wiki/Network-Status>`__
+describes how to use the `The Expanse (centralised) network status
 monitor (known sometimes as "eth-netstats") <http://stats.ethdev.com>`__
 to monitor your nodes.
 
 `This
-page <https://github.com/ethereum/go-ethereum/wiki/Setting-up-monitoring-on-local-cluster>`__
+page <https://github.com/expanse-org/go-expanse/wiki/Setting-up-monitoring-on-local-cluster>`__
 or `this README <https://github.com/ethersphere/eth-utils>`__ describes
 how you set up your own monitoring service for a (private or public)
 local cluster.

@@ -6,7 +6,7 @@ How Peers Are Found
 
 Geth continuously attempts to connect to other nodes on the network
 until it has peers. If you have UPnP enabled on your router or run
-Ethereum on an Internet-facing server, it will also accept connections
+Expanse on an Internet-facing server, it will also accept connections
 from other nodes.
 
 Geth finds peers through something called the discovery protocol. In the
@@ -29,7 +29,7 @@ Sometimes you just can't get connected. The most common reasons are as
 follows:
 
 -  Your local time might be incorrect. An accurate clock is required to
-   participate in the Ethereum network. Check your OS for how to resync
+   participate in the Expanse network. Check your OS for how to resync
    your clock (example sudo ntpdate -s time.nist.gov) because even 12
    seconds too fast can lead to 0 peers.
 -  Some firewall configurations can prevent UDP traffic from flowing.
@@ -160,7 +160,7 @@ something like the following into ``<datadir>/static-nodes.json``:
     ]
 
 You can also add static nodes at runtime via the js console using
-```admin.addPeer()`` <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console#addpeer>`__:
+```admin.addPeer()`` <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#addpeer>`__:
 
 .. code:: js
 

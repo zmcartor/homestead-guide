@@ -16,7 +16,7 @@ The deployment process includes three steps:
    | This step is used to package and upload frontend resources.
 
 -  | **Register**:
-   | To render the Dapp, the Ethereum browser (Mist or AlethZero) needs
+   | To render the Dapp, the Expanse browser (Mist or AlethZero) needs
      to access this package. This step will register the URL where the
      resources are stored.
 
@@ -29,7 +29,7 @@ To Deploy your Dapp, Please follow these instructions:
 
 -  *Select Scenario*
 
-“Ethereum node URL” is the location where a node is running, there must
+“Expanse node URL” is the location where a node is running, there must
 be a node running in order to initiate deployment.
 
 “Pick Scenario to deploy” is a mandatory step. Mix will execute

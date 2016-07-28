@@ -108,16 +108,16 @@ through its' circuit to the hidden service.
 
 I think there really isn't a better way to implement 'dark' parts of the
 connection protocol, because there has to be a different identity for a
-relay node as a client node, the same principle applies in Ethereum.
+relay node as a client node, the same principle applies in Expanse.
 However, using the rendezvous, it again makes possible something for
 connections between nodes that know each other (though they don't know
 the account or identity of the initiator) something other than the
 uniform 3 hop circuit. For generating a circuit to an exit node in Tor,
 it is of no danger that your client knows the identity of the relays in
 each hop along the way, but to do that *within* the network compromises
-location obfuscation security, tying your ethereum identity with your
+location obfuscation security, tying your expanse identity with your
 router identity (I think it may need to be explicitly pointed out that
-routing function is something that Ethereum nodes will perform). When
+routing function is something that Expanse nodes will perform). When
 connecting to a rendezvous, you do not thereby reveal your location to
 the rendezvous, and the rendezvous does not know the location of the
 hidden service either, and establishing these connections only requires

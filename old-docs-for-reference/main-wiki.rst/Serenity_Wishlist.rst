@@ -1,15 +1,15 @@
-This document outlines known flaws and missing features in Ethereum
+This document outlines known flaws and missing features in Expanse
 Frontier and Homestead that are non-serious but inconvenient, and which
 we decided to leave in in order to be able to launch in any reasonable
 timeframe. We intend to thoroughly investigate solving all of these
-issues for Serenity (aka. Ethereum 1.1).
+issues for Serenity (aka. Expanse 1.1).
 
 Big Issues
 ~~~~~~~~~~
 
 1. Because every user must process every transaction (ie. the per-user
    required quantity of storage is linear in the number of users or
-   level of usage), Ethereum is currently fundamentally unscalable, as
+   level of usage), Expanse is currently fundamentally unscalable, as
    are all other blockchain technologies to date. We believe this to be
    the single largest problem in blockchain development, and it will be
    our primary focus for either Serenity or a version soon after.
@@ -18,7 +18,7 @@ Big Issues
    environmental issues and to a lesser degree principal-agent issues,
    and its security guarantees are uncomfortably incomplete (eg. it is
    vulnerable to `P + epsilon
-   attacks <https://blog.ethereum.org/2015/01/28/p-epsilon-attack/>`__
+   attacks <https://blog.expanse.org/2015/01/28/p-epsilon-attack/>`__
    or even outright bribes of fairly low size). We plan to resolve this
    via proof of stake, which resolves these issues via a combination of
    proof of stake and subjective resolution-of-last-resort. A small
@@ -27,8 +27,8 @@ Big Issues
 Trie
 ~~~~
 
-In the process of designing Ethereum 1.0 we have done a thorough job of
-optimizing the Ethereum virtual machine's computational power, but a
+In the process of designing Expanse 1.0 we have done a thorough job of
+optimizing the Expanse virtual machine's computational power, but a
 much less thorough job of optimizing the database. There exists the
 possibility for substantial space savings, for both full nodes and light
 clients, by reorganizing Merkle tree structures and accounts. One
@@ -65,12 +65,12 @@ example model for a more optimized state tree is the following:
 More expressive Merkle trees
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Certain kinds of mechanisms, to be developed on Ethereum, require a
+Certain kinds of mechanisms, to be developed on Expanse, require a
 richer set of data structures then just arrays, key/value maps, etc; the
 most commonly asked-for one is a heap (or an equivalent data structure
 that supports push/pop/top in logtime), highly useful in
 front-runner-proof markets among other applications. Currently,
-implementing a heap in Ethereum will lead to log^3(n) overhead, as we
+implementing a heap in Expanse will lead to log^3(n) overhead, as we
 have a tree (the heap) on top of a tree (the account storage Patricia
 tree) on top of a tree (leveldb). Making a custom DB for the Patricia
 tree will likely need to be done at some point anyway, and will remove
@@ -91,7 +91,7 @@ that trigger automatically at certain times in the future, without any
 overlay protocols (as one simple application of this, consider a dice
 game that depends on future block data as a source of randomness). For
 this to work effectively, one must introduce an "event tree" into the
-Ethereum state alongside the state tree, and add specialized opcodes for
+Expanse state alongside the state tree, and add specialized opcodes for
 creating events (events can be seen as one-way calls that get "frozen"
 and then executed in the future). A mechanism for gas costs for events,
 particularly recurring events, should be determined.
@@ -100,7 +100,7 @@ Verification
 ~~~~~~~~~~~~
 
 Currently, secp256k1 ECDSA + SHA3 exists as a privileged signature
-verification algorithm in Ethereum. Ideally, since we are a generalized
+verification algorithm in Expanse. Ideally, since we are a generalized
 platform, it would be nice to be able to support any signature
 verification algorithm. A proposed design for this is:
 
@@ -136,7 +136,7 @@ as http://lloyd.github.io/easylzma/.
 Virtual machine
 ~~~~~~~~~~~~~~~
 
-The Ethereum virtual machine has a number of suboptimalities at present,
+The Expanse virtual machine has a number of suboptimalities at present,
 and so there are plenty of features that can be added or impoved.
 Particular possibilities include:
 

@@ -11,7 +11,7 @@ chatting over the principles with Vitalik more recently, we made a
 number of alterations and formalisations, mainly to the validation and
 the sub-state cutting mechanisms. What follows is a fairly complete
 picture of one particular possible plan for block chain scalability in a
-later version of Ethereum.
+later version of Expanse.
 
 Overview
 --------
@@ -91,14 +91,14 @@ Vitalik.
 Transactors
 -----------
 
-Transactors are pretty much exactly the same as in Ethereum 1.0 - they
+Transactors are pretty much exactly the same as in Expanse 1.0 - they
 are the users of the system.
 
 Transactors: make transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Transactors make a transaction much like they do in the existing
-Ethereum system. One or two minor differences - addresses can be used as
+Expanse system. One or two minor differences - addresses can be used as
 a distance metric; those sharing the same number of initial bits are
 considered "closer", which means a greater certainty into the future
 that they will continue to be contained in the same state subspace.
@@ -110,7 +110,7 @@ one perhaps all, probably somewhere in between. Submission to collators
 may be directed through fiber sub-network overlays.
 
 Submission and payment to the collators happens much as existing
-transaction submission to miners happens in Ethereum 1.0.
+transaction submission to miners happens in Expanse 1.0.
 
 Collators
 ---------
@@ -127,7 +127,7 @@ disk/memory footprint.
 Collators: validate transaction
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On receipt of a transaction, they go through the usual Ethereum 1.0
+On receipt of a transaction, they go through the usual Expanse 1.0
 rites of checking payment is enough, initial balances &c. Once basic
 validation is done, they attempt to execute it, throwing it out if it
 touches any fiber that is not part of collator's fiber set.
@@ -136,7 +136,7 @@ Collators: produce Comprehensive Merkle Proof and Post State Root
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Collators provide each post-state-root (as is found in the transaction
-receipt of Ethereum 1.0) and append to the block Merkle proofs and
+receipt of Expanse 1.0) and append to the block Merkle proofs and
 associated hints (e.g. contract code) for all inputs (balance, nonce,
 state, code) from all subspaces that are required for the evaluation of
 each transaction from a previously known post-state-root.

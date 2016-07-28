@@ -1,7 +1,7 @@
 Account types and transactions
 ==============================
 
-There are two types of accounts in Ethereum state: \* Normal or
+There are two types of accounts in Expanse state: \* Normal or
 externally controlled accounts and \* contracts, i.e., snippets of code,
 think a class.
 
@@ -9,14 +9,14 @@ Both types of accounts have an ether balance.
 
 Transactions can be fired from both types of accounts, though contracts
 only fire transactions in response to other transactions that they have
-received. Therefore, all action on the Ethereum block chain is set in
+received. Therefore, all action on the Expanse block chain is set in
 motion by transactions fired from externally-controlled accounts.
 
 The simplest transactions are ether transfer transactions. But before we
 go into that you should read up on
-`accounts <https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts>`__
+`accounts <https://github.com/expanse-org/go-expanse/wiki/Managing-your-accounts>`__
 and perhaps on
-`mining <https://github.com/ethereum/go-ethereum/wiki/Mining>`__.
+`mining <https://github.com/expanse-org/go-expanse/wiki/Mining>`__.
 
 Ether transfer
 ==============
@@ -27,7 +27,7 @@ be careful with this! You have been warned.
 
 .. code:: js
 
-    eth.sendTransaction({from: '0x036a03fc47084741f83938296a1c8ef67f6e34fa', to: '0xa8ade7feab1ece71446bed25fa0cf6745c19c3d5', value: web3.toWei(1, "ether")})
+    exp.sendTransaction({from: '0x036a03fc47084741f83938296a1c8ef67f6e34fa', to: '0xa8ade7feab1ece71446bed25fa0cf6745c19c3d5', value: web3.toWei(1, "ether")})
 
 Note the unit conversion in the ``value`` field. Transaction values are
 expressed in weis, the most granular units of value. If you want to use
@@ -48,15 +48,15 @@ is required.
 Writing a contract
 ==================
 
-Contracts live on the blockchain in an Ethereum-specific binary format
-(Ethereum Virtual Machine (=EVM) bytecode). However, contracts are
+Contracts live on the blockchain in an Expanse-specific binary format
+(Expanse Virtual Machine (=EVM) bytecode). However, contracts are
 typically written in some high level language such as
-`solidity <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__
+`solidity <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__
 and then compiled into byte code to be uploaded on the blockchain.
 
 Note that other languages also exist, notably
-`serpent <https://github.com/ethereum/wiki/wiki/Serpent>`__ and
-`LLL <https://github.com/ethereum/cpp-ethereum/wiki/LLL>`__. Legacy
+`serpent <https://github.com/expanse-org/wiki/wiki/Serpent>`__ and
+`LLL <https://github.com/expanse-org/cpp-expanse/wiki/LLL>`__. Legacy
 Mutan (an early c-like language) is no longer officially maintained.
 
 Language Resources
@@ -68,21 +68,21 @@ Solidity
 Docs and tutorials
 ^^^^^^^^^^^^^^^^^^
 
--  `Ethereum wiki
-   tutorial <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__
--  `Solidity FAQ - Ethereum
-   forum <https://forum.ethereum.org/discussion/1460/solidity-faq>`__
+-  `Expanse wiki
+   tutorial <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__
+-  `Solidity FAQ - Expanse
+   forum <https://forum.expanse.org/discussion/1460/solidity-faq>`__
 -  `The Solidity Programming Language ·
-   ethereum/wiki <https://github.com/ethereum/wiki/wiki/The-Solidity-Programming-Language>`__
--  `Ethereum ÐΞVcon-0: Solidity, Vision and Roadmap - YouTube
+   expanse/wiki <https://github.com/expanse-org/wiki/wiki/The-Solidity-Programming-Language>`__
+-  `Expanse ÐΞVcon-0: Solidity, Vision and Roadmap - YouTube
    Video <https://www.youtube.com/watch?v=DIqGDNPO5YM>`__
 -  `Dapps for beginners <https://dappsforbeginners.wordpress.com/>`__
 -  `Tutorial
-   1 <https://forum.ethereum.org/discussion/1634/tutorial-1-your-first-contract/p1>`__
+   1 <https://forum.expanse.org/discussion/1634/tutorial-1-your-first-contract/p1>`__
 -  `Tutorial
-   2 <https://forum.ethereum.org/discussion/1635/tutorial-2-rainbow-coin>`__
+   2 <https://forum.expanse.org/discussion/1635/tutorial-2-rainbow-coin>`__
 -  `Tutorial 3 (JavaScript API for
-   Ethereum) <https://forum.ethereum.org/discussion/1636/tutorial-3-introduction-to-the-javascript-api>`__
+   Expanse) <https://forum.expanse.org/discussion/1636/tutorial-3-introduction-to-the-javascript-api>`__
    (Outdated)
 -  `Solidity tutorial 1 by Eris
    Industries <https://eng.erisindustries.com/tutorials/2015/03/11/solidity-1/>`__
@@ -95,17 +95,17 @@ Examples
 ^^^^^^^^
 
 -  `A dapp
-   listing <https://github.com/ethereum/wiki/wiki/FAQ#where-can-i-find-example-%C3%90apps>`__
--  `Solidity Contracts on Ethereum -
+   listing <https://github.com/expanse-org/wiki/wiki/FAQ#where-can-i-find-example-%C3%90apps>`__
+-  `Solidity Contracts on Expanse -
    Ether.Fund <https://ether.fund/contracts/solidity>`__
--  `Ethereum dapp bin <https://github.com/ethereum/dapp-bin/>`__
+-  `Expanse dapp bin <https://github.com/expanse-org/dapp-bin/>`__
 -  `Solidity Standard
-   Library <https://github.com/ethereum/wiki/wiki/Solidity-standard-library>`__
+   Library <https://github.com/expanse-org/wiki/wiki/Solidity-standard-library>`__
 -  `Whisper chat
-   dapp <https://github.com/ethereum/meteor-dapp-whisper-chat-client/tree/master/dist/deploy>`__
+   dapp <https://github.com/expanse-org/meteor-dapp-whisper-chat-client/tree/master/dist/deploy>`__
    written in meteor
 -  `order statistic
-   tree <https://github.com/drcode/ethereum-order-statistic-tree>`__ by
+   tree <https://github.com/drcode/expanse-order-statistic-tree>`__ by
    Conrad Bars
 
 Compilers
@@ -117,15 +117,15 @@ Compilers
 Serpent
 ~~~~~~~
 
--  `source on github <https://github.com/ethereum/serpent>`__
+-  `source on github <https://github.com/expanse-org/serpent>`__
 -  `serpent language
-   spec <https://github.com/ethereum/wiki/wiki/Serpent>`__
+   spec <https://github.com/expanse-org/wiki/wiki/Serpent>`__
 
 Contract/dapp development environments and frameworks
 -----------------------------------------------------
 
 -  `Mix standalone
-   IDE <https://github.com/ethereum/wiki/wiki/Mix:-The-DApp-IDE>`__ by
+   IDE <https://github.com/expanse-org/wiki/wiki/Mix:-The-DApp-IDE>`__ by
    ETHDEV
 -  in-browser `Cosmo <http://meteor-dapp-cosmo.meteor.com>`__ that
    connects to ``geth`` via RPC. By Nick Dodson
@@ -137,26 +137,26 @@ Contract/dapp development environments and frameworks
 Compiling a contract
 ====================
 
-Contracts live on the blockchain in an Ethereum-specific binary format
-(Ethereum Virtual Machine (=EVM) bytecode). However, contracts are
+Contracts live on the blockchain in an Expanse-specific binary format
+(Expanse Virtual Machine (=EVM) bytecode). However, contracts are
 typically written in some high level language such as
-`solidity <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__
+`solidity <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__
 and then compiled into byte code to be uploaded on the blockchain.
 
 For the frontier release, ``geth`` supports solidity compilation through
 system call to ``solc``, the command line `solidity
-compiler <https://github.com/ethereum/cpp-ethereum/tree/develop/solc>`__
+compiler <https://github.com/expanse-org/cpp-expanse/tree/develop/solc>`__
 by Christian R. and Lefteris K. You can try `Solidity realtime
-compiler <https://chriseth.github.io/cpp-ethereum/>`__ (by Christian R)
+compiler <https://chriseth.github.io/cpp-expanse/>`__ (by Christian R)
 or `Cosmo <http://meteor-dapp-cosmo.meteor.com>`__ or
-`Mix <https://github.com/ethereum/wiki/wiki/Mix:-The-DApp-IDE>`__.
+`Mix <https://github.com/expanse-org/wiki/wiki/Mix:-The-DApp-IDE>`__.
 
 If you start up your ``geth`` node, you can check if the solidity
 compiler is available. This is what happens, if it is not:
 
 .. code:: js
 
-    > eth.compile.solidity("")
+    > exp.compile.solidity("")
     eth_compileSolidity method not available: solc (solidity compiler) not found
         at InvalidResponse (<anonymous>:-57465:-25)
         at send (<anonymous>:-115373:-25)
@@ -165,7 +165,7 @@ compiler is available. This is what happens, if it is not:
 
 After you found a way to install ``solc``, you make sure it's in the
 path. If
-```eth.getCompilers()`` <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgetcompilers>`__
+```exp.getCompilers()`` <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethgetcompilers>`__
 still does not find it (returns an empty array), you can set a custom
 path to the ``solc`` executable on the command line using th ``solc``
 flag.
@@ -194,11 +194,11 @@ This contract offers a unary method: called with a positive integer
 ``a``, it returns ``a * 7``.
 
 You are ready to compile solidity code in the ``geth`` JS console using
-```eth.compile.solidity`` <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcompilesolidity>`__:
+```exp.compile.solidity`` <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethcompilesolidity>`__:
 
 .. code:: js
 
-    > contract = eth.compile.solidity(source).test
+    > contract = exp.compile.solidity(source).test
     {
       code: '605280600c6000396000f3006000357c010000000000000000000000000000000000000000000000000000000090048063c6888fa114602e57005b60376004356041565b8060005260206000f35b6000600782029050604d565b91905056',
       info: {
@@ -231,9 +231,9 @@ You are ready to compile solidity code in the ``geth`` JS console using
     }
 
 The compiler is also available via
-`RPC <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__ and therefore
+`RPC <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__ and therefore
 via
-`web3.js <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcompilesolidity>`__
+`web3.js <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethcompilesolidity>`__
 to any in-browser Ðapp connecting to ``geth`` via RPC/IPC.
 
 The following example shows how you interface ``geth`` via JSON-RPC to
@@ -241,14 +241,14 @@ use the compiler.
 
 ::
 
-    ./geth --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/eth/eth.log
+    ./geth --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/eth/exp.log
     curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"],"id":1}' http://127.0.0.1:8100
 
 The compiler output for one source will give you contract objects each
 representing a single contract. The actual return value of
-``eth.compile.solidity`` is a map of contract name -- contract object
+``exp.compile.solidity`` is a map of contract name -- contract object
 pairs. Since our contract's name is ``test``,
-``eth.compile.solidity(source).test`` will give you the contract object
+``exp.compile.solidity(source).test`` will give you the contract object
 for the test contract containing the following fields:
 
 -  ``code``: the compiled EVM code
@@ -258,11 +258,11 @@ for the test contract containing the following fields:
 -  ``languageVersion``: contract language version
 -  ``compilerVersion``: compiler version
 -  ``abiDefinition``: `Application Binary Interface
-   Definition <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__
+   Definition <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__
 -  ``userDoc``: `NatSpec user
-   Doc <https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-%20Format>`__
+   Doc <https://github.com/expanse-org/wiki/wiki/Expanse-Natural-Specification-%20Format>`__
 -  ``developerDoc``: `NatSpec developer
-   Doc <https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format>`__
+   Doc <https://github.com/expanse-org/wiki/wiki/Expanse-Natural-Specification-Format>`__
 
 The immediate structuring of the compiler output (into ``code`` and
 ``info``) reflects the two very different **paths of deployment**. The
@@ -278,20 +278,20 @@ this by inspecting the most current GlobalRegistrar code:
 
 .. code:: js
 
-    contracts = eth.compile.solidity(globalRegistrarSrc)
+    contracts = exp.compile.solidity(globalRegistrarSrc)
 
 Creating and deploying a contract
 =================================
 
 Now that you got both an unlocked account as well as some funds, you can
 create a contract on the blockchain by `sending a
-transaction <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction>`__
+transaction <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethsendtransaction>`__
 to the empty address with the evm code as data. Simple, eh?
 
 .. code:: js
 
-    primaryAddress = eth.accounts[0]
-    MyContract = eth.contract(abi);
+    primaryAddress = exp.accounts[0]
+    MyContract = exp.contract(abi);
     contact = MyContract.new(arg1, arg2, ...,{from: primaryAddress, data: evmCode})
 
 All binary data is serialised in hexadecimal form. Hex strings always
@@ -346,30 +346,30 @@ funds, you should see an insufficient funds error.
 
 For testing and playing with contracts you can use the test network or
 `set up a private node (or
-cluster) <https://github.com/ethereum/go-ethereum/wiki/Setting-up-private-network-or-local-cluster>`__
+cluster) <https://github.com/expanse-org/go-expanse/wiki/Setting-up-private-network-or-local-cluster>`__
 potentially isolated from all the other nodes. If you then mine, you can
 make sure that your transaction will be included in the next block. You
 can see the pending transactions with:
 
 .. code:: js
 
-    eth.getBlock("pending", true).transactions
+    exp.getBlock("pending", true).transactions
 
 You can retrieve blocks by number (height) or by their hash:
 
 .. code:: js
 
-    genesis = eth.getBlock(0)
-    eth.getBlock(genesis.hash).hash == genesis.hash
+    genesis = exp.getBlock(0)
+    exp.getBlock(genesis.hash).hash == genesis.hash
     true
 
-Use ``eth.blockNumber`` to get the current blockchain height and the
+Use ``exp.blockNumber`` to get the current blockchain height and the
 "latest" magic parameter to access the current head (newest block).
 
 .. code:: js
 
-    currentHeight = eth.blockNumber()
-    eth.getBlock("latest").hash == eth.getBlock(eth.blockNumber).hash
+    currentHeight = exp.blockNumber()
+    exp.getBlock("latest").hash == exp.getBlock(exp.blockNumber).hash
     true
 
 Contract info (metadata)
@@ -389,7 +389,7 @@ registry. The first step registers the contract code (hash) with a
 content hash in a contract called ``HashReg``. The second step registers
 a url with the content hash in the ``UrlHint`` contract. These `simple
 registry
-contracts <https://github.com/ethereum/go-ethereum/blob/develop/common/registrar/contracts.go>`__
+contracts <https://github.com/expanse-org/go-expanse/blob/develop/common/registrar/contracts.go>`__
 will be part of the frontier proposition.
 
 By using this scheme, it is sufficient to know a contract's address to
@@ -417,9 +417,9 @@ model is used as document store, the url-hint is no longer necessary.)
 
     source = "contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"
     // compile with solc
-    contract = eth.compile.solidity(source).test
+    contract = exp.compile.solidity(source).test
     // create contract object
-    var MyContract = eth.contract(contract.info.abiDefinition)
+    var MyContract = exp.contract(contract.info.abiDefinition)
     // extracts info from contract, save the json serialisation in the given file,
     contenthash = admin.saveInfo(contract.info, "~/dapps/shared/contracts/test/info.json")
     // send off the contract to the blockchain
@@ -437,14 +437,14 @@ model is used as document store, the url-hint is no longer necessary.)
 Interacting with contracts
 ==========================
 
-```eth.contract`` <https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethcontract>`__
+```exp.contract`` <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethcontract>`__
 can be used to define a contract *class* that will comply with the
 contract interface as described in its `ABI
-definition <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__.
+definition <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__.
 
 .. code:: js
 
-    var Multiply7 = eth.contract(contract.info.abiDefinition);
+    var Multiply7 = exp.contract(contract.info.abiDefinition);
     var myMultiply7 = Multiply7.at(address);
 
 Now all the function calls specified in the abi are made available on
@@ -473,7 +473,7 @@ the contract info bundle and register it in the blockchain. The
 ``admin`` API provides convenience methods to fetch this bundle for any
 contract that chose to register. To see how it works, read about
 `Contract
-Metadata <https://github.com/ethereum/wiki/wiki/Contract-metadata>`__ or
+Metadata <https://github.com/expanse-org/wiki/wiki/Contract-metadata>`__ or
 read the contract info deployment section of this document.
 
 .. code:: js
@@ -527,8 +527,8 @@ steps above:
            return a * 7;
        }
     }"
-    contract = eth.compile.solidity(source).test
-    MyContract = eth.contract(contract.info.abiDefinition)
+    contract = exp.compile.solidity(source).test
+    MyContract = exp.contract(contract.info.abiDefinition)
     contenthash = admin.saveInfo(contract.info, "~/dapps/shared/contracts/test/info.json")
     MyContract.new({from: primary, data: contract.code}, function(error, contract){
       if(!error && contract.address) {
@@ -560,7 +560,7 @@ console with ``admin.startNatSpec()`` and ``admin.stopNatSpec()``.
 
 ::
 
-    geth --natspec --unlock primary console 2>> /tmp/eth.log
+    geth --natspec --unlock primary console 2>> /tmp/exp.log
 
 Now at the console type:
 
@@ -570,14 +570,14 @@ Now at the console type:
     var info = admin.getContractInfo(address)
     var abiDef = info.abiDefinition
     // instantiate a contract for transactions
-    var Multiply7 = eth.contract(abiDef);
+    var Multiply7 = exp.contract(abiDef);
     var myMultiply7 = Multiply7.at(address);
 
 And now try to send an actual transaction:
 
 .. code:: js
 
-    > myMultiply7.multiply.sendTransaction(6, {from: eth.accounts[0]})
+    > myMultiply7.multiply.sendTransaction(6, {from: exp.accounts[0]})
     NatSpec: Will multiply 6 by 7.
     Confirm? [y/n] y
     >
@@ -590,7 +590,7 @@ If the transaction is not picked up, we can see it with:
 
 .. code:: js
 
-    eth.pendingTransactions
+    exp.pendingTransactions
 
 This accumulates all the transactions sent, even the ones that were
 rejected and are not included in the current mined block (trans state).
@@ -598,15 +598,15 @@ These latter can be shown by:
 
 .. code:: js
 
-    eth.getBlock("pending", true).transactions()
+    exp.getBlock("pending", true).transactions()
 
 if you identify the index of your rejected transaction, you can resend
 it with modified gas limit and gas price (both optional parameters):
 
 .. code:: js
 
-    tx = eth.pendingTransactions[1]
-    eth.resend(tx, newGasPrice, newGasLimit)
+    tx = exp.pendingTransactions[1]
+    exp.resend(tx, newGasPrice, newGasLimit)
 
 Testing contracts and transactions
 ==================================
@@ -629,22 +629,22 @@ verbosity level is recommended:
 
 Before you can submit any transactions, you need mine some ether on your
 private chain and for that you need an account. See the sections on
-`Mining <https://github.com/ethereum/go-ethereum/wiki/Mining>`__ and
-`Accounts <https://github.com/ethereum/go-ethereum/wiki/Managing-Your-Accounts>`__
+`Mining <https://github.com/expanse-org/go-expanse/wiki/Mining>`__ and
+`Accounts <https://github.com/expanse-org/go-expanse/wiki/Managing-Your-Accounts>`__
 
 .. code:: js
 
     // create account. will prompt for password
     personal.newAccount("mypassword");
     // name your primary account, will often use it
-    primary = eth.accounts[0];
+    primary = exp.accounts[0];
     // check your balance (denominated in ether)
-    balance = web3.fromWei(eth.getBalance(primary), "ether");
+    balance = web3.fromWei(exp.getBalance(primary), "ether");
 
 .. code:: js
 
     // assume an existing unlocked primary account
-    primary = eth.accounts[0];
+    primary = exp.accounts[0];
 
     // mine 10 blocks to generate ether
 
@@ -654,7 +654,7 @@ private chain and for that you need an account. See the sections on
     admin.sleepBlocks(10);
     // then stop mining (just not to burn heat in vain)
     miner.stop()  ;
-    balance = web3.fromWei(eth.getBalance(primary), "ether");
+    balance = web3.fromWei(exp.getBalance(primary), "ether");
 
 After you create transactions, you can force process them with the
 following lines:
@@ -672,19 +672,19 @@ you can check your pending transactions with
     // shows transaction pool
     txpool.status
     // number of pending txs
-    eth.getBlockTransactionCount("pending");
+    exp.getBlockTransactionCount("pending");
     // print all pending txs
-    eth.getBlock("pending", true).transactions
+    exp.getBlock("pending", true).transactions
 
 If you submitted contract creation transaction, you can check if the
 desired code actually got inserted in the current blockchain:
 
 .. code:: js
 
-    txhash = eth.sendTansaction({from:primary, data: code})
+    txhash = exp.sendTansaction({from:primary, data: code})
     //... mining
-    contractaddress = eth.getTransactionReceipt(txhash);
-    eth.getCode(contractaddress)
+    contractaddress = exp.getTransactionReceipt(txhash);
+    exp.getCode(contractaddress)
 
 Registrar services
 ==================
@@ -716,7 +716,7 @@ chain you need to deploy these contracts at least once:
 
 .. code:: js
 
-    primary = eth.accounts[0];
+    primary = exp.accounts[0];
 
     globalRegistrarAddr = admin.setGlobalRegistrar("", primary);
     hashRegAddr = admin.setHashReg("", primary);
@@ -738,9 +738,9 @@ and the following ones return correct code:
 
 .. code:: js
 
-    eth.getCode(registrar.address);
-    eth.getCode(registrar.addr("HashReg"));
-    eth.getCode(registrar.addr("UrlHint"));
+    exp.getCode(registrar.address);
+    exp.getCode(registrar.addr("HashReg"));
+    exp.getCode(registrar.addr("UrlHint"));
 
 From the second time onwards on the same chain as well as on other
 nodes, you simply seed with the GlobalRegistrars address, the rest is
@@ -748,7 +748,7 @@ handled through it.
 
 .. code:: js
 
-    primary = eth.accounts[0];
+    primary = exp.accounts[0];
     globalRegistrarAddr = "0x225178b4829bbe7c9f8a6d2e3d9d87b66ed57d4f"
 
     // set the global registrar address
@@ -775,9 +775,9 @@ and the following ones return correct code:
 
 .. code:: js
 
-    eth.getCode(registrar.address);
-    eth.getCode(registrar.addr("HashReg"));
-    eth.getCode(registrar.addr("UrlHint"));
+    exp.getCode(registrar.address);
+    exp.getCode(registrar.addr("HashReg"));
+    exp.getCode(registrar.addr("UrlHint"));
 
 Using the registrar services
 ----------------------------
@@ -817,8 +817,8 @@ setting up the contract instances:
 
 .. code:: js
 
-    hashReg = eth.contract(hashRegAbi).at(registrar.addr("HashReg")));
-    urlHint = eth.contract(UrlHintAbi).at(registrar.addr("UrlHint")));
+    hashReg = exp.contract(hashRegAbi).at(registrar.addr("HashReg")));
+    urlHint = exp.contract(UrlHintAbi).at(registrar.addr("UrlHint")));
 
 Associate a content hash to a key hash:
 
@@ -844,7 +844,7 @@ Example script
 
 The example script below demonstrates most features discussed in this
 tutorial. You can run it with the
-`JSRE <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+`JSRE <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 as ``geth js script.js 2>>geth.log`` . If you want to run this test on a
 local private chain, then start geth with:
 
@@ -859,16 +859,16 @@ always the live net.
 
     personal.newAccount("")
 
-    primary = eth.accounts[0];
-    balance = web3.fromWei(eth.getBalance(primary), "ether");
+    primary = exp.accounts[0];
+    balance = web3.fromWei(exp.getBalance(primary), "ether");
     personal.unlockAccount(primary, "00");
     // miner.setEtherbase(primary)
 
     miner.start(8); admin.sleepBlocks(10); miner.stop()  ;
 
     // 0xc6d9d2cd449a754c494264e1809c50e34d64562b
-    primary = eth.accounts[0];
-    balance = web3.fromWei(eth.getBalance(primary), "ether");
+    primary = exp.accounts[0];
+    balance = web3.fromWei(exp.getBalance(primary), "ether");
 
     globalRegistrarTxHash = admin.setGlobalRegistrar("0x0");
     //'0x0'
@@ -876,9 +876,9 @@ always the live net.
     //'0xa69690d2b1a1dcda78bc7645732bb6eefcd6b188eaa37abc47a0ab0bd87a02e8'
     miner.start(1); admin.sleepBlocks(1); miner.stop();
     //true
-    globalRegistrarAddr = eth.getTransactionReceipt(globalRegistrarTxHash).contractAddress;
+    globalRegistrarAddr = exp.getTransactionReceipt(globalRegistrarTxHash).contractAddress;
     //'0x3d255836f5f8c9976ec861b1065f953b96908b07'
-    eth.getCode(globalRegistrarAddr);
+    exp.getCode(globalRegistrarAddr);
     //...
     admin.setGlobalRegistrar(globalRegistrarAddr);
     registrar = GlobalRegistrar.at(globalRegistrarAddr);
@@ -887,8 +887,8 @@ always the live net.
     hashRegTxHash = admin.setHashReg("", primary);
     txpool.status
     miner.start(1); admin.sleepBlocks(1); miner.stop();
-    hashRegAddr = eth.getTransactionReceipt(hashRegTxHash).contractAddress;
-    eth.getCode(hashRegAddr);
+    hashRegAddr = exp.getTransactionReceipt(hashRegTxHash).contractAddress;
+    exp.getCode(hashRegAddr);
 
     registrar.reserve.sendTransaction("HashReg", {from:primary});
     registrar.setAddress.sendTransaction("HashReg",hashRegAddr,true, {from:primary});
@@ -898,8 +898,8 @@ always the live net.
 
     urlHintTxHash = admin.setUrlHint("", primary);
     miner.start(1); admin.sleepBlocks(1); miner.stop();
-    urlHintAddr = eth.getTransactionReceipt(urlHintTxHash).contractAddress;
-    eth.getCode(urlHintAddr);
+    urlHintAddr = exp.getTransactionReceipt(urlHintTxHash).contractAddress;
+    exp.getCode(urlHintAddr);
 
     registrar.reserve.sendTransaction("UrlHint", {from:primary});
     registrar.setAddress.sendTransaction("UrlHint",urlHintAddr,true, {from:primary});
@@ -916,7 +916,7 @@ always the live net.
     ///// ///////////////////////////////
 
     admin.stopNatSpec();
-    primary = eth.accounts[0];
+    primary = exp.accounts[0];
     personal.unlockAccount(primary, "00")
 
     globalRegistrarAddr = "0xfd719187089030b33a1463609b7dfea0e5de25f0";
@@ -935,7 +935,7 @@ always the live net.
 
 
     /////////////////////////////////////
-    eth.getBlockTransactionCount("pending");
+    exp.getBlockTransactionCount("pending");
     miner.start(1); admin.sleepBlocks(1); miner.stop();
 
     source = "contract test {\n" +
@@ -944,16 +944,16 @@ always the live net.
     "      return a * 7;\n" +
     "   }\n" +
     "} ";
-    contract = eth.compile.solidity(source).test;
-    txhash = eth.sendTransaction({from: primary, data: contract.code});
+    contract = exp.compile.solidity(source).test;
+    txhash = exp.sendTransaction({from: primary, data: contract.code});
 
-    eth.getBlock("pending", true).transactions;
+    exp.getBlock("pending", true).transactions;
 
     miner.start(1); admin.sleepBlocks(1); miner.stop();
-    contractaddress = eth.getTransactionReceipt(txhash).contractAddress;
-    eth.getCode(contractaddress);
+    contractaddress = exp.getTransactionReceipt(txhash).contractAddress;
+    exp.getCode(contractaddress);
 
-    multiply7 = eth.contract(contract.info.abiDefinition).at(contractaddress);
+    multiply7 = exp.contract(contract.info.abiDefinition).at(contractaddress);
     fortytwo = multiply7.multiply.call(6);
 
     /////////////////////////////////
@@ -967,11 +967,11 @@ always the live net.
     filename = "/info.json";
     contenthash = admin.saveInfo(contract.info, "/tmp" + filename);
     admin.register(primary, contractaddress, contenthash);
-    eth.getBlock("pending", true).transactions;
+    exp.getBlock("pending", true).transactions;
     miner.start(1); admin.sleepBlocks(1); miner.stop();
 
     admin.registerUrl(primary, contenthash, "file://" + filename);
-    eth.getBlock("pending", true).transactions;
+    exp.getBlock("pending", true).transactions;
     miner.start(1); admin.sleepBlocks(1); miner.stop();
 
     ////////////////////
@@ -980,7 +980,7 @@ always the live net.
     contractaddress = registrar.addr("multiply7);
     // retrieve the info using the url
     info = admin.getContractInfo(contractaddress);
-    multiply7 = eth.contract(info.abiDefinition).at(contractaddress);
+    multiply7 = exp.contract(info.abiDefinition).at(contractaddress);
     // try Natspec
     admin.startNatSpec();
     fortytwo = multiply7.multiply.sendTransaction(6, { from: primary });

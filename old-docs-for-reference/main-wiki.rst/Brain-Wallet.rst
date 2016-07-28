@@ -1,4 +1,4 @@
-Ethereum brain wallets are formed through applying the SHA3 to a seed to
+Expanse brain wallets are formed through applying the SHA3 to a seed to
 get a result ``R``, then using ``R`` as an accumulator for 16384 repeat
 SHA3 operations. This process is continued until the result, when used
 as a private key, forms a valid Direct ICAP (34 digit) address, defined
@@ -18,7 +18,7 @@ as the first byte of the address being 0.
     END FUNCTION
 
 See `C++
-implementation <https://github.com/ethereum/cpp-ethereum/blob/develop/libethcore/KeyManager.cpp#L215-L225>`__
+implementation <https://github.com/expanse-org/cpp-expanse/blob/develop/libethcore/KeyManager.cpp#L215-L225>`__
 for an example.
 
 **Comments (Gustav):**
@@ -45,5 +45,5 @@ This would make our brainwallets much harder to crack, and perhaps even
 allowing the seed to be shorter, improving usability.
 
 1. https://rya.nc/cracking\_cryptocurrency\_brainwallets.pdf
-2. https://github.com/ethereum/go-ethereum/blob/master/crypto/crypto\_test.go#L65
-3. https://github.com/ethereum/wiki/wiki/Web3-Secret-Storage-Definition
+2. https://github.com/expanse-org/go-expanse/blob/master/crypto/crypto\_test.go#L65
+3. https://github.com/expanse-org/wiki/wiki/Web3-Secret-Storage-Definition

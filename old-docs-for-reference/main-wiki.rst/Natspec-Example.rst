@@ -47,7 +47,7 @@ Open up the example contract
 perform the only transaction that our example contract has defined in
 its interface. Open up Alethzero's internal browser and type in the
 following path to get to our example
-``/path/to/cpp-ethereum/libjsqrc/ethereumjs/example/natspec_contract.html``.
+``/path/to/cpp-expanse/libjsqrc/ethereumjs/example/natspec_contract.html``.
 
 You should see a page similar to below. Press the button to start the
 example. |Starting natspec example| ## Performing the transaction

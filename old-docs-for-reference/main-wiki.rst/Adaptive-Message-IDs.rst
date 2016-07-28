@@ -28,7 +28,7 @@ changed to 1*):
 sides. No other messages may be sent until a Hello is received. \*
 ``p2pVersion`` Specifies the implemented version of the P2P protocol.
 Now must be 1. \* ``clientId`` Specifies the client software identity,
-as a human-readable string (e.g. "Ethereum(++)/1.0.0"). \* ``cap``
+as a human-readable string (e.g. "Expanse(++)/1.0.0"). \* ``cap``
 Specifies a peer capability name as a length-3 ASCII string. Current
 supported capabilities are ``eth``, ``shh``. \* ``capVersion`` Specifies
 a peer capability version as a positive integer. Current supported

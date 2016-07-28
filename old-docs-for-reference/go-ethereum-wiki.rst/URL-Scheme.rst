@@ -13,7 +13,7 @@ the current urls scheme.
 
 Irrespective of the main protocol, ``<source>`` should be resolved with
 our version of DNS (``NameReg`` (ename registration contract on
-Ethereum) and/or via swarm signed version stream.
+Expanse) and/or via swarm signed version stream.
 
 In the special case of the bzz protocol, ``<source>`` must resolve to a
 Swarm hash of the content (in other words, the root key of the content).
@@ -173,7 +173,7 @@ In a typical scenario, the developer has a website within a working copy
 directory on their dev environment and they want to create a
 decentralised version of their site.
 
-They then register the host domain with ethereum NameReg or swarm signed
+They then register the host domain with expanse NameReg or swarm signed
 version stream, upload all desired static assets to swarm, and produce a
 site manifest.
 

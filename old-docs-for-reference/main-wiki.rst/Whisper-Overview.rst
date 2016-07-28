@@ -38,10 +38,10 @@ Example ("Dream") API Usage
         var broadcaster = web3.toAscii(m.payload).substr(0, 32);
         console.log("Broadcast from " + broadcaster + "; replying to tell them our name.");
         shh.post({
-          "from": eth.key,
+          "from": exp.key,
           "to": m.from,
-          "topics": [ eth.fromAscii(appName), m.from ],
-          "payload": [ eth.fromAscii(myName) ],
+          "topics": [ exp.fromAscii(appName), m.from ],
+          "payload": [ exp.fromAscii(myName) ],
           "ttl": 2,
           "priority": 500
         });
@@ -105,13 +105,13 @@ secure multi-casting. For this, you set up a group with
 
 ::
 
-    var group = shh.newGroup(eth.key, [ recipient1, recipient2 ]);
+    var group = shh.newGroup(exp.key, [ recipient1, recipient2 ]);
 
 Then can use this as a recipient as you would normally:
 
 ::
 
-    shh.post({ "from": eth.key, "to": group, "topic": t, "payload": p });
+    shh.post({ "from": exp.key, "to": group, "topic": t, "payload": p });
 
 The ``newGroup`` actually does something like:
 

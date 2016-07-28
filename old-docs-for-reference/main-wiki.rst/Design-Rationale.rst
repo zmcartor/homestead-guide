@@ -1,23 +1,23 @@
-Although Ethereum borrows many ideas that have already been tried and
+Although Expanse borrows many ideas that have already been tried and
 tested for half a decade in older cryptocurrencies like Bitcoin, there
-are a number of places in which Ethereum diverges from the most common
+are a number of places in which Expanse diverges from the most common
 way of handling certain protocol features, and there are also many
-situations in which Ethereum has been forced to develop completely new
+situations in which Expanse has been forced to develop completely new
 economic approaches because it offers functionality that is not offered
 by other existing systems. The purpose of this document will be to
 detail all of the finer potentially nonobvious or in some cases
 controversial decisions that were made in the process of building the
-Ethereum protocol, as well as showing the risks involved in both our
+Expanse protocol, as well as showing the risks involved in both our
 approach and possible alternatives.
 
 Principles
 ----------
 
-The Ethereum protocol design process follows a number of principles:
+The Expanse protocol design process follows a number of principles:
 
 1. **Sandwich complexity model**: we believe that the bottom level
-   architecture of Ethereum should be as simple as possible, and the
-   interfaces to Ethereum (including high level programming languages
+   architecture of Expanse should be as simple as possible, and the
+   interfaces to Expanse (including high level programming languages
    for developers and the user interface for users) should be as easy to
    understand as possible. Where complexity is inevitable, it should be
    pushed into the "middle layers" of the protocol, that are not part of
@@ -27,8 +27,8 @@ The Ethereum protocol design process follows a number of principles:
    storage interface and the wire protocol, etc. However, this
    preference is not absolute.
 2. **Freedom**: users should not be restricted in what they use the
-   Ethereum protocol for, and we should not attempt to preferentially
-   favor or disfavor certain kinds of Ethereum contracts or transactions
+   Expanse protocol for, and we should not attempt to preferentially
+   favor or disfavor certain kinds of Expanse contracts or transactions
    based on the nature of their purpose. This is similar to the guiding
    principle behind the concept of "net neutrality". One example of this
    principle *not* being followed is the situation in the Bitcoin
@@ -36,12 +36,12 @@ The Ethereum protocol design process follows a number of principles:
    purposes (eg. data storage, meta-protocols) is discouraged, and in
    some cases explicit quasi-protocol changes (eg. OP\_RETURN
    restriction to 40 bytes) are made to attempt to attack applications
-   using the blockchain in "unauthorized" ways. In Ethereum, we instead
+   using the blockchain in "unauthorized" ways. In Expanse, we instead
    strongly favor the approach of setting up transaction fees in such a
    way as to be roughly incentive-compatible, such that users that use
    the blockchain in bloat-producing ways internalize the cost of their
    activities (ie. Pigovian taxation).
-3. **Generalization**: protocol features and opcodes in Ethereum should
+3. **Generalization**: protocol features and opcodes in Expanse should
    embody maximally low-level concepts, so that they can be combined in
    arbitrary ways including ways that may not seem useful today but
    which may become useful later, and so that a bundle of low-level
@@ -60,7 +60,7 @@ The Ethereum protocol design process follows a number of principles:
    want to do it they can always create a sub-protocol (eg. ether-backed
    subcurrency, bitcoin/litecoin/dogecoin sidechain, etc) inside of a
    contract. An example of this is the lack of a Bitcoin-like "locktime"
-   feature in Ethereum, as such a feature can be simulated via a
+   feature in Expanse, as such a feature can be simulated via a
    protocol where users send "signed data packets" and those data
    packets can be fed into a specialized contract that processes them
    and performs some corresponding function if the data packet is in
@@ -70,17 +70,17 @@ The Ethereum protocol design process follows a number of principles:
    generalized state transitions, 50x faster block times, consensus
    efficiency, etc)
 
-These principles are all involved in guiding Ethereum development, but
+These principles are all involved in guiding Expanse development, but
 they are not absolute; in some cases, desire to reduce development time
 or not to try too many radical things at once has led us to delay
 certain changes, even some that are obviously beneficial, to a future
-release (eg. Ethereum 1.1).
+release (eg. Expanse 1.1).
 
 Blockchain-level protocol
 -------------------------
 
 This section provides a description of some of the blockchain-level
-protocol changes made in Ethereum, including how blocks and transactions
+protocol changes made in Expanse, including how blocks and transactions
 work, how data is serialized and stored, and the mechanisms behind
 accounts.
 
@@ -107,9 +107,9 @@ signature.
 | |image0|
 | (Image from https://bitcoin.org/en/developer-guide)
 
-Ethereum jettisons this scheme in favor of a simpler approach: the state
+Expanse jettisons this scheme in favor of a simpler approach: the state
 stores a list of accounts where each account has a balance, as well as
-Ethereum-specific data (code and internal storage), and a transaction is
+Expanse-specific data (code and internal storage), and a transaction is
 valid if the sending account has enough balance to pay for it, in which
 case the sending account is debited and the receiving account is
 credited with the value. If the receiving account has code, the code
@@ -145,7 +145,7 @@ The benefits of accounts are:
    below)). In reality savings are not nearly this massive because
    accounts need to be stored in a Patricia tree (see below) but they
    are nevertheless large. Additionally, transactions can be smaller
-   (eg. 100 bytes in Ethereum vs. 200-250 bytes in Bitcoin) because
+   (eg. 100 bytes in Expanse vs. 200-250 bytes in Bitcoin) because
    every transaction need only make one reference and one signature and
    produces one output.
 2. **Greater fungibility**: because there is no blockchain-level concept
@@ -193,7 +193,7 @@ Merkle Patricia Trees
 
 The Merkle Patricia tree/trie, previously envisioned by Alan Reiner and
 implemented in the Ripple protocol, is the primary data structure of
-Ethereum, and is used to store all account state, as well as
+Expanse, and is used to store all account state, as well as
 transactions and receipts in each block. The MPT is a combination of a
 `Merkle tree <https://en.wikipedia.org/wiki/Merkle_tree>`__ and
 `Patricia tree <https://en.wikipedia.org/wiki/Radix_tree>`__, taking the
@@ -207,8 +207,8 @@ properties:
    logarithmic time
 
 This gives us a way of providing an efficient, easily updateable,
-"fingerprint" of our entire state tree. The Ethereum MPT is formally
-described here: https://github.com/ethereum/wiki/wiki/Patricia-Tree
+"fingerprint" of our entire state tree. The Expanse MPT is formally
+described here: https://github.com/expanse-org/wiki/wiki/Patricia-Tree
 
 Specific design decisions in the MPT include:
 
@@ -224,14 +224,14 @@ Specific design decisions in the MPT include:
    end up with at the very least state root mismatches, we have decided
    to table such a reorganization until 1.1.
 3. **No distinction between empty value and non-membership**: this was
-   done for simplicity, and because it works well with Ethereum's
+   done for simplicity, and because it works well with Expanse's
    default that values that are unset (eg. balances) generally mean zero
    and the empty string is used to represent zero. However, we do note
    that it sacrifices some generality and is thus slightly suboptimal.
 4. **Distinction between terminating and non-terminating nodes**:
    technically, the "is this node terminating" flag is unnecessary, as
-   all tries in Ethereum are used to store static key lengths, but we
-   added it anyway to increase generality, hoping that the Ethereum MPT
+   all tries in Expanse are used to store static key lengths, but we
+   added it anyway to increase generality, hoping that the Expanse MPT
    implementations will be used as-is by other cryptographic protocols.
 5. **Using sha3(k) as the key in the "secure tree"** (used in the state
    and account storage tries): this makes it much more difficult to DoS
@@ -245,9 +245,9 @@ RLP
 ---
 
 RLP ("recursive length prefix") encoding is the main serialization
-format used in Ethereum, and is used everywhere - for blocks,
+format used in Expanse, and is used everywhere - for blocks,
 transactions, account state data and wire protocol messages. RLP is
-formally described here: https://github.com/ethereum/wiki/wiki/RLP
+formally described here: https://github.com/expanse-org/wiki/wiki/RLP
 
 RLP is intended to be a highly minimalistic serialization format; its
 sole purpose is to store nested arrays of bytes. Unlike
@@ -295,12 +295,12 @@ the exception of a few special cases for common values like
     >>> compress("\xc5\xd2F\x01\x86\xf7#<\x92~}\xb2\xdc\xc7\x03\xc0\xe5\x00\xb6S\xca\x82';{\xfa\xd8\x04]\x85\xa4p")
     '\xfe\x01'
 
-Before the compression algorithm existed, many parts of the Ethereum
+Before the compression algorithm existed, many parts of the Expanse
 protocol had a number of special cases; for example, ``sha3`` was often
 overridden so that ``sha3('') = ''``, as that would save 64 bytes from
 not needing to store code or storage in accounts. However, a change was
 made recently where all of these special cases were removed, making
-Ethereum data structures much bulkier by default, instead adding the
+Expanse data structures much bulkier by default, instead adding the
 data saving functionality to a layer outside the blockchain protocol by
 putting it on the wire protocol and seamlessly inserting it into users'
 database implementations. This adds modularity, simplifying the
@@ -314,7 +314,7 @@ Trie Usage
 Warning: this section assumes knowledge of how bloom filters work. For
 an introduction, see http://en.wikipedia.org/wiki/Bloom\_filter
 
-Every block header in the Ethereum blockchain contains pointers to three
+Every block header in the Expanse blockchain contains pointers to three
 tries: the *state trie*, representing the entire state after accessing
 the block, the *transaction trie*, representing all transactions in the
 block keyed by index (ie. key 0: the first transaction to execute, key
@@ -342,10 +342,10 @@ Where:
 
 There is also a bloom in the block header, which is the OR of all of the
 blooms for the transactions in the block. The purpose of this
-construction is to make the Ethereum protocol light-client friendly in
-as many ways as possible. For more details on Ethereum light clients and
+construction is to make the Expanse protocol light-client friendly in
+as many ways as possible. For more details on Expanse light clients and
 their use cases, see the `light client page (principles
-section) <https://github.com/ethereum/wiki/wiki/Light-client-protocol#principles>`__.
+section) <https://github.com/expanse-org/wiki/wiki/Light-client-protocol#principles>`__.
 
 Uncle incentivization
 ---------------------
@@ -376,7 +376,7 @@ As described by Sompolinsky and Zohar, GHOST solves the first issue of
 network security loss by including stale blocks in the calculation of
 which chain is the "longest"; that is to say, not just the parent and
 further ancestors of a block, but also the stale descendants of the
-block's ancestor (in Ethereum jargon, "uncles") are added to the
+block's ancestor (in Expanse jargon, "uncles") are added to the
 calculation of which block has the largest total proof of work backing
 it.
 
@@ -386,21 +386,21 @@ strategy: we provide block rewards to stales: a stale block receives 7/8
 receives 1/32 (3.125%) of the base reward as an inclusion bounty.
 Transaction fees, however, are not awarded to uncles or nephews.
 
-In Ethereum, stale block can only be included as an uncle by up to the
+In Expanse, stale block can only be included as an uncle by up to the
 seventh-generation descendant of one of its direct siblings, and not any
 block with a more distant relation. This was done for several reasons.
 First, unlimited GHOST would include too many complications into the
 calculation of which uncles for a given block are valid. Second,
-unlimited uncle incentivization as used in Ethereum removes the
+unlimited uncle incentivization as used in Expanse removes the
 incentive for a miner to mine on the main chain and not the chain of a
 public attacker. Finally, calculations show that restricting to seven
 levels provides most of the desired effect without many of the negative
 consequences.
 
 -  A simulator that measures centralization risks is available at
-   https://github.com/ethereum/economic-modeling/blob/master/ghost.py
+   https://github.com/expanse-org/economic-modeling/blob/master/ghost.py
 -  A high-level discussion can be found at
-   https://blog.ethereum.org/2014/07/11/toward-a-12-second-block-time/
+   https://blog.expanse.org/2014/07/11/toward-a-12-second-block-time/
 
 Design decisions in our block time algorithm include:
 
@@ -432,13 +432,13 @@ Design decisions in our block time algorithm include:
 -  **Reward distribution**: 7/8 of the base mining reward to the uncle,
    1/32 to the nephew, 0% of transaction fees to either. This will make
    uncle incentivization ineffective from a centralization perspective
-   if fees dominate; however, this is one of the reasons why Ethereum is
+   if fees dominate; however, this is one of the reasons why Expanse is
    meant to continue issuing ether for as long as we continue using PoW.
 
 Difficulty Update Algorithm
 ---------------------------
 
-The difficulty in Ethereum is currently updated according to the
+The difficulty in Expanse is currently updated according to the
 following rule:
 
 ::
@@ -473,7 +473,7 @@ least we plan to switch the timestamps compares to be the parent and
 grandparent, so that miners only have the incentive to modify timestamps
 if they are mining two blocks in a row. Another more powerful formula
 with simulations is located at
-https://github.com/ethereum/economic-modeling/blob/master/diffadjust/blkdiff.py
+https://github.com/expanse-org/economic-modeling/blob/master/diffadjust/blkdiff.py
 (the simulator uses Bitcoin mining power, but uses the per-day average
 for the entire day; it at one point simulates a 95% crash in a single
 day).
@@ -483,10 +483,10 @@ Gas and Fees
 
 Whereas all transactions in Bitcoin are roughly the same, and thus their
 cost to the network can be modeled to a single unit, transactions in
-Ethereum are more complex, and so a transaction fee system needs to take
+Expanse are more complex, and so a transaction fee system needs to take
 into account many ingredients, including cost of bandwidth, cost of
 storage and cost of computation. Of particular importance is the fact
-that the Ethereum programming language is Turing-complete, and so
+that the Expanse programming language is Turing-complete, and so
 transactions may use bandwidth, storage and computation in arbitrary
 quantities, and the latter may end up being used in quantities that due
 to the halting problem cannot even be reliably predicted ahead of time.
@@ -550,7 +550,7 @@ Each of the above components is necessary. For example:
    starve the entire transaction execution.
 -  Requiring transaction senders to pay for gas instead of contracts
    substantially increases developer usability. Very early versions of
-   Ethereum had contracts pay for gas, but this led to the rather ugly
+   Expanse had contracts pay for gas, but this led to the rather ugly
    problem that every contract had to implement "guard" code that would
    make sure that every incoming message compensated the contract with
    enough ether to pay for the gas that it consumed.
@@ -625,7 +625,7 @@ Note the following particular features in gas costs:
 The other important part of the gas mechanism is the economics of the
 gas price itself. The default approach, used in Bitcoin, is to have
 purely voluntary fees, relying on miners to act as the gatekeepers and
-set dynamic minimums; the equivalent in Ethereum would be allowing
+set dynamic minimums; the equivalent in Expanse would be allowing
 transaction senders to set arbitrary gas costs. This approach has been
 received very favorably in the Bitcoin community particularly because it
 is "market-based", allowing supply and demand between miners and
@@ -650,8 +650,8 @@ more precise algorithm.
 Virtual Machine
 ---------------
 
-The Ethereum virtual machine is the engine in which transaction code
-gets executed, and is the core differentiating feature between Ethereum
+The Expanse virtual machine is the engine in which transaction code
+gets executed, and is the core differentiating feature between Expanse
 and other systems. Note that the *virtual machine* should be considered
 separately from the *contract and message model* - for example, the
 SIGNEXTEND opcode is a feature of the VM, but the fact that contracts
@@ -733,7 +733,7 @@ Some particular design decisions that were made:
    consensus failures, (ii) it allows us to specialize the VM much more,
    eg. by having a 32 byte word size, (iii) it allows us not to have a
    very complex external dependency which may lead to installation
-   difficulties, and (iv) a full security review of Ethereum specific to
+   difficulties, and (iv) a full security review of Expanse specific to
    our particular security needs would necessitate a security review of
    the external VM anyway, so the effort savings are not that large.
 -  **Using a variable extendable memory size** - we deemed a fixed
@@ -776,10 +776,10 @@ below:
    machines may in the future be able to detect long-running chunks of
    code that deals primarily with 32-byte integers and speed it up
    considerably.
--  **SHA3**: SHA3 is very highly applicable in Ethereum code as secure
+-  **SHA3**: SHA3 is very highly applicable in Expanse code as secure
    infinite-sized hash maps that use storage will likely need to use a
    secure hash function so as to prevent malicious collisions, as well
-   as for verifying Merkle trees and even verifying Ethereum-like data
+   as for verifying Merkle trees and even verifying Expanse-like data
    structures. A key point is that its companions ``SHA256``,
    ``ECRECOVER`` and ``RIPEMD160`` are included not as opcodes but as
    pseudo-contracts. The purpose of this is to place them into a
@@ -795,8 +795,8 @@ below:
    economic set for sub-consensus-based applications like Schellingcoin.
 -  **PREVHASH**: used as a semi-secure source of randomness, and to
    allow contracts to evaluate Merkle tree proofs of state in the
-   previous block without requiring a highly complex recursive "Ethereum
-   light client in Ethereum" construction.
+   previous block without requiring a highly complex recursive "Expanse
+   light client in Expanse" construction.
 -  **EXTCODESIZE**, **EXTCODECOPY**: the primary uses here are to allow
    contracts to check the code of other contracts against a template, or
    even simulating them, before interacting with them. See

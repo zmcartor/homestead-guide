@@ -31,9 +31,9 @@ Then for index.html:
         number: <span id="n"></span>
     <script>
         function update() {
-            document.getElementById('n').innerHTML = web3.eth.blockNumber;
+            document.getElementById('n').innerHTML = web3.exp.blockNumber;
         }
-        web3.eth.filter('latest', update);
+        web3.exp.filter('latest', update);
     </script>
     </body>
     </html>
@@ -99,7 +99,7 @@ the package (package.dapp) will be available inside the deployment
 directory.
 
 -  **The Registration of front end resources**: To render the dapp, the
-   Ethereum browser (Mist or AlethZero) needs to access this package.
+   Expanse browser (Mist or AlethZero) needs to access this package.
    This step will register the URL where the resources are stored.
 
 To Deploy your dapp, Please follow these instructions:
@@ -115,12 +115,12 @@ two parts, We will focus on the first part (Deployment) for now:
   built), ``Exit`` to close this modal dialog.
 |  - ``Root Registrar address`` is the address of the root registrar
   contract (used to link the dapp with resources. -
-  ``Account used to deploy`` allows users to select the Ethereum account
+  ``Account used to deploy`` allows users to select the Expanse account
   to use to deploy. - ``Amount of gas to use..`` is the amount of gas
   that the deployment process will use to deploy contracts. -
-  ``Ethereum Application URL`` is the address that users should use in
+  ``Expanse Application URL`` is the address that users should use in
   Mist (or AlethZero) to access to the dapp. in italic, you can check
-  the formatted dapp URL (which will be used by the Ethereum browser)
+  the formatted dapp URL (which will be used by the Expanse browser)
   (ex: eth/user1/app1). - ``Web Application Resources URL`` is the URL
   where the front resources (html/js/...) will be stored. - 1 button to
   start the deployment process (The checkbox ``Deploy Contract(s)`` is
@@ -149,13 +149,13 @@ Application Resources URL\` field.
 **Registration of front end resources** - ``URL Hint contract address``
 is the address of the contract which is used to store the URL where the
 resources are. - ``Web Application Resources URL`` is the URL from where
-the Ethereum browser will retrieve resources.
+the Expanse browser will retrieve resources.
 
 Click on ``Register hosted Web Application`` and Mix will register the
-front end resources on the Ethereum network.
+front end resources on the Expanse network.
 
 Users can now use Mist or AlethZero to access to the dapp, using the
-Ethereum URL (ex: eth/user1/app1).
+Expanse URL (ex: eth/user1/app1).
 
 Account Management
 ==================

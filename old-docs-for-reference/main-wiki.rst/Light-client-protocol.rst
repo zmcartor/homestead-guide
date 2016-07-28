@@ -2,7 +2,7 @@ The purpose of the light client protocol is to allow users in
 low-capacity environments (embedded smart property environments,
 smartphones, browser extensions, some desktops, etc) to maintain a
 high-security assurance about the current state of some particular part
-of the Ethereum state or verify the execution of a transaction. Although
+of the Expanse state or verify the execution of a transaction. Although
 full security is only possible for a full node, the light client
 protocol allows light nodes processing about 1KB of data per 2 minutes
 to receive data from the network about the parts of the state that are
@@ -13,9 +13,9 @@ even only provided that at least one honest verifying full node exists.
 Background: Patricia Merkle Trees
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-All substantial quantities of data in Ethereum are stored in a data
+All substantial quantities of data in Expanse are stored in a data
 structure known as the `Patricia Merkle
-tree <https://github.com/ethereum/wiki/wiki/%5BEnglish%5D-Patricia-Tree>`__,
+tree <https://github.com/expanse-org/wiki/wiki/%5BEnglish%5D-Patricia-Tree>`__,
 a tree structure where each node in the tree is the hash of its
 children. Each set of key/value pairs maps to a unique root hash, and
 only a small subset of nodes is needed to prove that a particular
@@ -50,7 +50,7 @@ if there is a "node not found" error, then the proof is invalid.
 Principles
 ----------
 
-In Ethereum, a light client can be viewed as a client that downloads
+In Expanse, a light client can be viewed as a client that downloads
 block headers by default, and verifies only a small portion of what
 needs to be verified, using a distributed hash table as a database for
 trie nodes in place of its local hard drive. For a "partially light
@@ -119,12 +119,12 @@ to point to "interesting" transaction indices and decommission providers
 if they are revealed to have missed a transaction. The first protocol is
 useful to simply check up on state, and the second in consumer-merchant
 scenarios to check that a transaction was validated. The third protocol
-allows Ethereum light clients to collectively validate blocks with a
+allows Expanse light clients to collectively validate blocks with a
 very low degree of trust. In Bitcoin, for example, a miner can create a
 block that gives the miner an excessive amount of transaction fees, and
 there would be no way for light nodes to detect this themselves, or upon
 seeing an honest full node detect it verify a proof of invalidity. In
-Ethereum, if a block is invalid, it must contain an invalid state
+Expanse, if a block is invalid, it must contain an invalid state
 transition at some index, and so a light client that happens to be
 verifying that index can see that something is wrong, either because the
 proof step does not check out, or because data is unavailable, and that

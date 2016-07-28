@@ -1,24 +1,24 @@
 Legacy
 ------
 
--  `iceCREAM <https://github.com/ethereum/go-ethereum/wiki/iceCREAM-(debugger)>`__
+-  `iceCREAM <https://github.com/expanse-org/go-expanse/wiki/iceCREAM-(debugger)>`__
 
--  `eth-go <https://github.com/ethereum/go-ethereum/wiki/Creating-your-own-Ethereum-apps-using-Eth-go>`__:
+-  `eth-go <https://github.com/expanse-org/go-expanse/wiki/Creating-your-own-Expanse-apps-using-Eth-go>`__:
    An introduction which will help you bootstrap your own, native, Go
-   Ethereum application.
+   Expanse application.
 
 Mutan
 ~~~~~
 
 `Mutan 0.5
-Examples <https://github.com/ethereum/go-ethereum/wiki/Mutan-0.5-Examples>`__
+Examples <https://github.com/expanse-org/go-expanse/wiki/Mutan-0.5-Examples>`__
 
 `Mutan 0.4
-Examples <https://github.com/ethereum/go-ethereum/wiki/Mutan-0.4-Examples>`__
+Examples <https://github.com/expanse-org/go-expanse/wiki/Mutan-0.4-Examples>`__
 
-`Mutan 0.4 <https://github.com/ethereum/go-ethereum/wiki/Mutan-0.4>`__
+`Mutan 0.4 <https://github.com/expanse-org/go-expanse/wiki/Mutan-0.4>`__
 
-`Mutan 0.2 <https://github.com/ethereum/go-ethereum/wiki/Mutan-0.2>`__
+`Mutan 0.2 <https://github.com/expanse-org/go-expanse/wiki/Mutan-0.2>`__
 
 `Mutan 0.2
-Example <https://github.com/ethereum/go-ethereum/wiki/Mutan-0.2-Example>`__
+Example <https://github.com/expanse-org/go-expanse/wiki/Mutan-0.2-Example>`__

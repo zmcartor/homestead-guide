@@ -3,7 +3,7 @@ OS X DMG (disk image)
 --------------------------------------------------------------------------------
 
 We generate OS X disk images
-`for each release <https://github.com/ethereum/webthree-umbrella/releases>`_.
+`for each release <https://github.com/expanse-org/webthree-umbrella/releases>`_.
 
 We **only** support the two most recent OS X versions:
 

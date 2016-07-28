@@ -40,8 +40,8 @@ Get the source
 
 Clone the git repository containing all the source code by executing the following command: ::
 
-    git clone --recursive https://github.com/bobsummerwill/cpp-ethereum.git
-    cd cpp-ethereum
+    git clone --recursive https://github.com/bobsummerwill/cpp-expanse.git
+    cd cpp-expanse
     git checkout merge_repos
     git submodule update --init
     
@@ -64,9 +64,9 @@ solution file using CMake: ::
     cd build
     cmake -G "Visual Studio 14 2015 Win64" ..
 
-Which should result in the creation of **cpp-ethereum.sln** in that build directory.
+Which should result in the creation of **cpp-expanse.sln** in that build directory.
 
-**NOTE: We only support Visual Studio 2015 as of cpp-ethereum-v.1.3.0.**
+**NOTE: We only support Visual Studio 2015 as of cpp-expanse-v.1.3.0.**
 
 Double-clicking on that file should result in Visual Studio firing up. We suggest
 building **RelWithDebugInfo** configuration, but all others work.

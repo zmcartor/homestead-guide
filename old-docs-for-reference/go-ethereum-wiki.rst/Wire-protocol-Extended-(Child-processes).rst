@@ -1,6 +1,6 @@
-Ethereum Child processes allow any node to connect to an existing node
+Expanse Child processes allow any node to connect to an existing node
 and share it's parent process to handle all network communication and
-data persisting. This will allow for multiple Ethereum light nodes on
+data persisting. This will allow for multiple Expanse light nodes on
 the same host with full access to the block chain through the parent
 process.
 

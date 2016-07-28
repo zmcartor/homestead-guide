@@ -4,7 +4,7 @@ Introduction
 The word mining originates in the context of the gold analogy for crypto
 currencies. Gold or precious metals are scarce, so are digital tokens,
 and the only way to increase the total volume is through mining it. This
-is appropriate to the extent that in Ethereum too, the only mode of
+is appropriate to the extent that in Expanse too, the only mode of
 issuance post launch is via the mining. Unlike these examples however,
 mining is also the way to secure the network by creating, verifying,
 publishing and propagating blocks in the blockchain.
@@ -14,18 +14,18 @@ publishing and propagating blocks in the blockchain.
 So what is mining anyway?
 -------------------------
 
-Ethereum Frontier like all blockchain technologies uses an
+Expanse Frontier like all blockchain technologies uses an
 incentive-driven model of security. Consensus is based on choosing the
 block with the highest total difficulty. Miners produce blocks which the
 others check for validity. Among other well-formedness criteria, a block
 is only valid if it contains **proof of work** (PoW) of a given
-**difficulty**. Note that in Ethereum 1.1, this is likely gonna be
+**difficulty**. Note that in Expanse 1.1, this is likely gonna be
 replaced by a **proof of stake** model.
 
 [The proof of work algorithm used is called
-`Ethash <https://github.com/ethereum/wiki/wiki/Ethash>`__ (a modified
+`Ethash <https://github.com/expanse-org/wiki/wiki/Ethash>`__ (a modified
 version of
-`Dagger-Hashimoto <https://github.com/ethereum/wiki/wiki/Dagger-Hashimoto>`__
+`Dagger-Hashimoto <https://github.com/expanse-org/wiki/wiki/Dagger-Hashimoto>`__
 involves finding a nonce input to the algorithm so that the result is
 below a certain threshold depending on the difficulty. The point in PoW
 algorithms is that there is no better strategy to find such a nonce than
@@ -51,7 +51,7 @@ Ethash PoW is memory hard, making it basically ASIC resistant. This
 basically means that calculating the PoW requires choosing subsets of a
 fixed resource dependent on the nonce and block header. This resource (a
 few gigabyte size data) is called a **DAG**. The
-`DAG <https://github.com/ethereum/wiki/wiki/Ethash-DAG>`__ is totally
+`DAG <https://github.com/expanse-org/wiki/wiki/Ethash-DAG>`__ is totally
 different every 30000 blocks (a 100 hour window, called an **epoch**)
 and takes a while to generate. Since the DAG only depends on block
 height, it can be pregenerated but if its not, the client need to wait
@@ -69,9 +69,9 @@ Mining Rewards
 
 Note that mining 'real' Ether will start with the Frontier release. On
 the Olympics testnet, the `Frontier
-pre-release <http://ethereum.gitbooks.io/frontier-guide/>`__, the ether
+pre-release <http://expanse.gitbooks.io/frontier-guide/>`__, the ether
 mined have no value (but see `Olympic
-rewards <https://blog.ethereum.org/2015/05/09/olympic-frontier-pre-release/>`__).
+rewards <https://blog.expanse.org/2015/05/09/olympic-frontier-pre-release/>`__).
 
 The successful PoW miner of the winning block receives: \* A **static
 block reward** for the 'winning' block, consisting of exactly 5.0 Ether
@@ -121,7 +121,7 @@ so that it can shared between clients.
 The Algorithm
 =============
 
-Our algorithm, `Ethash <https://github.com/ethereum/wiki/wiki/Ethash>`__
+Our algorithm, `Ethash <https://github.com/expanse-org/wiki/wiki/Ethash>`__
 (previously known as Dagger-Hashimoto), is based around the provision of
 a large, transient, randomly generated dataset which forms a DAG (the
 Dagger-part), and attempting to solve a particular constraint on it,
@@ -150,7 +150,7 @@ Infrastructure Overview
 
 Mining will be accomplished in one of two ways: either on CPU (and
 possibly the GPU, to be confirmed) with the Mist client or on the GPU
-though a combination of the Ethereum daemon and
+though a combination of the Expanse daemon and
 `sgminer <https://github.com/sgminer-dev/sgminer>`__.
 
 An sgminer module for Ethash is expected to be released at some point
@@ -159,10 +159,10 @@ during, but not necessarily before the Frontier Genesis.
 JSON-RPC
 --------
 
-Communication between the external mining application and the Ethereum
+Communication between the external mining application and the Expanse
 daemon for work provision and submission happens through the JSON-RPC
 API. Two RPC functions are provided; ``eth_getWork`` and
 ``eth_submitWork``.
 
 These are formally documented on the `JSON-RPC
-API <https://github.com/ethereum/wiki/wiki/JSON-RPC>`__ wiki article.
+API <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`__ wiki article.

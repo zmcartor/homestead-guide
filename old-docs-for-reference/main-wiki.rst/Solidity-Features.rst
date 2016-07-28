@@ -2,7 +2,7 @@ This is a list to explain and demonstrate new Solidity features as soon
 as they are completed. It is used as a kind of changelog and items
 introduced at some point might be changed at a later point. The official
 reference is the
-`Documentation <https://ethereum.github.io/solidity/>`__ which should
+`Documentation <https://expanse.github.io/solidity/>`__ which should
 always reflect the current state of the language.
 
 Special Type Treatment for Integer Literals
@@ -628,7 +628,7 @@ arguments for the base constructor in the header will be optional later.
 Detect failed CALLs
 -------------------
 
-`PT <https://github.com/ethereum/cpp-ethereum/pull/1212>`__ If a CALL
+`PT <https://github.com/expanse-org/cpp-expanse/pull/1212>`__ If a CALL
 fails, do not just silently continue. Currently, this issues a STOP but
 it will throw an exception once we have exceptions.
 
@@ -1552,7 +1552,7 @@ resources discovered via e.g. ipfs, http or git.
 
 When the compiler is invoked, it is not only possible to specify how to
 discover the first element of a path, but it is possible to specify path
-prefix remappings so that e.g. ``github.com/ethereum/dapp-bin/library``
+prefix remappings so that e.g. ``github.com/expanse-org/dapp-bin/library``
 is remapped to ``/usr/local/dapp-bin/library`` and the compiler will
 read the files from there. If remapping keys are prefixes of each other,
 the longest is tried first. This allows for a "fallback-remapping" with

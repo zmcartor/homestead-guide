@@ -8,7 +8,7 @@ Found in ``\Basic Tests\difficulty*.json`` files. This tests are designed to jus
 
 difficulty = DIFFICULTY(currentBlockNumber, currentTimestamp, parentTimestamp, parentDifficulty)
 
-described at [EIP2](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2.mediawiki) point 4 with homestead changes.
+described at [EIP2](https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-2.mediawiki) point 4 with homestead changes.
 
 So basically this .json tests are just to check how this function is calculated on different function parameters (parentDifficulty, currentNumber) in it's extremum points. 
 

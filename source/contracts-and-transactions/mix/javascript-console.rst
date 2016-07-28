@@ -5,11 +5,11 @@ JavaScript console
 
 Mix exposes the following objects into the global window context
 
-web3 - Ethereum JavaScript API
+web3 - Expanse JavaScript API
 
 contracts: A collection of contract objects. keys represents contracts name. values are is an objects containing the following properties:
 
- * contract: contract object instance (created as in web3.eth.contract)
+ * contract: contract object instance (created as in web3.exp.contract)
 
  * address: contract address from the last deployed state (see below)
 
@@ -35,4 +35,4 @@ If a call can be made this will be done by writing:
 
 | It is also possible to use all properties and functions of the web3
   object:
-| https://github.com/ethereum/wiki/wiki/JavaScript-API
+| https://github.com/expanse-org/wiki/wiki/JavaScript-API

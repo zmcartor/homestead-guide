@@ -50,7 +50,7 @@ Sections
 | ``currentGasLimit``	
 |	The current block's gas limit.
 | ``currentNumber``
-|	The current block's number. Also indicates network rules for the transaction. Since blocknumber = **1000000** Homestead rules are applied to transaction. (see https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2.mediawiki)
+|	The current block's number. Also indicates network rules for the transaction. Since blocknumber = **1000000** Homestead rules are applied to transaction. (see https://github.com/expanse-org/EIPs/blob/master/EIPS/eip-2.mediawiki)
 | ``currentTimestamp``
 |	The current block's timestamp.
 | ``previousHash``

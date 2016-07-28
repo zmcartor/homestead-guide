@@ -16,10 +16,10 @@ message passing environments. It uses JSON (`RFC
 JavaScript API
 --------------
 
-To talk to an Ethereum node from inside a JavaScript application use the
-`web3.js <https://github.com/ethereum/web3.js>`__ library, which gives
+To talk to an Expanse node from inside a JavaScript application use the
+`web3.js <https://github.com/expanse-org/web3.js>`__ library, which gives
 an convenient interface for the RPC methods. See the `JavaScript
-API <https://github.com/ethereum/wiki/wiki/JavaScript-API>`__ for more.
+API <https://github.com/expanse-org/wiki/wiki/JavaScript-API>`__ for more.
 
 JSON-RPC Endpoint
 -----------------
@@ -56,7 +56,7 @@ same-origin policy and requests will fail:
     geth --rpc --rpccorsdomain "http://localhost:3000"
 
 The JSON RPC can also be started from the `geth
-console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 using the ``admin.startRPC(addr, port)`` command.
 
 C++
@@ -88,7 +88,7 @@ JSON-RPC support
 ----------------
 
 +------------------+----------------+---------------+---------------+
-|                  | cpp-ethereum   | go-ethereum   | py-ethereum   |
+|                  | cpp-expanse   | go-expanse   | py-expanse   |
 +==================+================+===============+===============+
 | JSON-RPC 1.0     | ✓              |               |               |
 +------------------+----------------+---------------+---------------+
@@ -119,8 +119,8 @@ digits per byte. Examples: - 0x41 (size 1, "A") - 0x004200 (size 3,
 ":raw-latex:`\0`B:raw-latex:`\0`") - 0x (size 0, "") - WRONG: 0xf0f0f
 (must be even number of digits) - WRONG: 004200 (must be prefixed 0x)
 
-Currently `cpp-ethereum <https://github.com/ethereum/cpp-ethereum>`__
-and `go-ethereum <https://github.com/ethereum/go-ethereum>`__ provides
+Currently `cpp-expanse <https://github.com/expanse-org/cpp-expanse>`__
+and `go-expanse <https://github.com/expanse-org/go-expanse>`__ provides
 JSON-RPC communication only over http.
 
 The default block parameter
@@ -134,7 +134,7 @@ The following methods have a extra default block parameter:
 -  `eth\_getStorageAt <#eth_getstorageat>`__
 -  `eth\_call <#eth_call>`__
 
-When requests are made that act on the state of Ethereum, the last
+When requests are made that act on the state of Expanse, the last
 default block parameter determines the height of the block.
 
 The following options are possible for the defaultBlock parameter:
@@ -385,7 +385,7 @@ Example
 eth\_protocolVersion
 ^^^^^^^^^^^^^^^^^^^^
 
-Returns the current Ethereum protocol version.
+Returns the current Expanse protocol version.
 
 Parameters
 ''''''''''
@@ -395,7 +395,7 @@ none
 Returns
 '''''''
 
-``String`` - The current Ethereum protocol version
+``String`` - The current Expanse protocol version
 
 Example
 '''''''
@@ -1043,8 +1043,8 @@ Parameters
    this transaction
 -  ``data``: ``DATA`` - The compiled code of a contract OR the hash of
    the invoked method signature and encoded parameters. For details see
-   `Ethereum Contract
-   ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__
+   `Expanse Contract
+   ABI <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__
 -  ``nonce``: ``QUANTITY`` - (optional) Integer of a nonce. This allows
    to overwrite your own pending transactions that use the same nonce.
 
@@ -1151,8 +1151,8 @@ Parameters
 -  ``value``: ``QUANTITY`` - (optional) Integer of the value send with
    this transaction
 -  ``data``: ``DATA`` - (optional) Hash of the method signature and
-   encoded parameters. For details see `Ethereum Contract
-   ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__
+   encoded parameters. For details see `Expanse Contract
+   ABI <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__
 
 2. ``QUANTITY|TAG`` - integer block number, or the string ``"latest"``,
    ``"earliest"`` or ``"pending"``, see the `default block

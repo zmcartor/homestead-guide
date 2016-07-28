@@ -305,7 +305,7 @@ Basic Operation
 
 Nodes are expected to receive and send envelopes continuously, as per
 the `protocol
-specification <https://github.com/ethereum/wiki/wiki/Whisper-Wire-Protocol>`__.
+specification <https://github.com/expanse-org/wiki/wiki/Whisper-Wire-Protocol>`__.
 They should maintain a map of envelopes, indexed by expiry time, and
 prune accordingly. They should also efficiently deliver messages to the
 front-end API through maintaining mappings between topics and envelopes.

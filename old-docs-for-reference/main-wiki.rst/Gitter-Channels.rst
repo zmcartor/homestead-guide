@@ -1,4 +1,4 @@
-https://gitter.im/ethereum
+https://gitter.im/expanse
 
 Node Software ("Clients")
 =========================
@@ -6,44 +6,44 @@ Node Software ("Clients")
 Go
 --
 
-https://gitter.im/ethereum/go-ethereum
+https://gitter.im/expanse/go-expanse
 
 CPP
 ---
 
-https://gitter.im/ethereum/cpp-ethereum
+https://gitter.im/expanse/cpp-expanse
 
 Python
 ------
 
-https://gitter.im/ethereum/pyethapp - the client
+https://gitter.im/expanse/pyethapp - the client
 
-https://gitter.im/ethereum/pyethereum - the core library (evm, blocks,
+https://gitter.im/expanse/pyethereum - the core library (evm, blocks,
 txs, ...)
 
-https://gitter.im/ethereum/pydevp2p - p2p network
+https://gitter.im/expanse/pydevp2p - p2p network
 
 Dapp Development
 ================
 
-https://gitter.im/ethereum/web3.js
+https://gitter.im/expanse/web3.js
 
-https://gitter.im/ethereum/mist
+https://gitter.im/expanse/mist
 
-https://gitter.im/ethereum/solidity
+https://gitter.im/expanse/solidity
 
-https://gitter.im/ethereum/serpent
+https://gitter.im/expanse/serpent
 
 Other
 =====
 
-https://gitter.im/ethereum/porting
+https://gitter.im/expanse/porting
 
-https://gitter.im/ethereum/research
+https://gitter.im/expanse/research
 
 Protocol
 ========
 
-https://gitter.im/ethereum/devp2p
+https://gitter.im/expanse/devp2p
 
-https://gitter.im/ethereum/light-client
+https://gitter.im/expanse/light-client

@@ -4,19 +4,19 @@ Web 3: A platform for decentralized apps
 
 
 
-Many have come to believe that an open, trustless blockchain platform like Ethereum is perfectly suited to serve as the shared "back end" to a decentralized, secure internet - Web 3.0. An internet where core services like DNS and digital identity are decentralized, and where individuals can engage in economic interactions with each other.
+Many have come to believe that an open, trustless blockchain platform like Expanse is perfectly suited to serve as the shared "back end" to a decentralized, secure internet - Web 3.0. An internet where core services like DNS and digital identity are decentralized, and where individuals can engage in economic interactions with each other.
 
-As intended by the Ethereum developers, Ethereum is a blank canvas and you have the freedom to build whatever you want with it. The Ethereum protocol is meant to be generalized so that the core features can be combined in arbitrary ways. Ideally, dapp projects on Ethereum will leverage the Ethereum blockchain to build solutions that rely on decentralized consensus to provide new products and services that were not previously possible.
+As intended by the Expanse developers, Expanse is a blank canvas and you have the freedom to build whatever you want with it. The Expanse protocol is meant to be generalized so that the core features can be combined in arbitrary ways. Ideally, dapp projects on Expanse will leverage the Expanse blockchain to build solutions that rely on decentralized consensus to provide new products and services that were not previously possible.
 
-Ethereum is perhaps best described as an ecosystem: the core protocol is supported by various pieces of infrastructure, code, and community that together make up the Ethereum project. Ethereum can also be understood by looking at the projects that use Ethereum. Already, there are a number of high-profile projects built on Ethereum such as Augur, Digix, Maker, and many more (see :ref:`dapps`). In addition, there are development teams that build open source components that anyone can use.  While each of these organizations are separate from the Ethereum Foundation and have their own goals, they undoubtedly benefit the overall Ethereum ecosystem.
+Expanse is perhaps best described as an ecosystem: the core protocol is supported by various pieces of infrastructure, code, and community that together make up the Expanse project. Expanse can also be understood by looking at the projects that use Expanse. Already, there are a number of high-profile projects built on Expanse such as Augur, Digix, Maker, and many more (see :ref:`dapps`). In addition, there are development teams that build open source components that anyone can use.  While each of these organizations are separate from the Expanse Foundation and have their own goals, they undoubtedly benefit the overall Expanse ecosystem.
 
 Further Watching/Reading:
 
 * Vitalik Buterin - TNABC 2015: https://www.youtube.com/watch?v=Fjhe0MVRHO4
 
-* Gavin Wood - DEVCON 1 - Ethereum for Dummies: https://www.youtube.com/watch?v=U_LK0t_qaPo
+* Gavin Wood - DEVCON 1 - Expanse for Dummies: https://www.youtube.com/watch?v=U_LK0t_qaPo
 
-* Ethereum London Meetup (best detailed here): https://www.youtube.com/watch?v=GJGIeSCgskc
+* Expanse London Meetup (best detailed here): https://www.youtube.com/watch?v=GJGIeSCgskc
 
 Smart contracts
 ================================================================================
@@ -27,7 +27,7 @@ Would you enter in a contract with someone you've never met? Would you agree to 
 
 The answer is no for most of these questions, the reason being that a contract requires a large infrastructure: sometimes you need a working trust relationship between the two parties, sometimes you rely on a working legal system, police force and lawyer costs.
 
-In Ethereum you don't need any of that: if all the requisites to the contract can be put in the blockchain then they will, in a trustless environment for almost no cost.
+In Expanse you don't need any of that: if all the requisites to the contract can be put in the blockchain then they will, in a trustless environment for almost no cost.
 
 Instead of thinking of moving your current contracts to the blockchain, think of all the thousand little contracts that you would never agree to simply because they weren't economically feasible or there was not enough legal protection..
 

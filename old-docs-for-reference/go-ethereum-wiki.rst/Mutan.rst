@@ -1,9 +1,9 @@
-Compiler & Language definition for the Ethereum project
+Compiler & Language definition for the Expanse project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Mutan is a C-Like language for the Ethereum project. Mutan supports a
+Mutan is a C-Like language for the Expanse project. Mutan supports a
 full, statically typed higher level language that compiles to native
-Ethereum Assembler. `Repo <https://github.com/obscuren/mutan>`__ will be
+Expanse Assembler. `Repo <https://github.com/obscuren/mutan>`__ will be
 moved.
 
 An online editor and compiler can be found

@@ -7,17 +7,17 @@ Account Management
 Accounts
 ================================================================================
 
-Accounts play a central role in Ethereum. There are two types of accounts: *externally owned accounts* (EOAs) and *contract accounts*. Here we focus on externally owned accounts, which will be referred to simply as *accounts*. Contract accounts will be referred to as *contracts* and are :ref:`discussed in detail in Contracts <Contracts>`. This generic notion of account subsuming both externally owned accounts and contracts is justified in that these entities are so called *state objects*. These entities have a state: accounts have balance and contracts have both balance and contract storage. The state of all accounts is the state of the Ethereum network which is updated with every block and which the network really needs to reach a consensus about.
-Account are essential for users to interact with the Ethereum blockchain via transactions.
+Accounts play a central role in Expanse. There are two types of accounts: *externally owned accounts* (EOAs) and *contract accounts*. Here we focus on externally owned accounts, which will be referred to simply as *accounts*. Contract accounts will be referred to as *contracts* and are :ref:`discussed in detail in Contracts <Contracts>`. This generic notion of account subsuming both externally owned accounts and contracts is justified in that these entities are so called *state objects*. These entities have a state: accounts have balance and contracts have both balance and contract storage. The state of all accounts is the state of the Expanse network which is updated with every block and which the network really needs to reach a consensus about.
+Account are essential for users to interact with the Expanse blockchain via transactions.
 
-If we restrict Ethereum to only externally owned accounts and allow only transactions between them, we arrive at an "altcoin" system that is less powerful than bitcoin itself and can only be used to transfer ether.
+If we restrict Expanse to only externally owned accounts and allow only transactions between them, we arrive at an "altcoin" system that is less powerful than bitcoin itself and can only be used to transfer ether.
 
 Accounts represent identities of external agents (e.g., human personas, mining nodes or automated agents). Accounts use public key cryptography to sign transaction so that the EVM can securely validate the identity of a transaction sender.
 
 Keyfiles
 ================================================================================
 
-Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their *address* which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a *keyfile*. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the ``keystore`` subdirectory of your Ethereum node’s data directory. Make sure you backup your keyfiles regularly! See the section :ref:`backup-and-restore-accounts` for more information.
+Every account is defined by a pair of keys, a private key and public key. Accounts are indexed by their *address* which is derived from the public key by taking the last 20 bytes. Every private key/address pair is encoded in a *keyfile*. Keyfiles are JSON text files which you can open and view in any text editor. The critical component of the keyfile, your account’s private key, is always encrypted, and it is encrypted with the password you enter when you create the account. Keyfiles are found in the ``keystore`` subdirectory of your Expanse node’s data directory. Make sure you backup your keyfiles regularly! See the section :ref:`backup-and-restore-accounts` for more information.
 
 Creating a key is tantamount to creating an account.
 
@@ -28,7 +28,7 @@ Creating a key is tantamount to creating an account.
 
 Of course your new account will not contain any Ether. But it'll be yours and you can be certain that without your key and your password, nobody else can ever access it.
 
-It is safe to transfer the entire directory or any individual keyfile between Ethereum nodes.
+It is safe to transfer the entire directory or any individual keyfile between Expanse nodes.
 
 .. Warning:: Note that in case you are adding keyfiles to your node from a different node, the order of accounts may change. So make sure you do not rely or change the index in your scripts or code snippets.
 
@@ -96,13 +96,13 @@ In order to create a new account using geth, we must first start geth in console
   instance: Geth/v1.4.0-unstable/linux/go1.5.1
   coinbase: coinbase: [object Object]
   at block: 865174 (Mon, 18 Jan 2016 02:58:53 GMT)
-  datadir: /home/USERNAME/.ethereum
+  datadir: /home/USERNAME/.expanse
 
 The console allows you to interact with your local node by issuing commands. For example, try the command to list your accounts:
 
 .. code-block:: Javascript
 
-  > eth.accounts
+  > exp.accounts
 
   {
   code: -32000,
@@ -124,24 +124,24 @@ We just created our first account. If we try to list our accounts again we can s
 
 .. code-block:: Javascript
 
-  > eth.accounts
+  > exp.accounts
   ["0xb2f69ddf70297958e582a0cc98bce43294f1007d"]
 
 
-.. _using-mist-ethereum-wallet:
+.. _using-mist-expanse-wallet:
 
-Using Mist Ethereum wallet
+Using Mist Expanse wallet
 --------------------------------------------------------------------------------
 
-For the command line averse, there is now a GUI-based option for creating accounts: The “official” Mist Ethereum wallet. The Mist Ethereum wallet, and its parent Mist project, are being developed under the auspices of the Ethereum Foundation, hence the “official” status. Versions of the wallet app are available for Linux, Mac OS X, and Windows.
+For the command line averse, there is now a GUI-based option for creating accounts: The “official” Mist Expanse wallet. The Mist Expanse wallet, and its parent Mist project, are being developed under the auspices of the Expanse Foundation, hence the “official” status. Versions of the wallet app are available for Linux, Mac OS X, and Windows.
 
 .. Warning:: The Mist wallet is beta software. Please beware and use it at your own risk.
 
-Creating an account using the GUI Mist Ethereum wallet couldn’t be easier. In fact, your first account is created during the installation of the app.
+Creating an account using the GUI Mist Expanse wallet couldn’t be easier. In fact, your first account is created during the installation of the app.
 
-1. `Download the latest version of the wallet app <https://github.com/ethereum/mist/releases>`_  for your operating system. Opening the Wallet App will kick off syncing a full copy of the Ethereum blockchain on your computer, since you will in effect be running a full geth node.
+1. `Download the latest version of the wallet app <https://github.com/expanse-org/mist/releases>`_  for your operating system. Opening the Wallet App will kick off syncing a full copy of the Expanse blockchain on your computer, since you will in effect be running a full geth node.
 
-2. Unzip the downloaded folder and run the Ethereum-Wallet executable file.
+2. Unzip the downloaded folder and run the Expanse-Wallet executable file.
 
 .. image:: img/51Downloading.png
    :width: 582px
@@ -152,7 +152,7 @@ Creating an account using the GUI Mist Ethereum wallet couldn’t be easier. In 
 
 3. Wait for the blockchain to fully sync, then follow the instructions on the screen and your first account will be created.
 
-4. When you launch the Mist Ethereum wallet for the first time, you will see the account you created during the installation process. By default it will be named MAIN ACCOUNT (ETHERBASE).
+4. When you launch the Mist Expanse wallet for the first time, you will see the account you created during the installation process. By default it will be named MAIN ACCOUNT (ETHERBASE).
 
 .. image:: img/51OpeningScreen.png
    :width: 1024px
@@ -169,11 +169,11 @@ Creating an account using the GUI Mist Ethereum wallet couldn’t be easier. In 
 Creating a Multi-Signature Wallet in Mist
 --------------------------------------------------------------------------------
 
-The Mist Ethereum wallet has an option to secure your wallet balance with a multisig wallet. The advantage of using a multisig wallet is that it requires authorization from more than one account to withdrawal larger amounts from your balance. Before you can create a multisig wallet, you'll need to create more than one account.
+The Mist Expanse wallet has an option to secure your wallet balance with a multisig wallet. The advantage of using a multisig wallet is that it requires authorization from more than one account to withdrawal larger amounts from your balance. Before you can create a multisig wallet, you'll need to create more than one account.
 
 It's very easy to create account files in Mist. In the 'Accounts' section click 'Add Account'. Pick a strong yet easy-to-remember password (remember there is no password recovery option), confirm it, and your account is created. Create at least 2 accounts. Secondary accounts can be created on separate computers running Mist if you prefer (and theoretically make your multisig more secure doing it this way). You only need the public keys (your deposit addresses) of your secondary accounts when creating the multisig wallet (copy/paste them, do not ever type them by hand). Your primary account will be needed to create the multisig wallet contract, so it must be on the computer you are creating the multisig wallet on.
 
-Now that you have your accounts setup, be safe and back them up (if your computer crashes, you will lose your balance if you do not have a backup). Click 'Backup' in the top menu. Choose the 'keystore' folder, opposite-click on it / choose 'copy' (do NOT choose 'cut', that would be very bad). Navigate to your desktop, opposite-click in a blank area and choose 'paste'. You may want to rename this new copy of the 'keystore' folder to something like 'Ethereum-keystore-backup-year-month-day' so you have quick recognition of it later. At this point you can then add the folder contents to a zip / rar file (and even password-protect the archive with another strong yet easy-to-remember password if backing up online), copy it to a USB Drive, burn it to a CD / DVD, or upload it to online storage (Dropbox / Google Drive / etc).
+Now that you have your accounts setup, be safe and back them up (if your computer crashes, you will lose your balance if you do not have a backup). Click 'Backup' in the top menu. Choose the 'keystore' folder, opposite-click on it / choose 'copy' (do NOT choose 'cut', that would be very bad). Navigate to your desktop, opposite-click in a blank area and choose 'paste'. You may want to rename this new copy of the 'keystore' folder to something like 'Expanse-keystore-backup-year-month-day' so you have quick recognition of it later. At this point you can then add the folder contents to a zip / rar file (and even password-protect the archive with another strong yet easy-to-remember password if backing up online), copy it to a USB Drive, burn it to a CD / DVD, or upload it to online storage (Dropbox / Google Drive / etc).
 
 You now should add approximately no less than 0.02 ETH to your primary account (the account you will initiate creation of a multisig wallet with). This is required for the transaction fee when you create the multisig wallet contract. An additional 1 ETH (or more) is also needed, because Mist currently requires this to assure wallet contract transactions have enough 'gas' to execute properly...so no less than about 1.02 ETH total for starters.
 
@@ -187,11 +187,11 @@ Set whatever amount of owners (accounts) you are attaching to this multisig wall
 
 Now add the addresses of the accounts that you copied / pasted into your text editor earlier, confirm all your settings are correct, and click 'Create' at the bottom. You will then need to enter your password to send the transaction. In the 'Wallet Contracts' section it should show your new wallet, and say 'creating'.
 
-When wallet creation is complete, you should see your contract address on the screen. Select the entire address, copy / paste it into a new text file in your text editor, and save the text file to your desktop as 'Ethereum-Wallet-Address.txt', or whatever you want to name it.
+When wallet creation is complete, you should see your contract address on the screen. Select the entire address, copy / paste it into a new text file in your text editor, and save the text file to your desktop as 'Expanse-Wallet-Address.txt', or whatever you want to name it.
 
-Now all you need to do is backup the 'Ethereum-Wallet-Address.txt' file the same way you backed up your account files, and then you are ready to load your new multisig wallet with ETH using this address.
+Now all you need to do is backup the 'Expanse-Wallet-Address.txt' file the same way you backed up your account files, and then you are ready to load your new multisig wallet with ETH using this address.
 
-If you are restoring from backup, simply copy the files inside the 'Ethereum-keystore-backup' folder over into the 'keystore' folder mentioned in the first section of this walkthrough. FYI, you may need to create the 'keystore' folder if it's a brand new install of Mist on a machine it was never installed on before (the first time you create an account is when this folder is created). As for restoring a multisig wallet, instead of choosing 'Multisignature Wallet Contract' like we did before when creating it, we merely choose 'Import Wallet' instead.
+If you are restoring from backup, simply copy the files inside the 'Expanse-keystore-backup' folder over into the 'keystore' folder mentioned in the first section of this walkthrough. FYI, you may need to create the 'keystore' folder if it's a brand new install of Mist on a machine it was never installed on before (the first time you create an account is when this folder is created). As for restoring a multisig wallet, instead of choosing 'Multisignature Wallet Contract' like we did before when creating it, we merely choose 'Import Wallet' instead.
 
 Troubleshooting:
 
@@ -241,7 +241,7 @@ It is also possible to access keys management from the integrated console (using
 Using EthKey (deprecated)
 --------------------------------------------------------------------------------
 
-Ethkey is a CLI tool of the C++ implementation that allows you to interact with the Ethereum wallet. With it you can list, inspect, create, delete and modify keys and inspect, create and sign transactions.
+Ethkey is a CLI tool of the C++ implementation that allows you to interact with the Expanse wallet. With it you can list, inspect, create, delete and modify keys and inspect, create and sign transactions.
 
 We will assume you have not yet run a client such as eth or anything in the Aleth series of clients. If you have, you can skip this section.
 To create a wallet, run ``ethkey`` with the ``createwallet`` command:
@@ -305,14 +305,14 @@ Importing your presale wallet
 ================================================================================
 
 
-Using Mist Ethereum wallet
+Using Mist Expanse wallet
 --------------------------------------------------------------------------------
 
-Importing your presale wallet using the GUI Mist Ethereum wallet is very easy. In fact, you will be asked if you want to import your presale wallet during the installation of the app.
+Importing your presale wallet using the GUI Mist Expanse wallet is very easy. In fact, you will be asked if you want to import your presale wallet during the installation of the app.
 
 .. Warning:: Mist wallet is beta software. Beware and use it at your own risk.
 
-Instructions for installing the Mist Ethereum wallet are given in the section :ref:`Creating an account: Using Mist Ethereum wallet <using-mist-ethereum-wallet>`.
+Instructions for installing the Mist Expanse wallet are given in the section :ref:`Creating an account: Using Mist Expanse wallet <using-mist-expanse-wallet>`.
 
 Simply drag-and-drop your ``.json`` presale wallet file into the designated area and enter your password to import your presale account.
 
@@ -394,11 +394,11 @@ Backup and restore accounts
 Manual backup/restore
 --------------------------------------------------------------------------------
 
-You must have an account’s keyfile to be able to send any transaction from that account. Keyfiles are found in the keystore subdirectory of your Ethereum node’s data directory. The default data directory locations are platform specific:
+You must have an account’s keyfile to be able to send any transaction from that account. Keyfiles are found in the keystore subdirectory of your Expanse node’s data directory. The default data directory locations are platform specific:
 
-- Windows: ``C:\Users\username\%appdata%\Roaming\Ethereum\keystore``
-- Linux: ``~/.ethereum/keystore``
-- Mac: ``~/Library/Ethereum/keystore``
+- Windows: ``C:\Users\username\%appdata%\Roaming\Expanse\keystore``
+- Linux: ``~/.expanse/keystore``
+- Mac: ``~/Library/Expanse/keystore``
 
 To backup your keyfiles (accounts), copy either the individual keyfiles within the ``keystore`` subdirectory or copy the entire ``keystore`` folder.
 
@@ -435,6 +435,6 @@ For non-interactive use the passphrase can be specified with the ``--password`` 
   geth --password <passwordfile> account import <keyfile>
 
 
-.. Note:: Since you can directly copy your encrypted accounts to another Ethereum instance, this import/export mechanism is not needed when you transfer an account between nodes.
+.. Note:: Since you can directly copy your encrypted accounts to another Expanse instance, this import/export mechanism is not needed when you transfer an account between nodes.
 
 .. Warning:: When you copy keys into an existing node's ``keystore``, the order of accounts you are used to may change. Therefore you make sure you either do not rely on the account order or double-check and update the indexes used in your scripts.

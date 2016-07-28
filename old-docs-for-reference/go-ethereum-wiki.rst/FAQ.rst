@@ -15,5 +15,5 @@ Restarting doesn't get any peers.
 **A.** Geth uses a datadir to store the blockchain, accounts and some
 additional information. This directory cannot be shared between running
 instances. If you would like to run multiple instances follow
-`these <https://github.com/ethereum/go-ethereum/wiki/Setting-up-private-network-or-local-cluster>`__
+`these <https://github.com/expanse-org/go-expanse/wiki/Setting-up-private-network-or-local-cluster>`__
 instructions.

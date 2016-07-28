@@ -7,26 +7,26 @@ Overview - Here be dragons!
 
 It is impossible for us to avoid OS X build breaks because `Homebrew is a "rolling
 release" package manager
-<https://github.com/ethereum/webthree-umbrella/issues/118>`_
+<https://github.com/expanse-org/webthree-umbrella/issues/118>`_
 which means that the ground will forever be moving underneath us unless we add
 all external dependencies to our
-`Homebrew tap <http://github.com/ethereum/homebrew-ethereum>`_, or add them as
+`Homebrew tap <http://github.com/expanse-org/homebrew-expanse>`_, or add them as
 git sub-modules within the umbrella projects.  End-user results vary depending
 on when they are build the project.  Building yesterday may have worked for
 you, but that doesn't guarantee that your friend will have the same result
 today on their machine.   Needless to say, this isn't a happy situation.
 
 If you hit build breaks for OS X please look through the `Github issues
-<https://github.com/ethereum/webthree-umbrella/issues>`_ to see whether the
+<https://github.com/expanse-org/webthree-umbrella/issues>`_ to see whether the
 issue you are experiencing has already been reported.   If so, please comment
 on that existing issue.  If you don't see anything which looks similar,
-please create a new issue, detailing your OS X version, cpp-ethereum version,
+please create a new issue, detailing your OS X version, cpp-expanse version,
 hardware and any other details you think might be relevant.   Please add
 verbose log files via `gist.github.com <http://gist.github.com>`_ or a
 similar service.
 
-The `cpp-ethereum-development 
-<https://gitter.im/ethereum/cpp-ethereum-development>`_ gitter channel is where we hang out, and try
+The `cpp-expanse-development 
+<https://gitter.im/expanse/cpp-expanse-development>`_ gitter channel is where we hang out, and try
 to work together to get known issues resolved.
 
 We only support the following OS X versions:
@@ -35,10 +35,10 @@ We only support the following OS X versions:
 - `OS X Yosemite (10.10) <https://en.wikipedia.org/wiki/OS_X_Yosemite>`_
 - `OS X El Capitan (10.11) <https://en.wikipedia.org/wiki/OS_X_El_Capitan>`_
 
-The cpp-ethereum code base does not build on older OS X versions and this
+The cpp-expanse code base does not build on older OS X versions and this
 is not something which we will ever support.  If you are using an older
 OS X version, we recommend that you update to the latest release, not
-just so that you can build cpp-ethereum, but for your own security.
+just so that you can build cpp-expanse, but for your own security.
 
 
 Clone the repository
@@ -46,8 +46,8 @@ Clone the repository
 
 To clone the source code, execute the following command: ::
 
-    git clone --recursive https://github.com/bobsummerwill/cpp-ethereum.git
-    cd cpp-ethereum
+    git clone --recursive https://github.com/bobsummerwill/cpp-expanse.git
+    cd cpp-expanse
     git checkout merge_repos
     git submodule update --init
 
@@ -108,5 +108,5 @@ From the project root: ::
     cd build_xc
     cmake -G Xcode ..
 
-This will generate an Xcode project file called **cpp-ethereum.xcodeproj**,
+This will generate an Xcode project file called **cpp-expanse.xcodeproj**,
 which you can then open with xcode and build/debug/run.

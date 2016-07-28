@@ -3,7 +3,7 @@ Windows installer
 --------------------------------------------------------------------------------
 
 We generate Windows installers
-`for each release <https://github.com/ethereum/webthree-umbrella/releases>`_.
+`for each release <https://github.com/expanse-org/webthree-umbrella/releases>`_.
 
 These should work on Windows 7, Windows 8/8.1, Windows 10 and Windows Server
 2012 R2, though our `automated builds <http://ethbuilds.com>`_ are all built

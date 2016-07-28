@@ -19,9 +19,9 @@ Steps: ::
     sudo apt-get -y update
     sudo apt-get -y install llvm-3.7-dev
 
-    sudo add-apt-repository -y ppa:ethereum/ethereum-qt
-    sudo add-apt-repository -y ppa:ethereum/ethereum
-    sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+    sudo add-apt-repository -y ppa:expanse/expanse-qt
+    sudo add-apt-repository -y ppa:expanse/expanse
+    sudo add-apt-repository -y ppa:expanse/expanse-dev
     sudo apt-get -y update
     sudo apt-get -y upgrade
 
@@ -49,9 +49,9 @@ Steps: ::
     sudo apt-get -y update
     sudo apt-get -y install llvm-3.7-dev
 
-    sudo add-apt-repository -y ppa:ethereum/ethereum-qt
-    sudo add-apt-repository -y ppa:ethereum/ethereum
-    sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+    sudo add-apt-repository -y ppa:expanse/expanse-qt
+    sudo add-apt-repository -y ppa:expanse/expanse
+    sudo add-apt-repository -y ppa:expanse/expanse-dev
     sudo apt-get -y update
     sudo apt-get -y upgrade
 
@@ -79,9 +79,9 @@ Steps: ::
     sudo apt-get -y update
     sudo apt-get -y install llvm-3.7-dev
 
-    sudo add-apt-repository -y ppa:ethereum/ethereum-qt
-    sudo add-apt-repository -y ppa:ethereum/ethereum
-    sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+    sudo add-apt-repository -y ppa:expanse/expanse-qt
+    sudo add-apt-repository -y ppa:expanse/expanse
+    sudo add-apt-repository -y ppa:expanse/expanse-dev
     sudo apt-get -y update
     sudo apt-get -y upgrade
 
@@ -109,9 +109,9 @@ Steps: ::
     sudo apt-get -y update
     sudo apt-get -y install llvm-3.7-dev
 
-    sudo add-apt-repository -y ppa:ethereum/ethereum-qt
-    sudo add-apt-repository -y ppa:ethereum/ethereum
-    sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+    sudo add-apt-repository -y ppa:expanse/expanse-qt
+    sudo add-apt-repository -y ppa:expanse/expanse
+    sudo add-apt-repository -y ppa:expanse/expanse-dev
     sudo apt-get -y update
     sudo apt-get -y upgrade
 
@@ -136,9 +136,9 @@ Steps: ::
 
     sudo apt-get -y install llvm-3.7-dev
 
-    sudo add-apt-repository -y ppa:ethereum/ethereum-qt
-    sudo add-apt-repository -y ppa:ethereum/ethereum
-    sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+    sudo add-apt-repository -y ppa:expanse/expanse-qt
+    sudo add-apt-repository -y ppa:expanse/expanse
+    sudo add-apt-repository -y ppa:expanse/expanse-dev
     sudo apt-get -y update
     sudo apt-get -y upgrade
 

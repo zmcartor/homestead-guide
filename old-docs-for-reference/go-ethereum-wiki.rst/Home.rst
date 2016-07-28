@@ -1,33 +1,33 @@
--  User documentation can be found at our `Ethereum User Guide and
+-  User documentation can be found at our `Expanse User Guide and
    reference
-   manual <http://ethereum.gitbooks.io/frontier-guide/content/>`__.
+   manual <http://expanse.gitbooks.io/frontier-guide/content/>`__.
 -  For the API reference and developer documentation head over to the
    auto generated
-   `GoDoc <https://godoc.org/github.com/ethereum/go-ethereum>`__
+   `GoDoc <https://godoc.org/github.com/expanse-org/go-expanse>`__
    documentation.
 
-This is the Wiki for the official Ethereum golang implementation. For
-generic Ethereum-related information (whitepaper, yellow paper, protocol
+This is the Wiki for the official Expanse golang implementation. For
+generic Expanse-related information (whitepaper, yellow paper, protocol
 and interface specs, APIs, dapp development guides, etc) see the
-`Ethereum main wiki <https://github.com/ethereum/wiki/wiki>`__.
+`Expanse main wiki <https://github.com/expanse-org/wiki/wiki>`__.
 
 Main entry points:
 
 -  `Bitchin'
-   Tricks <https://github.com/ethereum/go-ethereum/wiki/bitchin-tricks>`__
--  `Ethereum Frontier
-   Release <https://github.com/ethereum/go-ethereum/wiki/Frontier>`__
+   Tricks <https://github.com/expanse-org/go-expanse/wiki/bitchin-tricks>`__
+-  `Expanse Frontier
+   Release <https://github.com/expanse-org/go-expanse/wiki/Frontier>`__
 -  `Installation
-   Instructions <https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum>`__
+   Instructions <https://github.com/expanse-org/go-expanse/wiki/Building-Expanse>`__
 -  `Managing
-   Accounts <https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts>`__
+   Accounts <https://github.com/expanse-org/go-expanse/wiki/Managing-your-accounts>`__
 -  `Command Line
-   Options <https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options>`__
+   Options <https://github.com/expanse-org/go-expanse/wiki/Command-Line-Options>`__
 -  `JavaScript
-   Console <https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console>`__
+   Console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`__
 -  `Setting up private network or local
-   cluster <https://github.com/ethereum/go-ethereum/wiki/Setting-up-private-network-or-local-cluster>`__
+   cluster <https://github.com/expanse-org/go-expanse/wiki/Setting-up-private-network-or-local-cluster>`__
 -  `Developers'
-   Guide <https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide>`__
+   Guide <https://github.com/expanse-org/go-expanse/wiki/Developers'-Guide>`__
 
 Sidebar lists all pages.

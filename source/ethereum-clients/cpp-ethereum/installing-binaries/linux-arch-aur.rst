@@ -6,10 +6,10 @@ Arch Linux packages are community maintained by
 `Afri Schoedon <https://github.com/5chdn>`_.
 
 Check out the following packages
-on `aur.archlinux.org <https://aur.archlinux.org/packages/?O=0&K=ethereum>`_.
+on `aur.archlinux.org <https://aur.archlinux.org/packages/?O=0&K=expanse>`_.
 
-- `ethereum <https://aur.archlinux.org/packages/ethereum/>`_ (stable, latest release)
-- `ethereum-git <https://aur.archlinux.org/packages/ethereum-git/>`_ (unstable, latest develop)
+- `expanse <https://aur.archlinux.org/packages/expanse/>`_ (stable, latest release)
+- `expanse-git <https://aur.archlinux.org/packages/expanse-git/>`_ (unstable, latest develop)
 
 To build and install the package, follow the `AUR installing package <https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages>`_ instructions:
 

@@ -1,10 +1,10 @@
-.. _go-ethereum:
+.. _go-expanse:
 
 ################################################################################
-go-ethereum
+go-expanse
 ################################################################################
 
-The go-ethereum client is commonly referred to as **geth**, which is the the command line interface for running a full ethereum node implemented in Go. By installing and running geth, you can take part in the ethereum frontier live network and:
+The go-expanse client is commonly referred to as **geth**, which is the the command line interface for running a full expanse node implemented in Go. By installing and running geth, you can take part in the expanse frontier live network and:
 
 * mine real ether
 * transfer funds between addresses
@@ -14,7 +14,7 @@ The go-ethereum client is commonly referred to as **geth**, which is the the com
 
 Links:
 
-* Website: http://ethereum.github.io/go-ethereum/
-* Github: https://github.com/ethereum/go-ethereum
-* Wiki: https://github.com/ethereum/go-ethereum/wiki/geth
-* Gitter: https://gitter.im/ethereum/go-ethereum
+* Website: http://expanse.github.io/go-expanse/
+* Github: https://github.com/expanse-org/go-expanse
+* Wiki: https://github.com/expanse-org/go-expanse/wiki/geth
+* Gitter: https://gitter.im/expanse/go-expanse

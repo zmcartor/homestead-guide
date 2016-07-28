@@ -6,7 +6,7 @@ great idea:
    -  they will contain a ``dapp.json`` with author info and a dapp name
       and version.
    -  and a ``swarm.json``, with all the file paths and hashes, `see
-      here <https://github.com/ethereum/go-ethereum/wiki/URL-Scheme#server-config-examples>`__)
+      here <https://github.com/expanse-org/go-expanse/wiki/URL-Scheme#server-config-examples>`__)
 
 2. | run ``$ geth install mydapp.zip``, which will verify, extract and
      copy the dapp locally somewhere.

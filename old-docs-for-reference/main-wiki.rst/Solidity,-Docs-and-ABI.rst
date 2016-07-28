@@ -1,11 +1,11 @@
 *NOTE: This is intended largely as a vague overview and a historical
 reference. For specific details and the latest specification, see
-`Ethereum Contract
-ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__,
-`Ethereum Natural Specification
-Format <https://github.com/ethereum/wiki/wiki/Ethereum-Natural-Specification-Format>`__
+`Expanse Contract
+ABI <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__,
+`Expanse Natural Specification
+Format <https://github.com/expanse-org/wiki/wiki/Expanse-Natural-Specification-Format>`__
 and `Solidity
-Tutorial <https://github.com/ethereum/wiki/wiki/Solidity-Tutorial>`__.*
+Tutorial <https://github.com/expanse-org/wiki/wiki/Solidity-Tutorial>`__.*
 
 An ABI is intended to serve as the de facto method for encoding &
 decoding data into & out of transactions.
@@ -29,7 +29,7 @@ contract ``Foo``:
 Note you haven't seen this language before. This is a new high level
 language codenamed Solidity, that will feel mostly similar to something
 between JavaScript and C++ but with a number of syntactic additions to
-make it suitable for writing contracts within Ethereum. Language
+make it suitable for writing contracts within Expanse. Language
 additions include:
 
 -  static typing;
@@ -82,8 +82,8 @@ sized arguments.
 ABI
 ~~~
 
-See `Ethereum Contract
-ABI <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI>`__.
+See `Expanse Contract
+ABI <https://github.com/expanse-org/wiki/wiki/Expanse-Contract-ABI>`__.
 
 Documentation
 ~~~~~~~~~~~~~
@@ -91,7 +91,7 @@ Documentation
 It is expected that each method, together with the contract itself, will
 be documented in several ways. Aside from informal descriptions, each
 method should come with a formalised method to describe exactly its
-effect on the state of Ethereum. It should also include, where possible,
+effect on the state of Expanse. It should also include, where possible,
 pre- and post-conditions on the contract state, and the contract itself
 should include invariants over its own state, again each translated into
 natural language.
@@ -184,7 +184,7 @@ This would then be formally documented:
       mapping balances(address) returns uint256 with function(address a) returns uint256 { return a; };
     };
 
-This documentation would then allow the Ethereum browser to translate
+This documentation would then allow the Expanse browser to translate
 any message (and thus transaction) going in to this contract into
 English (and on to other languages hence). It would also allow a lay
 viewer to immediately discern what the contract conforms to; in this
@@ -261,7 +261,7 @@ documentation includes several more attributes:
 
 This file would be hashed and distributed (either on a centralised
 website or, more preferably, through Swarm). It would be referenced by
-the Ethereum Singleton Trust contract in order to allow people or
+the Expanse Singleton Trust contract in order to allow people or
 organisations that you know or trust to help inform you of its audit
 results and trustworth. Of course if you were a coder you could audit it
 manually (in this case it's pretty trivial) and determine how well the

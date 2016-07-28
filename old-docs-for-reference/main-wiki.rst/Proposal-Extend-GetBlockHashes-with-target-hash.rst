@@ -45,7 +45,7 @@ Specification
 The benefit of this proposal is that beside providing the means to do
 forward syncing, it retains the capacity to implement the currently
 specified reverse fetch behavior by passing the genesis block's hash to
-``targetHash``. This way Ethereum implementations don't have to
+``targetHash``. This way Expanse implementations don't have to
 immediately devise a new downloader strategy to cope with the update,
 but can function as they are until ready to evolve.
 

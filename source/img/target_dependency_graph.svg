@@ -136,18 +136,18 @@
 <path fill="none" stroke="black" d="M122.178,-256.155C133.53,-246.344 148.591,-233.329 161.231,-222.405"/>
 <polygon fill="black" stroke="black" points="163.847,-224.771 169.124,-215.584 159.27,-219.474 163.847,-224.771"/>
 </g>
-<!-- ethereum -->
-<g id="node8" class="node"><title>ethereum</title>
+<!-- expanse -->
+<g id="node8" class="node"><title>expanse</title>
 <ellipse fill="none" stroke="black" cx="233" cy="-488" rx="36.433" ry="18"/>
-<text text-anchor="middle" x="233" y="-485" font-family="Courier,monospace" font-size="10.00">ethereum</text>
+<text text-anchor="middle" x="233" y="-485" font-family="Courier,monospace" font-size="10.00">expanse</text>
 </g>
 <!-- p2p -->
 <g id="node13" class="node"><title>p2p</title>
 <ellipse fill="none" stroke="black" cx="352" cy="-416" rx="27" ry="18"/>
 <text text-anchor="middle" x="352" y="-413" font-family="Courier,monospace" font-size="10.00">p2p</text>
 </g>
-<!-- ethereum&#45;&gt;p2p -->
-<g id="edge19" class="edge"><title>ethereum&#45;&gt;p2p</title>
+<!-- expanse&#45;&gt;p2p -->
+<g id="edge19" class="edge"><title>expanse&#45;&gt;p2p</title>
 <path fill="none" stroke="black" d="M255.663,-473.669C274.931,-462.335 302.694,-446.003 323.472,-433.781"/>
 <polygon fill="black" stroke="black" points="325.342,-436.742 332.187,-428.655 321.793,-430.708 325.342,-436.742"/>
 </g>
@@ -156,8 +156,8 @@
 <ellipse fill="none" stroke="black" cx="187" cy="-416" rx="27" ry="18"/>
 <text text-anchor="middle" x="187" y="-413" font-family="Courier,monospace" font-size="10.00">evm</text>
 </g>
-<!-- ethereum&#45;&gt;evm -->
-<g id="edge20" class="edge"><title>ethereum&#45;&gt;evm</title>
+<!-- expanse&#45;&gt;evm -->
+<g id="edge20" class="edge"><title>expanse&#45;&gt;evm</title>
 <path fill="none" stroke="black" d="M222.331,-470.765C216.56,-461.983 209.319,-450.963 202.897,-441.19"/>
 <polygon fill="black" stroke="black" points="205.711,-439.101 197.295,-432.666 199.862,-442.945 205.711,-439.101"/>
 </g>
@@ -166,8 +166,8 @@
 <ellipse fill="none" stroke="black" cx="194" cy="-560" rx="43.3279" ry="18"/>
 <text text-anchor="middle" x="194" y="-557" font-family="Courier,monospace" font-size="10.00">ethashseal</text>
 </g>
-<!-- ethashseal&#45;&gt;ethereum -->
-<g id="edge21" class="edge"><title>ethashseal&#45;&gt;ethereum</title>
+<!-- ethashseal&#45;&gt;expanse -->
+<g id="edge21" class="edge"><title>ethashseal&#45;&gt;expanse</title>
 <path fill="none" stroke="black" d="M203.242,-542.411C207.905,-534.042 213.662,-523.71 218.865,-514.37"/>
 <polygon fill="black" stroke="black" points="222.014,-515.909 223.824,-505.47 215.899,-512.502 222.014,-515.909"/>
 </g>
@@ -501,8 +501,8 @@
 <polygon fill="none" stroke="black" stroke-width="2" points="1036.01,-794 977.995,-794 977.995,-758 1036.01,-758 1036.01,-794"/>
 <text text-anchor="middle" x="1007" y="-773" font-family="Courier,monospace" font-size="10.00">soltest</text>
 </g>
-<!-- soltest&#45;&gt;ethereum -->
-<g id="edge55" class="edge"><title>soltest&#45;&gt;ethereum</title>
+<!-- soltest&#45;&gt;expanse -->
+<g id="edge55" class="edge"><title>soltest&#45;&gt;expanse</title>
 <path fill="none" stroke="black" d="M1007.63,-757.97C1008.27,-712.743 1003.03,-589.305 931,-534 875.247,-491.193 368.521,-516.378 299,-506 290.505,-504.732 281.52,-502.816 273.007,-500.722"/>
 <polygon fill="black" stroke="black" points="273.845,-497.323 263.288,-498.209 272.093,-504.1 273.845,-497.323"/>
 </g>

@@ -1,6 +1,6 @@
 Peer-to-peer communications between nodes running Whisper clients run
 using the underlying `ÐΞVp2p Wire
-Protocol <https://github.com/ethereum/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol>`__.
+Protocol <https://github.com/expanse-org/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol>`__.
 
 This is a preliminary wire protocol for the Whisper subsystem. It will
 change.

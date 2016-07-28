@@ -1,7 +1,7 @@
-Every client implementation of the Ethereum protocol – along with every
+Every client implementation of the Expanse protocol – along with every
 version of it – has a *human readable* string identifier. Although this
 ID is exchanged in the `P2P
-protocol <https://github.com/ethereum/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol#p2p>`__,
+protocol <https://github.com/expanse-org/wiki/wiki/%C3%90%CE%9EVp2p-Wire-Protocol#p2p>`__,
 it itself isn't used by the protocol for anything, rather it enables
 easily localizing issues with a particular client, or a particular
 version of a client.
@@ -31,7 +31,7 @@ fields are fixed among all clients, whereas the latter ones (both in
 meaning and in count) are up to each implementation to use as seen fit.
 
 The fixed fields are: 1. Display name of the client, without any version
-numbering \* E.g. ``Geth``, ``++eth``, ``Ethereum(J)`` 2. Semantic
+numbering \* E.g. ``Geth``, ``++eth``, ``Expanse(J)`` 2. Semantic
 version, prefixed with ``v``, *optionally* suffixed by ``-<extra info>``
 \* E.g. ``v1.3.3``, ``v0.9.41-ed7a8a35``, ``v1.4.0-unstable`` 3. Name of
 the operating system the client is running on \* E.g. ``Linux``,
@@ -48,7 +48,7 @@ A few examples conforming to the above schema spec:
 
      Geth/v1.3.3/darwin
      ++eth/v0.9.41-ed7a8a35/Windows
-     Ethereum(J)/v1.0.0/Linux
+     Expanse(J)/v1.0.0/Linux
 
 Optional extensions
 ~~~~~~~~~~~~~~~~~~~
