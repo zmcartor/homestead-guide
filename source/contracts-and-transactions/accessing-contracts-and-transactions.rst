@@ -57,10 +57,10 @@ note that data in these examples will differ on your local node. If you want to 
 
 .. code:: bash
 
-    > curl --data '{"jsonrpc":"2.0","method":"eth_coinbase", "id":1}' localhost:8545
+    > curl --data '{"jsonrpc":"2.0","method":"exp_coinbase", "id":1}' localhost:8545
     {"id":1,"jsonrpc":"2.0","result":["0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a"]}
 
-    > curl --data '{"jsonrpc":"2.0","method":"eth_getBalance", "params": ["0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a"], "id":2}' localhost:8545
+    > curl --data '{"jsonrpc":"2.0","method":"exp_getBalance", "params": ["0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a"], "id":2}' localhost:8545
     {"id":2,"jsonrpc":"2.0","result":"0x1639e49bba16280000"}
 
 Remember when we said that numbers are hex encoded? In this case the balance is returned in Wei as a hex string. If we want to have the balance in
@@ -72,11 +72,11 @@ Expanse as a number we can use web3 from the gexp console.
     "410"
 
 Now that we have some expanse on our private development chain we can deploy the contract. The first step is to verify that the solidity compiler is
-available. We can retrieve available compilers using the ``eth_getCompilers`` RPC method.
+available. We can retrieve available compilers using the ``exp_getCompilers`` RPC method.
 
 .. code:: bash
 
-   > curl --data '{"jsonrpc":"2.0","method": "eth_getCompilers", "id": 3}' localhost:8545
+   > curl --data '{"jsonrpc":"2.0","method": "exp_getCompilers", "id": 3}' localhost:8545
    {"id":3,"jsonrpc":"2.0","result":["Solidity"]}
 
 We can see that the solidity compiler is available. If it's not available follow `these <http://solidity.readthedocs.org/en/latest/installing-solidity.html>`_
@@ -86,33 +86,33 @@ The next step is to compile the Multiply7 contract to byte code that can be send
 
 .. code:: bash
 
-   > curl --data '{"jsonrpc":"2.0","method": "eth_compileSolidity", "params": ["contract Multiply7 { event Print(uint); function multiply(uint input) returns (uint) { Print(input * 7); return input * 7; } }"], "id": 4}' localhost:8545
+   > curl --data '{"jsonrpc":"2.0","method": "exp_compileSolidity", "params": ["contract Multiply7 { event Print(uint); function multiply(uint input) returns (uint) { Print(input * 7); return input * 7; } }"], "id": 4}' localhost:8545
    {"id":4,"jsonrpc":"2.0","result":{"Multiply7":{"code":"0x6060604052605f8060106000396000f3606060405260e060020a6000350463c6888fa18114601a575b005b60586004356007810260609081526000907f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da90602090a15060070290565b5060206060f3","info":{"source":"contract Multiply7 { event Print(uint); function multiply(uint input) returns (uint) { Print(input * 7); return input * 7; } }","language":"Solidity","languageVersion":"0.2.2","compilerVersion":"0.2.2","compilerOptions":"--bin --abi --userdoc --devdoc --add-std --optimize -o /tmp/solc205309041","abiDefinition":[{"constant":false,"inputs":[{"name":"input","type":"uint256"}],"name":"multiply","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"","type":"uint256"}],"name":"Print","type":"event"}],"userDoc":{"methods":{}},"developerDoc":{"methods":{}}}}}}
 
-Now that we have the compiled code we need to determine how much gas it costs to deploy it. The RPC interface has an ``eth_estimateGas`` method that will
+Now that we have the compiled code we need to determine how much gas it costs to deploy it. The RPC interface has an ``exp_estimateGas`` method that will
 give us an estimate.
 
 .. code:: bash
 
-   > curl --data '{"jsonrpc":"2.0","method": "eth_estimateGas", "params": [{"from": "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", "data": "0x6060604052605f8060106000396000f3606060405260e060020a6000350463c6888fa18114601a575b005b60586004356007810260609081526000907f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da90602090a15060070290565b5060206060f3"}], "id": 5}' localhost:8545
+   > curl --data '{"jsonrpc":"2.0","method": "exp_estimateGas", "params": [{"from": "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", "data": "0x6060604052605f8060106000396000f3606060405260e060020a6000350463c6888fa18114601a575b005b60586004356007810260609081526000907f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da90602090a15060070290565b5060206060f3"}], "id": 5}' localhost:8545
    {"id":5,"jsonrpc":"2.0","result":"0xb8a9"}
 
 And finally deploy the contract.
 
 .. code:: bash
 
-   > curl --data '{"jsonrpc":"2.0","method": "eth_sendTransaction", "params": [{"from": "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", "gas": "0xb8a9", "data": "0x6060604052605f8060106000396000f3606060405260e060020a6000350463c6888fa18114601a575b005b60586004356007810260609081526000907f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da90602090a15060070290565b5060206060f3"}], "id": 6}' localhost:8545
+   > curl --data '{"jsonrpc":"2.0","method": "exp_sendTransaction", "params": [{"from": "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", "gas": "0xb8a9", "data": "0x6060604052605f8060106000396000f3606060405260e060020a6000350463c6888fa18114601a575b005b60586004356007810260609081526000907f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da90602090a15060070290565b5060206060f3"}], "id": 6}' localhost:8545
    {"id":6,"jsonrpc":"2.0","result":"0x3a90b5face52c4c5f30d507ccf51b0209ca628c6824d0532bcd6283df7c08a7c"}
 
 The transaction is accepted by the node and a transaction hash is returned. We can use this hash to track the transaction.
 
 The next step is to determine the address where our contract is deployed. Each executed transaction will create a receipt. This receipt contains
 various information about the transaction such as in which block the transaction was included and how much gas was used by the EVM. If a transaction
-creates a contract it will also contain the contract address. We can retrieve the receipt with the ``eth_getTransactionReceipt`` RPC method.
+creates a contract it will also contain the contract address. We can retrieve the receipt with the ``exp_getTransactionReceipt`` RPC method.
 
 .. code:: bash
 
-   > curl --data '{"jsonrpc":"2.0","method": "eth_getTransactionReceipt", "params": ["0x3a90b5face52c4c5f30d507ccf51b0209ca628c6824d0532bcd6283df7c08a7c"], "id": 7}' localhost:8545
+   > curl --data '{"jsonrpc":"2.0","method": "exp_getTransactionReceipt", "params": ["0x3a90b5face52c4c5f30d507ccf51b0209ca628c6824d0532bcd6283df7c08a7c"], "id": 7}' localhost:8545
    {"id":7,"jsonrpc":"2.0","result":{"transactionHash":"0x3a90b5face52c4c5f30d507ccf51b0209ca628c6824d0532bcd6283df7c08a7c","transactionIndex":"0x0","blockNumber":"0x4c","blockHash":"0xe286656e478a1b99030e318d0f5c3a61a644f25e63deaa8be52e80da1e7b0c47","cumulativeGasUsed":"0xb8a9","gasUsed":"0xb8a9","contractAddress":"0x6ff93b4b46b41c0c3c9baee01c255d3b4675963d","logs":[]}}
 
 We can see that our contract was created on ``0x6ff93b4b46b41c0c3c9baee01c255d3b4675963d``. If you got null instead of a receipt the transaction has
@@ -123,7 +123,7 @@ Interacting with smart contracts
 ================================================================================
 Now that our contract is deployed we can interact with it. There are 2 methods for this, sending a transaction or :ref:`using call as previously explained <interacting_with_a_contract>`. In this example we will be sending a transaction to the multiply method of the contract.
 
-If we look at the documentation for the `eth_sendTransaction <https://github.com/expanse-org/wiki/wiki/JSON-RPC#eth_sendtransaction>`_ we can see that we need to supply
+If we look at the documentation for the `exp_sendTransaction <https://github.com/expanse-org/wiki/wiki/JSON-RPC#exp_sendtransaction>`_ we can see that we need to supply
 several arguments. In our case we need to specify the ``from``, ``to`` and ``data`` arguments. ``From`` is the public address of our account and ``to``
 the contract address. The ``data`` argument is a bit harder. It contains a payload that defines which method must be called and with which arguments.
 This is were the ABI comes into play. The ABI defines how to define and encode data for the EVM. You can read 
@@ -154,7 +154,7 @@ Lets try it:
 
 .. code:: bash
 
-   > curl --data '{"jsonrpc":"2.0","method": "eth_sendTransaction", "params": [{"from": "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", "to": "0x6ff93b4b46b41c0c3c9baee01c255d3b4675963d", "data": "0xc6888fa10000000000000000000000000000000000000000000000000000000000000006"}], "id": 8}' localhost:8545
+   > curl --data '{"jsonrpc":"2.0","method": "exp_sendTransaction", "params": [{"from": "0xeb85a5557e5bdc18ee1934a89d8bb402398ee26a", "to": "0x6ff93b4b46b41c0c3c9baee01c255d3b4675963d", "data": "0xc6888fa10000000000000000000000000000000000000000000000000000000000000006"}], "id": 8}' localhost:8545
    {"id":8,"jsonrpc":"2.0","result":"0x759cf065cbc22e9d779748dc53763854e5376eea07409e590c990eafc0869d74"}
 
 Since we sent a transaction we got the transaction hash returned. If we retrieve the receipt we can see something new:

@@ -203,7 +203,7 @@ use the compiler.
 .. code:: bash
 
     $ gexp --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/eth/exp.log
-    $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"],"id":1}' http://127.0.0.1:8100
+    $ curl -X POST --data '{"jsonrpc":"2.0","method":"exp_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"],"id":1}' http://127.0.0.1:8100
 
 The compiler output for one source will give you contract objects each
 representing a single contract. The actual return value of
