@@ -36,16 +36,16 @@ Mining rewards
 
 The successful PoW miner of the winning block receives:
 
-* a *static block reward* for the 'winning' block, consisting of exactly 5.0 Expanse
+* a *static block reward* for the 'winning' block, consisting of exactly 8.0 Expanse
 * cost of the gas expended within the block – an amount of expanse that depends on the current gas price
 * an extra reward for including uncles as part of the block, in the form of an extra 1/32 per uncle included
 
 All the gas consumed by the execution of all the transactions in the block submitted by the winning miner is paid by the senders of each transaction. The gas cost incurred is credited to the miner's account as part of the consensus protocol. Over time, it is expected these will dwarf the static block reward.
 
-*Uncles* are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralise the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 expanse). A maximum of 2 uncles are allowed per block.
+*Uncles* are stale blocks i.e. with parents that are ancestors (max 6 blocks back) of the including block. Valid uncles are rewarded in order to neutralize the effect of network lag on the dispersion of mining rewards, thereby increasing security (this is called the GHOST protocol). Uncles included in a block formed by the successful PoW miner receive 7/8 of the static block reward (=4.375 expanse). A maximum of 2 uncles are allowed per block.
 
-    * `Uncles ELI5 on reddit <https://www.reddit.com/r/expanse/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/>`_
-    * `Forum thread explaining uncles <https://forum.expanse.tech/discussion/2262/eli5-whats-an-uncle-in-expanse-mining>`_
+    * `Uncles ELI5 on reddit <https://www.reddit.com/r/ethereum/comments/3c9jbf/wtf_are_uncles_and_why_do_they_matter/>`_
+    * `Forum thread explaining uncles <https://forum.expanse.org/discussion/2262/eli5-whats-an-uncle-in-ethereum-mining>`_
 
 
 Mining success depends on the set block difficulty. Block difficulty dynamically adjusts each block in order to regulate the network hashing power to produce a 12 second blocktime. Your chances of finding a block therefore follows from your hashrate relative to difficulty.
@@ -72,7 +72,7 @@ Our algorithm, `Ethash <https://github.com/expanse-org/wiki/wiki/Ethash>`__ (pre
 
 It is designed to hash a fast verifiability time within a slow CPU-only environment, yet provide vast speed-ups for mining when provided with a large amount of memory with high-bandwidth. The large memory requirements mean that large-scale miners get comparatively little super-linear benefit. The high bandwidth requirement means that a speed-up from piling on many super-fast processing units sharing the same memory gives little benefit over a single unit. This is important in that pool mining have no benefit for nodes doing verification, thus discourageing centralisation.
 
-Communication between the external mining application and the Expanse daemon for work provision and submission happens through the JSON-RPC API. Two RPC functions are provided; ``eth_getWork`` and ``eth_submitWork``.
+Communication between the external mining application and the Expanse daemon for work provision and submission happens through the JSON-RPC API. Two RPC functions are provided; ``exp_getWork`` and ``exp_submitWork``.
 
 These are formally documented on the `JSON-RPC API <https://github.com/expanse-org/wiki/wiki/JSON-RPC>`_ wiki article under `miner <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console#miner>`_.
 
@@ -105,7 +105,7 @@ You can also start and stop CPU mining at runtime using the `console <https://gi
     > miner.stop()
     true
 
-Note that mining for real expanse only makes sense if you are in sync with the network (since you mine on top of the consensus block). Therefore the eth blockchain downloader/synchroniser will delay mining until syncing is complete, and after that mining automatically starts unless you cancel your intention with ``miner.stop()``.
+Note that mining for real expanse only makes sense if you are in sync with the network (since you mine on top of the consensus block). Therefore the exp blockchain downloader/synchroniser will delay mining until syncing is complete, and after that mining automatically starts unless you cancel your intention with ``miner.stop()``.
 
 In order to earn expanse you must have your **etherbase** (or **coinbase**) address set. This etherbase defaults to your primary account. If you don't have an etherbase address, then ``gexp --mine`` will not start up.
 
@@ -128,7 +128,7 @@ There is an option `to add extra Data <https://github.com/expanse-org/go-expanse
 
 .. code-block:: javascript
 
-    miner.setExtra("ΞTHΞЯSPHΞЯΞ")
+    miner.setExtra("BORDERLESS")
     ...
     debug.printBlock(131805)
     BLOCK(be465b020fdbedc4063756f0912b5a89bbb4735bd1d1df84363e05ade0195cb1): Size: 531.00 B TD: 643485290485 {
@@ -236,7 +236,7 @@ Windows set-up
 -------------------------------
 `Download the latest Eth\+\+ installation <https://github.com/expanse-org/webthree-umbrella/releases>`_ and choose ethminer at the "Choose Components" screen of the installation screen.
 
-..  image:: img/eth_miner_setup.png
+..  image:: img/exp_miner_setup.png
 ..   :height: 513px
 ..   :width: 399 px
    :alt: expanse-ethminer-set-upfdg
@@ -281,16 +281,16 @@ To debug the miner:
 
 Check your hashrate with ``ethminer``, ``miner.hashrate`` will always report 0.
 
-Using ethminer with eth
+Using ethminer with exp
 -------------------------------
 
 Mining on a single GPU
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-In order to mine on a single GPU all that needs to be done is to run eth with the following arguments:
+In order to mine on a single GPU all that needs to be done is to run exp with the following arguments:
 
 .. code-block:: bash
 
- eth -v 1 -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name "OPTIONALNAMEHERE" -x 50 -m on -G
+ exp -v 1 -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name "OPTIONALNAMEHERE" -x 50 -m on -G
 
 - ``-v 1`` Set verbosity to 1. Let's not get spammed by messages.
 - ``-a YOURWALLETADDRESS`` Set the coinbase, where the mining rewards will go to. The above address is just an example. This argument is really important, make sure to not make a mistake in your wallet address or you will receive no expanse payout.
@@ -304,12 +304,12 @@ gexp attach` or [ethconsole](https://github.com/expanse-org/expanse-console).
 
 Mining on a multiple GPUs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Mining with multiple GPUs and eth is very similar to mining with gexp and multiple GPUs.
-Ensure that an eth node is running with your coinbase address properly set:
+Mining with multiple GPUs and exp is very similar to mining with gexp and multiple GPUs.
+Ensure that an exp node is running with your coinbase address properly set:
 
 .. code-block:: bash
 
-   eth -v 1 -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name "OPTIONALNAMEHERE" -x 50 -j
+   exp -v 1 -a 0xcadb3223d4eebcaa7b40ec5722967ced01cfc8f2 --client-name "OPTIONALNAMEHERE" -x 50 -j
 
 Notice that we also added the -j argument so that the client can have the JSON-RPC server enabled to communicate with the ethminer instances. Additionally we removed the mining related arguments since ethminer will now do the mining for us.
 For each of your GPUs execute a different ethminer instance:
@@ -355,7 +355,7 @@ Use ethminer ``--list-devices`` to list possible numbers to substitute for the X
 
 To start mining on Windows, first `download the gexp windows binary <https://build.expanse.tech/builds/Windows%20Go%20master%20branch/>`_.
 
-* Unzip Geth (right-click and select unpack) and launch Command Prompt. Use `cd` to navigate to the location of the Geth data folder. (e.g. ``cd /`` to go to the ``C:`` drive)
+* Unzip Gexp (right-click and select unpack) and launch Command Prompt. Use `cd` to navigate to the location of the Gexp data folder. (e.g. ``cd /`` to go to the ``C:`` drive)
 * Start gexp by typing ``gexp --rpc``.
 
 As soon as you enter this, the Expanse blockchain will start downloading. Sometimes your firewall may block the synchronisation process (it will prompt you when doing so). If this is the case, click "Allow access".
@@ -379,33 +379,17 @@ Mining pools are cooperatives that aim to smooth out expected revenue by pooling
 Mining pools
 --------------------------------------------------------------------
 
-* `coinotron`_
-* `nanopool`_
-* `ethpool`_ - Predictable solo mining, unconventional payout scheme, affiliated with `etherchain\.org`_.
-* `supernova`_
-* `coinmine.pl`_
-* `exp.pp.ua`_
-* `talkether`_ - Unconventional payout scheme, partially decentralized
-* `weipool`_
-* `ethereumpool`_
-* `pooleum`_
-* `alphapool`_
-* `cryptopool`_
-* `unitedminers`_
-* `dwarfpool`_ - Try to avoid this (currently over 50% of the network)
-* `laintimes <http://pool.laintimes.com/>`_ - Discontinued
-
 .. _Ethpool: https://github.com/etherchain-org/ethpool-core
 .. _Ethpool source: https://github.com/etherchain-org/ethpool-core
 .. _ethereumpool: https://ethereumpool.co/
 .. _nanopool: http://exp.nanopool.org/
 .. _pooleum: http://www.pooleum.com
 .. _alphapool: http://www.alphapool.xyz/
-.. _dwarfpool: http://dwarfpool.com/eth
+.. _dwarfpool: http://dwarfpool.com/exp
 .. _talkether: http://talkether.org/
 .. _weipool: http://weipool.org/
 .. _supernova: https://exp.suprnova.cc/
-.. _coinmine.pl: https://www2.coinmine.pl/eth/
+.. _coinmine.pl: https://www2.coinmine.pl/exp/
 .. _eth.pp.ua:  https://exp.pp.ua/
 .. _coinotron: https://www.coinotron.com/
 .. _etherchain.org: https://etherchain.org/
@@ -413,24 +397,10 @@ Mining pools
 .. _cryptopool: http://expanse.cryptopool.online/
 
 
-Mining resources
-=======================================================
-
-* `Top miners of last 24h on etherchain <https://etherchain.org/statistics/miners>`_
-* `pool hashrate distribution for august 2015 <ehttp://cryptomining-blog.com/5607-the-current-state-of-expanse-mining-pools/>`_
-* `Unmaintained list of pools on Forum <https://forum.expanse.tech/discussion/3659/list-of-pools>`_
-* `Mining profitability calculator on cryptocompare <https://www.cryptocompare.com/mining/calculator/eth>`_
-* `Mining profitability calculator on cryptowizzard <http://cryptowizzard.github.io/eth-mining-calculator/>`_
-* `Mining profitability calculator on etherscan <http://etherscan.io/expanse-mining-calculator/>`_
-* `Mining profitability calculator on In The Expanse <http://expanse-mining-calculator.com/>`_
-* `Mining difficulty chart on etherscan <http://etherscan.io/charts/difficulty>`_
-
 
 .. _POS vs POW:
 
 POS vs POW
 -----------------------------
 
-* https://www.reddit.com/r/expanse/comments/38db1z/eli5_the_difference_between_pos_and_pow/
-* https://blog.expanse.tech/2014/11/25/proof-stake-learned-love-weak-subjectivity/
-* https://www.reddit.com/r/expanse/comments/42o8oy/can_someone_explain_the_switch_to_pos_how_and_when/
+* https://www.reddit.com/r/ethereum/comments/38db1z/eli5_the_difference_between_pos_and_pow/

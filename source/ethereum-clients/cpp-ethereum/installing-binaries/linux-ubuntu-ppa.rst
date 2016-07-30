@@ -16,7 +16,7 @@ EVMJIT and maybe other features too.  We might accept pull-requests to
 add such support, but we will not put any of our development time into
 supporting Ubuntu 32-bit builds.
 
-Installing the "eth" command-line tool
+Installing the "exp" command-line tool
 --------------------------------------------------------------------------------
 
 WARNING: The **expanse-qt** PPA will upgrade your system-wide Qt5

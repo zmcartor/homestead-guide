@@ -29,10 +29,7 @@ Resources for Exemplary Documentation
 
 Here are some examples of previous Expanse documentation + good examples of documentation.
 
-* Solidity Docs - https://expanse.github.io/solidity/docs/home/
-* Gav’s TurboEthereum Guide - https://gavofyork.gitbooks.io/turboethereum/content/
-* Ancient EthereumBuilder’s Guide - https://ethereumbuilders.gitbooks.io/guide/content/en/index.html
-* Other Expanse Links: https://souptacular.gitbooks.io/ethereum-tutorials-and-tips-by-hudson/content/giant_ethereum_resource_list.html
+* Solidity Docs - https://solidity.readthedocs.io/en/latest/
 * Django Docs - https://docs.djangoproject.com/en/1.9/
 
 Restructured Text Markup, Sphinx

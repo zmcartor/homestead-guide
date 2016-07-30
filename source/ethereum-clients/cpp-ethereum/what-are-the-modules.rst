@@ -7,7 +7,7 @@ What are the modules?
 What are the primary executables?
 ================================================================================
 
-- **eth** A command-line Expanse full-node that can be controlled via RPC.
+- **exp** A command-line Expanse full-node that can be controlled via RPC.
 - **mix** An IDE for contract and user interface development, testing and deployment to the blockchain.
 - **solc**  The solidity command line compiler
 - **lllc** The LLL command-line compiler.
@@ -59,9 +59,9 @@ What are the various modules?
     - parsing: parser (creates the non-annotated AST)
     - solc: commandline compiler
 - **web3.js** - JavaScript Dapp framework library (connects to backend via RPC / IPC)
-- **webthree** - actual client / node implementation ("eth")
-    - eth: commandline client / node
-    - libjsconsole: JavaScript console for access to eth - deprecated, to be replaced by nodejs application
+- **webthree** - actual client / node implementation ("exp")
+    - exp: commandline client / node
+    - libjsconsole: JavaScript console for access to exp - deprecated, to be replaced by nodejs application
     - libjsengine: underlying engine for libjsconsole, to be removed
     - libweb3jsonrpc: json-rpc server-side endpoint, provides http and IPC (unix socket, windows pipe) connectors
     - libwebthree: service connectors for expanse, swarm/ipfs and whisper.

@@ -7,7 +7,7 @@ Raspberry Pi, Odroid, BeagleBone Black, Wandboard
 SBCs at major milestones, in addition to testing and maintaining build scripts
 for these devices.  EthEmbedded was a `devgrant recipient
 <https://twitter.com/EthEmbedded/status/601072825584103424>`_ in May 2015.
-He builds binaries for both eth and gexp.
+He builds binaries for both exp and gexp.
 
 Here are the `Homestead binaries <http://ethembedded.com/?page_id=102>`_
 from `EthEmbedded <http://ethembedded.com>`_

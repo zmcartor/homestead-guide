@@ -39,7 +39,7 @@ To start the applications, type one of these commands in a Terminal window: ::
 
     open /Applications/AlethZero.app
     open /Applications/Mix.app
-    eth
+    exp
 
 Here is the `Homebrew Formula
 <https://github.com/expanse-org/homebrew-expanse/blob/master/cpp-expanse.rb>`_

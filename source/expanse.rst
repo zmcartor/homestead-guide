@@ -37,10 +37,10 @@ their value in Wei. Following a common (although somewhat ambiguous) pattern, Ex
 Expanse supply
 =========================
 
-* https://blog.expanse.tech/2014/04/10/the-issuance-model-in-expanse/
-* https://www.reddit.com/r/expanse/comments/44zy88/clarification_on_ether_supply_and_cost_of_gas/
-* https://www.reddit.com/r/expanse/comments/45vj4g/question_about_scarcity_of_ethereum_and_its/
-* https://www.reddit.com/r/ethtrader/comments/48yqg6/is_there_a_cap_like_with_btc_with_how_many_ether/
+The total supply of EXP is 11.11m+(numOfBlocksMined*8).
+The current number in circulation is only 1m+(numOfBlocksMined*8).
+
+10m is currently being stored in cold storage until the EXP DAO is completed then they will be moved into a democratically controlled organization .
 
 
 Getting expanse
@@ -49,67 +49,40 @@ Getting expanse
 In order to obtain Expanse, you need to either
 
 * become an Expanse miner (see _`Mining`)  or
-* trade other currencies for Expanse using centralised or trustless services
-* use the user friendly `Mist Expanse GUI Wallet <https://github.com/expanse-org/mist/releases>`_ that as of Beta 6 introduced the ability to purchase expanse using the http://shapeshift.io/ API.
+* trade other currencies for Expanse using centralized or trustless services
 
-Trustless services
---------------------------------------------------------------------------------
-
-Note that the Expanse platform is special in that the smart contracts enable trustless services that obviate the need for trusted third parties in a currency exchange transaction, ie. disintermediate currency exchange businesses.
-
-Such projects (alpha/prelaunch status at the time of writing) are:
-
-* `BTCrelay <http://btcrelay.org/>`_
-   * `More information <https://medium.com/@ConsenSys/taking-stock-bitcoin-and-expanse-4382f0a2f17>`_ (about ETH/BTC 2-way peg without modifying bitcoin code).
-   * `BTCrelay audit <http://martin.swende.se/blog/BTCRelay-Auditing.html>`_
-* `EtherEx decentralised exchange <https://etherex.org>`_.
-
-List of centralised exchange marketplaces
+List of centralized exchange marketplaces
 --------------------------------------------------------------------------------
 
 ========================== ============================
 Exchange                   Currencies
 ========================== ============================
 Poloniex                   BTC
-Kraken                     BTC, USD, EUR, CAD, GBP
-Gatecoin                   BTC, EUR
-Bitfinex                   BTC, USD
 Bittrex                    BTC
 Bluetrade                  BTC, LTC, DOGE
-HitBTC                     BTC
-Livecoin                   BTC
-Coinsquare                 BTC
-Bittylicious               GBP
-BTER                       CNY
-Yunbi                      CNY
-Metaexchange               BTC
 ========================== ============================
 
 
-Centralised fixed rate exchanges
+Centralized fixed rate exchanges
 -----------------------------------
 
 
 ========================== ============================
 Exchange                   Currencies
 ========================== ============================
-`Shapeshift`_              BTC, LTC, DOGE, Other
-`Bity`_                    BTC, USD, EUR, CHF
+`Changelly`_              BTC, LTC, DOGE, Other
 ========================== ============================
 
-.. _Bity: https://bity.com
-.. _Shapeshift: shapeshift.io
+.. _Changelly: changelly.com
 
 
 Trading and price analytics
 --------------------------------------------------------------------------------
 
-* `ETH markets exhaustive listing by volume on coinmarketcap <https://coinmarketcap.com/currencies/expanse/#markets>`_
+* `EXP markets exhaustive listing by volume on coinmarketcap <https://coinmarketcap.com/currencies/expanse/#markets>`_
 * Aggregating realtime stats of major ETH markets:
 
-  * `Tradeblock <https://tradeblock.com/expanse>`_
   * `EthereumWisdom <http://ethereumwisdom.com>`_
-  * `Cryptocompare <https://www.cryptocompare.com/coins/eth/overview>`_
   * `Coinmarketcap <https://coinmarketcap.com/currencies/expanse/>`_
 
 
@@ -126,35 +99,12 @@ Online wallets, paper wallets, and cold storage
 
 * Mist Expanse Wallet
     * `Releases to download <https://github.com/expanse-org/mist/releases>`_
-    * `Mist Expanse Wallet developer preview <https://blog.expanse.tech/2015/09/16/expanse-wallet-developer-preview/>`_ - foundation blog post
-    * `How to easily set up the Expanse Mist wallet! <https://www.youtube.com/watch?v=Z6lE0Ctaeqs>`_ - Tutorial by Tommy Economics
-* Kryptokit Jaxx
-    * `Jaxx main site <http://jaxx.io/>`_
-    * `Mobile release <http://favs.pw/first-expanse-mobile-app-released/#.VsHn_PGPL5c>`_
-* Etherwall
-    * `Etherwall website <http://www.etherwall.com/>`_
-    * `Etherwall source <https://github.com/almindor/etherwall>`_
-* MyEtherWallet
-    * `MyEtherWallet website <https://www.myetherwallet.com/>`_
-    * `MyEtherWallet source <https://github.com/kvhnuke/etherwallet/>`_
-    * `Chrome extension <http://sebfor.com/myetherwallet-chrome-extension-release/>`_
+* ExpanseWallet
+    * `Etherwall source <https://github.com/nrpatten/ExpanseWallet/blob/master/v1.0.0/ExpanseWallet_Installet.exe>`_
 * Cold storage
     * `Icebox <https://github.com/ConsenSys/icebox>`_ by `ConsenSys <https://consensys.net/>`_ - Cold storage based on lightwallet with HD wallet library integrated.
-    * `Reddit discussion 1 <https://www.reddit.com/r/expanse/comments/45uvmy/offline_cold_storage_question/offline_cold_storage_question>`_
-    * `How to setup a cold storage wallet <https://www.reddit.com/r/expanse/comments/48wfbv/eli5_how_to_setup_a_cold_storage_wallet_as/>`_
-* Hardware wallet
-    * `reddit discussion 2 <https://www.reddit.com/r/expanse/comments/45siaq/hardware_wallet/>`_
-    * `reddit discussion 3 <https://www.reddit.com/r/expanse/comments/4521o4/crowdfunding_ethereum_hardware_cold_storage_wallet/>`_
-* Brain wallet
-    * brain wallets are not safe, do not use them. https://www.reddit.com/r/expanse/comments/45y8m7/brain_wallets_are_now_generally_shunned_by/
-    * Extreme caution with brain wallets. Read the recent controversy: https://reddit.com/r/expanse/comments/43fhb5/brainwallets vs http://blog.expanse.camp/post/138376049438/why-brain-wallet-is-the-best
-* Misc
-    * `Kraken Wallet Sweeper Tool <https://www.kraken.com/expanse>`_ - Pre-sale wallet import
-    * `Recommended ways to safely store expanse <http://expanse.stackexchange.com/questions/1239/what-is-the-recommended-way-to-safely-store-expanse>`_
-    * `How to buy and store expanse <http://sebfor.com/how-to-buy-and-store-expanse/>`_
-    * `A laymen's intro into brute forcing and why not to use brain wallets <http://www.fastcompany.com/3056651/researchers-find-a-crack-that-drains-supposedly-secure-bitcoin-wallets>`_
-    * `Pyethsaletool <https://github.com/expanse-org/pyethsaletool/blob/master/README.md>`_
-    * `Account vs wallet <https://www.reddit.com/r/expanse/comments/47j3r5/eli5_accounts_vs_wallet_contracts_on_mist/>`_
+    * `Reddit discussion 1 <https://www.reddit.com/r/ethereum/comments/45uvmy/offline_cold_storage_question/offline_cold_storage_question>`_
+    * `How to setup a cold storage wallet <https://www.reddit.com/r/ethereum/comments/48wfbv/eli5_how_to_setup_a_cold_storage_wallet_as/>`_
 
 Sending expanse
 ================================================================================
@@ -177,18 +127,18 @@ Expanse is unique in the realm of cryptocurrencies in that expanse has utility v
 Gas and expanse
 =============================
 
-* https://www.reddit.com/r/expanse/comments/271qdz/can_someone_explain_the_concept_of_gas_in_ethereum/
-* https://www.reddit.com/r/expanse/comments/3fnpr1/can_someone_possibly_explain_the_concept_of/
-* https://www.reddit.com/r/expanse/comments/49gol3/can_ether_be_used_as_a_currency_eli5_ether_gas/
+* https://www.reddit.com/r/ethereum/comments/271qdz/can_someone_explain_the_concept_of_gas_in_ethereum/
+* https://www.reddit.com/r/ethereum/comments/3fnpr1/can_someone_possibly_explain_the_concept_of/
+* https://www.reddit.com/r/ethereum/comments/49gol3/can_ether_be_used_as_a_currency_eli5_ether_gas/
 
 
-Gas is supposed to be the constant cost of network resources/utilisation. You want the real cost of sending a transaction to always be the same, so you can't really expect Gas to be issued, currencies in general are volatile.
+Gas is supposed to be the constant cost of network resources/utilization. You want the real cost of sending a transaction to always be the same, so you can't really expect Gas to be issued, currencies in general are volatile.
 
 So instead, we issue Expanse whose value is supposed to vary, but also implement a Gas Price in terms of Expanse. If the price of Expanse goes up, the Gas Price in terms of Expanse should go down to keep the real cost of Gas the same.
 
 Gas has multiple associated terms with it: Gas Prices, Gas Cost, Gas Limit, and Gas Fees. The principle behind Gas is to have a stable value for how much a transaction or computation costs on the Expanse network.
 
 * Gas Cost is a static value for how much a computation costs in terms of Gas, and the intent is that the real value of the Gas never changes, so this cost should always stay stable over time.
-* Gas Price is how much Gas costs in terms of another currency or token like Expanse. To stabilise the value of gas, the Gas Price is a floating value such that if the cost of tokens or currency fluctuates, the Gas Price changes to keep the same real value. The Gas Price is set by the equilibrium price of how much users are willing to spend, and how much processing nodes are willing to accept.
+* Gas Price is how much Gas costs in terms of another currency or token like Expanse. To stabilize the value of gas, the Gas Price is a floating value such that if the cost of tokens or currency fluctuates, the Gas Price changes to keep the same real value. The Gas Price is set by the equilibrium price of how much users are willing to spend, and how much processing nodes are willing to accept.
 * Gas Limit is the maximum amount of Gas that can be used per block, it is considered the maximum computational load, transaction volume, or block size of a block, and miners can slowly change this value over time.
 * Gas Fee is effectively the amount of Gas needed to be paid to run a particular transaction or program (called a contract). The Gas Fees of a block can be used to imply the computational load, transaction volume, or size of a block. The gas fees are paid to the miners (or bonded contractors in PoS).

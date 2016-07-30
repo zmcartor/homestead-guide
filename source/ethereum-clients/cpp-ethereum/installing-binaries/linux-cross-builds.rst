@@ -18,5 +18,5 @@ See the
 for a full matrix of platforms and known status.
 
 Here are the cross-build binaries from doublethinkco:
-`RELEASED – Cross-build eth binaries for Homestead
-<http://doublethink.co/2016/03/07/released-cross-build-eth-binaries-for-homestead/>`_.
+`RELEASED – Cross-build exp binaries for Homestead
+<http://doublethink.co/2016/03/07/released-cross-build-exp-binaries-for-homestead/>`_.

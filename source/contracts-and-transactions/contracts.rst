@@ -90,7 +90,7 @@ mechanisms.
 
 * Using the ``solc`` compiler via the command line.
 * Using ``web3.exp.compile.solidity`` in the javascript console provided by
-  ``gexp`` or ``eth`` (This still requires the ``solc`` compiler to be
+  ``gexp`` or ``exp`` (This still requires the ``solc`` compiler to be
   installed).
 * The `online Solidity realtime compiler <https://expanse.github.io/browser-solidity/>`_.
 * The `Meteor dapp Cosmo for building solidity contracts <https://github.com/SilentCicero/meteor-dapp-cosmo>`_.
@@ -151,7 +151,7 @@ This contract offers a single method **multiply** which is called with a
 positive integer ``a`` and returns ``a * 7``.
 
 You are ready to compile solidity code in the ``gexp`` JS console using
-`eth\.compile\.solidity\(\)
+`exp\.compile\.solidity\(\)
 <https://github.com/expanse-org/wiki/wiki/JavaScript-API#web3ethcompilesolidity>`_:
 
 
@@ -202,7 +202,7 @@ use the compiler.
 
 .. code:: bash
 
-    $ gexp --datadir ~/eth/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/eth/exp.log
+    $ gexp --datadir ~/exp/ --loglevel 6 --logtostderr=true --rpc --rpcport 8100 --rpccorsdomain '*' --mine console  2>> ~/exp/exp.log
     $ curl -X POST --data '{"jsonrpc":"2.0","method":"exp_compileSolidity","params":["contract test { function multiply(uint a) returns(uint d) { return a * 7; } }"],"id":1}' http://127.0.0.1:8100
 
 The compiler output for one source will give you contract objects each

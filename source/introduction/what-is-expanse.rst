@@ -57,59 +57,18 @@ Learn about Expanse
 
 [to be extended]
 
-PR videos with some pathos:
----------------------------------
-
-* `Expanse: the World Computer <https://www.youtube.com/watch?v=j23HnORQXvs>`_
-* `Expanse -- your turn <https://vimeo.com/88959651>`_
-
 
 Blockchain and Expanse 101
 ----------------------------------
 
 * `Explain bitcoin like I'm five <https://medium.com/@nik5ter/explain-bitcoin-like-im-five-73b4257ac833>`_ - an excellent introduction to blockchain technology and bitcoin to the mildly techsavvy layperson.
-* https://medium.com/@creole/7-a-simple-view-of-expanse-e276f76c980b
-* http://blog.chain.com/post/92660909216/explaining-expanse
-
-* `Explain Expanse to non-technical people Q&A on stackexchange <http://expanse.stackexchange.com/questions/45/how-would-i-explain-expanse-to-a-non-technical-friend>`_
-* Reddit threads on ELI5-ing Expanse:
-
-`[1] <https://www.reddit.com/r/expanse/comments/43brik/explaining_ethereum_to_friends/>`_
-`[2] <https://www.reddit.com/r/expanse/comments/3c132d/eli5_what_you_guys_do_here/>`_
-`[3] <https://www.reddit.com/r/expanse/comments/1vvz13/eli5_ethereum/>`_
-`[4] <https://www.reddit.com/r/expanse/comments/1vb1gc/is_ethereum_an_alt_coin_can_anyone_eli5/>`_
-`[5] <https://www.reddit.com/r/expanse/comments/4279dh/eli5_what_exactly_is_ethereum/>`_
-`[6] <https://www.reddit.com/r/expanse/comments/2hl10p/eli5_ethereum/>`_
-`[7] <https://www.reddit.com/r/expanse/comments/41y8by/the_best_way_i_can_eli5_ethereum_to_someone/>`_
-`[8] <https://www.reddit.com/r/expanse/comments/44b69e/i_dont_understand_the_technology/>`_
-`[9] <https://medium.com/@nik5ter/explain-bitcoin-like-im-five-73b4257ac833>`_
-`[10] <https://www.reddit.com/r/expanse/comments/1vb1gc/is_ethereum_an_alt_coin_can_anyone_eli5/>`_
-`[11] <https://www.reddit.com/r/expanse/comments/2dpgwy/eli5_ethereum/>`_
-`[12] <https://www.reddit.com/r/expanse/comments/47u5y9/explain_what_ethereum_is_to_a_bitcoin_trader/>`_
-`[13] <https://www.reddit.com/r/expanse/comments/27wsgq/eli5_ethereum_its_uses_its_features_its_future/>`_
-`[14] <https://www.reddit.com/r/expanse/comments/4936d3/are_you_new_to_ethereum_here_are_many/>`_
-`[15] <https://www.reddit.com/r/expanse/comments/4279dh/eli5_what_exactly_is_ethereum/>`_
-`[16] <https://www.reddit.com/r/expanse/comments/3n37dp/explaining_ethereum_ecosystem_for_normal/>`_
-`[17] <https://www.reddit.com/r/expanse/comments/271qdz/can_someone_explain_the_concept_of_gas_in_ethereum/>`_
-`[18] <https://www.reddit.com/r/expanse/comments/3hg7id/why_should_the_average_person_care_about_ethereum/>`_
-`[19] <https://www.reddit.com/r/expanse/comments/43exre/what_are_the_advantages_of_ethereum_over_other/>`_
-
-
-Videos
-----------------------
-
-* http://change.is/video/expanse-the-world-computer-featuring-dr-gavin-wood
 
 Infographics
 --------------------------------
-
-* `Expanse explained...[to your mother] <https://blog.expanse.tech/wp-content/uploads/2015/06/Expanse-image-infographic-beginners-guide.png>`_
-* http://decentral.ca/wp-content/uploads/2016/03/infographic.jpg
-* https://medium.com/@angelomilan/expanse-explained-to-my-mom-infographic-673e32054c1c#.n9kzhme6v
+* coming soon
 
 
 Comparison to alternatives
 ---------------------------------
 
-* `NXT <https://www.reddit.com/r/expanse/comments/23aejv/eli5_what_is_the_qnce_between_ethereum_and/>`_
-* `MaidSafe <https://www.reddit.com/r/expanse/comments/22r49u/how_is_maidsafe_different_then_etherium/>`_
+* coming soon

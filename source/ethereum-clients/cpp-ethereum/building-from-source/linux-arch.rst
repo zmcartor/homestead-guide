@@ -23,7 +23,7 @@ Compiling the source code
 During this step, an installation folder for the Expanse can be specified.
 Specification of the folder is optional though. If not given, the
 binary files will be located in the build folder. However, for this guide,
-it is assumed that the Expanse files will be installed under `/opt/eth`. The reason for
+it is assumed that the Expanse files will be installed under `/opt/exp`. The reason for
 using `/opt` is that it makes much easier to delete the Expanse files later on,
 as compared to having them installed under, e.g., `/usr`. Also `/opt` is commonly used
 to install software that is not managed by packaging systems, such as manually 
@@ -36,7 +36,7 @@ compiled programs. ::
     mkdir -p build && cd build
 
     # create build files and specify Expanse installation folder
-    cmake .. -DCMAKE_INSTALL_PREFIX=/opt/eth
+    cmake .. -DCMAKE_INSTALL_PREFIX=/opt/exp
 
     # compile the source code
     make
@@ -49,19 +49,19 @@ compiled programs. ::
     sudo make install
 
 
-After successful compilation and installation, Expanse binaries can be found in `/opt/eth/bin`,
-shared libraries in `/opt/eth/lib`, and header files in `/opt/eth/include`.
+After successful compilation and installation, Expanse binaries can be found in `/opt/exp/bin`,
+shared libraries in `/opt/exp/lib`, and header files in `/opt/exp/include`.
 
 
 Specifying Expanse libraries path
 ================================================================================
 
-Since Expanse was installed in `/opt/eth`, executing its binaries can result in linker error due to not being
+Since Expanse was installed in `/opt/exp`, executing its binaries can result in linker error due to not being
 able to find the Expanse shared libraries. To rectify this issue, it is needed to add the folder containing
 Expanse shared libraries into `LD_LIBRARY_PATH` environmental variable: ::
 
     # update ~/.bashrc
-    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/eth/lib" >> ~/.bashrc
+    echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/exp/lib" >> ~/.bashrc
 
     # reload ~/.bashrc
     source ~/.bashrc

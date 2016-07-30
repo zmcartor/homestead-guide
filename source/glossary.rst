@@ -8,7 +8,7 @@ Glossary
 .. _geth-letter:
 
    Đ
-      Đ, `D with stroke <https://en.wikipedia.org/wiki/D_with_stroke>`_, is used in Old English, Middle English, Icelandic, and Faroese to stand for an uppercase letter "Eth". It is used in words like ĐEV or Đapp (decentralized application), where the Đ is the Norse letter "eth". The uppercase eth (Ð) is also used to symbolize the cryptocurrency Dogecoin.
+      Đ, `D with stroke <https://en.wikipedia.org/wiki/D_with_stroke>`_, is used in Old English, Middle English, Icelandic, and Faroese to stand for an uppercase letter "Eth". It is used in words like ĐEV or Đapp (decentralized application), where the Đ is the Norse letter "exp". The uppercase exp (Ð) is also used to symbolize the cryptocurrency Dogecoin.
 
 .. _dec-app:
 
@@ -56,7 +56,7 @@ Glossary
 
    dapp
       Đapp
-      Stands for "decentralized application". Some say it is pronounced Ethapp due to the use of the `uppercase eth letter Ð <gl:eth-letter>`_.
+      Stands for "decentralized application". Some say it is pronounced Ethapp due to the use of the `uppercase exp letter Ð <gl:exp-letter>`_.
 
    address
       An Expanse address represents an account. For EOA_, the address is derived as the last 20 bytes of the public key controlling the account, e.g., ``cd2a3d9f938e13cd947ec05abc7fe734df8dd826``. This is a hexadecimal_ format (base 16 notation), which is often indicated explicitly by appending ``0x`` to the address. Web3.js and console functions accept addresses with or  without this prefix but for transparency we encourage their use. Since each byte of the address is represented by 2 hex characters, a prefixed address is  42 characters long. Several apps and APIs are also meant to implement the new `checksum-enabled address scheme <https://github.com/expanse-org/EIPs/issues/55>`_  introduced in the Mist Expanse wallet as of version 0.5.0.
@@ -139,7 +139,7 @@ Glossary
       An ever-extending series of data blocks that grows as new transactions are confirmed as part of a new block. Each new block is chained to the existing blockchain by a cryptographic proof-of-work.
 
    peer
-      Other computers on the network also running an Expanse node (Geth) with an exact copy of the blockchain that you have.
+      Other computers on the network also running an Expanse node (Gexp) with an exact copy of the blockchain that you have.
 
    signing
       Producing a piece of data from the data to be signed using your private key, to prove that the data originates from you.
@@ -148,10 +148,10 @@ Glossary
       The process of 'gossiping' with other nodes in the network to find out the state of other nodes on the network.
 
    gas price oracle
-      A helper function of the Geth client that tries to find an appropriate default gas price when sending transactions.
+      A helper function of the Gexp client that tries to find an appropriate default gas price when sending transactions.
 
    light client
-      A client program that allows users in low-capacity environments to still be able to execute and check the execution of transactions without needing to run a full Expanse node (Geth).
+      A client program that allows users in low-capacity environments to still be able to execute and check the execution of transactions without needing to run a full Expanse node (Gexp).
 
    etherbase
       It is the default name of the account on your node that acts as your primary account. If you do mining, mining rewards will be credited to this account.
@@ -290,7 +290,7 @@ Glossary
       Sale of cryptocurrency before the actual launch of the network.
 
    static node
-      A feature supported by Geth, the Golang Expanse client, which makes it possible to always connect to specific peers. Static nodes are re-connected on disconnects. For details, see the :ref:`section on static nodes <cr-static-nodes>`.
+      A feature supported by Gexp, the Golang Expanse client, which makes it possible to always connect to specific peers. Static nodes are re-connected on disconnects. For details, see the :ref:`section on static nodes <cr-static-nodes>`.
 
    bootnode
       The nodes which can be used to initiate the discovery process when running a node. The endpoints of these nodes are recorded in the Expanse source code.
@@ -397,7 +397,7 @@ Glossary
    gexp
       Expanse client implemented in the Golang programming language, based on the protocol as defined in the Expanse Yellow Paper.
 
-   eth
+   exp
       Expanse client implemented in the C++ programming language, based on the protocol as defined in the Expanse Yellow Paper.
 
    ethereumjs

@@ -41,7 +41,7 @@ We will go through the different steps to deploy the following contract using on
       }
    }
 
-The first thing to do is make sure the HTTP RPC interface is enabled. This means for gexp we supply the ``--rpc`` flag on startup and for eth the ``-j``
+The first thing to do is make sure the HTTP RPC interface is enabled. This means for gexp we supply the ``--rpc`` flag on startup and for exp the ``-j``
 flag. In this example we use the gexp node on a private development chain. Using this approach we don't need expanse on the real network.
 
 .. code:: bash
@@ -245,7 +245,7 @@ Console
 ================================================================================
 
 The gexp `console <https://github.com/expanse-org/go-expanse/wiki/JavaScript-Console>`_ offers a command line interface with a javascript runtime. It
-can connect to a local or remote gexp or eth node. It will load the web3.js library that users can use. This allows users to deploy and interact with
+can connect to a local or remote gexp or exp node. It will load the web3.js library that users can use. This allows users to deploy and interact with
 smart contract from the console using web3.js. In fact the examples in the :ref:`Web3.js <using_web3.js>` section can by copied into the console.
 
 

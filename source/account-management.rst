@@ -93,7 +93,7 @@ In order to create a new account using gexp, we must first start gexp in console
 .. code-block:: Bash
 
   > gexp console 2>> file_to_log_output
-  instance: Geth/v1.4.0-unstable/linux/go1.5.1
+  instance: Gexp/v1.4.0-unstable/linux/go1.5.1
   coinbase: coinbase: [object Object]
   at block: 865174 (Mon, 18 Jan 2016 02:58:53 GMT)
   datadir: /home/USERNAME/.expanse
@@ -200,110 +200,6 @@ Troubleshooting:
 * Mist starts after syncing, but is a blank white screen. Chances are you are running the "xorg" video drivers on a Linux-based OS (Ubuntu, Linux Mint, etc). Try installing the manufacturer's video driver instead.
 
 * "Wrong password" notice. This seems to be a false notice on occasion on current Mist versions. Restart Mist and the problem should go away (if you indeed entered the correct password).
-
-
-Using Eth
---------------------------------------------------------------------------------
-
-Every options related to key management available using gexp can be used the same way in eth.
-
-Below are "account" related options:
-
-.. code-block:: Javascript
-
-  > eth account list  // List all keys available in wallet.
-  > eth account new   // Create a new key and add it to the wallet.
-  > eth account update [<uuid>|<address> , ... ]  // Decrypt and re-encrypt given keys.
-  > eth account import [<uuid>|<file>|<secret-hex>] // Import keys from given source and place in wallet.
-
-Below are "wallet" related option:
-
-.. code-block:: Javascript
-
-  > eth wallet import <file> //Import a presale wallet.
-
-.. Note:: the 'account import' option can only be used to import generic key file. the 'wallet import' option can only be used to import a presale wallet.
-
-It is also possible to access keys management from the integrated console (using the built-in console or gexp attach):
-
-.. code-block:: Javascript
-
-  > web3.personal
-  {
-	listAccounts: [],
-	getListAccounts: function(callback),
-	lockAccount: function(),
-	newAccount: function(),
-	unlockAccount: function()
-  }
-
-
-Using EthKey (deprecated)
---------------------------------------------------------------------------------
-
-Ethkey is a CLI tool of the C++ implementation that allows you to interact with the Expanse wallet. With it you can list, inspect, create, delete and modify keys and inspect, create and sign transactions.
-
-We will assume you have not yet run a client such as eth or anything in the Aleth series of clients. If you have, you can skip this section.
-To create a wallet, run ``ethkey`` with the ``createwallet`` command:
-
-.. code-block:: Bash
-
-  > ethkey createwallet
-
-Please enter a MASTER passphrase to protect your key store (make it strong!):
-You'll be asked for a "master" passphrase. This protects your privacy and acts as a default password for any keys. You'll need to confirm it by entering the same text again.
-
-.. Note:: Use a strong randomly generated password.
-
-We can list the keys within the wallet simply by using the list command:
-
-.. code-block:: Bash
-
-  > ethkey list
-
-  No keys found.
-
-We haven't yet created any keys, and it's telling us so! Let's create one.
-
-To create a key, we use the ``new`` command. To use it we must pass a name - this is the name we'll give to this account in the wallet. Let's call it "test":
-
-.. code-block:: Bash
-
-  > ethkey new test
-
-Enter a passphrase with which to secure this account (or nothing to use the master passphrase).
-It will prompt you to enter a passphrase to protect this key. If you just press enter, it'll use the default "master" passphrase. Typically this means you won't need to enter the passphrase for the key when you want to use the account (since it remembers the master passphrase). In general, you should try to use a different passphrase for each key since it prevents one compromised passphrase from giving access to other accounts. However, out of convenience you might decide that for low-security accounts to use the same passphrase.
-
-Here, let's give it the incredibly imaginative passphrase of 123. (Never ever use simple passwords like this for anything else than ephemeral test accounts).
-Once you enter a passphrase, it'll ask you to confirm it by entering again. Enter 123 a second time.
-Because you gave it its own passphrase, it'll also ask you to provide a hint for this password which will be displayed to you whenever it asks you to enter it. The hint is stored in the wallet and is itself protected by the master passphrase. Enter the truly awful hint of 321 backwards.
-
-.. code-block:: Bash
-
-  > ethkey new test
-
-  Enter a passphrase with which to secure this account (or nothing to use the master passphrase):
-  Please confirm the passphrase by entering it again:
-  Enter a hint to help you remember this passphrase: 321 backwards
-  Created key 055dde03-47ff-dded-8950-0fe39b1fa101
-    Name: test
-    Password hint: 321 backwards
-    ICAP: XE472EVKU3CGMJF2YQ0J9RO1Y90BC0LDFZ
-    Raw hex: 0092e965928626f8880629cec353d3fd7ca5974f
-
-All normal (aka direct) ICAP addresses begin with XE so you should be able to recognize them easily. Notice also that the key has another identifier after Created key. This is known as the UUID. This is a unique identifier for the key that has absolutely nothing to do with the account itself. Knowing it does nothing to help an attacker discover who you are on the network. It also happens to be the filename for the key, which you can find in either ~/.web3/keys (Mac or Linux) or $HOME/AppData/Web3/keys (Windows).
-Now let's make sure it worked properly by listing the keys in the wallet:
-
-.. code-block:: Bash
-
-  > ethkey list
-  055dde03-47ff-dded-8950-0fe39b1fa101 0092e965… XE472EVKU3CGMJF2YQ0J9RO1Y90BC0LDFZ  test
-
-It reports one key on each line (for a total of one key here). In this case our key is stored in a file 055dde... and has an ICAP address beginning XE472EVK.... Not especially easy things to remember so rather helpful that it has its proper name, test, too.
-
-Importing your presale wallet
-================================================================================
-
 
 Using Mist Expanse wallet
 --------------------------------------------------------------------------------

@@ -10,13 +10,6 @@ As intended by the Expanse developers, Expanse is a blank canvas and you have th
 
 Expanse is perhaps best described as an ecosystem: the core protocol is supported by various pieces of infrastructure, code, and community that together make up the Expanse project. Expanse can also be understood by looking at the projects that use Expanse. Already, there are a number of high-profile projects built on Expanse such as Augur, Digix, Maker, and many more (see :ref:`dapps`). In addition, there are development teams that build open source components that anyone can use.  While each of these organizations are separate from the Expanse Foundation and have their own goals, they undoubtedly benefit the overall Expanse ecosystem.
 
-Further Watching/Reading:
-
-* Vitalik Buterin - TNABC 2015: https://www.youtube.com/watch?v=Fjhe0MVRHO4
-
-* Gavin Wood - DEVCON 1 - Expanse for Dummies: https://www.youtube.com/watch?v=U_LK0t_qaPo
-
-* Expanse London Meetup (best detailed here): https://www.youtube.com/watch?v=GJGIeSCgskc
 
 Smart contracts
 ================================================================================
@@ -40,4 +33,3 @@ Here is just one example: imagine you own a small business with your friends. La
 Using a smart contract, ownership in your company and terms for the disbursal of funds can be specified at the outset. The smart contract can be written such that it is only changeable given the approval of a majority of owners. Smart contracts like these will likely be available as open source software, so you won't even need to hire your own programmer instead of an accountant/lawyer.
 
 A smart contract like this scales instantly. A couple of teenagers can split revenue from a lemonade stand just as transparently as a sovereign wealth fund can disburse funds to the hundred million citizens who are entitled to it. In both cases the price of this transparency is likely to be fractions of a penny per dollar.
-

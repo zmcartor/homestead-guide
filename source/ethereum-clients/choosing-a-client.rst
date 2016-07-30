@@ -129,7 +129,7 @@ in the coming months, following grant funding.
 
 Check out `Syng.im <http://syng.io>`_, who were initially using
 `ethereumj-personal <https://github.com/syng-im/ethereumj-personal>`_ based
-on :ref:`Expanse(J)`, but have recently flipped to Geth cross-builds with
+on :ref:`Expanse(J)`, but have recently flipped to Gexp cross-builds with
 Light Client.
 
 

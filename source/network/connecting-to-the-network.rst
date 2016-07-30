@@ -9,24 +9,20 @@ This section
 The Expanse network
 ================================================================================
 
-The basis for decentralised consensus is the peer-to-peer network of participating nodes which maintain and secure the blockchain. See :ref:`mining`.
+The basis for decentralized consensus is the peer-to-peer network of participating nodes which maintain and secure the blockchain. See :ref:`mining`.
 
 Expanse network stats
 --------------------------------------------------
 
-`EthStats\.net <https://ethstats.net/>`_ is a dashboard of live statistics of the Expanse network. This dashboard displays important information such as the current block, hash difficulty, gas price, and gas spending. The nodes shown on the page are only a selection of actual nodes on the network.
-Anyone is allowed to add their node to the EthStats dashboard. The `Eth\-Netstats README on Github <https://github.com/cubedro/eth-netstats>`_ describes how to connect.
-
-`EtherNodes\.com <https://www.ethernodes.org/>`_ displays current and historical data on node count and other information on both the Expanse mainnet and Morden testnet.
-
-`Distribution of client implementations on the current live network <https://etherchain.org/nodes>`_ - Realtime stats on EtherChain.
+`ExpStats\.net <https://stats.expanse.tech/>`_ is a dashboard of live statistics of the Expanse network. This dashboard displays important information such as the current block, hash difficulty, gas price, and gas spending. The nodes shown on the page are only a selection of actual nodes on the network.
+Anyone is allowed to add their node to the EthStats dashboard. The `Eth\-Netstats README on Github <https://github.com/cubedro/exp-netstats>`_ describes how to connect.
 
 Public, private, and consortium blockchains
 ------------------------------------------------
 
 Most Expanse projects today rely on Expanse as a public blockchain, which grants access to a larger audience of users, network nodes, currency, and markets.  However, there are often reasons to prefer a private blockchain or consortium blockchain (among a group of trusted participants). For example, a number of companies in verticals, like banking, are looking to Expanse as a platform for their own private blockchains.
 
-Below is an excerpt from the blog post `On Public and Private Blockchains <https://blog.expanse.tech/2015/08/07/on-public-and-private-blockchains/>`_ that explains the difference between the three types of blockchains based on permissioning:
+Below is an excerpt from the blog post On Public and Private Blockchains that explains the difference between the three types of blockchains based on permissioning:
 
 - **Public blockchains**: a public blockchain is a blockchain that anyone in the world can read, anyone in the world can send transactions to and expect to see them included if they are valid, and anyone in the world can participate in the consensus process – the process for determining what blocks get added to the chain and what the current state is. As a substitute for centralized or quasi-centralized trust, public blockchains are secured by cryptoeconomics – the combination of economic incentives and cryptographic verification using mechanisms such as proof of work or proof of stake, following a general principle that the degree to which someone can have an influence in the consensus process is proportional to the quantity of economic resources that they can bring to bear. These blockchains are generally considered to be “fully decentralized”.
 
@@ -40,9 +36,9 @@ While these private/consortium blockchains may not have any connection to the pu
 How to connect
 ================================================================================
 
-Geth continuously attempts to connect to other nodes on the network until it has peers. If you have UPnP enabled on your router or run Expanse on an Internet-facing server, it will also accept connections from other nodes.
+Gexp continuously attempts to connect to other nodes on the network until it has peers. If you have UPnP enabled on your router or run Expanse on an Internet-facing server, it will also accept connections from other nodes.
 
-Geth finds peers through something called the *discovery protocol*. In the discovery protocol, nodes are gossipping with each other to find out about other nodes on the network. In order to get going initially, gexp uses a set of bootstrap nodes whose endpoints are recorded in the source code.
+Gexp finds peers through something called the *discovery protocol*. In the discovery protocol, nodes are gossipping with each other to find out about other nodes on the network. In order to get going initially, gexp uses a set of bootstrap nodes whose endpoints are recorded in the source code.
 
 Checking connectivity and ENODE IDs
 --------------------------------------------------------------------------------
@@ -64,26 +60,26 @@ To get more information about the connected peers, such as IP address and port n
   > admin.peers
   [{
   	ID: 'a4de274d3a159e10c2c9a68c326511236381b84c9ec52e72ad732eb0b2b1a2277938f78593cdbe734e6002bf23114d434a085d260514ab336d4acdc312db671b',
-  	Name: 'Geth/v0.9.14/linux/go1.4.2',
-  	Caps: 'eth/60',
+  	Name: 'Gexp/v0.9.14/linux/go1.4.2',
+  	Caps: 'exp/60',
   	RemoteAddress: '5.9.150.40:30301',
   	LocalAddress: '192.168.0.28:39219'
    }, {
   	ID: 'a979fb575495b8d6db44f750317d0f4622bf4c2aa3365d6af7c284339968eef29b69ad0dce72a4d8db5ebb4968de0e3bec910127f134779fbcb0cb6d3331163c',
-  	Name: 'Geth/v0.9.15/linux/go1.4.2',
-  	Caps: 'eth/60',
+  	Name: 'Gexp/v0.9.15/linux/go1.4.2',
+  	Caps: 'exp/60',
   	RemoteAddress: '52.16.188.185:30303',
   	LocalAddress: '192.168.0.28:50995'
    }, {
   	ID: 'f6ba1f1d9241d48138136ccf5baa6c2c8b008435a1c2bd009ca52fb8edbbc991eba36376beaee9d45f16d5dcbf2ed0bc23006c505d57ffcf70921bd94aa7a172',
   	Name: 'pyethapp_dd52/v0.9.13/linux2/py2.7.9',
-  	Caps: 'eth/60, p2p/3',
+  	Caps: 'exp/60, p2p/3',
   	RemoteAddress: '144.76.62.101:30303',
   	LocalAddress: '192.168.0.28:40454'
    }, {
     ID: 'f4642fa65af50cfdea8fa7414a5def7bb7991478b768e296f5e4a54e8b995de102e0ceae2e826f293c481b5325f89be6d207b003382e18a8ecba66fbaf6416c0',
-    Name: '++eth/Zeppelin/Rascal/v0.9.14/Release/Darwin/clang/int',
-    Caps: 'eth/60, shh/2',
+    Name: '++exp/Zeppelin/Rascal/v0.9.14/Release/Darwin/clang/int',
+    Caps: 'exp/60, shh/2',
     RemoteAddress: '129.16.191.64:30303',
     LocalAddress: '192.168.0.28:39705'
    } ]
@@ -95,7 +91,7 @@ To check the ports used by gexp and also find your enode URI run:
 
   > admin.nodeInfo
   {
-    Name: 'Geth/v0.9.14/darwin/go1.4.2',
+    Name: 'Gexp/v0.9.14/darwin/go1.4.2',
     NodeUrl: 'enode://3414c01c19aa75a34f2dbd2f8d0898dc79d6b219ad77f8155abf1a287ce2ba60f14998a3a98c0cf14915eabfdacf914a92b27a01769de18fa2d049dbf4c17694@[::]:30303',
     NodeID: '3414c01c19aa75a34f2dbd2f8d0898dc79d6b219ad77f8155abf1a287ce2ba60f14998a3a98c0cf14915eabfdacf914a92b27a01769de18fa2d049dbf4c17694',
     IP: '::',
@@ -151,7 +147,7 @@ see `this link <staticnodes>`_
 Static Nodes, Trusted Nodes, and Boot Nodes
 ================================================================================
 
-Geth supports a feature called static nodes if you have certain peers you always want to connect to. Static nodes are re-connected on disconnects. You can configure permanent static nodes by putting something like the following into ``<datadir>/static-nodes.json`` (this should be the same folder that your ``chaindata`` and ``keystore`` folders are in)
+Gexp supports a feature called static nodes if you have certain peers you always want to connect to. Static nodes are re-connected on disconnects. You can configure permanent static nodes by putting something like the following into ``<datadir>/static-nodes.json`` (this should be the same folder that your ``chaindata`` and ``keystore`` folders are in)
 
 .. code-block:: Javascript
 

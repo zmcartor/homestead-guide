@@ -28,7 +28,7 @@ Dapp browsers
 * `Mist <https://github.com/expanse-org/mist>`_ - official GUI dapp browser developed by the foundation, alpha stage. Mist as Wallet dapp is in beta.
 * `Syng <http://syng.im/>`_ - Mobile Expanse browser (alpha) by Jarrad Hope - supported by DEVgrants
 * `MetaMask <https://metamask.io/>`_ - Aaron Kumavis Davis's in-browser GUI. `Epicenter Bitcoin interview on github <https://www.reddit.com/r/expanse/comments/3x97rg/aaron_davis_explains_the_differences_between/>`_ - supported by DEVgrants
-* `AlethZero <https://github.com/expanse-org/alethzero>`_ - C++ eth client GUI, (discontinued).
+* `AlethZero <https://github.com/expanse-org/alethzero>`_ - C++ exp client GUI, (discontinued).
 * `Supernova <http://www.supernove.cc>`_ - (discontinued).
 
 ********************************************************************************
@@ -113,7 +113,7 @@ Expanse-console
 
 Commandline console for Expanse nodes.
 
-`Ethconsole <https://github.com/expanse-org/expanse-console>`_ connects to an Expanse node running in the background (tested with eth and gexp) via IPC and provides an interactive javascript console containing the web3 object with admin additions.
+`Ethconsole <https://github.com/expanse-org/expanse-console>`_ connects to an Expanse node running in the background (tested with exp and gexp) via IPC and provides an interactive javascript console containing the web3 object with admin additions.
 
 Here you could find a list of available commands `expanse node control commands <https://github.com/expanse-org/expanse-console/blob/master/web3Admin.js>`_
 
@@ -123,14 +123,14 @@ You could also set ``--test`` option to use specific node test commands.
 
 .. code:: Console
 
-   > eth --test
+   > exp --test
    > ethconsole ipc://path/to/gexp.ipc
 
 In the console you could then type
 
 .. code:: Console
 
-   > web3.eth.<command name> (arguments, function(){})
+   > web3.exp.<command name> (arguments, function(){})
 
 Here the defenition of ``--test`` mode node commands: 
 
@@ -142,7 +142,7 @@ Here the defenition of ``--test`` mode node commands:
    > web3.test.modifyTimestamp:("[int]", function(){}) - Set current block timestamp
    > web3.test.setChainParams:("[json]", function(){}) - Reset the blockchain with given node configuration file 
 
-More information about node `configuration <../network/test-networks.html#custom-networks-eth>`_ file.
+More information about node `configuration <../network/test-networks.html#custom-networks-exp>`_ file.
 
 Base layer services
 =================================================

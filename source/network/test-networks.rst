@@ -12,14 +12,14 @@ continue throughout the Frontier and Homestead milestones of the software.
 Usage
 --------------------------------------------------------------------------------
 
-eth (C++ client)
+exp (C++ client)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is supported natively on 0.9.93 and above. Pass the ``--morden`` argument in when starting any of the clients. e.g.:
 
 .. code:: Console
 
-   > eth --morden
+   > exp --morden
 
 PyEthApp (Python client)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,9 +92,9 @@ Two ways to obtain Morden testnet expanse:
 Setting up a local private testnet
 ********************************************************************************
 
-.. _custom-networks-eth:
+.. _custom-networks-exp:
 
-eth (C++ client)
+exp (C++ client)
 ================================================================================
 
 
@@ -102,7 +102,7 @@ It is possible to connect to or create a new network by using the --genesis and 
 
 .. code:: Console
 
-  > eth --private "customChain" --config config.json --genesis genesis.json
+  > exp --private "customChain" --config config.json --genesis genesis.json
 
 It is possible to use both --config and --genesis.
 
@@ -256,14 +256,14 @@ Use maxpeers 0 if you do not want anyone else connecting to your test chain. Alt
 
 ``--rpc``
 
-This will enable RPC interface on your node. This is generally enabled by default in Geth.
+This will enable RPC interface on your node. This is generally enabled by default in Gexp.
 
 
-``--rpcapi "db,eth,net,web3"``
+``--rpcapi "db,exp,net,web3"``
 
-This dictates what APIs that are allowed to be accessed over RPC. By default, Geth enables the web3 interface over RPC.
+This dictates what APIs that are allowed to be accessed over RPC. By default, Gexp enables the web3 interface over RPC.
 
-**IMPORTANT: Please note that offering an API over the RPC/IPC interface will give everyone access to the API who can access this interface (e.g. dapp's). Be careful which API's you enable. By default gexp enables all API's over the IPC interface and only the db,eth,net and web3 API's over the RPC interface.**
+**IMPORTANT: Please note that offering an API over the RPC/IPC interface will give everyone access to the API who can access this interface (e.g. dapp's). Be careful which API's you enable. By default gexp enables all API's over the IPC interface and only the db,exp,net and web3 API's over the RPC interface.**
 
 ``--rpcport "8080"``
 
@@ -295,7 +295,7 @@ After you have created your custom genesis block JSON file and created a directo
 
 .. code-block:: Console
 
-  gexp --identity "MyNodeName" --genesis /path/to/CustomGenesis.json --rpc --rpcport "8080" --rpccorsdomain "*" --datadir "C:\chains\TestChain1" --port "30303" --nodiscover --rpcapi "db,eth,net,web3" --networkid 1999 console
+  gexp --identity "MyNodeName" --genesis /path/to/CustomGenesis.json --rpc --rpcport "8080" --rpccorsdomain "*" --datadir "C:\chains\TestChain1" --port "30303" --nodiscover --rpcapi "db,exp,net,web3" --networkid 1999 console
 
 .. note:: Please change the flags to match your custom settings.
 
