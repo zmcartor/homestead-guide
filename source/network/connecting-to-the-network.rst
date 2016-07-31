@@ -14,7 +14,7 @@ The basis for decentralized consensus is the peer-to-peer network of participati
 Expanse network stats
 --------------------------------------------------
 
-`ExpStats\.net <https://stats.expanse.tech/>`_ is a dashboard of live statistics of the Expanse network. This dashboard displays important information such as the current block, hash difficulty, gas price, and gas spending. The nodes shown on the page are only a selection of actual nodes on the network.
+`ExpStats\.net <http://stats.expanse.tech/>`_ is a dashboard of live statistics of the Expanse network. This dashboard displays important information such as the current block, hash difficulty, gas price, and gas spending. The nodes shown on the page are only a selection of actual nodes on the network.
 Anyone is allowed to add their node to the EthStats dashboard. The `Eth\-Netstats README on Github <https://github.com/cubedro/exp-netstats>`_ describes how to connect.
 
 Public, private, and consortium blockchains
