@@ -82,7 +82,7 @@ Trading and price analytics
 * `EXP markets exhaustive listing by volume on coinmarketcap <https://coinmarketcap.com/currencies/expanse/#markets>`_
 * Aggregating realtime stats of major ETH markets:
 
-  * `EthereumWisdom <http://ethereumwisdom.com>`_
+  * `EthereumWisdom - Expanse <http://ethereumwisdom.com/#!/expanse>`_
   * `Coinmarketcap <https://coinmarketcap.com/currencies/expanse/>`_
 
 
